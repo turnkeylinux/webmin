@@ -53,26 +53,6 @@ if [ "\$answer" = "y" ]; then
 fi
 EOFF
 chmod +x /etc/webmin/uninstall.sh
-port=`grep "^port=" /etc/webmin/miniserv.conf | sed -e 's/port=//g'`
-perl -e 'use Net::SSLeay' >/dev/null 2>/dev/null
-sslmode=0
-if [ "$?" = "0" ]; then
-	grep ssl=1 /etc/webmin/miniserv.conf >/dev/null 2>/dev/null
-	if [ "$?" = "0" ]; then
-		sslmode=1
-	fi
-fi
-if [ "$sslmode" = "1" ]; then
-	echo "Webmin install complete. You can now login to https://$host:$port/"
-else
-	echo "Webmin install complete. You can now login to http://$host:$port/"
-fi
-if [ "webmin" = "webmin" ]; then
-	echo "as root with your root password, or as any user who can use sudo"
-	echo "to run commands as root."
-else
-	echo "as any user on the system."
-fi
 
 #DEBHELPER#
 
