@@ -4,7 +4,7 @@ if [ "$1" != "upgrade" ]; then
 	if [ "$?" = 0 ]; then
 		# Package is being removed, and no new version of webmin
 		# has taken it's place. Delete the config files
-		rm -rf /etc/webmin /var/webmin
+		rm -rf /etc/webmin /var/webmin /tmp/.webmin
 	fi
 fi
 
