@@ -1,0 +1,18 @@
+Source: webmin
+Section: admin
+Priority: optional
+Maintainer: Jamie Cameron <jcameron@webmin.com>
+Build-Depends: debhelper (>> 4.2.0), tar, gzip
+Standards-Version: 3.6.1
+
+Package: webmin
+Section: admin
+Architecture: all
+Depends: perl, libnet-ssleay-perl, openssl, libauthen-pam-perl, libpam-runtime, libio-pty-perl, libmd5-perl
+Pre-Depends: perl
+Description: A web-based administration interface for Unix systems.
+ Using Webmin you can configure DNS, Samba, NFS, local/remote filesystems
+ and more using your web browser.  After installation, enter the URL 
+ https://localhost:10000/ into your browser and login as root with your 
+ root password.
+

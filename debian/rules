@@ -1,0 +1,38 @@
+#! /usr/bin/make -f
+
+progname=$(shell awk '/^Source/ {print $$2}' debian/control)
+buildroot=debian/$(progname)
+
+share=$(buildroot)/usr/share/$(progname)
+tmp=debian/tmp
+
+clean:
+	dh_clean
+
+build:
+	true
+
+install:
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	mkdir -p $(tmp)
+	tar -zxf webmin.tar.gz -C $(tmp)
+	mkdir -p $(share)
+	mv $(tmp)/webmin-*/* $(share)
+	chown -R root:root $(share)
+	rm -rf $(tmp)
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: install
+
+binary: binary-indep binary-arch
+.PHONY: clean binary-indep binary-arch binary install
+
