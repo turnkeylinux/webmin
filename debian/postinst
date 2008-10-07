@@ -79,3 +79,6 @@ if [ "webmin" = "webmin" ]; then
 else
 	echo "as any user on the system."
 fi
+
+#DEBHELPER#
+
