@@ -17,10 +17,11 @@ install:
 	dh_testroot
 	dh_clean -k
 	mkdir -p $(tmp)
-	tar -zxf webmin.tar.gz -C $(tmp)
 	mkdir -p $(share)
+	tar -zxf webmin.tar.gz -C $(tmp)
 	mv $(tmp)/webmin-*/* $(share)
 	chown -R root:root $(share)
+	dh_install debian/etc/pam.d/webmin etc/pam.d
 	rm -rf $(tmp)
 
 binary-indep: install
