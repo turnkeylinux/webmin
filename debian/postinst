@@ -6,23 +6,18 @@ if [ "$1" = "upgrade" ]; then
 		/etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
 	fi
 fi
+
 cd /usr/share/webmin
 config_dir=/etc/webmin
 var_dir=/var/webmin
 perl=/usr/bin/perl
-autoos=3
-if [ "$WEBMIN_PORT" != "" ]; then
-	port=$WEBMIN_PORT
-else
-	port=10000
-fi
+
+set ${WEBMIN_PORT:=10000}
+
 login=root
-if [ -r /etc/shadow ]; then
-	crypt=x
-else
-	crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
-fi
+port=$WEBMIN_PORT
 host=`hostname`
+autoos=3
 ssl=1
 atboot=1
 nochown=1
@@ -30,15 +25,22 @@ autothird=1
 noperlpath=
 nouninstall=1
 nostart=1
+
+if [ -r /etc/shadow ]; then
+	crypt=x
+else
+	crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
+fi
+
 export config_dir var_dir perl autoos port login crypt host ssl nochown autothird noperlpath nouninstall nostart allow atboot
 ./setup.sh >/tmp/.webmin/webmin-setup.out 2>&1
-if [ "webmin" = "webmin" ]; then
-	grep sudo= /etc/webmin/miniserv.conf >/dev/null 2>&1
-	if [ "$?" = 1 ]; then
-		# Allow sudo-based logins for Ubuntu
-		echo sudo=1 >>/etc/webmin/miniserv.conf
-	fi
+
+grep sudo= /etc/webmin/miniserv.conf >/dev/null 2>&1
+if [ "$?" = 1 ]; then
+    # Allow sudo-based logins for Ubuntu
+    echo sudo=1 >>/etc/webmin/miniserv.conf
 fi
+
 rm -f /var/lock/subsys/webmin
 
 cat >/etc/webmin/uninstall.sh <<EOFF

@@ -20,14 +20,10 @@ exit(1);
 
 EOD
 if [ "$1" != "upgrade" ]; then
-	if [ "$WEBMIN_PORT" != "" ]; then
-		port=$WEBMIN_PORT
-	else
-		port=10000
-	fi
-	perl -e 'use Socket; socket(FOO, PF_INET, SOCK_STREAM, getprotobyname("tcp")); setsockopt(FOO, SOL_SOCKET, SO_REUSEADDR, pack("l", 1)); bind(FOO, pack_sockaddr_in($ARGV[0], INADDR_ANY)) || exit(1); exit(0);' $port
+    set ${WEBMIN_PORT:=10000}
+	perl -e 'use Socket; socket(FOO, PF_INET, SOCK_STREAM, getprotobyname("tcp")); setsockopt(FOO, SOL_SOCKET, SO_REUSEADDR, pack("l", 1)); bind(FOO, pack_sockaddr_in($ARGV[0], INADDR_ANY)) || exit(1); exit(0);' $WEBMIN_PORT
 	if [ "$?" != "0" ]; then
-		echo Port $port is already in use
+		echo Port $WEBMIN_PORT is already in use
 		exit 2
 	fi
 fi
