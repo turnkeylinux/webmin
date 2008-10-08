@@ -10,17 +10,16 @@ clean:
 	dh_clean
 
 build:
-	true
-
-install:
-	dh_testdir
-	dh_testroot
 	dh_clean -k
 	mkdir -p $(tmp)
-	mkdir -p $(share)
 	tar -zxf webmin.tar.gz -C $(tmp)
+
+install: build
+	dh_testdir
+	dh_testroot
+	chown -R root:root $(tmp)
+	mkdir -p $(share)
 	mv $(tmp)/webmin-*/* $(share)
-	chown -R root:root $(share)
 	dh_install debian/etc/pam.d/webmin etc/pam.d
 	rm -rf $(tmp)
 
