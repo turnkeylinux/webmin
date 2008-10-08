@@ -6,8 +6,7 @@ Build-Depends: debhelper (>> 4.2.0), tar, gzip
 Standards-Version: 3.6.1
 
 Package: webmin
-Section: admin
-Architecture: all
+Architecture: any
 Depends: perl, libnet-ssleay-perl, openssl, libauthen-pam-perl, libpam-runtime, libio-pty-perl, libmd5-perl
 Pre-Depends: perl
 Description: A web-based administration interface for Unix systems.
