@@ -22,6 +22,14 @@ install: build
 	mv $(tmp)/webmin-*/* $(share)
 	dh_install debian/etc/pam.d/webmin etc/pam.d
 	rm -rf $(tmp)
+	for p in modules/* themes/*; do \
+		plugin=$$(basename $$p | sed 's/.wb[m|t].gz//'); \
+		plugindir=$(buildroot)-$$plugin/usr/share/$(progname)/$$(dirname $$p); \
+		mkdir -p $$plugindir; \
+		cp $$p $$plugindir; \
+		echo "#!/bin/sh\nset -e\n\ncd /usr/share/$(progname)\n./install-module.pl $$p\n\n#DEBHELPER#\n" > debian/$(progname)-$$plugin.postinst ; \
+		echo "#!/bin/sh\nset -e\n\nrm -f /usr/share/$(progname)/$$p\n\n#DEBHELPER#\n" > debian/$(progname)-$$plugin.postrm ; \
+	done
 
 binary-indep: install
 	dh_testdir
