@@ -51,7 +51,7 @@ class Plugin:
         c += "Depends: webmin (>= %s)" % (self.info['version'])
         try:
             for dep in self.info['depends'].split():
-                if not dep.startswith('1.'): #versions
+                if not dep.startswith('1.') and dep not in CORE_MODS:
                     c += ", webmin-%s" % dep
         except:
             pass
@@ -94,17 +94,20 @@ def get_plugins(path):
 
     return plugins
 
+
+CORE_MODS = ('acl', 'cron', 'init', 'inittab', 'man', 'proc', 'servers',
+             'webmin', 'webminlog')
+
 def main():
     if len(sys.argv) != 2:
         print "usage: %s <path>" % sys.argv[0]
         sys.exit(1)
 
     for plugin in get_plugins(sys.argv[1]):
-        if plugin.name in ('acl', 'cron', 'init', 'inittab', 'man', 'proc',
-                           'servers', 'webmin', 'webminlog'):
+        if plugin.name in CORE_MODS:
             continue
 
-        plugin.create_archive()
+        #plugin.create_archive()
         plugin.create_control()
 
 
