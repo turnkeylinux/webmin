@@ -1,0 +1,21 @@
+Webmin - Web based interface for system administration
+======================================================
+
+Source package notes
+--------------------
+
+There is a webmin debian package available upstream (maintained by Jamie
+Cameron, main author of webmin) but unfortunately, or not - depending on
+your preference, it includes all modules.
+
+This source package creates a 'webmin' minimal package aswell as
+webmin-<plugin> packages.
+
+To streamline and minimize maintenance, the:
+    - webmin package is created on-the-fly from webmin-minimal tarball
+    - webmin module and theme packages are auto-generated from their
+      relative folders
+    - modules and themes are pre-generated using a helper script which
+      uses the full tarball, aswell as creates seed control file
+      information
+

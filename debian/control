@@ -1,7 +1,7 @@
 Source: webmin
 Section: admin
 Priority: optional
-Maintainer: Jamie Cameron <jcameron@webmin.com>
+Maintainer: Alon Swartz <alon@turnkeylinux.org>
 Build-Depends: debhelper (>> 4.2.0), tar, gzip
 Standards-Version: 3.6.1
 
