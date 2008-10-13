@@ -748,3 +748,11 @@ Description: Webmin theme - MSC.Linux Theme
  The new default theme by MSC.Linux, which displays
  category buttons on every page.
 
+Package: webmin-theme-stressfree
+Architecture: any
+Depends: webmin (>= 1.430)
+Description: Webmin theme - StressFree Tiger Theme
+ Tiger-like look for Webmin and Usermin featuring dropdown
+ menus, AJAX search, and high color icons for the web
+ interface and java file manager.
+
