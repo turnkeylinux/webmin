@@ -28,7 +28,7 @@ install: build
 		mkdir -p $$plugindir; \
 		cp $$p $$plugindir; \
 		echo "#!/bin/sh\nset -e\n\ncd /usr/share/$(progname)\n./install-module.pl $$p\n\n#DEBHELPER#\n" > debian/$(progname)-$$plugin.postinst ; \
-		echo "#!/bin/sh\nset -e\n\nrm -f /usr/share/$(progname)/$$p\n\n#DEBHELPER#\n" > debian/$(progname)-$$plugin.postrm ; \
+		echo "#!/bin/sh\nset -e\n\nrm -f /usr/share/$(progname)/$$p\nrm -f /usr/share/$(progname)/$$plugin\n\n#DEBHELPER#\n" > debian/$(progname)-$$plugin.postrm ; \
 	done
 
 binary-indep: install
