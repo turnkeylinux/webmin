@@ -687,6 +687,13 @@ Description: Webmin module - Webalizer Logfile Analysis
  Generate reports from webserver, proxy server and FTP
  log files
 
+Package: webmin-awstats
+Architecture: any
+Depends: webmin (>= 1.430), webmin-logrotate
+Description: Webmin module - AWStats Logfile Analysis
+ Generates and analyzes statistics from Web, proxy, wap, streaming, ftp or
+ mail server log files using AWStats log analyzer.
+
 Package: webmin-change-user
 Architecture: any
 Depends: webmin (>= 1.430)
