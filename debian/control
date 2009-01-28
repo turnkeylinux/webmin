@@ -727,6 +727,13 @@ Depends: webmin (>= 1.430), webmin-bind8
 Description: Webmin module - BIND 4 DNS Server
  Create and edit domains and DNS records.
 
+Package: webmin-text-editor
+Architecture: any
+Depends: webmin (>= 1.430)
+Description: Webmin module - Text Editor
+ Provides a simple interface for editing text files, with a history of
+ recently-edited files.
+
 Package: webmin-blue-theme
 Architecture: any
 Depends: webmin (>= 1.430)
@@ -755,4 +762,3 @@ Description: Webmin theme - StressFree Tiger Theme
  Tiger-like look for Webmin and Usermin featuring dropdown
  menus, AJAX search, and high color icons for the web
  interface and java file manager.
-
