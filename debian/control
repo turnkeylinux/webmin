@@ -590,6 +590,7 @@ Description: Webmin module - LDAP Users and Groups
 Package: webmin-updown
 Architecture: any
 Depends: webmin (>= 1.430)
+Recommends: unzip
 Description: Webmin module - Upload and Download
  Upload multiple files to the server, and download multiple
  URLs either immediately or in the background at a scheduled
