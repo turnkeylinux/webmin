@@ -22,7 +22,7 @@ install: build
 	mv $(tmp)/webmin-*/* $(share)
 	dh_install debian/etc/pam.d/webmin etc/pam.d
 	rm -rf $(tmp)
-	for p in modules/* themes/*; do \
+	for p in module-archives/* theme-archives/*; do \
 		plugin=$$(basename $$p | sed 's/.wb[m|t].gz//'); \
 		plugindir=$(buildroot)-$$plugin/usr/share/$(progname)/$$(dirname $$p); \
 		mkdir -p $$plugindir; \
