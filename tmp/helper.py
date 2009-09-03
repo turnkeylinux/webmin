@@ -107,7 +107,7 @@ def main():
         if plugin.name in CORE_MODS:
             continue
 
-        #plugin.create_archive()
+        plugin.create_archive()
         plugin.create_control()
 
 
