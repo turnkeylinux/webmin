@@ -154,7 +154,7 @@ Description: Webmin module - SSH Server
 
 Package: webmin-time
 Architecture: any
-Depends: webmin (>= 1.490)
+Depends: webmin (>= 1.490), ntpdate
 Description: Webmin module - System Time
  Set the sytem and hardware time either manually or
  from a time server.
