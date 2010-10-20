@@ -1,1 +1,18 @@
-echo helloworld | tee /var/tmp/helloworld
+THEMEDIR=/usr/share/webmin/theme-stressfree
+
+# remove donation message
+rm $THEMEDIR/nodonation
+
+# remove rss feed
+sed -i 's/.*rss+xml.*/"\\n";/' $THEMEDIR/theme.pl
+
+# enlarge dropdown menu width (needed for tklbam)
+sed -i "s|width:226px|width:260px|" $THEMEDIR/theme.css
+sed -i "s|overflow:auto|overflow-x:hidden|" $THEMEDIR/theme.css
+
+# color links (black links, black text - wtf!?)
+sed -i "s|a{ text-decoration:none; color:#333}|a{ text-decoration:none; color: #2F43FF}|" $THEMEDIR/theme.css
+
+# use turnkey logo on login screen
+cp /usr/share/pixmaps/turnkey-blue.gif /usr/share/webmin/images/
+sed --in-place 's/logo=/logo=\/images\/turnkey-blue.gif/' $THEMEDIR/config
