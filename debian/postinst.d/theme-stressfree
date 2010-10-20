@@ -1,0 +1,1 @@
+echo helloworld | tee /var/tmp/helloworld

@@ -28,6 +28,7 @@ install: build
 		mkdir -p $$plugindir; \
 		cp $$p $$plugindir; \
 		echo -e "#!/bin/sh\nset -e\n\ncd /usr/share/$(progname)\n./install-module.pl $$p\n\n#DEBHELPER#\n" > debian/$(progname)-$$plugin.postinst ; \
+		[ -e debian/postinst.d/$$plugin ] && cat debian/postinst.d/$$plugin >> debian/$(progname)-$$plugin.postinst; \
 		echo -e "#!/bin/sh\nset -e\n\nrm -rf /usr/share/$(progname)/$$plugin\n\n#DEBHELPER#\n" > debian/$(progname)-$$plugin.postrm ; \
 		sed -i "s|^-e #!/bin/sh|#!/bin/sh|" debian/$(progname)-$$plugin.postinst ; \
 		sed -i "s|^-e #!/bin/sh|#!/bin/sh|" debian/$(progname)-$$plugin.postrm ; \
