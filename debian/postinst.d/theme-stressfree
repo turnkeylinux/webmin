@@ -17,5 +17,4 @@ sed -i 's|a:hover{ color:#7784FF}|a:hover{ color:#7784FF !important}|' $THEMEDIR
 
 
 # use turnkey logo on login screen
-cp /usr/share/pixmaps/turnkey-blue.gif /usr/share/webmin/images/
 sed --in-place 's/logo=/logo=\/images\/turnkey-blue.gif/' $THEMEDIR/config
