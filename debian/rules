@@ -37,7 +37,7 @@ install: build
 binary-indep: install
 	dh_testdir
 	dh_testroot
-	dh_installinit -r --no-start -- start 91 2 .
+	dh_installinit -r --no-start -- start 91 2 3 4 5 . stop 01 0 1 6 .
 	dh_installdeb -a
 	dh_gencontrol -a
 	dh_md5sums -a
