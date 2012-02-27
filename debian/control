@@ -222,7 +222,7 @@ Description: Webmin module - DHCP Server
 
 Package: webmin-fdisk
 Architecture: any
-Depends: webmin (>= 1.580), webmin-mount, webmin-raid
+Depends: webmin (>= 1.580), webmin-mount
 Description: Webmin module - Partitions on Local Disks
  Create and edit paritions on local SCSI and IDE disks
  on Linux.
