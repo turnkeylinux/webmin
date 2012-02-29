@@ -23,7 +23,7 @@ Description: Webmin module - Scheduled Commands
 
 Package: webmin-lvm
 Architecture: any
-Depends: webmin (>= 1.580), webmin-mount, webmin-fdisk
+Depends: webmin (>= 1.580), webmin-mount, webmin-fdisk, webmin-raid
 Description: Webmin module - Logical Volume Management
  Configure volume groups, physical volumes and logical
  volumes for Linux LVM.
