@@ -162,7 +162,7 @@ Description: Webmin module - Cluster Change Passwords
 
 Package: webmin-software
 Architecture: all
-Depends: webmin (>= 1.780), dselect
+Depends: webmin (>= 1.780)
 Description: Webmin module - Software Packages
  Manage software packages on your system, and install
  new packages.
