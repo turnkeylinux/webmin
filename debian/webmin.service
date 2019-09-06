@@ -13,7 +13,7 @@ ExecStart=/usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf
 SuccessExitStatus=1
 KillMode=mixed
 ExecReload=/bin/kill -USR1 $MAINPID
-PIDFile=/var/webmin/miniserv.pid
+PIDFile=/run/webmin.pid
 
 [Install]
 WantedBy=multi-user.target
