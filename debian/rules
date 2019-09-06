@@ -6,6 +6,9 @@ buildroot=debian/$(progname)
 share=$(buildroot)/usr/share/$(progname)
 tmp=debian/tmp
 
+%:
+	dh $@ --with systemd
+
 clean:
 	dh_clean
 
