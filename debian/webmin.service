@@ -5,11 +5,15 @@ After=network.target remote-fs.target nss-lookup.target
 Conflicts=shutdown.target
 
 [Service]
-Type=oneshot
+Type=exec
 RemainAfterExit=yes
-ExecStart=/etc/webmin/start
-ExecStop=/etc/webmin/stop
-ExecReload=/etc/webmin/reload
+Environment="PERLLIB=/usr/share/webmin" LANG= PERLIO=
+ExecStart=/usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf
+# Webmin is exiting with 1 on SIGTERM
+SuccessExitStatus=1
+KillMode=mixed
+ExecReload=/bin/kill -USR1 $MAINPID
+PIDFile=/var/webmin/miniserv.pid
 
 [Install]
 WantedBy=multi-user.target
