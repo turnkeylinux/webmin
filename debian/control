@@ -2,13 +2,25 @@ Source: webmin
 Section: admin
 Priority: optional
 Maintainer: Alon Swartz <alon@turnkeylinux.org>
-Build-Depends: debhelper (>= 10), tar, gzip
+Build-Depends:
+ debhelper (>= 10),
+ dh-systemd,
+ tar,
+ gzip
 Standards-Version: 4.0.0
 
 Package: webmin
 Architecture: all
-Depends: perl, libnet-ssleay-perl, openssl, libauthen-pam-perl, libpam-runtime, libio-pty-perl
-Pre-Depends: perl
+Depends:
+ perl,
+ ${misc:Depends},
+ libnet-ssleay-perl,
+ openssl,
+ libauthen-pam-perl,
+ libpam-runtime,
+ libio-pty-perl
+Pre-Depends:
+ perl
 Description: A web-based administration interface for Unix systems.
  Using Webmin you can configure DNS, Samba, NFS, local/remote filesystems
  and more using your web browser.  After installation, enter the URL 
