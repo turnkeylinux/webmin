@@ -1,0 +1,15 @@
+[Unit]
+Description=Webmin Web based Admin UI
+Requires=local-fs.target
+After=network.target remote-fs.target nss-lookup.target
+Conflicts=shutdown.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/etc/webmin/start
+ExecStop=/etc/webmin/stop
+ExecReload=/etc/webmin/reload
+
+[Install]
+WantedBy=multi-user.target
