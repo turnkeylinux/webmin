@@ -1,10 +1,14 @@
 #!/bin/sh -e
-inetd=`grep "^inetd=" /etc/webmin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
+
+inetd=$(grep "^inetd=" /etc/webmin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g')
 if [ "$1" = "upgrade" ]; then
-	# Upgrading the package, so stop the old webmin properly
-	if [ "$inetd" != "1" ]; then
-		/etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
-	fi
+    # Upgrading the package, so stop the old webmin properly
+    /etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
+    if [ -f /lib/systemd/system/webmin.service ]; then
+        systemctl stop --quiet webmin.service
+    fi
+    # for good measure, also run the webmin stop script directly
+    /etc/webmin/stop >/dev/null 2>&1 || /bin/true
 fi
 
 cd /usr/share/webmin
@@ -12,14 +16,27 @@ config_dir=/etc/webmin
 var_dir=/var/webmin
 perl=/usr/bin/perl
 
-set ${WEBMIN_PORT:=10000}
+# collect info from existing miniserv.conf (if it exists)
+if [ -f "$config_dir/miniserv.conf" ]; then
+    # load existing conf as vars; workaround fact that they're unquoted
+    cat $config_dir/miniserv.conf | sed 's|=\(.*\)|="\1"|g' > /tmp/.webmin_miniserv.conf
+    . /tmp/.webmin_miniserv.conf
+    rm -f /tmp/.webmin_miniserv.conf
+fi
 
+WEBMIN_PORT=${WEBMIN_PORT:=10000}
+
+# use vars from existing conf where relevant
 login=root
-port=$WEBMIN_PORT
-host=`hostname`
+port=${port:-$WEBMIN_PORT}
+host=$(hostname)
 autoos=3
-ssl=1
-atboot=0
+if [ -z "$ssl" ]; then
+    ssl=
+else
+    ssl=${ssl:-1}
+fi
+atboot=${atboot:-0}
 nochown=1
 autothird=1
 noperlpath=
@@ -27,9 +44,9 @@ nouninstall=1
 nostart=1
 
 if [ -r /etc/shadow ]; then
-	crypt=x
+    crypt=x
 else
-	crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
+    crypt=$(grep "^root:" /etc/passwd | cut -f 2 -d :)
 fi
 
 export config_dir var_dir perl autoos port login crypt host ssl nochown autothird noperlpath nouninstall nostart allow atboot
@@ -50,12 +67,30 @@ printf "Are you sure you want to uninstall Webmin? (y/n) : "
 read answer
 printf "\n"
 if [ "\$answer" = "y" ]; then
-	echo "Removing Webmin package .."
-	dpkg --remove webmin
-	echo "Done!"
+    echo "Removing Webmin package .."
+    dpkg --remove webmin
+    echo "Done!"
 fi
 EOFF
 chmod +x /etc/webmin/uninstall.sh
 
-#DEBHELPER#
+# this is a hack that shouldn't really be required if I knew how to do this properly...
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] \
+        || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] \
+        || [ "$1" = "upgrade" ]; then
+    if [ -f /lib/systemd/system/webmin.service ] && [ "$1" = "upgrade" ]; then
+        if [ ! "$(systemctl --quiet is-enabled webmin.service)" ] && [ "$1" = "upgrade" ]; then
+            # ensure that system service is enabled if not already
+            systemctl enable --quiet webmin.service
+        fi
+        if [ ! "$(systemctl is-active --quiet webmin.service)" ]; then
+            # start if not running
+            systemctl start --quiet webmin.service
+        else
+            # restart if already running (it shouldn't be)
+            systemctl restart --quiet webmin.service
+        fi
+    fi
+fi
 
+#DEBHELPER#
