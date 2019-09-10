@@ -75,14 +75,13 @@ EOFF
 chmod +x /etc/webmin/uninstall.sh
 
 # this is a hack that shouldn't really be required if I knew how to do this properly...
-if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] \
-        || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] \
-        || [ "$1" = "upgrade" ]; then
-    if [ -f /lib/systemd/system/webmin.service ] && [ "$1" = "upgrade" ]; then
-        if [ ! "$(systemctl --quiet is-enabled webmin.service)" ] && [ "$1" = "upgrade" ]; then
-            # ensure that system service is enabled if not already
-            systemctl enable --quiet webmin.service
-        fi
+if [ -f /lib/systemd/system/webmin.service ] && [ "$1" = "configure" ]; then
+    if [ ! "$(systemctl --quiet is-enabled webmin.service)" ]; then
+        # ensure that system service is enabled if not already
+        systemctl enable --now --quiet /lib/systemd/system/webmin.service
+    fi
+    if ! ischroot --default-false; then
+        # only run when not in chroot
         if [ ! "$(systemctl is-active --quiet webmin.service)" ]; then
             # start if not running
             systemctl start --quiet webmin.service
