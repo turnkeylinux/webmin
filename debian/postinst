@@ -78,7 +78,7 @@ chmod +x /etc/webmin/uninstall.sh
 if [ -f /lib/systemd/system/webmin.service ] && [ "$1" = "configure" ]; then
     if [ ! "$(systemctl --quiet is-enabled webmin.service)" ]; then
         # ensure that system service is enabled if not already
-        systemctl enable --now --quiet /lib/systemd/system/webmin.service
+        systemctl enable --quiet /lib/systemd/system/webmin.service \
     fi
     if ! ischroot --default-false; then
         # only run when not in chroot
