@@ -1,14 +1,10 @@
 #!/bin/sh -e
-
-inetd=$(grep "^inetd=" /etc/webmin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g')
+inetd=`grep "^inetd=" /etc/webmin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
 if [ "$1" = "upgrade" ]; then
     # Upgrading the package, so stop the old webmin properly
-    /etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
-    if [ -f /lib/systemd/system/webmin.service ]; then
-        systemctl stop --quiet webmin.service
+    if [ "$inetd" != "1" ]; then
+        /etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
     fi
-    # for good measure, also run the webmin stop script directly
-    /etc/webmin/stop >/dev/null 2>&1 || /bin/true
 fi
 
 cd /usr/share/webmin
@@ -36,7 +32,7 @@ if [ -z "$ssl" ]; then
 else
     ssl=${ssl:-1}
 fi
-atboot=${atboot:-0}
+atboot=0
 nochown=1
 autothird=1
 noperlpath=
@@ -46,7 +42,7 @@ nostart=1
 if [ -r /etc/shadow ]; then
     crypt=x
 else
-    crypt=$(grep "^root:" /etc/passwd | cut -f 2 -d :)
+    crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
 fi
 
 export config_dir var_dir perl autoos port login crypt host ssl nochown autothird noperlpath nouninstall nostart allow atboot
@@ -74,22 +70,5 @@ fi
 EOFF
 chmod +x /etc/webmin/uninstall.sh
 
-# this is a hack that shouldn't really be required if I knew how to do this properly...
-if [ -f /lib/systemd/system/webmin.service ] && [ "$1" = "configure" ]; then
-    if [ ! "$(systemctl --quiet is-enabled webmin.service)" ]; then
-        # ensure that system service is enabled if not already
-        systemctl enable --quiet /lib/systemd/system/webmin.service \
-    fi
-    if ! ischroot --default-false; then
-        # only run when not in chroot
-        if [ ! "$(systemctl is-active --quiet webmin.service)" ]; then
-            # start if not running
-            systemctl start --quiet webmin.service
-        else
-            # restart if already running (it shouldn't be)
-            systemctl restart --quiet webmin.service
-        fi
-    fi
-fi
-
 #DEBHELPER#
+
