@@ -1,10 +1,10 @@
 #!/bin/sh -e
 inetd=`grep "^inetd=" /etc/webmin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
 if [ "$1" = "upgrade" ]; then
-    # Upgrading the package, so stop the old webmin properly
-    if [ "$inetd" != "1" ]; then
-        /etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
-    fi
+	# Upgrading the package, so stop the old webmin properly
+	if [ "$inetd" != "1" ]; then
+		/etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
+	fi
 fi
 
 cd /usr/share/webmin
@@ -12,26 +12,13 @@ config_dir=/etc/webmin
 var_dir=/var/webmin
 perl=/usr/bin/perl
 
-# collect info from existing miniserv.conf (if it exists)
-if [ -f "$config_dir/miniserv.conf" ]; then
-    # load existing conf as vars; workaround fact that they're unquoted
-    cat $config_dir/miniserv.conf | sed 's|=\(.*\)|="\1"|g' > /tmp/.webmin_miniserv.conf
-    . /tmp/.webmin_miniserv.conf
-    rm -f /tmp/.webmin_miniserv.conf
-fi
+set ${WEBMIN_PORT:=10000}
 
-WEBMIN_PORT=${WEBMIN_PORT:=10000}
-
-# use vars from existing conf where relevant
 login=root
-port=${port:-$WEBMIN_PORT}
-host=$(hostname)
+port=$WEBMIN_PORT
+host=`hostname`
 autoos=3
-if [ -z "$ssl" ]; then
-    ssl=
-else
-    ssl=${ssl:-1}
-fi
+ssl=1
 atboot=0
 nochown=1
 autothird=1
@@ -40,9 +27,9 @@ nouninstall=1
 nostart=1
 
 if [ -r /etc/shadow ]; then
-    crypt=x
+	crypt=x
 else
-    crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
+	crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
 fi
 
 export config_dir var_dir perl autoos port login crypt host ssl nochown autothird noperlpath nouninstall nostart allow atboot
@@ -63,9 +50,9 @@ printf "Are you sure you want to uninstall Webmin? (y/n) : "
 read answer
 printf "\n"
 if [ "\$answer" = "y" ]; then
-    echo "Removing Webmin package .."
-    dpkg --remove webmin
-    echo "Done!"
+	echo "Removing Webmin package .."
+	dpkg --remove webmin
+	echo "Done!"
 fi
 EOFF
 chmod +x /etc/webmin/uninstall.sh
