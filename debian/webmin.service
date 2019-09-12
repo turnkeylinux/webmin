@@ -2,18 +2,14 @@
 Description=Webmin Web based Admin UI
 Requires=local-fs.target
 After=network.target remote-fs.target nss-lookup.target
-Conflicts=shutdown.target
 
 [Service]
 Type=exec
-RemainAfterExit=yes
 Environment="PERLLIB=/usr/share/webmin" LANG= PERLIO=
 ExecStart=/usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf
-# Webmin is exiting with 1 on SIGTERM
-SuccessExitStatus=1
-KillMode=mixed
-ExecReload=/bin/kill -USR1 $MAINPID
-PIDFile=/run/webmin.pid
+KillSignal=SIGINT
+PIDFile=/var/webmin/miniserv.pid
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
