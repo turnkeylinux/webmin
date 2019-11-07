@@ -1,0 +1,15 @@
+[Unit]
+Description=Webmin Web based Admin UI
+Requires=local-fs.target
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=exec
+Environment="PERLLIB=/usr/share/webmin" LANG= PERLIO=
+ExecStart=/usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf
+KillSignal=SIGINT
+PIDFile=/var/webmin/miniserv.pid
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

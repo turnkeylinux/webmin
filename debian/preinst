@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 perl <<EOD;
 # maketemp.pl
 # Create the /tmp/.webmin directory if needed
