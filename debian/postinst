@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 inetd=`grep "^inetd=" /etc/webmin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
 if [ "$1" = "upgrade" ]; then
 	# Upgrading the package, so stop the old webmin properly

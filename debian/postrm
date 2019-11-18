@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 if [ "$1" != "upgrade" ]; then
     exit_status=0
     grep root=/usr/share/webmin /etc/webmin/miniserv.conf >/dev/null 2>&1 || exit_status="$?"
