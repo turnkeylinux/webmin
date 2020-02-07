@@ -2,31 +2,25 @@ Source: webmin
 Section: admin
 Priority: optional
 Maintainer: Alon Swartz <alon@turnkeylinux.org>
-Build-Depends:
- debhelper (>= 10),
- dh-systemd,
- tar,
- gzip
+Build-Depends: debhelper (>= 10), dh-systemd, gzip, tar
 Standards-Version: 4.0.0
 
 Package: webmin
 Architecture: all
 Depends:
+ libauthen-pam-perl,
+ libio-pty-perl,
+ libnet-ssleay-perl,
+ libpam-runtime,
+ openssl,
  perl,
  ${misc:Depends},
- libnet-ssleay-perl,
- openssl,
- libauthen-pam-perl,
- libpam-runtime,
- libio-pty-perl
-Pre-Depends:
- perl
+Pre-Depends: perl
 Description: A web-based administration interface for Unix systems.
  Using Webmin you can configure DNS, Samba, NFS, local/remote filesystems
- and more using your web browser.  After installation, enter the URL 
- https://localhost:10000/ into your browser and login as root with your 
+ and more using your web browser.  After installation, enter the URL
+ https://localhost:10000/ into your browser and login as root with your
  root password.
-
 
 Package: webmin-cluster-usermin
 Architecture: all
@@ -137,7 +131,12 @@ Description: Webmin module - Network Services and Protocols
 
 Package: webmin-zones
 Architecture: all
-Depends: webmin (>= 1.930), webmin-net, webmin-mount, webmin-time, webmin-useradmin
+Depends:
+ webmin (>= 1.930),
+ webmin-mount,
+ webmin-net,
+ webmin-time,
+ webmin-useradmin,
 Description: Webmin module - Solaris Zones
  Create and manage Solaris 10 zones.
 
@@ -206,14 +205,14 @@ Description: Webmin module - Network Services
 
 Package: webmin-bsdfdisk
 Architecture: all
-Depends: webmin (>= 1.930), webmin-mount, webmin-fdisk
+Depends: webmin (>= 1.930), webmin-fdisk, webmin-mount
 Description: Webmin module - Partitions on Local Disks
  Create and edit paritions on local SCSI and IDE disks
  on FreeBSD.
 
 Package: webmin-htaccess-htpasswd
 Architecture: all
-Depends: webmin (>= 1.930), webmin-useradmin, webmin-apache
+Depends: webmin (>= 1.930), webmin-apache, webmin-useradmin
 Description: Webmin module - Protected Web Directories
  Create .htaccess and htpasswd files to protect web
  -acessible directories.
@@ -323,7 +322,7 @@ Description: Webmin module - NFS Exports
 
 Package: webmin-ldap-useradmin
 Architecture: all
-Depends: webmin (>= 1.930), webmin-useradmin, webmin-ldap-client
+Depends: webmin (>= 1.930), webmin-ldap-client, webmin-useradmin
 Description: Webmin module - LDAP Users and Groups
  Manage users and groups stored in an LDAP database
  , used for Unix, Samba and Cyrus IMAP authentication.
@@ -556,7 +555,7 @@ Description: Webmin module - Usermin Configuration
 
 Package: webmin-fsdump
 Architecture: all
-Depends: webmin (>= 1.930), webmin-mount, webmin-mailboxes
+Depends: webmin (>= 1.930), webmin-mailboxes, webmin-mount
 Description: Webmin module - Filesystem Backup
  Backup and restore filesystems using the dump and restore
  family of commands.
@@ -611,7 +610,7 @@ Description: Webmin module - Fail2Ban Intrusion Detector
 
 Package: webmin-lvm
 Architecture: all
-Depends: webmin (>= 1.930), webmin-mount, webmin-fdisk
+Depends: webmin (>= 1.930), webmin-fdisk, webmin-mount
 Description: Webmin module - Logical Volume Management
  Configure volume groups, physical volumes and logical
  volumes for Linux LVM.
@@ -684,14 +683,14 @@ Description: Webmin module - PPTP VPN Client
 
 Package: webmin-package-updates
 Architecture: all
-Depends: webmin (>= 1.930), webmin-software, webmin-mailboxes
+Depends: webmin (>= 1.930), webmin-mailboxes, webmin-software
 Description: Webmin module - Software Package Updates
  Displays available package updates from YUM, APT or
  other update systems
 
 Package: webmin-iscsi-client
 Architecture: all
-Depends: webmin (>= 1.930), webmin-fdisk, webmin-mount, webmin-lvm
+Depends: webmin (>= 1.930), webmin-fdisk, webmin-lvm, webmin-mount
 Description: Webmin module - iSCSI Client
  Access disk devices across the network using the iSCSI
  protocol.
@@ -711,7 +710,11 @@ Description: Webmin module - BIND DNS Server
 
 Package: webmin-cluster-passwd
 Architecture: all
-Depends: webmin (>= 1.930), webmin-cluster-useradmin, webmin-passwd, webmin-useradmin
+Depends:
+ webmin (>= 1.930),
+ webmin-cluster-useradmin,
+ webmin-passwd,
+ webmin-useradmin,
 Description: Webmin module - Cluster Change Passwords
  Change passwords on multiple systems in a Webmin cluster
  at once.
