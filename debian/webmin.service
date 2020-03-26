@@ -9,7 +9,10 @@ Environment="PERLLIB=/usr/share/webmin" LANG= PERLIO=
 ExecStart=/usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf
 KillSignal=SIGINT
 PIDFile=/var/webmin/miniserv.pid
-Restart=on-failure
+Restart=always
+RestartSec=1
+StartLimitBurst=20
+StartLimitIntervalSec=30
 
 [Install]
 WantedBy=multi-user.target
