@@ -2,6 +2,8 @@
 Description=Webmin Web based Admin UI
 Requires=local-fs.target
 After=network.target remote-fs.target nss-lookup.target
+StartLimitBurst=20
+StartLimitIntervalSec=30
 
 [Service]
 Type=exec
@@ -11,8 +13,6 @@ KillSignal=SIGINT
 PIDFile=/var/webmin/miniserv.pid
 Restart=always
 RestartSec=1
-StartLimitBurst=20
-StartLimitIntervalSec=30
 
 [Install]
 WantedBy=multi-user.target
