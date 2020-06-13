@@ -6,7 +6,7 @@ StartLimitBurst=20
 StartLimitIntervalSec=30
 
 [Service]
-Type=exec
+Type=forking
 Environment="PERLLIB=/usr/share/webmin" LANG= PERLIO=
 ExecStart=/usr/share/webmin/miniserv.pl /etc/webmin/miniserv.conf
 KillSignal=SIGINT
