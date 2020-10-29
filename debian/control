@@ -1,7 +1,7 @@
 Source: webmin
 Section: admin
 Priority: optional
-Maintainer: Alon Swartz <alon@turnkeylinux.org>
+Maintainer: Jeremy Davis <jeremy@turnkeylinux.org>
 Build-Depends: debhelper (>= 10), dh-systemd, gzip, tar
 Standards-Version: 4.0.0
 
@@ -24,107 +24,107 @@ Description: A web-based administration interface for Unix systems.
 
 Package: webmin-cluster-usermin
 Architecture: all
-Depends: webmin (>= 1.955), webmin-usermin
+Depends: webmin (>= 1.960), webmin-usermin
 Description: Webmin module - Cluster Usermin Servers
  Install and manage modules and themes across multiple
  Usermin servers.
 
 Package: webmin-pap
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - PPP Dialin Server
  Set up a dialin server using mgetty and PPP.
 
 Package: webmin-firewalld
 Architecture: all
-Depends: webmin (>= 1.955), webmin-net
+Depends: webmin (>= 1.960), webmin-net
 Description: Webmin module - FirewallD
  Configure a Linux firewall using FirewallD, by editing
  allowed services and ports.
 
 Package: webmin-ipfw
 Architecture: all
-Depends: webmin (>= 1.955), webmin-net
+Depends: webmin (>= 1.960), webmin-net
 Description: Webmin module - BSD Firewall
  Configure a BSD firewall using IPFW, by creating and
  editing rules.
 
 Package: webmin-at
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Scheduled Commands
  Schedule the execution of one-off commands or scripts.
 
 Package: webmin-change-user
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Change Language and Theme
  Allows the current Webmin user to change his language
  , theme and possibly password.
 
 Package: webmin-bandwidth
 Architecture: all
-Depends: webmin (>= 1.955), webmin-net
+Depends: webmin (>= 1.960), webmin-net
 Description: Webmin module - Bandwidth Monitoring
  View reports on bandwidth usage by host, port, protocol
  and time on a Linux system.
 
 Package: webmin-rbac
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - RBAC and Projects
  Manage RBAC user attributes, profiles and authorizations.
 
 Package: webmin-pptp-server
 Architecture: all
-Depends: webmin (>= 1.955), webmin-net, webmin-pptp-client
+Depends: webmin (>= 1.960), webmin-net, webmin-pptp-client
 Description: Webmin module - PPTP VPN Server
  Set up your system as a PPTP server so that Linux or
  Windows VPN clients can connect.
 
 Package: webmin-shorewall6
 Architecture: all
-Depends: webmin (>= 1.955), webmin-syslog
+Depends: webmin (>= 1.960), webmin-syslog
 Description: Webmin module - Shorewall6 Firewall
  Lets you edit the most useful tables of the Shorewall
  6 Firewall
 
 Package: webmin-status
 Architecture: all
-Depends: webmin (>= 1.955), webmin-mailboxes
+Depends: webmin (>= 1.960), webmin-mailboxes
 Description: Webmin module - System and Server Status
  View the status of services on your system and on remote
  systems.
 
 Package: webmin-cluster-software
 Architecture: all
-Depends: webmin (>= 1.955), webmin-software
+Depends: webmin (>= 1.960), webmin-software
 Description: Webmin module - Cluster Software Packages
  Install RPMs, debian and solaris packages across multiple
  servers from one source.
 
 Package: webmin-exim
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Exim Mailserver
 
 Package: webmin-cluster-cron
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Cluster Cron Jobs
  Create scheduled Cron jobs that run on multiple servers
  simultaneously.
 
 Package: webmin-grub
 Architecture: all
-Depends: webmin (>= 1.955), webmin-fdisk, webmin-mount
+Depends: webmin (>= 1.960), webmin-fdisk, webmin-mount
 Description: Webmin module - GRUB Boot Loader
  Configure the Linux GRUB boot loader to allow the selection
  of various operating systems and kernels at boot time.
 
 Package: webmin-inetd
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Network Services and Protocols
  Edit services in /etc/inetd.conf, /etc/services and
  /etc/rpc.
@@ -132,7 +132,7 @@ Description: Webmin module - Network Services and Protocols
 Package: webmin-zones
 Architecture: all
 Depends:
- webmin (>= 1.955),
+ webmin (>= 1.960),
  webmin-mount,
  webmin-net,
  webmin-time,
@@ -142,84 +142,84 @@ Description: Webmin module - Solaris Zones
 
 Package: webmin-krb5
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Kerberos5
  Configure the Kerberos 5 client on your system.
 
 Package: webmin-tcpwrappers
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - TCP Wrappers
  Configure the TCP wrappers networking access control files
 
 Package: webmin-dovecot
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Dovecot IMAP/POP3 Server
  Configure the Dovecot IMAP and POP3 mail retrieval server.
 
 Package: webmin-fdisk
 Architecture: all
-Depends: webmin (>= 1.955), webmin-mount, webmin-raid
+Depends: webmin (>= 1.960), webmin-mount, webmin-raid
 Description: Webmin module - Partitions on Local Disks
  Create and edit partitions on local SCSI, IDE and SATA
  disks on Linux.
 
 Package: webmin-openslp
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - OpenSLP Server
  Configure the service location protocol server.
 
 Package: webmin-ppp-client
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - PPP Dialup Client
  Configure the WV-Dial package to connect to the Internet
  with a modem PPP connection
 
 Package: webmin-ipfilter
 Architecture: all
-Depends: webmin (>= 1.955), webmin-net
+Depends: webmin (>= 1.960), webmin-net
 Description: Webmin module - IPFilter Firewall
  Configure a firewall using the IPFilter package, by
  creating and editing rules.
 
 Package: webmin-system-status
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - System Status
  Background system status collection libraries
 
 Package: webmin-exports
 Architecture: all
-Depends: webmin (>= 1.955), webmin-mount
+Depends: webmin (>= 1.960), webmin-mount
 Description: Webmin module - NFS Exports
  Edit NFS file shares defined in /etc/exports.
 
 Package: webmin-xinetd
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Network Services
  Edit servers handled by Xinetd, a replacement for inetd.
 
 Package: webmin-bsdfdisk
 Architecture: all
-Depends: webmin (>= 1.955), webmin-fdisk, webmin-mount
+Depends: webmin (>= 1.960), webmin-fdisk, webmin-mount
 Description: Webmin module - Partitions on Local Disks
  Create and edit paritions on local SCSI and IDE disks
  on FreeBSD.
 
 Package: webmin-htaccess-htpasswd
 Architecture: all
-Depends: webmin (>= 1.955), webmin-apache, webmin-useradmin
+Depends: webmin (>= 1.960), webmin-apache, webmin-useradmin
 Description: Webmin module - Protected Web Directories
  Create .htaccess and htpasswd files to protect web
  -acessible directories.
 
 Package: webmin-updown
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Upload and Download
  Upload multiple files to the server, and download multiple
  URLs either immediately or in the background at a scheduled
@@ -227,403 +227,403 @@ Description: Webmin module - Upload and Download
 
 Package: webmin-iscsi-server
 Architecture: all
-Depends: webmin (>= 1.955), webmin-fdisk, webmin-lvm, webmin-raid
+Depends: webmin (>= 1.960), webmin-fdisk, webmin-lvm, webmin-raid
 Description: Webmin module - iSCSI Server
  Share disk devices across the network using the iSCSI
  protocol with the netbsd-iscsi package.
 
 Package: webmin-dfsadmin
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - NFS Shares
  Edit file shares as defined in the /etc/dfs/dfstab file.
 
 Package: webmin-custom
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Custom Commands
  Create buttons to execute commonly used commands or
  edit files on your system.
 
 Package: webmin-cluster-copy
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Cluster Copy Files
  Schedule the transfer of files from this server to
  multiple servers in a Webmin cluster.
 
 Package: webmin-net
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Network Configuration
  Configure boot time and active interfaces, DNS, routing
  and /etc/hosts.
 
 Package: webmin-raid
 Architecture: all
-Depends: webmin (>= 1.955), webmin-fdisk, webmin-mount
+Depends: webmin (>= 1.960), webmin-fdisk, webmin-mount
 Description: Webmin module - Linux RAID
  Create RAID 0, 1, 4, 5, 6, 10 and linear devices on
  a Linux system.
 
 Package: webmin-shorewall
 Architecture: all
-Depends: webmin (>= 1.955), webmin-syslog
+Depends: webmin (>= 1.960), webmin-syslog
 Description: Webmin module - Shorewall Firewall
  Lets you edit the most useful tables of the Shoreline
  Firewall
 
 Package: webmin-backup-config
 Architecture: all
-Depends: webmin (>= 1.955), webmin-mailboxes
+Depends: webmin (>= 1.960), webmin-mailboxes
 Description: Webmin module - Backup Configuration Files
  Perform manual or scheduled backups and restores of
  configuration files managed by Webmin modules.
 
 Package: webmin-ajaxterm
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Text Login
  Access the shell on your system without the need for
  a separate SSH client, using Ajaxterm
 
 Package: webmin-time
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - System Time
  Set the system and hardware time either manually or
  from a time server.
 
 Package: webmin-squid
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Squid Proxy Server
  Configure Squid options, ACLs, caching parameters and
  proxy users.
 
 Package: webmin-mailcap
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - MIME Type Programs
  Edit the /etc/mailcap file, which maps MIME types to
  handler programs
 
 Package: webmin-samba
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Samba Windows File Sharing
  Create and edit samba file and print shares.
 
 Package: webmin-sgiexports
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - NFS Exports
  Edit file shares as defined in the Irix /etc/exports file
 
 Package: webmin-ldap-useradmin
 Architecture: all
-Depends: webmin (>= 1.955), webmin-ldap-client, webmin-useradmin
+Depends: webmin (>= 1.960), webmin-ldap-client, webmin-useradmin
 Description: Webmin module - LDAP Users and Groups
  Manage users and groups stored in an LDAP database
  , used for Unix, Samba and Cyrus IMAP authentication.
 
 Package: webmin-filemin
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - File Manager
  Fast and light File Manager written in Perl.
 
 Package: webmin-adsl-client
 Architecture: all
-Depends: webmin (>= 1.955), webmin-net
+Depends: webmin (>= 1.960), webmin-net
 Description: Webmin module - ADSL Client
  Set up a PPP client with the RP-PPPoE package.
 
 Package: webmin-ldap-server
 Architecture: all
-Depends: webmin (>= 1.955), webmin-ldap-client
+Depends: webmin (>= 1.960), webmin-ldap-client
 Description: Webmin module - LDAP Server
  Manage the OpenLDAP server and objects in its database
 
 Package: webmin-heartbeat
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Heartbeat Monitor
  Configure the Heartbeat package for automatic server
  failover in a cluster.
 
 Package: webmin-postgresql
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - PostgreSQL Database Server
  Manage databases, tables and users in your PostgreSQL
  database server.
 
 Package: webmin-cpan
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Perl Modules
  Install new Perl modules on your system, and view those
  already installed.
 
 Package: webmin-bsdexports
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - NFS Exports
  Edit file shares from the FreeBSD /etc/exports file.
 
 Package: webmin-apache
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Apache Webserver
  Configure almost all Apache directives and features.
 
 Package: webmin-logrotate
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Log File Rotation
  Set up the automatic rotation of Apache, Squid, Syslog
  and other log files.
 
 Package: webmin-mon
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - MON Service Monitor
  Setup MON, a powerful service monitor and alerting system.
 
 Package: webmin-wuftpd
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - WU-FTP Server
  Configure the access control, anonymous FTP and other
  options of WU-FTPd.
 
 Package: webmin-iscsi-tgtd
 Architecture: all
-Depends: webmin (>= 1.955), webmin-fdisk, webmin-lvm, webmin-raid
+Depends: webmin (>= 1.960), webmin-fdisk, webmin-lvm, webmin-raid
 Description: Webmin module - iSCSI TGTd
  Share disk devices across the network using the iSCSI
  protocol with the TGTd package.
 
 Package: webmin-fetchmail
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Fetchmail Mail Retrieval
  Configure the popular fetchmail program for automatically
  retrieving mail from other servers.
 
 Package: webmin-hpuxexports
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - NFS Exports
  Edit file shares as defined in the HPUX /etc/exports file.
 
 Package: webmin-mount
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Disk and Network Filesystems
  Mount filesystems and swap files usually configured
  in /etc/fstab or /etc/vfstab.
 
 Package: webmin-format
 Architecture: all
-Depends: webmin (>= 1.955), webmin-mount
+Depends: webmin (>= 1.960), webmin-mount
 Description: Webmin module - Partitions on Local Disks
  Create and edit paritions on local disks on Solaris.
 
 Package: webmin-syslog-ng
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - System Logs NG
  Configure the Syslog-NG server on your system and view
  its log files.
 
 Package: webmin-bacula-backup
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Bacula Backup System
  Configure Bacula to perform backups and restores manually
  or on schedule, for one or many systems.
 
 Package: webmin-smart-status
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - SMART Drive Status
  Check the status of IDE and SATA drives to detect problems
  and potential failures.
 
 Package: webmin-cluster-webmin
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Cluster Webmin Servers
  Install and manage modules, themes, users, groups and
  access control settings across multiple Webmin servers.
 
 Package: webmin-idmapd
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - idmapd daemon
  Manage the NFS ID mapping daemon.
 
 Package: webmin-webalizer
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Webalizer Logfile Analysis
  Generate reports from webserver, proxy server and FTP
  log files
 
 Package: webmin-passwd
 Architecture: all
-Depends: webmin (>= 1.955), webmin-useradmin
+Depends: webmin (>= 1.960), webmin-useradmin
 Description: Webmin module - Change Passwords
  Change the password of any user on the system.
 
 Package: webmin-sendmail
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Sendmail Mail Server
  Manage sendmail aliases, masquerading, address rewriting
  and other features.
 
 Package: webmin-syslog
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - System Logs
  Configure the syslog server on your system and view
  its log files.
 
 Package: webmin-qmailadmin
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - QMail Mail Server
  Configure the QMail mail server, a simpler alternative
  to Sendmail.
 
 Package: webmin-pam
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - PAM Authentication
  Configure the PAM authentication steps used by services
  such as telnet, POP and FTP.
 
 Package: webmin-useradmin
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Users and Groups
  Create and edit Unix users and groups from the /etc
  /passwd and /etc/group files.
 
 Package: webmin-vgetty
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Voicemail Server
  Set up your system as an answering machine using vgetty
 
 Package: webmin-sarg
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Squid Report Generator
  Configure and schedule SARG, a tool for generating
  reports from Squid access logs.
 
 Package: webmin-firewall6
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Linux IPv6 Firewall
  Configure a Linux firewall using ip6tables. Allows
  the editing of all tables, chains, rules and options.
 
 Package: webmin-iscsi-target
 Architecture: all
-Depends: webmin (>= 1.955), webmin-fdisk, webmin-lvm, webmin-raid
+Depends: webmin (>= 1.960), webmin-fdisk, webmin-lvm, webmin-raid
 Description: Webmin module - iSCSI Target
  Share disk devices across the network using the iSCSI
  protocol with the iscsitarget package.
 
 Package: webmin-usermin
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Usermin Configuration
  Configure global options for the Usermin user account
  management server.
 
 Package: webmin-fsdump
 Architecture: all
-Depends: webmin (>= 1.955), webmin-mailboxes, webmin-mount
+Depends: webmin (>= 1.960), webmin-mailboxes, webmin-mount
 Description: Webmin module - Filesystem Backup
  Backup and restore filesystems using the dump and restore
  family of commands.
 
 Package: webmin-dhcpd
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - DHCP Server
  Manage shared networks, subnets, hosts and groups for
  ISC DHCPD.
 
 Package: webmin-phpini
 Architecture: all
-Depends: webmin (>= 1.955), webmin-time
+Depends: webmin (>= 1.960), webmin-time
 Description: Webmin module - PHP Configuration
  Configure PHP settings for the whole system or individual
  Apache virtual servers.
 
 Package: webmin-filter
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Filter and Forward Mail
  Create rules to filter and forward incoming email.
 
 Package: webmin-firewall
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Linux Firewall
  Configure a Linux firewall using iptables. Allows the
  editing of all tables, chains, rules and options.
 
 Package: webmin-tunnel
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - HTTP Tunnel
  Connect to another HTTP server via a tunnel through
  the Webmin server.
 
 Package: webmin-smf
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Service Management Facility Configuration
  Edit services under control of Service Manangement
  Facility SMF(1).
 
 Package: webmin-fail2ban
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Fail2Ban Intrusion Detector
  Fail2ban protects your system from brute force attacks
  by detecting them and blocking their source IPs.
 
 Package: webmin-lvm
 Architecture: all
-Depends: webmin (>= 1.955), webmin-fdisk, webmin-mount
+Depends: webmin (>= 1.960), webmin-fdisk, webmin-mount
 Description: Webmin module - Logical Volume Management
  Configure volume groups, physical volumes and logical
  volumes for Linux LVM.
 
 Package: webmin-jabber
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Jabber IM Server
  Configure the multi-protocol Jabber messaging server.
 
 Package: webmin-mailboxes
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Read User Mail
  Read email in users' mailboxes.
 
 Package: webmin-cluster-useradmin
 Architecture: all
-Depends: webmin (>= 1.955), webmin-useradmin
+Depends: webmin (>= 1.960), webmin-useradmin
 Description: Webmin module - Cluster Users and Groups
  Create, update and delete users and groups across multiple
  servers. Unlike NIS, each server has its own passwd
@@ -631,73 +631,73 @@ Description: Webmin module - Cluster Users and Groups
 
 Package: webmin-shell
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Command Shell
  Execute shell commands and view their output.
 
 Package: webmin-lpadmin
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Printer Administration
  Create and edit local and remote printers. Supports
  Windows print servers and Ghostscript print drivers.
 
 Package: webmin-cluster-shell
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Cluster Shell Commands
  Run commands on multiple servers at once.
 
 Package: webmin-sshd
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - SSH Server
  Setup the SSH server for remote secure logins.
 
 Package: webmin-webmincron
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Scheduled Webmin Functions
  Define Webmin module functions that are called on a
  regular schedule by the Webmin webserver
 
 Package: webmin-quota
 Architecture: all
-Depends: webmin (>= 1.955), webmin-mount
+Depends: webmin (>= 1.960), webmin-mount
 Description: Webmin module - Disk Quotas
  Setup and edit user or group disk quotas for local
  filesystems.
 
 Package: webmin-pptp-client
 Architecture: all
-Depends: webmin (>= 1.955), webmin-net, webmin-syslog
+Depends: webmin (>= 1.960), webmin-net, webmin-syslog
 Description: Webmin module - PPTP VPN Client
  Configure and establish connections to a VPN server
  using the PPTP protocol.
 
 Package: webmin-package-updates
 Architecture: all
-Depends: webmin (>= 1.955), webmin-mailboxes, webmin-software
+Depends: webmin (>= 1.960), webmin-mailboxes, webmin-software
 Description: Webmin module - Software Package Updates
  Displays available package updates from YUM, APT or
  other update systems
 
 Package: webmin-iscsi-client
 Architecture: all
-Depends: webmin (>= 1.955), webmin-fdisk, webmin-lvm, webmin-mount
+Depends: webmin (>= 1.960), webmin-fdisk, webmin-lvm, webmin-mount
 Description: Webmin module - iSCSI Client
  Access disk devices across the network using the iSCSI
  protocol.
 
 Package: webmin-postfix
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Postfix Mail Server
  Configure the Postfix mail server.
 
 Package: webmin-bind8
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - BIND DNS Server
  Create and edit domains, DNS records, BIND options
  and views.
@@ -705,7 +705,7 @@ Description: Webmin module - BIND DNS Server
 Package: webmin-cluster-passwd
 Architecture: all
 Depends:
- webmin (>= 1.955),
+ webmin (>= 1.960),
  webmin-cluster-useradmin,
  webmin-passwd,
  webmin-useradmin,
@@ -715,75 +715,75 @@ Description: Webmin module - Cluster Change Passwords
 
 Package: webmin-nis
 Architecture: all
-Depends: webmin (>= 1.955), webmin-inetd, webmin-useradmin
+Depends: webmin (>= 1.960), webmin-inetd, webmin-useradmin
 Description: Webmin module - NIS Client and Server
  Setup a system as an NIS client, master or slave server
  . Note that NIS+ is not supported.
 
 Package: webmin-mysql
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - MySQL Database Server
  Setup databases, tables and permissions in your MySQL
  database server.
 
 Package: webmin-software
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Software Packages
  Manage software packages on your system, and install
  new packages.
 
 Package: webmin-ipsec
 Architecture: all
-Depends: webmin (>= 1.955), webmin-net, webmin-syslog
+Depends: webmin (>= 1.960), webmin-net, webmin-syslog
 Description: Webmin module - IPsec VPN Configuration
  Set up a client or server for an IPsec VPN using FreeSWAN.
 
 Package: webmin-proftpd
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - ProFTPD Server
  Configure the powerful ProFTPD FTP server. Supports
  all options in most of the standard modules.
 
 Package: webmin-stunnel
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - SSL Tunnels
  Setup SSL tunnels to encrypt services like POP3 and
  IMAP, using stunnel run from inetd.
 
 Package: webmin-procmail
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - Procmail Mail Filter
  Edit recipes in the global /etc/procmailrc file, which
  apply to all incoming email.
 
 Package: webmin-spam
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - SpamAssassin Mail Filter
  Set up and configure SpamAssassin to filter email received
  by your system.
 
 Package: webmin-telnet
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - SSH Login
  Login to your system with SSH or telnet.
 
 Package: webmin-ldap-client
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin module - LDAP Client
  Configure your system as an LDAP client for users and
  groups.
 
 Package: webmin-authentic-theme
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin theme - Authentic Theme
  Webmin/Usermin/Virtualmin/Cloudmin theme based on Bootstrap
  and Font Awesome (https://github.com/authentic-theme
@@ -791,19 +791,19 @@ Description: Webmin theme - Authentic Theme
 
 Package: webmin-gray-theme
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin theme - Gray Framed Theme
  A theme that matches the Virtualmin look and feel
 
 Package: webmin-blue-theme
 Architecture: all
-Depends: webmin (>= 1.955)
+Depends: webmin (>= 1.960)
 Description: Webmin theme - Gray Framed Theme
  A theme that matches the Virtualmin look and feel
 
 Package: webmin-theme-stressfree
 Architecture: all
-Depends: webmin (>= 1.953)
+Depends: webmin (>= 1.960)
 Description: Webmin theme - StressFree Tiger Theme
  Tiger-like look for Webmin and Usermin featuring dropdown
  menus, AJAX search, and high color icons for the web
