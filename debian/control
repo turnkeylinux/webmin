@@ -783,7 +783,7 @@ Description: Webmin module - BIND DNS Server
 
 Package: webmin-authentic-theme
 Architecture: all
-Depends: webmin (>= 19.84.7)
+Depends: webmin (>= 1.984)
 Description: Webmin theme - Authentic Theme
  Webmin/Usermin/Virtualmin/Cloudmin theme based on Bootstrap
  and Font Awesome (https://github.com/authentic-theme
