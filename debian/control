@@ -2,7 +2,7 @@ Source: webmin
 Section: admin
 Priority: optional
 Maintainer: Jeremy Davis <jeremy@turnkeylinux.org>
-Build-Depends: debhelper (>= 10), dh-systemd, gzip, tar
+Build-Depends: debhelper (>= 10), gzip, tar
 Standards-Version: 4.0.0
 
 Package: webmin
