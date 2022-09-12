@@ -1,10 +1,8 @@
 #!/bin/sh
-inetd=`grep "^inetd=" /etc/webmin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
+
 if [ "$1" = "upgrade" ]; then
 	# Upgrading the package, so stop the old webmin properly
-	if [ "$inetd" != "1" ]; then
-		/etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
-	fi
+	systemctl -q stop webmin
 fi
 
 cd /usr/share/webmin
@@ -38,24 +36,17 @@ export config_dir var_dir perl autoos port login crypt host ssl nochown autothir
 exit_code=0
 grep sudo= /etc/webmin/miniserv.conf >/dev/null 2>&1 || exit_code="$?"
 if [ "$exit_code" = 1 ]; then
-    # Allow sudo-based logins for Ubuntu
+    # Allow sudo-based logins for Ubuntu/Debian
     echo sudo=1 >>/etc/webmin/miniserv.conf
 fi
 
 rm -f /var/lock/subsys/webmin
 
-cat >/etc/webmin/uninstall.sh <<EOFF
-#!/bin/sh
-printf "Are you sure you want to uninstall Webmin? (y/n) : "
-read answer
-printf "\n"
-if [ "\$answer" = "y" ]; then
-	echo "Removing Webmin package .."
-	dpkg --remove webmin
-	echo "Done!"
+if [ "$1" = "upgrade" ]; then
+    # Upgrading the package, so start webmin again
+    systemctl -q start webmin
 fi
-EOFF
-chmod +x /etc/webmin/uninstall.sh
+
 
 #DEBHELPER#
 
