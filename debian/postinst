@@ -1,11 +1,4 @@
 #!/bin/sh
-inetd=`grep "^inetd=" /etc/webmin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
-if [ "$1" = "upgrade" ]; then
-	# Upgrading the package, so stop the old webmin properly
-	if [ "$inetd" != "1" ]; then
-		/etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
-	fi
-fi
 
 cd /usr/share/webmin
 config_dir=/etc/webmin
@@ -18,7 +11,6 @@ login=root
 port=$WEBMIN_PORT
 host=`hostname`
 autoos=3
-ssl=1
 atboot=0
 nochown=1
 autothird=1
@@ -26,10 +18,18 @@ noperlpath=
 nouninstall=1
 nostart=1
 
-if [ -r /etc/shadow ]; then
-	crypt=x
+# Handle case where stunnel is being used
+target=/etc/systemd/system/multi-user.target.wants
+if find $target -name 'stunnel4@webmin.service' | grep . 2>&1 >/dev/null; then
+    ssl=0
 else
-	crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
+    ssl=1
+fi
+
+if [ -r /etc/shadow ]; then
+    crypt=x
+else
+    crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
 fi
 
 export config_dir var_dir perl autoos port login crypt host ssl nochown autothird noperlpath nouninstall nostart allow atboot
@@ -44,18 +44,6 @@ fi
 
 rm -f /var/lock/subsys/webmin
 
-cat >/etc/webmin/uninstall.sh <<EOFF
-#!/bin/sh
-printf "Are you sure you want to uninstall Webmin? (y/n) : "
-read answer
-printf "\n"
-if [ "\$answer" = "y" ]; then
-	echo "Removing Webmin package .."
-	dpkg --remove webmin
-	echo "Done!"
-fi
-EOFF
-chmod +x /etc/webmin/uninstall.sh
+systemctl start webmin
 
 #DEBHELPER#
-
