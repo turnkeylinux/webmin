@@ -29,4 +29,3 @@ if [ "$1" != "upgrade" ]; then
 fi
 
 #DEBHELPER#
-

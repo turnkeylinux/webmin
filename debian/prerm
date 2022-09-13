@@ -2,18 +2,15 @@
 
 export PERL5LIB=/usr/share/webmin
 
-if [ "$1" != "upgrade" ]; then
-    exit_status=0
-    grep root=/usr/share/webmin /etc/webmin/miniserv.conf >/dev/null 2>&1 || exit_status="$?"
-    if [ "$exit_status" = 0 ]; then
-        # Package is being removed, and no new version of webmin
-        # has taken it's place. Run uninstalls and stop the server
-        echo "Running uninstall scripts .."
-        (cd /usr/share/webmin ; WEBMIN_CONFIG=/etc/webmin WEBMIN_VAR=/var/webmin LANG= /usr/share/webmin/run-uninstalls.pl)
-        /etc/init.d/webmin stop >/dev/null 2>&1 </dev/null || /bin/true
-        /etc/webmin/stop >/dev/null 2>&1 </dev/null || /bin/true
-    fi
+exit_status=0
+grep root=/usr/share/webmin /etc/webmin/miniserv.conf >/dev/null 2>&1 || exit_status="$?"
+if [ "$exit_status" = 0 ]; then
+    # Package is being removed, and no new version of webmin
+    # has taken it's place. Run uninstalls and stop the server
+    echo "Running uninstall scripts .."
+    (cd /usr/share/webmin ; WEBMIN_CONFIG=/etc/webmin WEBMIN_VAR=/var/webmin LANG= /usr/share/webmin/run-uninstalls.pl)
+    /etc/init.d/webmin stop >/dev/null 2>&1 </dev/null || /bin/true
+    systemctl stop webmin -q || /bin/true
 fi
 
 #DEBHELPER#
-

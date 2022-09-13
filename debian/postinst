@@ -1,10 +1,5 @@
 #!/bin/sh
 
-if [ "$1" = "upgrade" ]; then
-	# Upgrading the package, so stop the old webmin properly
-	systemctl -q stop webmin
-fi
-
 cd /usr/share/webmin
 config_dir=/etc/webmin
 var_dir=/var/webmin
@@ -16,7 +11,6 @@ login=root
 port=$WEBMIN_PORT
 host=`hostname`
 autoos=3
-ssl=1
 atboot=0
 nochown=1
 autothird=1
@@ -24,10 +18,18 @@ noperlpath=
 nouninstall=1
 nostart=1
 
-if [ -r /etc/shadow ]; then
-	crypt=x
+# Handle case where stunnel is being used
+target=/etc/systemd/system/multi-user.target.wants
+if find $target -name 'stunnel4@webmin.service' | grep . 2>&1 >/dev/null; then
+    ssl=0
 else
-	crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
+    ssl=1
+fi
+
+if [ -r /etc/shadow ]; then
+    crypt=x
+else
+    crypt=`grep "^root:" /etc/passwd | cut -f 2 -d :`
 fi
 
 export config_dir var_dir perl autoos port login crypt host ssl nochown autothird noperlpath nouninstall nostart allow atboot
@@ -42,11 +44,6 @@ fi
 
 rm -f /var/lock/subsys/webmin
 
-if [ "$1" = "upgrade" ]; then
-    # Upgrading the package, so start webmin again
-    systemctl -q start webmin
-fi
-
+systemctl -q start webmin
 
 #DEBHELPER#
-
