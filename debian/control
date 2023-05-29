@@ -7,14 +7,13 @@ Standards-Version: 4.0.0
 
 Package: webmin
 Architecture: all
-Depends:
- libauthen-pam-perl,
- libio-pty-perl,
- libnet-ssleay-perl,
- libpam-runtime,
- openssl,
- perl,
- ${misc:Depends},
+Depends: libauthen-pam-perl,
+         libio-pty-perl,
+         libnet-ssleay-perl,
+         libpam-runtime,
+         openssl,
+         perl,
+         ${misc:Depends}
 Pre-Depends: perl
 Description: A web-based administration interface for Unix systems.
  Using Webmin you can configure DNS, Samba, NFS, local/remote filesystems
@@ -84,11 +83,10 @@ Description: Webmin module - Heartbeat Monitor
 
 Package: webmin-cluster-passwd
 Architecture: all
-Depends:
- webmin (>= 2.021),
- webmin-cluster-useradmin,
- webmin-passwd,
- webmin-useradmin,
+Depends: webmin (>= 2.021),
+         webmin-cluster-useradmin,
+         webmin-passwd,
+         webmin-useradmin
 Description: Webmin module - Cluster Change Passwords
  Change passwords on multiple systems in a Webmin cluster
  at once.
@@ -191,12 +189,11 @@ Description: Webmin module - System Logs NG
 
 Package: webmin-zones
 Architecture: all
-Depends:
- webmin (>= 2.021),
- webmin-mount,
- webmin-net,
- webmin-time,
- webmin-useradmin,
+Depends: webmin (>= 2.021),
+         webmin-mount,
+         webmin-net,
+         webmin-time,
+         webmin-useradmin
 Description: Webmin module - Solaris Zones
  Create and manage Solaris 10 zones.
 
