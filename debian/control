@@ -780,21 +780,21 @@ Description: Webmin module - Bandwidth Monitoring
 
 Package: webmin-gray-theme
 Architecture: all
-Depends: webmin (>= 2.021), webmin-2.000
+Depends: webmin (>= 2.021)
 Description: Webmin theme - Framed Theme
  A legacy framed theme that also supports Virtualmin
  and Cloudmin
 
 Package: webmin-blue-theme
 Architecture: all
-Depends: webmin (>= 2.021), webmin-2.000
+Depends: webmin (>= 2.021)
 Description: Webmin theme - Framed Theme
  A legacy framed theme that also supports Virtualmin
  and Cloudmin
 
 Package: webmin-authentic-theme
 Architecture: all
-Depends: webmin (>= 20.21), webmin-2.020
+Depends: webmin (>= 2.021)
 Description: Webmin theme - Authentic Theme
  Webmin/Usermin/Virtualmin/Cloudmin theme based on Bootstrap
  and Font Awesome (https://github.com/authentic-theme
