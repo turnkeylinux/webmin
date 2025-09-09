@@ -1,0 +1,881 @@
+body_cputype1=$5, $8 teras
+lost_message=Jika akaun anda mempunyai set e-mel pemulihan, anda boleh menggunakan borang ini untuk menghantar pautan tetapan semula kata laluan kepada diri sendiri
+reset_message=Anda akan menetapkan semula kata laluan untuk pengguna <tt>$1</tt> dihidupkan
+login_recover=Minta Tetapan Semula Kata Laluan
+login_back=Pergi Balik
+
+settings_right_logos_title=Logo tema boleh ditetapkan dengan mudah di sini, untuk kedua-duanya, pengguna yang disahkan dan tidak disahkan. Saiz logo yang disyorkan ialah <em>180x90</em> piksel.
+settings_right_logos_error=Fail yang dimuat naik bukan imej
+
+settings_right_hotkey_custom_options_description=Pautan tersuai membolehkan anda menggunakan digit daripada <code>1</code> hingga <code>9</code> untuk mengakses pantas mana-mana panel <code>URL yang sah.</code> <code>URL</code> boleh diekstrak dari halaman yang sedang dibuka. Contohnya, untuk beralih pantas kepada modul Apache, tetapkan <code>apache</code> kepada medan <code>Pautan tersuai 1</code>. Jika kunci pengubah suai lalai ditetapkan kepada <code>Alt,</code> mengklik <code>Alt + 1</code>, akan membuka modul Apache anda.
+
+settings_right_reload=Muatkan halaman lalai pada suis tab
+
+settings_hotkeys_active=Dayakan
+settings_hotkey_toggle_modifier=Kunci pengubah suai
+settings_hotkey_toggle_key_webmin=Muatkan menu Webmin
+settings_hotkey_toggle_key_virtualmin=Muatkan menu Virtualmin
+settings_hotkey_toggle_key_cloudmin=Muatkan menu Cloudmin
+settings_hotkey_toggle_key_usermin=Muatkan menu Usermin
+settings_hotkey_toggle_key_webmail=Muatkan menu Mel
+settings_hotkey_sysinfo=Buka papan pemuka
+settings_hotkey_shell=Buka terminal lungsur turun
+settings_hotkey_favorites=Buka kegemaran
+settings_hotkey_focus_search=Fokus pada medan carian
+settings_hotkey_reload=Muat semula halaman semasa
+
+settings_hotkey_toggle_slider=Togol keterlihatan peluncur sisi
+
+# 17.40
+theme_xhred_sysinfo_wmdocs=Dokumentasi webmin
+theme_xhred_sysinfo_vmdocs=dokumentasi Virtualmin
+theme_xhred_sysinfo_cmdocs=Dokumentasi Cloudmin
+
+theme_xhred_filemanager_setting_permissions=Menetapkan kebenaran kepada <tt>%value</tt> pada fail yang dipilih.
+theme_xhred_filemanager_changing_ownership=Menukar pemilikan kepada <tt>%value</tt> pada fail yang dipilih.
+theme_xhred_filemanager_bookmark_success=Direktori <tt>%value</tt> telah berjaya ditambahkan pada penanda halaman anda.
+theme_xhred_filemanager_searching=Mencari <tt>%value</tt> padanan nama fail /directories.
+
+theme_xhred_filemanager_successful_directory_creation=Direktori <tt>%value</tt> berjaya dibuat.
+theme_xhred_filemanager_successful_file_creation=Fail <tt>%value</tt> berjaya dibuat.
+
+theme_xhred_filemanager_unbookmark_success=Direktori <tt>%value</tt> telah berjaya dialih keluar daripada penanda halaman anda.
+
+theme_xhred_database_object_selected_delete2=Jatuhkan jadual yang dipilih
+theme_xhred_database_objects_selected_delete2=Gugurkan jadual yang dipilih
+
+theme_xhred_filemanager_new_tab=Tambah tab baharu (Alt + Space)
+
+filemanager_create_object_exists=$3 <tt>$1</tt> sudah wujud dalam <tt>$2</tt>
+filemanager_create_object_denied=Tidak boleh membuat $3 <tt>$1</tt> dalam <tt>$2</tt> - kebenaran ditolak : $4.
+
+filemanager_rename_exists=$3 dengan nama <tt>$1</tt> sudah wujud dalam <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Menamakan semula <tt>%from</tt> <tt>%to</tt> berjaya.
+
+theme_xhred_filemanager_searching_matching=Mencari <tt>%value</tt> padanan nama fail /directories, mengandungi <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Menggantikan padanan <tt>%text</tt> dengan <tt>%replace</tt> dalam fail dengan nama yang mengandungi <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=Pemampatan telah berjaya diselesaikan. Fail termampat <tt>%file</tt> terletak dalam direktori <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Pemampatan telah selesai dengan ralat. Fail yang dimampatkan <tt>%file</tt> hendaklah terletak dalam direktori <tt>%path</tt>.
+
+theme_xhred_filemanager_changing_attributes=Menetapkan atribut kepada <tt>%value</tt> pada fail yang dipilih.
+
+theme_xhred_filemanager_changing_secontext=Menukar konteks keselamatan kepada <tt>%value</tt> pada fail yang dipilih.
+
+# 18.40
+settings_hotkey_toggle_key_night_mode=Togol palet warna
+
+# 18.48
+theme_force_upgrade=Kemas kini tema
+theme_update_footer=Sila berbaik hati melaporkan pepijat kepada $1 repositori. Sertai saluran $2 kami untuk mendapatkan berita terkini.
+
+# 19.00
+theme_xhred_sysinfo_update_start=Maklumat sistem dikenang.
+theme_xhred_sysinfo_update_end=Maklumat sistem berjaya dikenang semula.
+theme_xhred_sysinfo_update_failed=Maklumat sistem tidak dapat dikenang. Cuba lagi nanti.
+
+theme_xhred_global_development_version=Versi pembangunan
+
+right_vm_server_summary=Ringkasan Pelayan Maya
+
+settings_webmin_default_module=Halaman lalai untuk Webmin
+
+theme_xhred_global_unbeforeunload_title=Perubahan yang anda buat mungkin tidak disimpan
+theme_xhred_global_unbeforeunload_message=Sekiranya anda meneruskan, perubahan yang tidak disimpan pada halaman ini akan hilang secara kekal.
+theme_xhred_global_continue=Teruskan
+
+theme_xhred_global_automatic_refresh=Penyegaran automatik
+theme_xhred_global_second=Kedua
+theme_xhred_global_seconds=Detik
+theme_xhred_global_minute=Minit
+theme_xhred_global_minutes=Minit
+
+# 19.01
+theme_xhred_browser_warning=Untuk mendapat pengalaman terbaik dengan panel pelayan di komputer anda, gunakan penyemak imbas terkini yang disokong. <br><br> <em>Internet Explorer</em> tidak lagi disokong. <br><br> Penyemak imbas yang disyorkan ialah <em>Chrome</em>, <em>Firefox</em>, <em>Opera</em> atau <em>Safari</em>, <em>Edge</em>. <div class="alert alert-warning margined-top-10 margined-bottom--8">Anda boleh memuat turun versi penyemak imbas mudah alih, yang tidak memerlukan pemasangan, untuk memintas had yang dikenakan.</div>
+
+# 19.02
+theme_xhred_filter_content=Tapis kandungan
+theme_xhred_log_file_empty=Fail log kosong
+
+# 19.03
+theme_xhred_config_configurable_options=Pilihan yang boleh dikonfigurasikan
+theme_xhred_filter_content_no_matches_query=Tiada kandungan yang sepadan dengan pertanyaan %str
+theme_xhred_toggle_accordions=Togol keterlihatan akordion
+theme_xhred_global_whats_new=Apa yang baru
+theme_xhred_global_report_an_issue=Laporkan masalah
+theme_xhred_global_theme_configuration=Konfigurasi tema
+theme_xhred_global_official_website=Laman web rasmi
+theme_xhred_global_about_theme=Mengenai tema
+theme_xhred_connection_error=Kesalahan sambungan
+theme_xhred_connection_error_details=Tidak dapat membuat sambungan ke pelayan di <strong>%server</strong>. <ul><li> Periksa status pelayan </li><li> Periksa sambungannya </li></ul>
+theme_xhred_session_expired=Sesi tamat
+theme_xhred_session_unlocked=Sesi dibuka
+theme_xhred_session_expired_details=Anda telah log keluar kerana tidak aktif.
+theme_xhred_signing_in=Melog masuk
+theme_xhred_signing_success=Berjaya log masuk!
+theme_xhred_session_failed_password=Kata laluan salah, sila cuba lagi.
+theme_xhred_global_reauthenticate=Sahkan semula
+
+# 19.04
+settings_sysinfo_real_time_status=Dayakan pemantauan masa nyata
+theme_xhred_global_redirecting=Mengarahkan semula
+
+# 19.05
+body_no_javascript_title=JavaScript dilumpuhkan
+body_no_javascript_message=Sila aktifkan javascript dan muat semula halaman
+theme_xhred_connection_lost=Sambungan terputus
+theme_xhred_connection_success=Sambungan berjaya
+theme_xhred_connection_success_details=Sambungan ke pelayan telah dibuat semula.
+
+# 19.08
+theme_xhred_return_home=Kembali ke indeks panel
+theme_xhred_global_upload=Muat naik
+theme_xhred_global_select_files=Pilih fail
+theme_xhred_global_file_selected=fail dipilih
+theme_xhred_global_files_selected=fail dipilih
+theme_xhred_global_reset=Tetapkan semula
+theme_xhred_upload_initial_info=Seret dan lepaskan fail di sini atau klik untuk memilih
+
+# 19.09
+theme_xhred_global_empty=Kosong
+theme_xhred_global_click_here=tekan di sini
+theme_git_patch_incompatible_message=Memasang versi $1 <em>$2</em> ini memerlukan versi $3 dan $5 yang terkini dan/atau belum dirilis untuk berfungsi dengan baik.
+theme_git_patch_incompatible_message_s=Memasang versi $1 <em>$2</em> ini memerlukan versi $3 yang terkini dan/atau belum dirilis untuk berfungsi dengan baik.
+theme_git_patch_incompatible_message_desc=Mungkin terdapat perubahan yang tidak serasi, yang boleh menghalang tema daripada berfungsi seperti yang direka. Meneruskan operasi naik taraf menggunakan UI tidak boleh dilakukan.
+
+# 19.10
+theme_xhred_filemanager_edit_html=Edit sebagai HTML
+theme_xhred_global_example=Contohnya
+theme_xhred_global_output_example=Contoh output
+theme_xhred_title_language_locale=Bahasa dan Lokasi
+theme_xhred_global_manual=Manual
+settings_navigation_always_collapse=Sentiasa runtuh
+theme_xhred_filemanager_records_per_page=Bilangan rekod lalai setiap halaman
+theme_xhred_filemanager_sorting=Jenis penyusun lalai
+theme_xhred_filemanager_sorting_asc=Menaik
+theme_xhred_filemanager_sorting_desc=Menurun
+theme_xhred_filemanager_sorting_by_name=Nama
+theme_xhred_filemanager_sorting_by_type=Jenis
+theme_xhred_filemanager_sorting_by_size=Saiz
+theme_xhred_filemanager_sorting_by_ownership=Pemilik
+theme_xhred_filemanager_sorting_by_permissions=Mod
+theme_xhred_filemanager_sorting_by_attributes=Atribut
+theme_xhred_filemanager_sorting_by_selinux=Konteks keselamatan
+theme_xhred_filemanager_sorting_by_last_mod_time=Diubah suai
+theme_xhred_filemanager_tree_view_toggle=Togol pandangan pokok
+theme_xhred_filemanager_hide_tree_view=Dayakan panel paparan pokok
+theme_xhred_filemanager_tree_view_depth=Kedalaman paparan pokok yang diekstrak pada beban awal (beban yang lebih kecil lebih cepat)
+theme_xhred_global_unlimited=Tanpa had
+theme_xhred_filemanager_tree_exclude_on_first_load=Kecualikan direktori yang tidak penting daripada melintasi beban awal untuk paparan pokok (muat lebih cepat)
+theme_xhred_filemanager_tree_expand_search=Kembangkan semua cabang yang mengandungi padanan sambil menyaring paparan pokok
+
+# 19.12
+theme_xhred_tooltip_side_slider_go_to_dashboard=Pergi ke papan pemuka
+theme_xhred_tooltip_side_slider_open_favorites_control=Buka kawalan kegemaran
+theme_xhred_tooltip_side_slider_delete_all_notification=Padamkan semua pemberitahuan
+theme_xhred_tooltip_side_slider_mark_read_all_notification=Tandakan semua pemberitahuan sebagai dibaca
+theme_xhred_global_settings=Tetapan
+theme_xhred_tooltip_side_slider_pinned=Pin/lepaskan gelangsar sisi
+
+# 19.13
+settings_sysinfo_theme_updates_for_usermin=Pasang kemas kini tema untuk Usermin juga
+theme_xhred_global_installed_version=Versi terpasang
+theme_xhred_global_installed_and_latest_version=Versi terpasang dan terkini
+theme_xhred_global_latest_stable=Stabil terkini
+theme_xhred_global_latest_beta=Beta terkini
+theme_xhred_global_firewall=Firewall
+
+# 19.14
+theme_xhred_filemanager_preparing_download=Menyiapkan muat turun. Mengarkibkan %number fail. Sila tunggu %dots
+theme_xhred_filemanager_prepared_download=Muat turun sudah siap. Fail %number diarkibkan
+theme_xhred_filemanager_canceled_download=Muat turun dibatalkan.
+
+# 19.19
+theme_xhred_filemanager_settings_force_tar_download=Perintah <code>tar</code>, walaupun <code>zip</code> tersedia, semasa memuat turun sebagai arkib
+theme_xhred_nice_size_PB=PB
+theme_xhred_nice_size_TB=TB
+theme_xhred_nice_size_GB=GB
+theme_xhred_nice_size_MB=MB
+theme_xhred_nice_size_kB=kB
+theme_xhred_nice_size_b=bait
+theme_xhred_title_locale_non_ui_config=Format tarikh pelayan dihasilkan
+
+# 19.20
+extensions_mail_current_position=Mesej $1-$2 dari $3
+extensions_mail_sort_by_sender=Isih mengikut pengirim
+extensions_mail_sort_by_recipient=Isih mengikut penerima
+extensions_mail_sort_by_date=Susun mengikut tarikh
+extensions_mail_sort_by_size=Susun mengikut saiz
+extensions_mail_sort_by_spam=Isih mengikut skor spam
+extensions_mail_sort_by_subject=Isih mengikut subjek
+extensions_mail_security_spf=Kerangka Dasar Pengirim <em>(SPF)</em>
+extensions_mail_security_dkim=DomainKeys Identified Mail <em>(DKIM)</em>
+extensions_mail_flag_important=Mesej ditandai sebagai penting
+extensions_mail_flag_attachment=Mesej mempunyai lampiran
+extensions_mail_flag_spam_score=Skor spam
+extensions_mail_flag_spam_status=Status spam
+extensions_mail_flag_spam_status_data=$1 daripada $2
+extensions_mail_flag_tls_on=Penyulitan standard (TLS)
+extensions_mail_flag_tls_off=Mel tidak disulitkan
+extensions_mail_flag_tls_none=Status penyulitan tidak diketahui
+extensions_mail_header_no_subject=(tiada subjek)
+extensions_mail_select_all=Semua
+extensions_mail_select_none=Tiada
+extensions_mail_select_invert=Balikkan
+extensions_mail_select_read=Baca
+extensions_mail_select_unread=Belum dibaca
+extensions_mail_mark_read=tanda sebagai telah dibaca
+extensions_mail_mark_unread=tanda sebagai tidak dibaca
+extensions_mail_mark_special=Tandakan sebagai istimewa
+extensions_mail_quota=$1 ($2%) dari $3 digunakan
+extensions_mail_pagination_right=Seterusnya
+extensions_mail_pagination_left=Sebelumnya
+theme_xhred_global_move=Bergerak
+theme_xhred_global_copy=Salinan
+theme_xhred_mail_more=Lebih banyak lagi
+theme_xhred_mail_copy_only=Jangan bergerak, salin sahaja
+theme_xhred_global_sort=Susun
+theme_xhred_global_search=Cari
+theme_xhred_global_delete=Padam
+theme_xhred_global_forward=Maju
+theme_xhred_global_refresh=Segarkan
+theme_xhred_mail_pagination_first=Senarai bermula dengan yang pertama
+theme_xhred_mail_pagination_last=Senarai bermula dengan yang terakhir
+theme_xhred_global_starred=Dibintangi
+theme_xhred_global_unstarred=Tidak dibintangi
+extensions_mail_header_from=dari
+extensions_mail_header_reply_to=balas kepada
+extensions_mail_header_to=ke
+extensions_mail_header_cc=cc
+extensions_mail_header_bcc=bcc
+extensions_mail_header_date=Tarikh
+extensions_mail_header_spam=spam
+extensions_mail_header_mailed_by=dihantar melalui
+extensions_mail_header_signed_by=ditandatangani oleh
+extensions_mail_header_spf=diterima-spf
+extensions_mail_header_dkim=dkim-tandatangan
+extensions_mail_header_encrypted=disulitkan
+extensions_mail_mark_spam_view_razordel=Tandai sebagai spam dan padam
+extensions_mail_mark_spam_view_razor=Tandakan sebagai spam
+extensions_mail_mark_spam_mail_black=Tandakan sebagai disenarai hitam
+extensions_mail_mark_spam_view_ham=Tandakan sebagai bukan spam
+extensions_mail_mark_spam_view_hammove=Tandai sebagai bukan spam dan pindah ke peti masuk
+extensions_mail_mark_spam_mail_white=Tandakan sebagai senarai putih
+extensions_mail_mark_spam_mail_whitemove=Tandai sebagai senarai putih dan pindah ke peti masuk
+extensions_mail_search_filter_reset=Tetapkan semula penapis urut
+extensions_mail_move_copy_only=Jangan bergerak, salin sahaja
+theme_xhred_global_total=Jumlah
+theme_xhred_global_selected=Terpilih
+theme_xhred_mail_new_message=Mesej baru
+
+theme_xhred_mail_search_simple=Tunjukkan pilihan carian
+theme_xhred_mail_search_advanced=Sembunyikan pilihan carian
+theme_xhred_mail_search_clear=Hapus hasil carian
+theme_xhred_mail_search_empty=Tiada mesej yang sepadan dengan carian anda
+theme_xhred_mail_search_search_mail=Cari surat
+theme_xhred_mail_search_from=Dari
+theme_xhred_mail_search_to=Ke
+theme_xhred_mail_search_subject=Subjek
+theme_xhred_mail_search_has_words=Mempunyai kata-kata
+theme_xhred_mail_search_doesnt_have_words=Tidak mempunyai
+theme_xhred_mail_search_with_status=Dengan status
+theme_xhred_mail_search_with_status_any=Sebarang
+theme_xhred_mail_search_with_status_unread=Belum dibaca
+theme_xhred_mail_search_with_status_read=Baca
+theme_xhred_mail_search_with_status_special=Istimewa
+theme_xhred_mail_search_search_in=Cari di
+theme_xhred_mail_search_limit_results=Hadkan hasil carian
+theme_xhred_mail_search_limit_results_yes=Ya, cari hanya melalui
+theme_xhred_mail_search_has_attach=Mempunyai lampiran
+
+theme_xhred_settings_right_theme_bgs=Latar belakang tema
+theme_xhred_settings_right_theme_bgs_title=Latar Belakang Tema
+settings_right_bgs_title=Latar belakang tema untuk halaman log masuk boleh ditetapkan di sini.
+settings_right_bg_unauthenticated_users=Latar belakang untuk pengguna yang tidak disahkan
+settings_right_theme_left_background_title=Kawalan Latar Belakang Tema
+
+theme_xhred_find_in_config_files=Cari dalam fail konfigurasi
+theme_xhred_find_in_config_files_result_found_single=Hasil $1 dijumpai dalam fail $2 seharga $3
+theme_xhred_find_in_config_files_result_found_multi=Hasil $1 dijumpai dalam fail $2 seharga $3
+theme_xhred_find_in_config_files_results_found=Hasil $1 dijumpai dalam fail $2 seharga $3
+
+theme_xhred_filemanager_context_symlink=Buat pautan simbolik baru
+theme_xhred_global_symbolic=Pautan simbolik
+theme_xhred_global_target=Sasaran
+settings_sysinfo_max_servers=Pelayan maya maksimum untuk ditunjukkan
+
+right_download_is_ready=Muat turun anda sudah siap.
+theme_xhred_download_is_being_prepared=Muat turun anda sedang disiapkan. Mungkin memerlukan sedikit masa. Sila tunggu ..
+theme_xhred_backup_is_being_prepared=Sandaran anda sedang disiapkan. Mungkin memerlukan sedikit masa. Sila tunggu ..
+
+settings_mail_ui=Dayakan UI mel baru
+
+settings_theme_config_admins_only_privileged_error=Akses ditolak: Pentadbir telah menyekat akses ke penyesuaian pengguna
+
+theme_xhred_tooltip_navigation_pinned=Sematkan/lepaskan menu navigasi
+settings_hotkey_navigation=Togol keadaan menu navigasi
+
+theme_xhred_search_in_webmin=Cari Webmin
+theme_xhred_search_in_usermin=Cari Usermin
+theme_xhred_search_in_virtualserver=Cari Virtualmin
+theme_xhred_search_in_servermanager=Cari Cloudmin
+
+theme_xhred_filemanager_context_clipboard_selection=Salin pilihan ke papan keratan
+
+settings_hotkey_slider=Togol keadaan peluncur sisi
+
+theme_git_update_locked=Kemas kini tema tidak dapat diselesaikan kerana tidak ada sambungan ke GitHub atau kelebihan had API. Untuk permintaan terakhir, tanpa pengesahan, had kadar membenarkan hingga 60 permintaan per jam. Cuba lagi kemudian atau gunakan konsol untuk melakukannya secara manual melalui skrip kemas kini.
+
+settings_collapse_navigation_link=Tunjukkan butang pin/pin
+
+settings_cache_interval=Selang untuk menjalankan pemeriksaan kemas kini
+settings_cache_interval_1h=setiap jam
+settings_cache_interval_12h=setiap 12 jam
+settings_cache_interval_1d=sehari sekali
+settings_cache_interval_7d=setiap minggu
+settings_cache_interval_14d=dua kali sebulan
+settings_cache_interval_1m=sekali sebulan
+settings_cache_interval_3m=3 bulan sekali
+settings_cache_interval_6m=dua kali setahun
+settings_cache_interval_1y=sekali setahun
+
+theme_xhred_reload_notification=Konfigurasi tema telah diubah tetapi tidak disimpan. Halaman akan dimuat semula, untuk menetapkan semula ke tetapan semasa.
+
+# 19.22
+theme_xhred_global_save_as=Simpan sebagai
+theme_xhred_editor_save_file_as=Simpan fail sebagai
+theme_xhred_global_configuration=Konfigurasi
+
+body_used_cached_total=Jumlah $1 / $3 cache / $2 digunakan
+
+# 19.30
+theme_xhred_favorites_add=Tambah ke kegemaran
+theme_xhred_favorites_remove=Alih keluar dari kegemaran
+theme_xhred_select_deselect=Pilih/nyahpilih item semasa
+theme_xhred_edit_current=Edit item semasa
+theme_xhred_search_in_file=Cari dalam fail
+left_toggle_navigation_menu=Togol keterlihatan navigasi
+theme_xhred_side_slider_toggle=Togol penglihatan slaid sisi
+right_pagination_first=Pertama
+right_pagination_last=Terakhir
+settings_leftmenu_custom_links=Penyertaan tambahan
+theme_xhred_file_editor=Penyunting Fail
+theme_xhred_mail_no_mail=Tiada surat
+theme_xhred_mail_no_new_mail=Tiada mel baru
+theme_xhred_editor_set_syntax=Tetapkan sintaks
+theme_xhred_global_menu=Menu
+theme_xhred_shell_aborted=Operasi dibatalkan
+
+# 19.32
+theme_xhred_connection_reboot=But semula
+theme_xhred_connection_reboot_details=Pelayan sedang dihidupkan semula. Sila tunggu ..
+settings_leftmenu_custom_links_description=Adalah mungkin untuk mempunyai pautan tambahan tersuai yang disuntik ke dalam menu navigasi. <br><br> Kekunci <em>tajuk</em>, <em>pautan</em> dan <em>ikon</em> diperlukan; secara pilihan, anda boleh menentukan pada mod log masuk mana pautan akan dipaparkan, dengan menentukan kunci <em>level</em>, dengan nilai, dalam senarai dipisahkan koma, mengandungi: <br><br> <em>0</em > - log masuk pentadbir; <br><em>1</em> - log masuk penjual semula;<br><em>2</em> - log masuk pemilik pelayan;<br><em>3</em> - log masuk pengguna;<br><em>4</em>- log masuk pemilik sistem.<br><br> Ia memerlukan anda menghantar objek JSON yang sah sebagai rentetan, seperti dalam contoh di bawah.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+left_favorites_edit=Edit Kegemaran
+left_favorites_edit_desc=Halaman ini dapat digunakan untuk mengedit file pengguna kegemaran tema secara manual. Ini harus dilakukan dengan berhati-hati, kerana tidak ada sintaks atau pemeriksaan kesahan lain yang akan dilakukan pada perubahan anda.
+theme_xhred_filemanager_records_for_server_pagination=Bilangan item lalai dalam direktori untuk memulakan penomboran pelayan
+
+filemanager_global_info_paginated_total1=$1 fail dan $2 direktori $3 item di halaman $4
+filemanager_global_info_paginated_total2=$1 fail dan $2 direktori $3 item di halaman $4
+filemanager_global_info_paginated_total3=$1 fail dan $2 direktori $3 item di halaman $4
+filemanager_global_info_paginated_total4=$1 fail dan $2 direktori $3 item di halaman $4
+theme_xhred_filemanager_search_follow_symlinks=Ikuti symlink
+theme_xhred_filemanager_mass_select=Pilih semua %1 item di %2 halaman?
+theme_xhred_filemanager_mass_selected=Semua %1 item dipilih dalam direktori semasa.
+theme_xhred_filemanager_mass_select_clear=Pilihan yang jelas
+theme_xhred_filemanager_mass_selected_for_delete=Semua item dalam $1 direktori
+theme_xhred_filemanager_mass_selected_no_zip=Menggunakan perintah <tt>zip</tt> tidak disokong ketika menjalankan semua item dalam direktori
+filemanager_global_search_results=Keputusan Carian
+filemanager_global_paginated_results=Berpusing
+filemanager_global_access_change_time=Akses/perubahan masa terakhir
+filemanager_global_user_group_id=Pengguna/kumpulan berangka
+theme_xhred_filemanager_global_size_in_bytes=Saiz dalam bait
+theme_xhred_global_command_completed=Perintah selesai
+theme_xhred_global_toggle_password_visibility=Togol keterlihatan kata laluan
+theme_xhred_login_passphrase=Frasa Laluan
+theme_xhred_filemanager_archive_gpg_no_keys=Kekunci tidak ada
+filemanager_archive_gpg_error=Kesalahan GPG
+filemanager_archive_move_to_archive_failed=Tidak dapat memindahkan fail ke arkib kerana kesilapan bersamaan
+theme_xhred_filemanager_archive_move_to=Pindah ke arkib
+theme_xhred_global_encrypt=Encrypt
+theme_xhred_filemanager_gpg_select_the_key=Pilih kunci
+theme_xhred_filemanager_context_extract_encrypted=Ekstrak pilihan
+theme_xhred_filemanager_extract_encrypted_password_or_passphrase=Kata laluan atau frasa laluan
+theme_xhred_filemanager_extract_encrypted_password_or_passphrase_desc=Masukkan kata laluan untuk menyahsulit fail yang dimampatkan. Masukkan frasa laluan kunci GPG anda jika ditetapkan.
+theme_xhred_global_decrypt=Dekripsi
+filemanager_archive_password_required=Kata laluan diperlukan untuk menyahsulitkan arkib
+filemanager_archive_password_wrong=Kata laluan yang diberikan tidak betul
+filemanager_archive_file_not_found=Fail tidak wujud
+filemanager_archive_gpg_private_error=Tidak ada kunci rahsia yang tersedia atau frasa laluan kunci tidak betul
+theme_xhred_filemanager_errors_extraction=Kesalahan berikut berlaku semasa mengekstrak
+theme_xhred_filemanager_extract_option_delete_afterwards=Padamkan arkib setelah pengekstrakan berjaya
+
+theme_xhred_login_passphrase_desc=Masukkan frasa laluan kunci GPG anda jika ditetapkan.
+theme_xhred_filemanager_encrypt_option_delete_afterwards=Padamkan fail setelah penyulitan berjaya
+theme_xhred_filemanager_decrypt_option_delete_afterwards=Padamkan fail setelah penyahsulitan berjaya
+theme_xhred_filemanager_encrypt_gpg_key=Menggunakan kunci
+theme_xhred_filemanager_errors_encrypt=Kesalahan berikut berlaku semasa menyulitkan
+theme_xhred_filemanager_errors_decrypt=Kesalahan berikut berlaku semasa menyahsulit
+theme_xhred_filemanager_crypt_encrypt=Fail sedang dienkripsi.
+theme_xhred_filemanager_crypt_decrypt=Fail sedang didekripsi.
+theme_xhred_filemanager_crypt_encrypted=Penyulitan fail terpilih berjaya.
+theme_xhred_filemanager_crypt_decrypted=Penyahsulitan fail yang dipilih berjaya.
+theme_xhred_filemanager_batch_error=Ini juga merangkumi hasil pemotongan dari kesalahan %1 biasa.
+
+theme_xhred_global_preview_img=Pratonton gambar
+theme_xhred_global_preview_img_sel=Pratonton gambar yang dipilih
+theme_xhred_global_preview_img_all=Pratonton semua gambar
+theme_xhred_filemanager_preview_images_building=Galeri gambar dihasilkan untuk pratonton.
+theme_xhred_filemanager_preview_images_deps_error1=Pakej <code>ImageMagick</code> perlu dipasang pada sistem anda agar ciri ini berfungsi.
+theme_xhred_filemanager_preview_images_deps_error2=Anda boleh $1 memasangnya untuk anda secara automatik.
+theme_xhred_filemanager_preview_images_error=Galeri gambar tidak dapat dihasilkan.
+global_deps_installed=Pakej $1 berjaya dipasang.
+global_deps_error=Pakej $1 tidak berjaya dipasang. Sila pasang secara manual.
+global_deps_installing=Pakej $1 sedang dipasang.
+theme_xhred_global_toggle_fullscreen=Togol skrin penuh
+theme_xhred_global_zoom_in_out=Zum masuk/keluar
+theme_xhred_global_prev_arrow_left=Sebelumnya (anak panah kiri)
+theme_xhred_global_next_arrow_right=Seterusnya (anak panah ke kanan)
+
+theme_xhred_clear_cache_initiated=Mengosongkan cache dan memuatkan semula.
+settings_document_title=Format tajuk dokumen
+settings_document_title_option_3=Modul
+settings_document_title_option_1=Modul $1 versi (jenis OS)
+settings_document_title_option_2=Modul versi $1 (jenis OS)
+settings_document_title_option_4=Versi $1 (jenis OS)
+settings_document_title_option_5=hostname - $1 versi (jenis OS) Modul
+settings_document_title_option_6=username@hostname - $1 versi (jenis OS) Modul
+settings_document_title_option_7=Modul $1
+settings_document_title_option_8=Modul nama hos
+settings_document_title_option_9=username@hostname Module
+theme_xhred_csf=ConfigServer Security & Firewall
+theme_xhred_global_version=versi
+theme_xhred_notify_patching_module_style=Menerapkan patch UI awal untuk $1 dan memuat semula.
+theme_xhred_global_error_more_details_online=Catatan: Sila baca lebih lanjut mengenai ralat ini dan cara menyelesaikannya, di halaman %1 %1wiki %1 dalam talian.
+
+# 19.33
+theme_xhred_filemanager_search_file_mask=Topeng fail
+theme_xhred_filemanager_search_regex=Ekspresi biasa
+theme_xhred_upload_successful=<span>$1 fail</span> telah berjaya dimuat ke direktori $2
+theme_xhred_upload_successful_single=<span>$1 file</span> telah berjaya dimuat naik ke $2 direktori
+settings_usermin_default_module=Modul lalai
+
+# 19.34
+theme_xhred_search_in_file_open_external=Tanggalkan fail untuk memisahkan editor
+theme_xhred_path_to_console=Buka jalan semasa di terminal <tt>(Alt + ⇧ + K)</tt>
+theme_xhred_filemanager_editor_revert_content=Kembalikan Fail
+theme_xhred_filemanager_editor_reverting_content=Menjatuhkan perubahan dan kembali ke kandungan fail asal.
+
+# 19.37
+theme_xhred_filemanager_exclude_dirs=Kecualikan penyertaan
+theme_xhred_filemanager_exclude_dirs_desc=Senarai fail atau subdirektori yang dipisahkan dengan titik koma untuk dikecualikan
+
+# 19.38
+theme_global_access_level=Tahap Akses
+theme_global_user_mode=Mod Pengguna
+
+# 19.40
+theme_xhred_global_attachments=Lampiran
+theme_xhred_mail_composer_send=Hantar
+theme_xhred_mail_composer_schedule=Jadual
+theme_xhred_mail_composer_attach=Lampirkan fail
+theme_xhred_mail_composer_toggle=Togol mod HTML/teks biasa
+theme_xhred_mail_composer_discard=Buang draf
+theme_xhred_mail_composer_server_attach=Lampirkan fail dari pelayan
+theme_xhred_mail_composer_addrecipients=Tambahkan penerima ke buku alamat
+theme_xhred_mail_composer_notifications_dsn=Minta status penghantaran
+theme_xhred_mail_composer_notifications_del=Minta resit baca
+theme_xhred_global_options=Pilihan
+theme_xhred_mail_composer_draft_saving=Penjimatan draf. ..
+theme_xhred_mail_composer_draft_saved=Draf disimpan
+theme_xhred_mail_composer_server_attach_error_read=Fail yang diminta tidak dapat dibaca atau kebenaran ditolak
+theme_xhred_mail_composer_server_attach_error_dir=Direktori tidak boleh dilampirkan
+theme_xhred_mail_composer_discarded_draft=Draf telah dibuang
+theme_xhred_global_undo=Buat asal
+
+theme_xhred_global_today=Hari ini
+theme_xhred_global_tomorrow=Esok
+theme_xhred_mail_composer_scheduled=Hantar %1 pada %2
+theme_global_core=Teras
+theme_dashboard_accordion_live_stats=Sejarah Statistik
+theme_xhred_live_stats_cpu=CPU
+theme_xhred_live_stats_mem=Ingatan
+theme_xhred_live_stats_virt=Tukar
+theme_xhred_live_stats_proc=Proses
+theme_xhred_live_stats_disk=Cakera I/O
+theme_xhred_global_hour=Jam
+theme_xhred_global_hours=Jam
+theme_xhred_title_locale_time_format=Format masa
+theme_xhred_nice_size_PIB=PiB
+theme_xhred_nice_size_TIB=TiB
+theme_xhred_nice_size_GIB=GiB
+theme_xhred_nice_size_MIB=MiB
+theme_xhred_nice_size_kIB=KiB
+theme_xhred_live_stats_net=Rangkaian I/O
+theme_xhred_nice_size_PBB=Pbps
+theme_xhred_nice_size_TBB=Tbps
+theme_xhred_nice_size_GBB=Gbps
+theme_xhred_nice_size_MBB=Mbps
+theme_xhred_nice_size_kBB=Kbps
+theme_xhred_global_rows=Baris
+
+# 19.42
+settings_side_slider_blend=Waris
+
+# 19.44
+theme_xhred_reload_lang_notification=Bahasa tema telah diubah. Halaman akan dimuat semula, untuk menerapkan tetapan baru.
+
+# 19.46
+theme_xhred_global_small=Kecil
+theme_xhred_global_normal=Biasa
+theme_xhred_global_medium=Sedang
+theme_xhred_global_large=Besar
+theme_xhred_global_huge=Besar
+theme_xhred_filemanager_editor_maximized=Maksimumkan panel editor semasa mula
+
+# 19.47
+theme_xhred_textarea_to_clipboard=Kandungan teks yang dipilih berjaya disalin ke papan keratan
+
+# 19.48
+theme_xhred_global_alias=Alias
+
+# 19.50
+theme_xhred_mail_composer_real_name=Nama sebenar
+theme_xhred_mail_composer_username=nama pengguna
+
+# 19.53
+settings_global_palette_unauthenticated=Palet warna halaman log masuk
+
+# 19.60
+settings_config_save_and_next=Simpan dan Seterusnya
+settings_config_configuration_category=Kategori konfigurasi
+config_search_options_all=Cari melalui semua pilihan konfigurasi modul
+theme_xhred_editing_config_file=Mengedit fail konfigurasi
+
+# 19.61
+theme_xhred_login_message_2fa=Pengesahan dua faktor telah diaktifkan untuk pengguna ini log masuk
+theme_xhred_global_verify=Sahkan
+settings_show_terminal_link2=Tunjukkan butang shell arahan
+settings_hotkey_shell2=Buka shell arahan
+theme_xhred_path_to_console2=Buka jalan semasa dalam shell arahan <tt>(Alt + ⇧ + K)</tt>
+theme_tooltip_terminal_link2=Cengkerang arahan
+
+# 19.70
+theme_xhred_filemanager_context_view=Pandangan
+theme_xhred_file_viewer=Pemapar Fail
+theme_xhred_global_done=Selesai.
+theme_xhred_filemanager_file_save_err=Ralat semasa menyimpan fail.
+theme_xhred_filemanager_view_head=Keluaran fail kepala
+theme_xhred_filemanager_view_head_and_reverse=Output fail kepala dan terbalik
+theme_xhred_filemanager_view_tail=Keluaran fail ekor
+theme_xhred_filemanager_view_tail_and_reverse=Ekor dan keluarkan fail terbalik
+theme_xhred_filemanager_view_head_and_tail=Keluaran fail kepala dan ekor
+
+theme_xhred_filemanager_search_info_search_dir=Cari direktori
+theme_xhred_filemanager_search_limit_user=Dimiliki oleh pengguna
+theme_xhred_filemanager_search_limit_group=Dimiliki oleh kumpulan
+theme_xhred_filemanager_search_limit_type=Jenis fail
+theme_xhred_filemanager_search_limit_size=Saiz fail
+theme_xhred_filemanager_search_limit_size_desc=cth. <2K atau >3M-<5M
+
+theme_xhred_filemanager_context_move_to_trash=Pindah ke tong sampah
+theme_xhred_filemanager_context_permanently_delete=Padam Kekal
+theme_xhred_global_remove=Keluarkan
+theme_xhred_filemanager_settings_deletion_mode=Padamkan fail dengan selamat dengan berpindah ke tong sampah
+theme_xhred_filemanager_successful_removal=Pembuangan ke sampah <tt>$1</tt> berjaya.
+theme_xhred_filemanager_removing_selected=Mengalih keluar dipilih.
+theme_xhred_filemanager_remove_warning=Pembuangan telah berjaya dilakukan tetapi tidak untuk semua objek. Ada kemungkinan objek yang diminta dapat <em>dinamakan semula</em> atau <em>dipindahkan</em> sebelum dikeluarkan. Kebenaran terhad (atribut) adalah kemungkinan penyebab lain. Mesej ralat:
+
+theme_xhred_connection_error_details_ssl=Periksa amaran <a>sijil SSL yang ditandatangani sendiri</a>
+
+# 19.71
+settings_sysinfo_hidden_panels_user=Akordeon tersembunyi
+theme_xhred_tooltip_dashboard_panels_disable=Sembunyikan panel $1 
+theme_xhred_dashboard_panels_disabled_explain=Panel tersembunyi boleh didayakan semula menggunakan <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
+settings_right_sysinfo_page_options=Papan pemuka dan pemantauan masa nyata
+settings_right_navigation_menu_options=Menu navigasi
+settings_right_notification_slider_options=Gelangsar sisi
+settings_right_table_options=Paparan meja
+settings_right_hotkey_options=Kekunci panas
+settings_right_hotkey_custom_options=Hotkeys pautan tersuai
+settings_right_soft_updates_page_options=Kemas kini tema
+settings_global_general_options_title=Lalai umum
+theme_error_access_not_root_user=Akses ditolak: Pengguna tidak berhak untuk mengedit bahagian ini
+settings_theme_config_admins_only_privileged=Larang akses ke konfigurasi tema untuk pengguna
+settings_theme_config_admins_only_privileged_description=Pilihan ini, jika ditegakkan oleh pentadbir pelayan, akan menyembunyikan halaman konfigurasi tema dari pengguna biasa dan tidak berhak. Namun, opsi ini tidak disarankan untuk digunakan, karena pengguna biasa sudah memiliki akses terbatas ke konfigurasi tema, dan hanya dapat mengubah sekumpulan minimum pilihan khusus pengguna
+
+# 19.72
+theme_xhred_global_prefs=Keutamaan
+mconfig_eaccess=Modul ini tidak dapat diakses
+mconfig_ecannot=Tidak terdapat fail konfigurasi tersuai untuk modul ini
+theme_xhred_filemanager_mconfig_columns_selinux_disabled=Ciri ini memerlukan <tt>SELinux</tt> dipasang dan diaktifkan
+theme_xhred_filemanager_mconfig_columns_acls_disabled=Fungsi ini memerlukan sistem fail dipasang dengan <tt>ACLs</tt> dihidupkan dan perintah <kbd>getfacl</kbd> mesti ada
+theme_xhred_global_module_preferences=Keutamaan modul
+
+# 19.74
+theme_xhred_theme_update_available=Versi baru Tema Autentik dipasang
+settings_right_page_keep=Muatkan halaman yang sama pada pertukaran domain
+settings_right_page_keep_description=Pilihan ini akan cuba memuatkan halaman yang sama setelah pilih domain, apabila diubah dari daftar turun menu navigasi
+
+# 19.76
+theme_xhred_global_show_all=Tunjukkan semua
+theme_xhred_filemanager_context_prop_show_all=Tunjukkan semua harta tanah
+
+# 19.84
+settings_right_table_links_type=Jenis paparan pautan jadual
+settings_right_table_links_type_2=Ikon besar dengan teks
+settings_right_table_links_type_1=Ikon kecil dengan teks petua alat
+settings_right_table_links_type_0=Tiada ikon, hanya pautan teks
+settings_right_table_animate_icons=Tunjukkan animasi on-hover untuk pautan ikon jadual
+settings_right_table_grayscaled_icons=Tunjukkan pautan ikon jadual dalam skala kelabu kecuali dituding
+theme_xhred_upload_initial_info_dir=Seret dan lepaskan direktori di sini atau klik untuk memilih
+theme_xhred_upload_one_dir_with=1 direktori dengan
+theme_xhred_upload_err_dir_mode=Ralat: Cuba untuk menambah fail dengan muat naik direktori didayakan
+theme_xhred_upload_err_files_mode=Ralat: Cuba untuk menambah direktori dalam mod muat naik fail sahaja
+theme_xhred_filemanager_context_empty_trash=Tong sampah kosong
+theme_xhred_filemanager_empty_trash_button=Bersihkan semua fail dalam sampah
+theme_xhred_filemanager_emptying_trash_selected=Mengosongkan sampah.
+theme_xhred_filemanager_successful_emptying_trash=Mengosongkan direktori <tt>$1</tt> telah berjaya.
+theme_xhred_notifications_motd=Nota Pentadbir
+theme_xhred_notifications_motd2=Mesej Pentadbir
+theme_xhred_notifications_motd_says=$1 berkata
+theme_xhred_tooltip_side_slider_notifications_motd_add=Siarkan mesej kepada pengguna lain pada sistem
+theme_xhred_modal_motd_title=Menyiarkan mesej sistem
+theme_xhred_modal_motd_desc=Antara muka ini boleh digunakan untuk menyiarkan mesej kepada pengguna lain pada sistem
+theme_xhred_global_message=Mesej
+theme_xhred_modal_motd_select_all=Semua pengguna
+theme_xhred_modal_motd_select_adm=Guru pentadbir
+theme_xhred_modal_motd_select_res=Penjual semula
+theme_xhred_modal_motd_select_vm=Pemilik pelayan
+theme_xhred_modal_motd_select_cm=Pemilik mesin
+theme_xhred_modal_motd_select_um=Pengguna mel
+theme_xhred_modal_motd_btn_add=Tambah mesej baharu
+theme_xhred_modal_motd_btn_save=Simpan dan siarkan set mesej semasa
+theme_xhred_modal_motd_btn_rm=Alih keluar mesej semasa
+theme_xhred_global_hide=Sembunyi
+body_cputemp=suhu CPU
+theme_global_fan=Lebih sejuk
+body_cpufans=Peminat CPU
+body_cpufan_rpm=RPM
+body_cpufan=kipas CPU
+filemanager_symlink_exists=Tidak boleh mencipta <tt>$1</tt> kerana fail sudah wujud dalam <tt>$2</tt>
+
+# 19.85
+theme_xhred_tooltip_side_slider_clipboard_sysinfo=Salin maklumat sistem asas ke papan keratan; tahan $1 kekunci untuk menyalin dilanjutkan; tahan kekunci $2 untuk menyalin data teks biasa dan bukannya turunkan
+theme_xhred_tooltip_side_slider_clipboard_account=Salin semua maklumat akaun ke papan keratan; tahan kekunci $1 untuk menyalin data teks biasa dan bukannya penurunan harga
+tooltip_back_to_servers_index_master=Modul indeks pelayan webmin pada mesin induk
+tooltip_list_other_servers=Senarai pelayan Webmin berdaftar lain
+theme_xhred_status_module_mon_up=Naik
+theme_xhred_status_module_mon_down=Bawah
+theme_xhred_status_module_mon_webmin=Webmin tidak berfungsi
+theme_xhred_status_module_mon_timed=Tamat masa
+theme_xhred_status_module_mon_not=Tidak dipasang
+theme_xhred_status_module_mon_skip=Dilangkau
+theme_xhred_status_module_mon_quest=Tidak tersedia
+theme_xhred_webminlog_module_no_command_escapes=Togol garis miring ke belakang untuk arahan yang dilaksanakan
+settings_navigation_auto_fold_category=Autolipat kategori tidak aktif
+theme_xhred_tooltip_virtualmin_templates_filter_generating=Menjana senarai pilihan yang boleh dicari untuk templat
+theme_xhred_tooltip_virtualmin_templates_filter=Cari di seluruh semua pilihan templat
+theme_xhred_sysinfo_vmforum=Komuniti Virtualmin
+theme_xhred_tooltip_support_ticket=Serahkan tiket sokongan dengan maklumat sistem yang dilampirkan; tahan kekunci $1 untuk menyalin pautan sokongan ke papan keratan
+theme_xhred_tooltip_side_slider_refresh_sysinfo=Paksa untuk memuat semula maklumat sistem
+theme_xhred_disk_quota_error_title=Habis kuota
+theme_xhred_disk_quota_error_message=Tiada lagi ruang di dalam peranti
+theme_xhred_filemanager_decrypt_option_use_master_admin_keys=Gunakan kunci pentadbir induk untuk penyahsulitan
+
+# 19.90
+settings_hotkey_toggle_hold_modifier=Pegang kekunci pengubah suai
+
+# 19.91
+theme_xhred_filemanager_files_mode_ask=Selalu bertanya
+theme_xhred_filemanager_files_mode_ask_remember=Ingat sebagai lalai masa hadapan
+theme_xhred_filemanager_files_mode_ask_title=Tulis ganti yang sedia ada
+theme_xhred_filemanager_files_mode_ask_title2=Tulis ganti fail sedia ada
+theme_xhred_filemanager_files_mode_ask_desc=Adakah anda mahu menulis ganti mana-mana fail sedia ada pada operasi seterusnya
+theme_xhred_filemanager_files_mode_ask_title_yes=Ya, tulis ganti
+theme_xhred_filemanager_files_mode_ask_title_no=Tidak, kekalkan wujud
+theme_xhred_filemanager_trash_empty_curr_user_single=Kosongkan direktori sampah
+theme_xhred_filemanager_trash_empty_curr_user=Kosongkan direktori sampah pengguna semasa
+theme_xhred_filemanager_trash_empty_all_users=Kosongkan semua direktori sampah pengguna lain
+theme_xhred_filemanager_purge_trash_curr_start=Membersihkan $1 direktori.
+theme_xhred_filemanager_purge_trash_all_start=Membersihkan semua direktori sampah pengguna lain.
+theme_xhred_filemanager_purge_trash_curr_end=Berjaya membersihkan $1 direktori.
+theme_xhred_filemanager_purge_trash_all_end=Berjaya membersihkan semua direktori sampah pengguna lain.
+theme_error_access_dir_not_allowed=Akses dinafikan: Fail tidak boleh diakses
+
+# 19.95
+theme_xhred_global_outdated_desc=Versi $1 yang dipasang sudah lapuk. Versi terkini yang tersedia ialah $2. Sila tingkatkan atau klik untuk mendapatkan butiran lanjut tentang keluaran terbaru.
+theme_xhred_global_outdated_desc2=Versi $1 yang dipasang sudah lapuk. Versi terkini yang tersedia ialah $2.
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_pc=Tahan kekunci <tt>Ctrl</tt> ditekan semasa pemilihan
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_mac=Tahan kekunci <tt>Arahan</tt> ditekan semasa pemilihan
+
+# 19.97
+theme_xhred_webmin_requires_restart=Ia dikesan bahawa daemon pelayan web Webmin tidak dimulakan semula dengan betul pada peningkatan pakej terakhir. Ini adalah perlu untuk memulakan semula pelayan web secara manual dengan memanggil perintah <tt>$1</tt>.
+theme_xhred_webmin_requires_restart_yes=Ya, cuba mulakan semula
+theme_xhred_webmin_requires_restart_no=Tidak, saya akan memulakan semula secara manual
+
+# 19.99
+theme_xhred_filemanager_path_manual=Masukkan laluan secara manual (Ctrl + L)
+
+# 20.02
+theme_xhred_socket_conn_lost_title=Sambungan terputus
+theme_xhred_socket_conn_lost_reconnect=Sambung semula
+theme_xhred_socket_conn_lost_connecting=Menyambung ..
+theme_xhred_socket_conn_lost_try=Cuba lagi
+theme_xhred_socket_conn_parse_error=Gagal memuatkan terminal : Tidak dapat menghuraikan objek tindak balas daripada pelayan
+theme_xhred_socket_conn_sock_error=Gagal memuatkan terminal : Ralat sambungan WebSocket
+
+# 20.10
+theme_xhred_global_open=Buka
+theme_xhred_xterm_error_title=Tidak boleh disambungkan
+theme_xhred_xterm_error=Pergi ke modul Terminal untuk butiran lanjut
+
+# 20.11
+theme_xhred_global_error_fatal=Ralat Maut
+
+# 20.20
+theme_xhred_global_automatic=Automatik
+theme_xhred_filemanager_context_acls=Tukar senarai kawalan akses
+theme_xhred_filemanager_changing_acls=Menukar senarai kawalan akses.
+theme_xhred_filemanager_successful_acls_with_errors=Senarai kawalan akses tidak berjaya ditukar untuk semua objek:
+theme_xhred_filemanager_successful_acls=Senarai kawalan akses telah berjaya ditukar.
+theme_download_error=Ralat memuat turun fail kerana ia berada di luar direktori yang dibenarkan  : $1 
+
+# 20.30
+theme_xhred_hotkeys_help=Bantuan (F1)
+theme_xhred_hotkeys_help_title=Pintasan Papan Kekunci
+theme_xhred_hotkeys_help_title_docs=Dokumentasi
+theme_xhred_hotkeys_help_title_global=Tema
+theme_xhred_hotkeys_help_title_module=Pintasan Khusus Modul
+theme_xhred_hotkeys_help_title_fm=Pengurus Fail
+theme_xhred_hotkeys_help_title_edit=Editor
+theme_xhred_global_community=Komuniti
+theme_xhred_hotkeys_server_error=Tidak boleh mendapatkan semula fail bantuan
+theme_xhred_hotkeys_custom_to_opens=dibuka
+theme_xhred_hotkeys_custom_not_set=tidak ditetapkan
+theme_xhred_hotkey_open_module_config_privileged=Buka konfigurasi modul
+theme_xhred_hotkey_open_theme_config=Buka konfigurasi tema
+theme_xhred_hotkey_list_table=Senaraikan jadual bernombor
+theme_xhred_hotkey_list_tabs=Senaraikan tab
+theme_xhred_hotkey_clear_cache=Kosongkan cache dan muat semula
+theme_xhred_hotkey_open_new=Salin ke tab baharu
+theme_xhred_hotkey_copy_to_clipboard=Salin data elemen ke papan keratan
+theme_xhred_hotkey_copy_to_clipboard_click=klik kiri
+theme_xhred_hotkey_print_title=Kekunci panas webmin dengan Tema Tulen
+theme_xhred_global_success=Kejayaan
+theme_xhred_search_content=Cari kandungan
+theme_xhred_global_disabled=Dilumpuhkan
+theme_xhred_connection_reset_title=Tetapan semula sambungan
+theme_xhred_connection_reset_message=Tidak dapat mewujudkan sambungan ke pelayan jauh
+right_file_is_being_prepared=Fail anda sedang disediakan. Sila tunggu..
+
+theme_xhred_global_paragraph=Perenggan
+theme_xhred_global_heading=Tajuk
+theme_xhred_editor_tb_font=Nama fon
+theme_xhred_editor_tb_font_fixed_width=Lebar Tetap
+theme_xhred_editor_tb_size=Saiz huruf
+theme_xhred_editor_tb_paragraph=Gaya perenggan
+theme_xhred_editor_tb_header=Gaya perenggan
+theme_xhred_editor_tb_bold=Tebal (%cmd+B)
+theme_xhred_editor_tb_italic=Italic (%cmd+I)
+theme_xhred_editor_tb_underline=Garis bawah (%cmd+U)
+theme_xhred_editor_tb_color=Warna teks
+theme_xhred_editor_tb_background=Latar belakang teks
+theme_xhred_editor_tb_align=Selaraskan
+theme_xhred_editor_tb_list_ordered=Senarai bernombor (%cmd+Shift+7)
+theme_xhred_editor_tb_list_bullet=Senarai bertitik tumpu mata (%cmd+Shift+8)
+theme_xhred_editor_tb_strike=Strikethrough
+theme_xhred_editor_tb_blockquote=Petikan (%cmd+Shift+9)
+theme_xhred_editor_tb_link=Sisipkan pautan (%cmd+K)
+theme_xhred_editor_tb_image=Sisipkan imej sebaris
+theme_xhred_editor_tb_clean=Alih keluar pemformatan
+theme_xhred_editor_tb_script_super=Superskrip
+theme_xhred_editor_tb_script_sub=Subskrip
+theme_xhred_editor_tb_indent_+1=Tingkatkan inden
+theme_xhred_editor_tb_indent_-1=Kurangkan inden
+theme_xhred_editor_tb_code=Blok kod
+theme_xhred_editor_tb_code-block=Blok kod
+theme_xhred_editor_tb_direction=Arah teks
+
+settings_right_table_layout_control=Tunjukkan kawalan susun atur kandungan
+theme_xhred_tooltip_columns_layout=Kawalan susun atur kandungan
+theme_xhred_columns_layout_title=Susun atur kandungan
+theme_xhred_columns_layout_variation=Variasi reka letak
+theme_xhred_global_vertical=Menegak
+theme_xhred_global_horizontal=Mendatar
+theme_xhred_columns_layout_vertical_opts=Pilihan susun atur menegak
+theme_xhred_columns_layout_vertical_opts_max_columns=Lajur maksimum
+theme_xhred_columns_layout_vertical_opts_max_width=Lebar lajur minimum
+theme_xhred_columns_layout_vertical_opts_break_title=Tindakan limpahan lajur
+theme_xhred_columns_layout_vertical_opts_break_new=Rehat
+theme_xhred_columns_layout_vertical_opts_break_scroll=Tatal
+theme_xhred_columns_layout_remove=Sembunyikan Widget Ini
+theme_xhred_columns_layout_remove_button=Simpan dan Sembunyikan
+theme_xhred_columns_layout_variation_cannot_horizontal=Reka letak mendatar tidak boleh digunakan dalam mod mudah alih, khususnya apabila lebar skrin kurang daripada 992px
+
+settings_auto_open_panels_on_proximity=Auto buka panel tertutup pada jarak dekat
+
+theme_xhred_config_portable_module_xterm_render_addon=Dayakan tambahan pemaparan WebGL
+
+# 21.09.04
+theme_xhred_datatable_filter_and_export=Tapis dan eksport kandungan
+
+# 21.10
+settings_hotkey_logout_dbl=Log keluar
+theme_xhred_hotkey_emsg=Kekunci sengkang ke belakang tidak boleh digunakan sebagai kekunci pintas
+settings_embed_product_splash_privileged=Paparkan skrin percikan penjenamaan selepas log masuk
+dashboard_status_running=Berlari
+dashboard_status_stopped=Berhenti
+
+# 21.11
+theme_xhred_global_watching=Menonton
+theme_xhred_global_connected=Bersambung
+theme_xhred_global_disconnected=Terputus sambungan
+theme_xhred_global_connecting=Menyambung
+index_mods_missing=Modul Perl <tt>$1</tt> tiada.
+index_noadmin_eaccess=Akses ditolak kepada pentadbir bukan induk!
+theme_xhred_body_os=Sistem operasi
+theme_xhred_theme_version=Versi tema tulen
+
+theme_xhred_body_updates=Kemas kini pakej
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Tukar tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Muat naik berjaya
+theme_xhred_filemanager_upload_status_err=Muatnaik gagal:
+theme_xhred_filemanager_download_status_err=Muat turun gagal:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Baca
+theme_xhred_dashboard_chart_disk_write=tulis
+theme_xhred_dashboard_chart_net_read=Dalam
+theme_xhred_dashboard_chart_net_write=keluar
+theme_xhred_tooltip_dashboard_live_stats_offline=Statistik langsung tidak tersedia apabila sistem diakses dalam mod proksi; hanya statistik yang dikumpul sebelum ini akan dipaparkan, dan hanya jika tersedia, dan halaman perlu dimuat semula untuk mengemas kini statistik ini
+settings_sysinfo_real_time_status_history1=Ya, dan menyimpan statistik untuk
+settings_sysinfo_real_time_status_history2=Ya, tanpa menyimpan statistik
+settings_sysinfo_real_time_status_history_duration1=20 minit
+settings_sysinfo_real_time_status_history_duration2=1 jam
+settings_sysinfo_real_time_status_history_duration3=3 jam
+settings_sysinfo_real_time_status_history_duration4=6 jam
+settings_sysinfo_real_time_status_history_duration5=12 jam
+settings_sysinfo_real_time_status_history_duration6=18 jam
+settings_sysinfo_real_time_status_history_duration7=24 jam
+theme_xhred_license_purchase=Beli lesen
+settings_right_table_links_sorted=Isih pautan jadual dalam susunan abjad
+
+# 24.00
+session_error=ralat
+session_success=Kejayaan
+session_cannot=Gagal menetapkan semula kata laluan : Nama pengguna tiada.
+session_neterror=Tidak boleh mendapat respons daripada rangkaian!
+session_unkerror=Ralat yang tidak dijangka berlaku. Cuba lagi nanti.
+session_conerror=Gagal mencapai pelayan. Cuba lagi nanti.
+session_resetpass1=Kata laluan baharu
+session_resetpass2=Sahkan kata laluan baharu
+session_resetepassreq=Kata laluan diperlukan.
+session_pwdconf=Pengesahan kata laluan diperlukan.
+session_pwdmatch=Kata laluan tidak sepadan.
+session_noid=ID Pemulihan tidak ditemui!
+session_pwdsucc=Kata laluan berjaya ditukar! Anda kini boleh log masuk dengan kata laluan baharu.

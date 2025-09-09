@@ -1,0 +1,1439 @@
+body_cp=CPU
+body_cpu=Priemer zaťaženia procesora
+body_cpuinfo=Informácie o procesore
+body_cputemps=Teplota procesora
+body_cputype=$5, $8 jadier
+body_cputype1=$5, $8 jadro
+body_disk=Miesto na disku
+body_driveerr=$1 chyby!
+body_drivefailed=SMART kontrola zlyhala!
+body_drivetemps=Jazdné teploty
+body_firewall=Verzia brány firewall
+body_header0=Systémové informácie
+body_header1=Informácie o účte
+body_host=Názov hostiteľa systému
+body_kernel=Jadro a CPU
+body_kernelon=$1 $2 za $3
+body_load=$1 (1 min.) $2 (5 minút) $3 (15 minút)
+body_os=Operačný systém
+body_procs=Bežné procesy
+body_real=Skutočná pamäť
+body_time=Čas v systéme
+body_updates=Aktualizácie balíkov
+body_updays=$1 dni, $2 hodiny, $3 minúty
+body_uphours=$1 hodiny, $2 minúty
+body_upmins=1 minúta
+body_upneed=K dispozícii sú aktualizácie balíka $1
+body_upneed1=K dispozícii je aktualizácia balíka $1
+body_upok=Všetky nainštalované balíčky sú aktuálne
+body_upsec=K dispozícii sú aktualizácie balíkov $1, z ktorých $2 sú aktualizácie zabezpečenia
+body_upsec1=K dispozícii sú aktualizácie balíka $1, z ktorých $2 je aktualizácia zabezpečenia
+body_upsec2=K dispozícii je aktualizácia balíka $1, z čoho $2 sú aktualizácie zabezpečenia
+body_upsec3=K dispozícii je aktualizácia balíka $1, z čoho $2 je aktualizácia zabezpečenia
+body_uptime=Prevádzková doba systému
+body_used=Celkovo sa použil $1 / $2
+body_used_and_free=Spolu $1 / $2 zadarmo / $3
+body_usermin=Usermin verzia
+body_virt=Virtuálna pamäť
+body_webmin=Webmin verzia
+
+left_favorites=Obľúbené
+left_favorites_no=Zatiaľ neboli pridané žiadne obľúbené. ..
+left_feedback=Poslať spätnú väzbu
+theme_xhred_global_sys_info=Systémové informácie
+left_others=iní
+left_refresh_modules=Obnovte moduly
+left_search=Vyhľadávanie
+left_statistics=Štatistika systému
+
+login_danger=Nebezpečenstvo!
+login_message=Ak sa chcete prihlásiť na server, musíte zadať používateľské meno a heslo
+lost_message=Ak máte nastavený e-mail na obnovenie hesla, môžete použiť tento formulár na odoslanie odkazu na obnovenie hesla
+reset_message=Chystáte sa obnoviť heslo pre používateľa <tt>$1</tt> dňa
+theme_xhred_login_pass=heslo
+login_save=Pamätáš si ma
+login_recover=Žiadosť o obnovenie hesla
+login_back=Späť
+login_signin=Prihlásiť sa
+login_success=Úspech!
+theme_xhred_login_token=žetón
+theme_xhred_login_user=užívateľské meno
+login_warning=Výstraha!
+
+right_aliases=Servery Alias
+right_bw=Využitie pásma a limit
+right_dom=Názov servera
+right_faliases=Poštové aliasy
+right_fdbs=databázy
+right_fdoms=Virtuálne servery
+right_from=Prihlásený / -á z účtu
+right_fusers2=Používatelia FTP
+right_fusers=Používatelia pošty/FTP
+right_fvm2=Virtuálne stroje
+right_fweb=Virtuálne webové stránky
+right_licenceheader_vm2=Licencie Cloudmin
+right_login=prihlásený ako
+right_not=Nie je nainštalované
+right_of=$1 z $2
+right_quota=Využitie disku a kvóta
+right_reselip=(Predajca $1)
+right_sharedip=(Shared IP)
+right_slcheck=Znovu skontrolujte licenciu Cloudmin
+right_subs=Sub-servery
+right_virtdocs2=Dodatočná dokumentácia
+right_virtualmin=Virtualmin verzia
+right_vlcheck=Znova skontrolujte licenciu Virtualmin
+right_vm2=Cloudmin verzia
+
+theme_xhred_session_failed=Prihlásenie zlyhalo. Prosím skúste znova.
+session_logout=Odhlásenie bol úspešný. Použite nasledujúci formulár na opätovné prihlásenie.
+session_timed_out=Časový limit relácie vypršal po $1 minútach nečinnosti.
+session_twofailed=Dvojfaktorové overenie zlyhalo: $1
+
+settings_right_options=možnosti
+settings_right_restore_defaults=Obnoviť predvolené nastavenia
+settings_right_restored=obnovená
+settings_right_restoring=obnovenie
+settings_right_saved=uložené
+settings_right_saving=ukladanie
+
+settings_right_theme_extensions=Rozšírenia motívov
+settings_right_theme_extensions_title=Rozšírenia motívov
+settings_right_file_edit=Upraviť súbor rozšírenia:
+settings_right_extensions_title=Téma rozsiahly dizajn, umožňuje ľahkú manipuláciu s cieľovými časťami rozhrania.
+
+theme_xhred_settings_right_theme_logos=Logá motívov
+theme_xhred_settings_right_theme_logos_title=Logá motívov
+settings_right_logos_title=Logá tém sa tu dajú jednoducho nastaviť pre overených aj neoverených používateľov. Odporúčaná veľkosť loga je <em>180 x 90</em> pixelov.
+settings_right_logo_authenticated_users=Logo pre overených používateľov
+settings_right_logo_unauthenticated_users=Logo pre neregistrovaných používateľov
+settings_right_logos_error=Nahraný súbor nie je obrázok
+
+settings_right_current_theme=Aktuálna téma
+settings_right_title=Táto stránka vám umožňuje konfigurovať možnosti pre <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">autentickú tému</a>. Nastavenia sa uložia po aktualizácii témy.
+settings_right_theme_left_configuration_title=Konfigurácia motívu
+settings_right_theme_left_extensions_title=Editor rozšírení motívov
+settings_right_theme_left_logo_title=Ovládanie loga témy
+settings_right_theme_configurable_options_title=Konfigurovateľné možnosti pre autentickú tému
+
+settings_right_hotkey_custom_options_description=Vlastné odkazy vám umožňujú používať číslice od <code>1</code> do <code>9</code> na rýchly prístup k akejkoľvek platnej <code>URL na paneli.</code> <code>URL</code> kód> možno extrahovať z aktuálne otvorenej stránky. Ak chcete napríklad rýchlo prepnúť na modul Apache, nastavte <code>apache</code> na pole <code>Vlastný odkaz 1</code>. Ak je predvolený modifikačný kláves nastavený na <code>Alt</code>, kliknutím na <code>Alt + 1</code> sa vám otvorí modul Apache.
+settings_hotkey_custom_1_user=Vlastný odkaz <code>1</code>
+settings_hotkey_custom_2_user=Vlastný odkaz <code>2</code>
+settings_hotkey_custom_3_user=Vlastný odkaz <code>3</code>
+settings_hotkey_custom_4_user=Vlastný odkaz <code>4</code>
+settings_hotkey_custom_5_user=Vlastný odkaz <code>5</code>
+settings_hotkey_custom_6_user=Vlastný odkaz <code>6</code>
+settings_hotkey_custom_7_user=Vlastný odkaz <code>7</code>
+settings_hotkey_custom_8_user=Vlastný odkaz <code>8</code>
+settings_hotkey_custom_9_user=Vlastný odkaz <code>9</code>
+
+settings_navigation_color=Farebná paleta
+settings_loader_top=Povoľte v hornej časti obrazovky zavádzač priebehu stránky
+settings_loader_left=Povoliť rozmetávač pre navigačné menu
+settings_right_reload=Načítať predvolenú stránku pri prepínaní kariet
+
+settings_leftmenu_section_hide_refresh_modules=Skryť odkaz na obnovovacie moduly
+settings_leftmenu_section_hide_unused_modules=Skryť nepoužívané moduly
+settings_favorites=Tlačidlo Zobraziť obľúbené položky
+settings_leftmenu_button_language=Tlačidlo Zobraziť jazyk
+settings_leftmenu_button_refresh=Zobraziť tlačidlo obnovenia
+
+settings_theme_options_button=Tlačidlo Zobraziť nastavenie témy
+
+settings_hotkeys_active=Povoliť
+settings_hotkey_toggle_modifier=Modifikačný kľúč
+settings_hotkey_toggle_key_webmin=Načítať menu Webmin
+settings_hotkey_toggle_key_virtualmin=Načítať ponuku Virtualmin
+settings_hotkey_toggle_key_cloudmin=Načítať ponuku Cloudmin
+settings_hotkey_toggle_key_usermin=Načítať ponuku Usermin
+settings_hotkey_toggle_key_webmail=Ponuka Načítať poštu
+settings_hotkey_sysinfo=Otvorte palubnú dosku
+settings_hotkey_shell=Otvorte rozbaľovací terminál
+settings_hotkey_favorites=Otvoriť obľúbené položky
+settings_hotkey_focus_search=Zamerajte sa na vyhľadávacie pole
+settings_hotkey_reload=Obnoviť aktuálnu stránku
+
+settings_sysinfo_easypie_charts=Zobraziť grafy
+settings_sysinfo_theme_updates=Skontrolujte aktualizácie autentických tém
+settings_sysinfo_drive_status_on_new_line=Zobraziť stav CPU a jednotiek každý na novom riadku
+settings_sysinfo_link_mini=Zobraziť odkaz na ovládacom paneli ako tlačidlo
+
+settings_right_page_defaults_title=Predvolené stránky
+settings_right_default_tab_webmin=Predvolená karta po prihlásení do služby Webmin
+settings_right_default_tab_usermin=Predvolená karta po prihlásení do služby Usermin
+settings_right_virtualmin_default=Predvolená stránka pre Virtualmin
+settings_right_cloudmin_default=Predvolená stránka pre Cloudmin
+
+settings_right_clear_local_cache=Vymazať vyrovnávaciu pamäť
+settings_side_slider_fixed=Udržujte vždy viditeľné
+settings_hotkey_toggle_slider=Prepnúť viditeľnosť bočného posúvača
+
+settings_side_slider_enabled=Povoliť posúvač
+settings_leftmenu_user_html=Zobraziť útržok HTML
+
+theme_changelog=changelog
+theme_conference=Tematická konferencia
+theme_development_support=Podpora rozvoja
+theme_donate=darovať
+theme_download=Stiahnuť ▼
+theme_name=Autentická téma
+theme_update=aktualizovať
+theme_update_available=Najnovšie dostupné vydanie
+theme_update_notice=Oznámenie o aktualizácii
+theme_version=Autentická verzia témy
+
+# 17.40
+theme_xhred_global_error=Chyba
+theme_global_warning=Výstraha
+theme_global_success=Úspech
+theme_global_info=informácie
+sysinfo_system_status_warning=Ak chcete zobraziť <strong>System Information</strong>, budete musieť v používateľských nastaveniach povoliť modul <em>System Status</em>.
+settings_leftmenu_user_html_privileged=Zobraziť útržok HTML iba pre správcov
+theme_xhred_sysinfo_wmdocs=Dokumentácia Webmin
+theme_xhred_sysinfo_vmdocs=Dokumentácia Virtualmin
+theme_xhred_sysinfo_cmdocs=Dokumentácia Cloudmin
+theme_fileformat_css=CSS
+theme_fileformat_json=JSON
+theme_fileformat_js=JavaScript
+theme_fileformat_plain_text=Obyčajný text
+
+theme_xhred_titles_wm=Webmin
+theme_xhred_titles_um=Usermin
+theme_xhred_titles_dashboard=prístrojová doska
+theme_xhred_titles_mail=pošta
+theme_xhred_titles_vm=Virtualmin
+theme_xhred_titles_cm=Cloudmin
+theme_xhred_titles_thirdlane=Thirdlane
+
+theme_xhred_global_please_wait=Prosím čakajte. ..
+theme_xhred_filemanager_copying_selected=Vybraté kopírovanie.
+theme_xhred_filemanager_cutting_selected=Rezanie vybrané.
+theme_xhred_filemanager_pasting_selected=Vkladanie zo schránky.
+theme_xhred_filemanager_unpacking_archive=Rozbalenie vybraných súborov.
+theme_xhred_filemanager_deleting_selected=Vymazanie vybraté.
+theme_xhred_filemanager_renaming_selected=Premenovanie bolo vybrané.
+theme_xhred_filemanager_creating_directory=Vytvára sa adresár
+theme_xhred_filemanager_creating_file=Vytvára sa súbor
+theme_xhred_filemanager_downloading_from=Sťahovanie z
+theme_xhred_filemanager_setting_permissions=Nastavenie povolení na <tt>%value</tt> pre vybraté súbory.
+theme_xhred_filemanager_changing_ownership=Prebieha zmena vlastníctva na <tt>%value</tt> vybratých súborov.
+theme_xhred_filemanager_compressing_selected=Kompresia vybraná na pozadí.
+theme_xhred_filemanager_refreshing=Obnovuje sa obsah adresára.
+theme_xhred_filemanager_copying_successful=Kopírovanie do schránky bolo úspešné.
+theme_xhred_filemanager_cutting_successful=Strih do schránky bol úspešný.
+theme_xhred_filemanager_pasting_successful=Prilepiť zo schránky bolo úspešné.
+theme_xhred_filemanager_bookmark_success=Adresár <tt>%value</tt> bol úspešne pridaný do vašich záložiek.
+theme_xhred_filemanager_searching=Hľadanie <tt>%value</tt> zodpovedajúcich názvov súborov /directories.
+theme_xhred_filemanager_search_founds=Nájdené zhody s <strong>%value</strong>.
+theme_xhred_filemanager_search_found=Nájdená <silná>1</strong> zhoda.
+theme_xhred_filemanager_search_no_matches=Žiadne zhody nenájdené.
+theme_xhred_filemanager_nothing_is_selected=Nič nie je vybrané!
+theme_xhred_filemanager_saving_file=Súbor <tt>%value</tt> sa ukladá.
+theme_xhred_filemanager_file_saved=Súbor <tt>%value</tt> bol úspešne uložený.
+theme_xhred_filemanager_not_editable=Tento typ výberu nie je možné upraviť.
+theme_xhred_filemanager_not_decompressable=Tento typ súboru nie je možné dekomprimovať.
+theme_xhred_filemanager_no_selection_to_copy=Na kopírovanie neboli vybrané žiadne adresáre/súbory.
+theme_xhred_filemanager_no_selection_to_cut=Neboli vybraté žiadne adresáre/súbory, ktoré sa majú orezať.
+theme_xhred_filemanager_empty_clipboard=Schránka je prázdna.
+
+theme_xhred_filemanager_successful_extraction=Extrakcia vybratého súboru bola úspešná.
+theme_xhred_filemanager_successful_deletion=Odstránenie bolo úspešné.
+theme_xhred_filemanager_successful_permissions=Povolenia boli úspešne zmenené.
+theme_xhred_filemanager_successful_ownership=Vlastníctvo bolo úspešne zmenené.
+theme_xhred_filemanager_successful_compression=Kompresia bola úspešne dokončená.
+theme_xhred_filemanager_successful_directory_creation=Adresár <tt>%value</tt> bol úspešne vytvorený.
+theme_xhred_filemanager_successful_file_creation=Súbor <tt>%value</tt> bol úspešne vytvorený.
+
+theme_xhred_notifications_packages_updates=Aktualizácia balíkov
+theme_xhred_notifications_theme_update=Aktualizácia témy
+theme_xhred_notifications_theme_update_message=K dispozícii je nová verzia <strong>Authentic Theme</strong> <em>%v</em>. Aktualizujte prosím.
+theme_xhred_notifications_firewall_update=Aktualizácia brány firewall
+theme_xhred_notifications_firewall_update_message=A new version <em>%v</em> of <strong>ConfigServer Server Security and Firewall</strong> is available. Please update.
+
+theme_xhred_notifications_firewall_danger=Nebezpečenstvo Firewallu
+theme_xhred_notifications_firewall_danger_message=Zdá sa, že <strong>ConfigServer Server Security and Firewall</strong> <i class="badge badge-danger">nefungujú</i> alebo boli zastavené! Nenechajte server vystavený, skontrolujte nastavenia brány firewall (%v)
+
+theme_xhred_notifications_firewall_warning=Varovanie brány firewall
+
+# 17.50
+settings_grayscale_level_navigation=Filter v odtieňoch sivej
+settings_grayscale_level_navigation_description=Default/aktuálnej hodnoty <code>0</code>/<code data-name="settings_grayscale_level_navigation">0</code>
+settings_sepia_level_navigation=Sépiový filter
+settings_sepia_level_navigation_description=Default/aktuálnej hodnoty <code>0</code>/<code data-name="settings_sepia_level_navigation">0</code>
+settings_saturation_level_navigation=Nasýtený filter
+settings_saturation_level_navigation_description=Default/aktuálnej hodnoty <code>1</code>/<code data-name="settings_saturation_level_navigation">0</code>
+settings_hue_level_navigation=Odtieňový filter
+settings_hue_level_navigation_description=Default/aktuálnej hodnoty <code>0</code>/<code data-name="settings_hue_level_navigation">0</code>
+settings_invert_level_navigation=Invertovať filter
+settings_invert_level_navigation_description=Default/aktuálnej hodnoty <code>0</code>/<code data-name="settings_invert_level_navigation">0</code>
+settings_brightness_level_navigation=Filter jasu
+settings_brightness_level_navigation_description=Default/aktuálnej hodnoty <code>1</code>/<code data-name="settings_brightness_level_navigation">0</code>
+settings_contrast_level_navigation=Kontrastný filter
+settings_contrast_level_navigation_description=Default/aktuálnej hodnoty <code>1</code>/<code data-name="settings_contrast_level_navigation">0</code>
+
+settings_cm_editor_palette=Paleta farieb zvýraznenia kódu
+
+theme_xhred_filemanager_context_select_all=Vybrať všetko
+theme_xhred_filemanager_context_select_invert=Obrátiť výber
+theme_xhred_filemanager_context_refresh=Obnoviť
+theme_xhred_filemanager_context_newfile=Vytvorte nový súbor
+theme_xhred_filemanager_context_newfoder=Vytvorte nový adresár
+theme_xhred_filemanager_context_copy=kópie
+theme_xhred_filemanager_context_cut=rez
+theme_xhred_filemanager_context_paste=vložiť
+theme_xhred_filemanager_context_chmod=Zmeniť povolenia
+theme_xhred_filemanager_context_chown=Zmena vlastníctva
+
+# 17.51
+theme_xhred_filemanager_context_new=Nový
+theme_xhred_filemanager_context_newarchive=Vytvoriť nový archív
+theme_xhred_filemanager_context_delete=delete
+theme_xhred_filemanager_context_rename=premenovanie
+theme_xhred_filemanager_context_edit=editovať
+theme_xhred_filemanager_context_extract=výťažok
+theme_xhred_filemanager_context_goto=Otvoriť umiestnenie položky
+theme_xhred_filemanager_context_properties=vlastnosti
+theme_xhred_filemanager_context_search=Vyhľadávanie
+
+# 17.52
+theme_xhred_filemanager_context_deselect_all=Odznačiť všetko
+theme_xhred_filemanager_context_upload=Odovzdať do aktuálneho adresára
+theme_xhred_filemanager_context_download=Stiahnite si zo vzdialenej adresy URL
+
+# 17.53
+theme_config_virtualmin=Virtuálne servery Virtualmin
+theme_config_cloudmin=Cloudmin Managed Systems
+settings_right_thirdparties_options_title=Možnosti modulov tretích strán
+theme_xhred_filemanager_context_calculate_size=Vypočítajte veľkosť na medzerníku
+theme_xhred_filemanager_context_bookmarks=záložky
+theme_xhred_filemanager_context_bookmark_current=Záložka je práve otvorená cesta
+theme_xhred_filemanager_context_transfer=prevod
+
+# 17.54
+theme_xhred_filemanager_title_symlink_target=Cieľ odkazu
+
+# 17.60
+right_unlimited=neobmedzený
+settings_leftmenu_width=Preferovaná šírka
+settings_leftmenu_width_description=Východisková/prúd šírka <code>260</code>/<code data-name="settings_leftmenu_width">0</code>
+settings_switch_rdisplay=Zobraziť prepínače obrátené
+settings_switch_rdisplay_description=Táto voľba umožňuje nastaviť rôzne poradie prepínačov vľavo hore. Po zmene tejto možnosti sa vyžaduje úplné načítanie stránky
+
+# 17.63
+theme_xhred_filemanager_context_calculate_selected_size=Vypočítajte vybranú veľkosť
+theme_xhred_filemanager_selected_entries=Vybraté: Položky s %value
+theme_xhred_filemanager_manual_path=Zadajte cestu ručne
+
+theme_xhred_datatable_semptytable=V tabuľke nie sú dostupné žiadne údaje
+theme_xhred_datatable_sinfo=Zobrazujú sa položky _START_ až _END_ z _TOTAL_ položiek
+theme_xhred_datatable_sinfoempty=Zobrazuje sa 0 až 0 z 0 položiek
+theme_xhred_datatable_slengthmenu=Zobraziť položky: _MENU_
+theme_xhred_datatable_sloadingrecords=Načítava
+theme_xhred_datatable_sprocessing=Spracovanie. ..
+theme_xhred_datatable_szerorecords=Nenašli sa žiadne zodpovedajúce záznamy
+
+# 17.64
+theme_xhred_filemanager_file_edit_but_not_saved=Súbor bol upravený, ale nebol uložený.
+theme_xhred_filemanager_file_edit_but_not_saved_what_to_do=Čo chceš robiť?
+theme_xhred_global_save=Uložiť
+theme_xhred_global_save_and_close=Uložiť a zavrieť
+theme_xhred_global_close_without_saving=Zatvorte bez uloženia
+theme_xhred_global_continue_editing=Pokračujte v úpravách
+theme_xhred_filemanager_context_download_file=Stiahnuť ▼
+
+# 17.65
+settings_sysinfo_easypie_charts_width=Šírka grafov
+settings_sysinfo_easypie_charts_scale=Mierka dĺžky máp
+
+# 17.80
+right_return_theme_options=možnosti témy
+theme_xhred_datatable_semptydirectory=Adresár je prázdny
+theme_xhred_filemanager_context_clipboard=Skopírujte cestu do schránky
+theme_xhred_global_warning=Výstraha
+theme_xhred_global_close=Zavrieť
+
+theme_xhred_filemanager__no_bookmarks=Žiadne uložené záložky
+theme_xhred_filemanager_unbookmark_success=Adresár <tt>%value</tt> bol úspešne odstránený z vašich záložiek.
+theme_xhred_filemanager_bookmark=Uložte si aktuálny adresár medzi záložky
+theme_xhred_filemanager_unbookmark=Zrušiť označenie aktuálneho adresára
+theme_xhred_filemanager_move_into_self=Nemôžete presunúť adresár do seba! Cieľový adresár je vnútri zdrojového adresára.
+theme_xhred_filemanager_pasting_and_copying_1=Vybraný zdroj bol úspešne vložený pod novým názvom.
+theme_xhred_filemanager_pasting_and_copying_2=Vybrané zdroje boli úspešne prilepené s novými názvami.
+theme_xhred_filemanager_pasting_and_replacing_1=Existujúci cieľ bol úspešne nahradený novým.
+theme_xhred_filemanager_pasting_and_replacing_2=Existujúce ciele boli úspešne nahradené novými.
+theme_xhred_filemanager_target_conflict_1=Cieľový konflikt
+theme_xhred_filemanager_target_conflict_2=Konflikty cieľov
+theme_xhred_filemanager_target_conflict_message_1=Vložený cieľ už existuje! Čo uprednostňujete?
+theme_xhred_filemanager_target_conflict_message_2=Vložené ciele už existujú! Čo uprednostňujete?
+theme_xhred_filemanager_target_conflict_replace=Zlúčiť a nahradiť
+theme_xhred_filemanager_target_conflict_paste=Prilepiť s novým menom
+
+theme_xhred_editor_help_title=Klávesové skratky editora
+
+theme_xhred_filemanager_hide_toolbar=Skryť panel nástrojov
+theme_xhred_filemanager_hide_actions=Skryť stĺpce akcií
+theme_xhred_filemanager_hovered_toolbar=Aktivujte rozbaľovaciu ponuku na paneli nástrojov pri umiestnení kurzora myši
+theme_xhred_filemanager_context_delete_selected=Zmaž označené
+
+# 17.83
+theme_xhred_database_adding_new_row=Pridáva sa nový riadok
+theme_xhred_database_editing_row=Úpravy vybraného riadku
+theme_xhred_database_editing_rows=Úpravy vybraných riadkov
+theme_xhred_database_adding_new_row_data=Nastavte dáta
+
+# 17.84
+theme_xhred_datatable_filter=filter
+
+theme_xhred_global_update=aktualizovať
+theme_xhred_global_update_and_return=Aktualizácia a vrátenie
+theme_xhred_global_update_and_close=Aktualizujte a zatvorte
+theme_xhred_global_back=späť
+theme_xhred_global_cancel=Zrušiť
+
+theme_xhred_database_add_row_successful=Nový riadok bol úspešne pridaný
+theme_xhred_database_edit_row_successful=Vybraný riadok bol úspešne aktualizovaný
+theme_xhred_database_edit_rows_successful=Vybraté riadky boli úspešne aktualizované
+theme_xhred_database_edit_row_delete_successful=Vybraný riadok bol úspešne odstránený
+theme_xhred_database_edit_rows_delete_successful=Úspešne vypúšťa <em>%n</em> vybrané riadky
+theme_xhred_database_edit_field_delete_successful=Vybraté pole bolo úspešne odstránené
+theme_xhred_database_edit_fields_delete_successful=Úspešne vypúšťa <em>%n</em> vybraných polí
+theme_xhred_database_edit_selected_row=Upraviť vybratý riadok
+theme_xhred_database_edit_selected_rows=Upravte vybrané riadky
+theme_xhred_database_add_new_row=Pridať riadok
+theme_xhred_database_delete_selected_row=Odstrániť vybraný riadok
+theme_xhred_database_delete_selected_rows=Odstrániť vybrané riadky
+theme_xhred_database_delete_selected_field=Odstrániť vybrané pole
+theme_xhred_database_delete_selected_fields=Odstrániť vybrané polia
+theme_xhred_database_object_selected_delete=Odstrániť vybraný objekt
+theme_xhred_database_objects_selected_delete=Odstrániť vybrané objekty
+theme_xhred_database_object_selected_delete2=Zrušte vybratú tabuľku
+theme_xhred_database_objects_selected_delete2=Zrušte vybraté tabuľky
+theme_xhred_database_db_selected_drop=Zrušte vybranú databázu
+theme_xhred_database_dbs_selected_drop=Zrušte vybrané databázy
+theme_xhred_database_edit_but_not_saved=Údaje tabuľky boli upravené, ale neuložili sa.
+
+theme_xhred_global_no_such_command=Zdá sa, že spustiteľný súbor <tt>$1</tt> nie je nainštalovaný alebo nie je v ceste vo vašom systéme.
+
+theme_xhred_global_notice=oznámenia
+
+theme_xhred_updates_disabled_notice=Detected that you don't have enabled notifications for <em>Authentic Theme</em> updates? <br><br>Enabling this feature in <a href="%link" class="label label-default"><strong><i class="fa fa-cogs"></i> Theme Configuration</strong></a> will help you to update to the latest version in a single click as soon as it's out.
+
+# 18.00
+theme_xhred_global_file=súbor
+theme_xhred_global_directory=adresár
+theme_xhred_global_no_target=Cieľ neexistuje alebo nie je prístupný
+theme_xhred_global_error_code=Kód chyby
+theme_xhred_global_on=na
+theme_xhred_global_off=preč
+theme_xhred_global_all=všetko
+theme_xhred_global_none=nikto
+theme_xhred_global_yes=Áno
+theme_xhred_global_no=žiadny
+
+theme_xhred_filemanager_new_tab=Pridať novú kartu (Alt + medzerník)
+theme_xhred_datatable_no_search_results=<span class="h5">Nenašli sa žiadne výsledky</span> <br> Skúste iné vyhľadávanie
+
+theme_xhred_filemanager_buffer_error=Vloženie súborov do vyrovnávacej pamäte zlyhalo - povolenie bolo zamietnuté.
+
+filemanager_create_object_exists=$3 <tt>$1</tt> už existuje v <tt>$2</tt>
+filemanager_create_object_denied=Nie je možné vytvoriť $3 <tt>$1</tt> v <tt>$2</tt> - povolenie zamietnuté: $4.
+
+theme_xhred_filemanager_paste_warning=Cieľ sa nepodarilo prilepiť. Je možné, že požadované objekty mohli byť počas vkladania/pred vložením <em>premenované, presunuté</em> alebo <em>odstránené</em>. Ďalšou možnou príčinou je, že cieľ nie je zapisovateľný. Stojí za to skontrolovať atribúty objektov.
+
+theme_xhred_filemanager_delete_warning=Odstránenie bolo úspešne ukončené, ale nie pre všetky objekty. Je možné, že požadované objekty mohli byť pred odstránením <em>premenované</em> alebo <em>presunuté</em>. Obmedzené povolenia (atribúty) sú ďalšou možnou príčinou. Chybná správa:
+
+filemanager_rename_exists=$3 s názvom <tt>$1</tt> už existuje v <tt>$2</tt>
+filemanager_rename_denied=Nemožno premenovať $3. Toto sa môže stať, pretože zdroj $3 bol odstránený alebo kvôli obmedzeným povoleniam.
+
+theme_xhred_filemanager_successful_rename=Premenovanie <tt>%from</tt> na <tt>%to</tt> bolo úspešné.
+
+filemanager_global_info_total1=Celkom: $1 súbor a $2 adresár
+filemanager_global_info_total2=Celkom: $1 súbory a adresár $2
+filemanager_global_info_total3=Celkom: $1 súbor a $2 adresáre
+filemanager_global_info_total4=Celkom: $1 súbory a $2 adresáre
+
+theme_xhred_filemanager_selected_entry=Vybraté: položka s %value
+
+theme_xhred_filemanager_search_query=Maska dopytov
+theme_xhred_filemanager_search_match=Nájsť vo výsledkoch
+theme_xhred_filemanager_search_replace=Nahradiť výsledky
+
+theme_xhred_global_find=Nájsť
+theme_xhred_global_replace=vymeniť
+
+theme_xhred_filemanager_searching_matching=Hľadanie <tt>%value</tt> zodpovedajúcich názvov súborov /directories, obsahujúcich <tt>%text</tt> text.
+theme_xhred_filemanager_searching_replacing=Nahradenie zhôd <tt>%text</tt> s <tt>%replace</tt> v súboroch s názvami obsahujúcimi <tt>%value</tt>.
+
+theme_xhred_filemanager_search_replaced_multi=Nájdený a nahradený v súboroch s <strong>%value</strong>.
+theme_xhred_filemanager_search_replaced=Nájdený a nahradený v <strong>1</strong> súbore.
+
+theme_xhred_filemanager_successful_permissions_with_errors=Povolenia boli úspešne zmenené, ale nie pre všetky objekty:
+
+theme_xhred_filemanager_successful_ownership_with_errors=Vlastníctvo nebolo úspešne zmenené pre všetky objekty:
+theme_xhred_filemanager_successful_ownership_with_errors_fatal=Vlastníctvo nie je možné zmeniť z dôvodu nasledujúcich chýb:
+
+theme_xhred_filemanager_successful_compression_with_errors=Kompresia sa skončila s nasledujúcimi chybami:
+theme_xhred_filemanager_successful_compression_bg=Kompresia bola úspešne dokončená. Komprimovaný súbor <tt>%file</tt> sa nachádza v adresári <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Kompresia sa skončila s chybami. Komprimovaný súbor <tt>%file</tt> by sa mal nachádzať v adresári <tt>%path</tt>.
+
+theme_xhred_filemanager_settings_notification_type=Typ upozornení, ktoré sa majú zobraziť
+theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informácie, varovania a chyby
+theme_xhred_filemanager_settings_notification_type_warn_err=Varovania a chyby
+theme_xhred_filemanager_settings_notification_type_err=Iba chyby
+
+theme_xhred_filemanager_settings_tabs_remember_state=Obnovte predtým použité karty pri prvom načítaní
+theme_xhred_filemanager_context_open_new_tab=Otvoriť na novej karte
+
+theme_xhred_xsql_fit_content_screen_height=Prispôsobte obsah tabuľky databázy do výšky obrazovky
+
+theme_xhred_datatable_filter_visible_tables=Filtrovať viditeľné tabuľky
+theme_xhred_module_help=Pomoc s modulom
+
+theme_xhred_server_process_running=Proces servera stále beží !? Naozaj chcete navigovať ďalej a nemáte prístup k výstupným informáciám? Aj keď teraz odchádzate, proces sa neukončí.
+
+# 18.03
+settings_global_options_title=Globálne možnosti
+theme_xhred_password_generator_new=Generovať nové heslo <br> (do schránky)
+theme_xhred_password_generator_new_success=Generované heslo %password bolo úspešne skopírované do schránky.
+
+# 18.08
+theme_fileformat_perl=perl
+theme_fileformat_perl_placeholder=Tento súbor musí končiť reťazcom `1;` úspešne pracovať.
+
+# 18.30
+settings_leftmenu_vm_cm_dropdown_icons=Zobrazte symbolické ikony v rozbaľovacej ponuke Virtualmin/Cloudmin
+theme_xhred_global_shipped=dodaný
+theme_xhred_global_available=k dispozícii
+theme_xhred_global_not_available=Nie je k dispozícií
+theme_xhred_global_default=štandardné
+theme_xhred_global_system_default=Predvolený systém
+theme_xhred_global_local_system_default=Predvolené nastavenie miestneho systému
+theme_xhred_global_stats=štatistiky
+theme_xhred_global_notifications=oznámenia
+theme_xhred_global_favorites=Obľúbené
+theme_xhred_global_cpu_load=Zaťaženie CPU
+theme_xhred_notification_none=Žiadne oznámenia
+theme_xhred_notification_no_data=Žiadne zozbierané údaje
+theme_xhred_notification_no_favorites=Žiadne obľúbené údaje
+theme_xhred_global_theme_version=Téma verzie
+
+settings_side_slider_sysinfo_enabled=Zobraziť kartu informačného panela
+settings_side_slider_notifications_enabled=Zobraziť kartu upozornení
+settings_side_slider_favorites_enabled=Zobraziť kartu obľúbených položiek
+settings_show_terminal_link=Zobraziť tlačidlo terminálu
+
+theme_xhred_sysinfo_system_monitors=Monitory systému
+theme_xhred_sysinfo_server_status=Stav serverov
+theme_xhred_sysinfo_software_versions=Verzie softvéru
+theme_xhred_sysinfo_recent_logins=Nedávne prihlásenia
+theme_xhred_sysinfo_vm_package_updates=Aktualizácie balíka Virtualmin
+theme_xhred_sysinfo_disk_quotas=Diskové kvóty
+theme_xhred_sysinfo_bandwidth_quotas=Kvóty šírky pásma
+
+left_netdata=Monitorovanie v reálnom čase
+settings_leftmenu_netdata=Zobraziť odkaz na sledovanie v reálnom čase Netdata
+settings_leftmenu_netdata_link=Preferovaný odkaz na server Netdata
+
+theme_xhred_filemanager_context_chattr=Zmeniť atribúty
+theme_xhred_filemanager_changing_attributes=Nastavenie atribútov na <tt>%value</tt> vo vybratých súboroch.
+theme_xhred_filemanager_successful_attributes_with_errors=Atribúty neboli úspešne nastavené pre všetky objekty:
+theme_xhred_filemanager_successful_attributes=Atribúty boli úspešne nastavené.
+
+theme_xhred_filemanager_context_chcon=Zmena bezpečnostného kontextu
+theme_xhred_filemanager_changing_secontext=Zmena bezpečnostného kontextu na <tt>%value</tt> vo vybratých súboroch.
+theme_xhred_filemanager_successful_secontext_with_errors=Kontext zabezpečenia nebol úspešne zmenený pre všetky objekty:
+theme_xhred_filemanager_successful_secontext=Kontext zabezpečenia bol úspešne zmenený.
+
+theme_xhred_global_no_results_found=Neboli nájdené žiadne výsledky
+
+# 18.40
+theme_new_password_header=Nastavte nové heslo pre používateľa
+login_reset=Obnova hesla
+theme_xhred_move_top=Choďte hore
+theme_xhred_move_bottom=Posuňte sa nadol
+theme_xhred_move_up=Choďte hore
+theme_xhred_move_down=Posunúť nadol
+theme_xhred_add_after=Pridať po
+theme_xhred_add_before=Pridať skôr
+settings_show_night_mode_link=Zobraziť tlačidlo režimu deň/noc
+settings_hotkey_toggle_key_night_mode=Prepnúť farebnú paletu
+settings_title=Konfigurácia motívu
+settings_subtitle=Pre používateľa
+
+theme_tooltip_night_mode=Prepínanie medzi režimom deň/noc
+theme_tooltip_terminal_link=terminál
+theme_tooltip_language_link=Jazyk
+theme_xhred_tooltip_switch_user=Zmeniť používateľa
+theme_tooltip_logout=Odhlásiť Sa
+theme_tooltip_edit_user=Upraviť používateľa
+
+# 18.45
+settings_sysinfo_easypie_charts_size=Priemer grafov
+theme_xhred_global_choose=zvoliť
+theme_xhred_global_select=vybrať
+theme_xhred_global_ok=OK
+settings_sysinfo_theme_updates_description=Aby táto voľba fungovala, musíte do systému nainštalovať príkaz <code>git</code>
+theme_git_patch_available=Najnovšia vývojová verzia
+theme_git_patch_no_git_message=Ak chcete nainštalovať najnovšie aktualizácie priamo z GitHub, musíte sa uistiť, že je nainštalovaný príkaz <code>git</code>.
+theme_git_patch_update_success_message=Aktualizácia témy pre Webmin bola úspešná. Aktuálne nainštalovaná verzia je <tt>$1</tt>. Prekládky. ..
+theme_git_patch_update_success_message2=Aktualizácia témy pre Webmin a Usermin bola úspešná. Aktuálne nainštalovaná verzia je <tt>$1</tt>. Prekládky. ..
+theme_xhred_git_patch_update=Aktualizácia motívu zlyhala. Skúste to urobiť pomocou konzoly.
+theme_xhred_git_patch_initiated=Začala sa aktualizácia témy.
+theme_xhred_global_prev_page=Vráťte sa o jednu stránku späť
+theme_xhred_global_help=Pomoc
+theme_xhred_git_compare_changes=Porovnajte zmeny
+theme_xhred_filemanager_link_to_clipboard=Názov symbolického odkazu bol skopírovaný do schránky.
+
+# 18.46
+theme_left_mail_prefs=Predvoľby pošty
+theme_left_mail_change_password=Zmeniť heslo
+theme_left_mail_account_functions=Funkcie účtu
+theme_xhred_global_dir_up=Prejsť na predchádzajúci adresár (Backspace)
+theme_xhred_global_module_config=Konfigurácia modulu
+theme_xhred_global_return=spiatočný
+theme_xhred_global_return_to_module_index=Návrat na index modulu
+
+# 18.47
+theme_xhred_global_complete_changelog=Kompletný zoznam zmien
+theme_xhred_global_beta_version=Verzia beta
+theme_xhred_global_release=uvoľnenie
+theme_xhred_global_released_on=Vydané dňa
+theme_xhred_global_committed_on=Záväzok
+theme_xhred_global_resolved_issues=Vyriešené problémy v vydaniach s %value
+
+# 18.48
+theme_force_upgrade=Aktualizovať tému
+theme_xhred_force_upgrade_beta=Inštalácia najnovšej vývojovej verzie (beta)
+theme_xhred_force_upgrade_stable=Nainštalovať najnovšiu verziu (stabilná)
+theme_xhred_source_encoding=Zdrojové kódovanie
+theme_update_footer=Prosím, nahláste chyby do úložiska $1. Pripojte sa k nášmu kanálu $2 a získajte najnovšie správy.
+theme_xhred_encoding_manually_set=Manuálne nastavenie kódovania
+theme_xhred_filemanager_save_to_change_encoding=Aby bolo možné zmeniť kódovanie, musí byť súbor uložený.
+
+# 18.49
+theme_xhred_filemanager_user_switch=Prepnúť na používateľa (Ctrl + M)
+theme_xhred_filemanager_user_switch_description=Výberom nižšie uvedeného používateľského mena prepnete ďalšie operácie, ktoré sa majú vykonávať ako tento užívateľ.
+theme_xhred_filemanager_user_switch_description_back=Ak chcete prepnúť späť na predvolený režim, vyberte prvú možnosť vo výbere.
+theme_xhred_filemanager_user_switch_current_user=Súčasný užívateľ
+theme_xhred_filemanager_user_switch_option=Po vstupe do svojho domovského adresára sa automaticky prepne do režimu používateľa
+theme_xhred_filemanager_editor_align_panels_horizontally=Zarovnajte panely vodorovne
+theme_xhred_filemanager_editor_align_panels_vertically=Zarovnajte panely vertikálne
+theme_xhred_filemanager_editor_toggle_soft_wrap=Prepnúť mäkký obal
+theme_xhred_filemanager_editor_refresh_content=Obnoviť obsah
+theme_xhred_filemanager_save_to_refresh_content=Súbor musí byť uložený, aby sa jeho obsah mohol obnoviť.
+theme_xhred_filemanager_save_to_refresh_content_proc=Obnovuje sa obsah súboru.
+theme_xhred_global_dark=tmavý
+theme_xhred_global_light=Svetlo
+theme_xhred_global_minimize=minimalizovať
+theme_xhred_global_maximize=maximalizovať
+theme_xhred_global_normalize=normalizácia
+theme_xhred_global_set_encoding=Nastavte kódovanie
+
+# 19.00
+theme_xhred_sysinfo_update_start=Obnovujú sa systémové informácie.
+theme_xhred_sysinfo_update_end=Informácie o systéme boli úspešne zachytené.
+theme_xhred_sysinfo_update_failed=Systémové informácie sa nedajú získať späť. Skúste to znova neskôr.
+
+theme_xhred_global_development_version=Vývojová verzia
+
+right_vm_server_summary=Zhrnutie virtuálneho servera
+
+settings_webmin_default_module=Predvolená stránka pre Webmin
+
+theme_xhred_global_unbeforeunload_title=Zmeny, ktoré ste vykonali, sa nemusia uložiť
+theme_xhred_global_unbeforeunload_message=Ak budete pokračovať, neuložené zmeny na tejto stránke sa môžu natrvalo stratiť.
+theme_xhred_global_continue=ďalej
+
+theme_xhred_global_automatic_refresh=Automatické obnovenie
+theme_xhred_global_second=druhý
+theme_xhred_global_seconds=sekundy
+theme_xhred_global_minute=minúta
+theme_xhred_global_minutes=minúty
+
+# 19.01
+theme_xhred_browser_warning=Najlepšie skúsenosti s panelom servera na počítači získate pomocou podporovaného a aktuálneho prehľadávača. <br><br> <em>Internet Explorer</em> už nie je podporovaný. <br><br> Odporúčané prehliadače sú <em>Chrome</em>, <em>Firefox</em>, <em>Opera</em> alebo <em>Safari</em>, <em>Edge</em>. <div class="alert alert-warning margined-top-10 margined-bottom--8">Dalo by sa stiahnuť prenosnú verziu prehliadača, ktorý nevyžaduje inštaláciu, aby ste obišli uložené obmedzenia.</div>
+
+# 19.02
+theme_xhred_filter_content=Filtrovať obsah
+theme_xhred_log_file_empty=Súbor denníka je prázdny
+
+# 19.03
+theme_xhred_config_configurable_options=Konfigurovateľné možnosti
+theme_xhred_filter_content_no_matches_query=Dotaz %str žiadnemu obsahu
+theme_xhred_toggle_accordions=Prepnúť viditeľnosť harmoník
+theme_xhred_global_whats_new=Čo je nové
+theme_xhred_global_report_an_issue=Nahlásiť problém
+theme_xhred_global_theme_configuration=Konfigurácia motívu
+theme_xhred_global_official_website=Oficiálna web stránka
+theme_xhred_global_about_theme=O téme
+theme_xhred_connection_error=Chyba spojenia
+theme_xhred_connection_error_details=Nie je možné nadviazať spojenie so serverom na <strong>%server</strong>. <ul><li> Skontrolujte stav servera </li><li> Skontrolujte pripojenie </li></ul>
+theme_xhred_session_expired=Platnosť relácie vypršala
+theme_xhred_session_unlocked=Relácia odblokovaná
+theme_xhred_session_expired_details=Boli ste odhlásený z dôvodu nečinnosti.
+theme_xhred_signing_in=Prihlasuje sa
+theme_xhred_signing_success=Úspešne prihlásený!
+theme_xhred_session_failed_password=Chybné heslo, skúste to znova.
+theme_xhred_global_reauthenticate=reauthenticate
+
+# 19.04
+settings_sysinfo_real_time_status=Povoliť sledovanie v reálnom čase
+theme_xhred_global_redirecting=presmerovanie
+
+# 19.05
+body_no_javascript_title=JavaScript je zakázaný
+body_no_javascript_message=Povoľte javascript a obnovte stránku
+theme_xhred_connection_lost=Prerušené spojenie
+theme_xhred_connection_success=Pripojenie bolo úspešné
+theme_xhred_connection_success_details=Pripojenie k serveru bolo obnovené.
+
+# 19.08
+theme_xhred_return_home=Návrat na index panelov
+theme_xhred_global_upload=Nahrať
+theme_xhred_global_select_files=Vyberte súbory
+theme_xhred_global_file_selected=vybratý súbor
+theme_xhred_global_files_selected=vybrané súbory
+theme_xhred_global_reset=Reset
+theme_xhred_upload_initial_info=Sem presuňte súbory myšou alebo ich kliknutím vyberte
+
+# 19.09
+theme_xhred_global_empty=prázdny
+theme_xhred_global_click_here=kliknite tu
+theme_git_patch_incompatible_message=Inštalácia tejto verzie $1 <em>$2</em> vyžaduje najnovšiu a/alebo pravdepodobne nevydanú verziu $3 a $5, aby správne fungovala.
+theme_git_patch_incompatible_message_s=Inštalácia tejto verzie $1 <em>$2</em> vyžaduje, aby najnovšia a/alebo pravdepodobne nevydaná verzia $3 fungovala správne.
+theme_git_patch_incompatible_message_desc=Môžu sa vyskytnúť nekompatibilné zmeny, ktoré by mohli zabrániť tomu, aby téma fungovala tak, ako bola navrhnutá. Pokračovanie v aktualizácii pomocou používateľského rozhrania nie je možné.
+
+# 19.10
+theme_xhred_filemanager_edit_html=Upraviť ako HTML
+theme_xhred_global_example=príklad
+theme_xhred_global_output_example=Príklad výstupu
+theme_xhred_title_language_locale=Jazyk a miestne nastavenie
+theme_xhred_global_manual=Manuálny
+settings_navigation_always_collapse=Vždy sa zrútil
+theme_xhred_filemanager_records_per_page=Predvolený počet záznamov na stránku
+theme_xhred_filemanager_sorting=Predvolený typ zoradenia
+theme_xhred_filemanager_sorting_asc=stúpajúca
+theme_xhred_filemanager_sorting_desc=zostupne
+theme_xhred_filemanager_sorting_by_name=názov
+theme_xhred_filemanager_sorting_by_type=typ
+theme_xhred_filemanager_sorting_by_size=veľkosť
+theme_xhred_filemanager_sorting_by_ownership=vlastník
+theme_xhred_filemanager_sorting_by_permissions=režim
+theme_xhred_filemanager_sorting_by_attributes=atribúty
+theme_xhred_filemanager_sorting_by_selinux=Bezpečnostný kontext
+theme_xhred_filemanager_sorting_by_last_mod_time=modifikovaná
+theme_xhred_filemanager_tree_view_toggle=Prepínač stromového pohľadu
+theme_xhred_filemanager_hide_tree_view=Povoliť panel so stromovým zobrazením
+theme_xhred_filemanager_tree_view_depth=Extrahovaná hĺbka zobrazenia stromu pri počiatočnom zaťažení (menšie načítanie rýchlejšie)
+theme_xhred_global_unlimited=neobmedzený
+theme_xhred_filemanager_tree_exclude_on_first_load=Vylúčiť nepodstatné adresáre z prechodu pri počiatočnom načítaní pre zobrazenie stromu (načítanie rýchlejšie)
+theme_xhred_filemanager_tree_expand_search=Pri filtrovaní stromového prehľadu rozbaľte všetky vetvy, ktoré obsahujú zhody
+
+# 19.12
+theme_xhred_tooltip_side_slider_go_to_dashboard=Prejdite na informačný panel
+theme_xhred_tooltip_side_slider_open_favorites_control=Otvorte kontrolu obľúbených položiek
+theme_xhred_tooltip_side_slider_delete_all_notification=Odstrániť všetky oznámenia
+theme_xhred_tooltip_side_slider_mark_read_all_notification=Všetky oznámenia označte ako prečítané
+theme_xhred_global_settings=nastavenie
+theme_xhred_tooltip_side_slider_pinned=Posuvný bočný posúvač
+
+# 19.13
+settings_sysinfo_theme_updates_for_usermin=Nainštalujte tiež aktualizácie tém pre Usermin
+theme_xhred_global_installed_version=Nainštalovaná verzia
+theme_xhred_global_installed_and_latest_version=Nainštalovaná a najnovšia verzia
+theme_xhred_global_latest_stable=Najnovšia stabilita
+theme_xhred_global_latest_beta=Najnovšie beta
+theme_xhred_global_firewall=POŽARNE dvere
+
+# 19.14
+theme_xhred_filemanager_preparing_download=Pripravuje sa sťahovanie. Archivácia súborov s %number. Čakajte %dots
+theme_xhred_filemanager_prepared_download=Stiahnutie je pripravené. Archivované %number súborov.
+theme_xhred_filemanager_canceled_download=Sťahovanie bolo zrušené.
+
+# 19.19
+theme_xhred_filemanager_settings_force_tar_download=Vynútiť <code>tar</code> príkaz, aj keď je k dispozícii <code>zip</code>, pri sťahovaní ako archív
+theme_xhred_nice_size_PB=PB
+theme_xhred_nice_size_TB=TB
+theme_xhred_nice_size_GB=GB
+theme_xhred_nice_size_MB=MB
+theme_xhred_nice_size_kB=kB
+theme_xhred_nice_size_b=bajtov
+theme_xhred_title_locale_non_ui_config=Formát dátumu vygenerovaný serverom
+
+# 19.20
+extensions_mail_current_position=Správy $1 - $2 z $3
+extensions_mail_sort_by_sender=Zoradiť podľa odosielateľa
+extensions_mail_sort_by_recipient=Zoradiť podľa príjemcu
+extensions_mail_sort_by_date=Zoradiť podľa dátumu
+extensions_mail_sort_by_size=Zoradiť podľa veľkosti
+extensions_mail_sort_by_spam=Zoradiť podľa skóre spamu
+extensions_mail_sort_by_subject=Zoradiť podľa témy
+extensions_mail_security_spf=Rámec politiky odosielania <em>(SPF)</em>
+extensions_mail_security_dkim=Identifikovaná pošta DomainKeys <em>(DKIM)</em>
+extensions_mail_flag_important=Správa je označená ako dôležitá
+extensions_mail_flag_attachment=Správa má prílohu
+extensions_mail_flag_spam_score=Skóre spamu
+extensions_mail_flag_spam_status=Stav spamu
+extensions_mail_flag_spam_status_data=$1 z $2
+extensions_mail_flag_tls_on=Štandardné šifrovanie (TLS)
+extensions_mail_flag_tls_off=Nešifrovaná pošta
+extensions_mail_flag_tls_none=Stav šifrovania neznámy
+extensions_mail_header_no_subject=(bez predmetu)
+extensions_mail_select_all=všetko
+extensions_mail_select_none=nikto
+extensions_mail_select_invert=invertný
+extensions_mail_select_read=Čítať
+extensions_mail_select_unread=neprečítaný
+extensions_mail_mark_read=Označiť ako prečítané
+extensions_mail_mark_unread=Označiť ako neprečítané
+extensions_mail_mark_special=Označiť ako zvláštne
+extensions_mail_quota=Použitý $1 (2%) z $3
+extensions_mail_pagination_right=Ďalšie
+extensions_mail_pagination_left=predchádzajúca
+theme_xhred_global_move=sťahovať
+theme_xhred_global_copy=kópie
+theme_xhred_mail_more=viac
+theme_xhred_mail_copy_only=Nehýbte sa, iba kopírujte
+theme_xhred_global_sort=druh
+theme_xhred_global_search=Vyhľadávanie
+theme_xhred_global_delete=delete
+theme_xhred_global_forward=vpred
+theme_xhred_global_refresh=Obnoviť
+theme_xhred_mail_pagination_first=Zoznam začína na prvom mieste
+theme_xhred_mail_pagination_last=Zoznam sa začína na posledný
+theme_xhred_global_starred=Hral
+theme_xhred_global_unstarred=Nie je označené hviezdičkou
+extensions_mail_header_from=z
+extensions_mail_header_reply_to=odpovedať
+extensions_mail_header_to=na
+extensions_mail_header_cc=cc
+extensions_mail_header_bcc=BCC
+extensions_mail_header_date=dátum
+extensions_mail_header_spam=nevyžiadaná pošta
+extensions_mail_header_mailed_by=posielaných cez
+extensions_mail_header_signed_by=podpísaný
+extensions_mail_header_spf=prijatého SPF
+extensions_mail_header_dkim=DKIM podpisu
+extensions_mail_header_encrypted=šifrovaný
+extensions_mail_mark_spam_view_razordel=Označiť ako spam a odstrániť
+extensions_mail_mark_spam_view_razor=označiť ako spam
+extensions_mail_mark_spam_mail_black=Označiť ako čiernu listinu
+extensions_mail_mark_spam_view_ham=Označiť ako spam
+extensions_mail_mark_spam_view_hammove=Označiť ako spam a prejsť do doručenej pošty
+extensions_mail_mark_spam_mail_white=Označiť ako bielu listinu
+extensions_mail_mark_spam_mail_whitemove=Označiť ako bielu listinu a presunúť do doručenej pošty
+extensions_mail_search_filter_reset=Obnoviť filter triedenia
+extensions_mail_move_copy_only=Nehýb sa, len skopíruj
+theme_xhred_global_total=Celkom
+theme_xhred_global_selected=Vybraný
+theme_xhred_mail_new_message=Nová správa
+
+theme_xhred_mail_search_simple=Zobraziť možnosti vyhľadávania
+theme_xhred_mail_search_advanced=Skryť možnosti vyhľadávania
+theme_xhred_mail_search_clear=Vymazať výsledky vyhľadávania
+theme_xhred_mail_search_empty=Vášmu vyhľadávaniu nezodpovedajú žiadne správy
+theme_xhred_mail_search_search_mail=Vyhľadávanie pošty
+theme_xhred_mail_search_from=z
+theme_xhred_mail_search_to=na
+theme_xhred_mail_search_subject=predmet
+theme_xhred_mail_search_has_words=Má slová
+theme_xhred_mail_search_doesnt_have_words=Nemá
+theme_xhred_mail_search_with_status=So stavom
+theme_xhred_mail_search_with_status_any=akýkoľvek
+theme_xhred_mail_search_with_status_unread=neprečítaný
+theme_xhred_mail_search_with_status_read=Čítať
+theme_xhred_mail_search_with_status_special=špeciálna
+theme_xhred_mail_search_search_in=Hľadať v
+theme_xhred_mail_search_limit_results=Obmedziť výsledky vyhľadávania
+theme_xhred_mail_search_limit_results_yes=Áno, vyhľadávať iba prostredníctvom
+theme_xhred_mail_search_has_attach=Má pripútanosť
+
+theme_xhred_settings_right_theme_bgs=Pozadie témy
+theme_xhred_settings_right_theme_bgs_title=Pozadie témy
+settings_right_bgs_title=Tu je možné nastaviť pozadie témy pre prihlasovaciu stránku.
+settings_right_bg_unauthenticated_users=Pozadie pre neoverených používateľov
+settings_right_theme_left_background_title=Ovládanie pozadia témy
+
+theme_xhred_find_in_config_files=Nájdite v konfiguračných súboroch
+theme_xhred_find_in_config_files_result_found_single=Výsledok $1 bol nájdený v súbore $2 za $3
+theme_xhred_find_in_config_files_result_found_multi=Výsledky $1 nájdené v súbore $2 za $3
+theme_xhred_find_in_config_files_results_found=Výsledky $1 nájdené v súboroch $2 za $3
+
+theme_xhred_filemanager_context_symlink=Vytvorte nový symbolický odkaz
+theme_xhred_global_symbolic=Symbolický odkaz
+theme_xhred_global_target=terč
+settings_sysinfo_max_servers=Maximálny počet zobrazovaných virtuálnych serverov
+
+right_download_is_ready=Tvoje sťahovanie je pripravené.
+theme_xhred_download_is_being_prepared=Preberanie sa pripravuje. Môže to chvíľu trvať. Prosím čakajte ..
+theme_xhred_backup_is_being_prepared=Vaša záloha sa pripravuje. Môže to chvíľu trvať. Prosím čakajte ..
+
+settings_mail_ui=Povoliť nové používateľské rozhranie pošty
+
+settings_theme_config_admins_only_privileged_error=Prístup odmietnutý: Správca zablokoval prístup k prispôsobeniam používateľov
+
+theme_xhred_tooltip_navigation_pinned=Pripnúť/odblokovať navigačnú ponuku
+settings_hotkey_navigation=Prepnúť stav navigačnej ponuky
+
+theme_xhred_search_in_webmin=Hľadať na webmin
+theme_xhred_search_in_usermin=Hľadať Usermin
+theme_xhred_search_in_virtualserver=Hľadať Virtualmin
+theme_xhred_search_in_servermanager=Hľadať Cloudmin
+
+theme_xhred_filemanager_context_clipboard_selection=Skopírujte výber do schránky
+
+settings_hotkey_slider=Prepnúť stav bočného posúvača
+
+theme_git_update_locked=Aktualizáciu motívu nie je možné dokončiť z dôvodu neexistencie pripojenia k službe GitHub alebo prekročenia limitu sadzby API. V prípade neoverených žiadostí umožňuje sadzba limit až 60 žiadostí za hodinu. Skúste to znova neskôr alebo pomocou konzoly to urobte manuálne pomocou aktualizačného skriptu.
+
+settings_collapse_navigation_link=Zobraziť tlačidlo pripnúť/odopnúť
+
+settings_cache_interval=Interval kontroly spustenia aktualizácií
+settings_cache_interval_1h=každú hodinu
+settings_cache_interval_12h=každých 12 hodín
+settings_cache_interval_1d=raz za deň
+settings_cache_interval_7d=každý týždeň
+settings_cache_interval_14d=dvakrát za mesiac
+settings_cache_interval_1m=raz za mesiac
+settings_cache_interval_3m=raz za 3 mesiace
+settings_cache_interval_6m=dvakrát ročne
+settings_cache_interval_1y=raz ročne
+
+theme_xhred_reload_notification=Konfigurácia motívu sa zmenila, ale neuložila sa. Stránka sa načíta znova, aby sa obnovili pôvodné nastavenia.
+
+# 19.22
+theme_xhred_global_save_as=Uložiť ako
+theme_xhred_editor_save_file_as=Uložte súbor ako
+theme_xhred_global_configuration=konfigurácia
+
+body_used_cached_total=Spolu $1 / $3 vo vyrovnávacej pamäti / $2
+
+# 19.30
+theme_xhred_favorites_add=Pridať k obľúbeným
+theme_xhred_favorites_remove=Odstrániť z obľúbených položiek
+theme_xhred_select_deselect=Vyberte/zrušte výber aktuálnej položky
+theme_xhred_edit_current=Upraviť aktuálnu položku
+theme_xhred_search_in_file=Vyhľadávanie v súboroch
+left_toggle_navigation_menu=Prepnúť viditeľnosť navigácie
+theme_xhred_side_slider_toggle=Prepnúť viditeľnosť bočného posúvača
+right_pagination_first=najprv
+right_pagination_last=posledná
+settings_leftmenu_custom_links=Extra vstupy
+theme_xhred_file_editor=Editor súborov
+theme_xhred_mail_no_mail=Žiadna pošta
+theme_xhred_mail_no_new_mail=Žiadna nová pošta
+theme_xhred_editor_set_syntax=Nastaviť syntax
+theme_xhred_global_menu=Ponuka
+theme_xhred_shell_aborted=Operácia bola prerušená
+
+# 19.32
+theme_xhred_connection_reboot=reštartu
+theme_xhred_connection_reboot_details=Server sa reštartuje. Prosím čakajte ..
+settings_leftmenu_custom_links_description=Do navigačnej ponuky je možné vložiť vlastné, extra odkazy. <br><br> Kľúče <em>title</em>, <em>link</em> a <em>ikona</em> sú povinné; voliteľne môžete definovať, v akom režime prihlásenia sa bude odkaz zobrazovať, zadaním kľúča <em>úroveň</em> s hodnotami v zozname oddelenom čiarkou, ktorý obsahuje: <br><br> <em>0</em > - prihlásenie správcu; <br><em>1</em> – prihlásenie predajcu;<br><em>2</em> – prihlásenie vlastníka servera;<br><em>3</em> – prihlásenie používateľa;<br><em>4</em>– prihlásenie vlastníka systému.<br><br> Bude to vyžadovať, aby ste odovzdali platný objekt JSON ako reťazec, ako v príklade nižšie.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+left_favorites_edit=Upravte obľúbené položky
+left_favorites_edit_desc=Táto stránka sa dá použiť na manuálnu úpravu užívateľského súboru obľúbených tém. Toto by sa malo robiť opatrne, pretože pri vašich zmenách sa nevykonáva žiadna syntax alebo iná kontrola platnosti.
+theme_xhred_filemanager_records_for_server_pagination=Predvolený počet položiek v adresári na spustenie stránkovania servera
+
+filemanager_global_info_paginated_total1=$1 súbor a $2 adresár $3 položiek na $4 stránkach
+filemanager_global_info_paginated_total2=$1 súbory a $2 adresár $3 položiek na $4 stránkach
+filemanager_global_info_paginated_total3=$1 súbor a $2 adresáre $3 položiek na $4 stránkach
+filemanager_global_info_paginated_total4=$1 súbory a $2 adresáre $3 položiek na $4 stránkach
+theme_xhred_filemanager_search_follow_symlinks=Sledujte symboly odkazov
+theme_xhred_filemanager_mass_select=Vyberte všetky %1 položky na %2 stránok?
+theme_xhred_filemanager_mass_selected=V aktuálnom adresári je vybratých všetkých položiek %1.
+theme_xhred_filemanager_mass_select_clear=Čistý výber
+theme_xhred_filemanager_mass_selected_for_delete=Všetky položky v adresári %1
+theme_xhred_filemanager_mass_selected_no_zip=Použitie príkazu <tt>zip</tt> nie je podporované pri spustení proti všetkým položkám v adresári
+filemanager_global_search_results=Výsledky vyhľadávania
+filemanager_global_paginated_results=číslovaných
+filemanager_global_access_change_time=Čas posledného prístupu/zmeny
+filemanager_global_user_group_id=Numerický užívateľ/skupina
+theme_xhred_filemanager_global_size_in_bytes=Veľkosť v bajtoch
+theme_xhred_global_command_completed=Príkaz bol dokončený
+theme_xhred_global_toggle_password_visibility=Prepnúť viditeľnosť hesla
+theme_xhred_login_passphrase=prístupové heslo
+theme_xhred_filemanager_archive_gpg_no_keys=Nie sú k dispozícii žiadne tlačidlá
+filemanager_archive_gpg_error=Chyba GPG
+filemanager_archive_move_to_archive_failed=Súbory sa nedajú presunúť do archívu kvôli súbežným chybám
+theme_xhred_filemanager_archive_move_to=Presunúť do archívu
+theme_xhred_global_encrypt=šifrovanie
+theme_xhred_filemanager_gpg_select_the_key=Vyberte kľúč
+theme_xhred_filemanager_context_extract_encrypted=Extrahujte možnosti
+theme_xhred_filemanager_extract_encrypted_password_or_passphrase=Heslo alebo prístupová fráza
+theme_xhred_filemanager_extract_encrypted_password_or_passphrase_desc=Zadajte heslo na dešifrovanie komprimovaných súborov. Ak je nastavený, zadajte prístupovú frázu kľúča GPG.
+theme_xhred_global_decrypt=dešifrovať
+filemanager_archive_password_required=Na dešifrovanie archívu je potrebné heslo
+filemanager_archive_password_wrong=Zadané heslo je nesprávne
+filemanager_archive_file_not_found=Súbor neexistuje
+filemanager_archive_gpg_private_error=Nie je k dispozícii žiadny tajný kľúč alebo jeho heslo nie je správne
+theme_xhred_filemanager_errors_extraction=Pri extrahovaní sa vyskytli nasledujúce chyby
+theme_xhred_filemanager_extract_option_delete_afterwards=Po úspešnej extrakcii archív odstráňte
+
+theme_xhred_login_passphrase_desc=Ak je nastavený, zadajte prístupovú frázu kľúča GPG.
+theme_xhred_filemanager_encrypt_option_delete_afterwards=Po úspešnom šifrovaní odstráňte súbor
+theme_xhred_filemanager_decrypt_option_delete_afterwards=Po úspešnom dešifrovaní odstráňte súbor
+theme_xhred_filemanager_encrypt_gpg_key=Pomocou kľúča
+theme_xhred_filemanager_errors_encrypt=Pri šifrovaní sa vyskytli nasledujúce chyby
+theme_xhred_filemanager_errors_decrypt=Pri dešifrovaní sa vyskytli nasledujúce chyby
+theme_xhred_filemanager_crypt_encrypt=Súbory sú šifrované.
+theme_xhred_filemanager_crypt_decrypt=Súbory sa dešifrujú.
+theme_xhred_filemanager_crypt_encrypted=Šifrovanie vybraných súborov bolo úspešné.
+theme_xhred_filemanager_crypt_decrypted=Dešifrovanie vybraných súborov bolo úspešné.
+theme_xhred_filemanager_batch_error=Zahŕňa tiež skrátené výsledky známych %1 chýb.
+
+theme_xhred_global_preview_img=Obrázok ukážky
+theme_xhred_global_preview_img_sel=Ukážka vybraných obrázkov
+theme_xhred_global_preview_img_all=Ukážka všetkých obrázkov
+theme_xhred_filemanager_preview_images_building=Galéria obrázkov sa generuje na náhľad.
+theme_xhred_filemanager_preview_images_deps_error1=Aby bola táto funkcia funkčná, musíte mať v systéme nainštalovaný balík <code>ImageMagick</code>.
+theme_xhred_filemanager_preview_images_deps_error2=Môžete si ho $1 nechať automaticky nainštalovať.
+theme_xhred_filemanager_preview_images_error=Galériu obrázkov nie je možné vygenerovať.
+global_deps_installed=Balík $1 bol úspešne nainštalovaný.
+global_deps_error=Balík $1 nebol úspešne nainštalovaný. Nainštalujte ho ručne.
+global_deps_installing=Inštaluje sa balík $1.
+theme_xhred_global_toggle_fullscreen=Prepnúť na celú obrazovku
+theme_xhred_global_zoom_in_out=Priblíženie/oddialenie
+theme_xhred_global_prev_arrow_left=Predchádzajúci (šípka doľava)
+theme_xhred_global_next_arrow_right=Ďalej (šípka vpravo)
+
+theme_xhred_clear_cache_initiated=Vymazanie vyrovnávacej pamäte a opätovné načítanie.
+settings_document_title=Formát názvu dokumentu
+settings_document_title_option_3=modul
+settings_document_title_option_1=Verzia modulu $1 (typ OS)
+settings_document_title_option_2=Modul verzie $1 (typ OS)
+settings_document_title_option_4=Verzia $1 (typ OS)
+settings_document_title_option_5=hostname - modul $1 (typ OS)
+settings_document_title_option_6=username@hostname - modul $1 (typ OS)
+settings_document_title_option_7=Modul $1
+settings_document_title_option_8=názov hostiteľa
+settings_document_title_option_9=username@hostname modul
+theme_xhred_csf=ConfigServer Security & Firewall
+theme_xhred_global_version=verzia
+theme_xhred_notify_patching_module_style=Aplikácia počiatočnej opravy používateľského rozhrania pre $1 a opätovné načítanie.
+theme_xhred_global_error_more_details_online=Poznámka: Prečítajte si viac informácií o tejto chybe a o tom, ako ju vyriešiť, na našej %1wiki stránke %1 online.
+
+# 19.33
+theme_xhred_filemanager_search_file_mask=Maska súboru
+theme_xhred_filemanager_search_regex=Regulárny výraz
+theme_xhred_upload_successful=<span>$1 súbory</span> boli úspešne nahrané do adresára $2
+theme_xhred_upload_successful_single=Súbor <span>$1</span> bol úspešne nahraný do adresára $2
+settings_usermin_default_module=Predvolený modul
+
+# 19.34
+theme_xhred_search_in_file_open_external=Odpojte súbor do samostatného editora
+theme_xhred_path_to_console=Otvorte aktuálnu cestu v termináli <tt>(Alt + ⇧ + K)</tt>
+theme_xhred_filemanager_editor_revert_content=Vrátiť súbor
+theme_xhred_filemanager_editor_reverting_content=Zrušenie zmien a návrat k pôvodnému obsahu súboru.
+
+# 19.37
+theme_xhred_filemanager_exclude_dirs=Vylúčiť položky
+theme_xhred_filemanager_exclude_dirs_desc=Zoznam súborov alebo podadresárov, ktoré sa majú vylúčiť, oddeľuje stredník
+
+# 19.38
+theme_global_access_level=Úroveň prístupu
+theme_global_user_mode=Používateľský režim
+
+# 19.40
+theme_xhred_global_attachments=prílohy
+theme_xhred_mail_composer_send=send
+theme_xhred_mail_composer_schedule=plán
+theme_xhred_mail_composer_attach=Pripojiť súbory
+theme_xhred_mail_composer_toggle=Prepnúť režim HTML/obyčajný text
+theme_xhred_mail_composer_discard=Zahodiť koncept
+theme_xhred_mail_composer_server_attach=Pripojte súbor zo servera
+theme_xhred_mail_composer_addrecipients=Pridajte príjemcov do adresára
+theme_xhred_mail_composer_notifications_dsn=Vyžiadajte stav doručenia
+theme_xhred_mail_composer_notifications_del=Vyžiadajte si potvrdenie o prečítaní
+theme_xhred_global_options=možnosti
+theme_xhred_mail_composer_draft_saving=Koncept úspory. ..
+theme_xhred_mail_composer_draft_saved=Koncept bol uložený
+theme_xhred_mail_composer_server_attach_error_read=Požadovaný súbor nie je možné čítať alebo povolenie nemôže byť odmietnuté
+theme_xhred_mail_composer_server_attach_error_dir=Adresáre nie je možné pripojiť
+theme_xhred_mail_composer_discarded_draft=Koncept bol zahodený
+theme_xhred_global_undo=Vrátenie späť
+
+theme_xhred_global_today=dnes
+theme_xhred_global_tomorrow=zajtra
+theme_xhred_mail_composer_scheduled=Pošlite %1 na %2
+theme_global_core=jadro
+theme_dashboard_accordion_live_stats=Štatistika histórie
+theme_xhred_live_stats_cpu=CPU
+theme_xhred_live_stats_mem=Pamäť
+theme_xhred_live_stats_virt=výmena
+theme_xhred_live_stats_proc=proces
+theme_xhred_live_stats_disk=Diskové I/O
+theme_xhred_global_hour=hodina
+theme_xhred_global_hours=hodiny
+theme_xhred_title_locale_time_format=Formát času
+theme_xhred_nice_size_PIB=PIB
+theme_xhred_nice_size_TIB=TiB
+theme_xhred_nice_size_GIB=GiB
+theme_xhred_nice_size_MIB=MiB
+theme_xhred_nice_size_kIB=KiB
+theme_xhred_live_stats_net=Sieťové V/V
+theme_xhred_nice_size_PBB=PBP
+theme_xhred_nice_size_TBB=tb
+theme_xhred_nice_size_GBB=Gbps
+theme_xhred_nice_size_MBB=Mbps
+theme_xhred_nice_size_kBB=kbps
+theme_xhred_global_rows=riadky
+
+# 19.42
+settings_side_slider_blend=dediť
+
+# 19.44
+theme_xhred_reload_lang_notification=Jazyk témy sa zmenil. Stránka sa načíta znova, aby sa mohli použiť nové nastavenia.
+
+# 19.46
+theme_xhred_global_small=malý
+theme_xhred_global_normal=normálne
+theme_xhred_global_medium=stredná
+theme_xhred_global_large=Veľký
+theme_xhred_global_huge=Obrovský
+theme_xhred_filemanager_editor_maximized=Maximalizujte panel editorov pri spustení
+
+# 19.47
+theme_xhred_textarea_to_clipboard=Vybraný textový obsah bol úspešne skopírovaný do schránky
+
+# 19.48
+theme_xhred_global_alias=prezývka
+
+# 19.50
+theme_xhred_mail_composer_real_name=Skutočné meno
+theme_xhred_mail_composer_username=užívateľské meno
+
+# 19.53
+settings_global_palette_unauthenticated=Paleta farieb prihlasovacej stránky
+
+# 19.60
+settings_config_save_and_next=Uložiť a ďalšie
+settings_config_configuration_category=Konfiguračná kategória
+config_search_options_all=Vyhľadajte všetky možnosti konfigurácie modulu
+theme_xhred_editing_config_file=Úpravy konfiguračného súboru
+
+# 19.61
+theme_xhred_login_message_2fa=Pre tohto používateľa bolo povolené dvojfaktorové overenie na prihlásenie
+theme_xhred_global_verify=Overiť
+settings_show_terminal_link2=Zobraziť tlačidlo príkazového shellu
+settings_hotkey_shell2=Otvorte príkazový shell
+theme_xhred_path_to_console2=Otvorte aktuálnu cestu v príkazovom shell <tt>(Alt + ⇧ + K)</tt>
+theme_tooltip_terminal_link2=Príkazová schránka
+
+# 19.70
+theme_xhred_filemanager_context_view=vyhliadka
+theme_xhred_file_viewer=Prehliadač súborov
+theme_xhred_global_done=Hotový.
+theme_xhred_filemanager_file_save_err=Chyba pri ukladaní súboru.
+theme_xhred_filemanager_view_head=Výstup hlavičkového súboru
+theme_xhred_filemanager_view_head_and_reverse=Výstup hlavy a dozadu
+theme_xhred_filemanager_view_tail=Výstup zo súboru chvosta
+theme_xhred_filemanager_view_tail_and_reverse=Výstup do zadnej a zadnej časti súboru
+theme_xhred_filemanager_view_head_and_tail=Výstup súboru hlavy a chvosta
+
+theme_xhred_filemanager_search_info_search_dir=Vyhľadať adresár
+theme_xhred_filemanager_search_limit_user=Vlastnené používateľom
+theme_xhred_filemanager_search_limit_group=Vo vlastníctve skupiny
+theme_xhred_filemanager_search_limit_type=Typ súboru
+theme_xhred_filemanager_search_limit_size=Veľkosť súboru
+theme_xhred_filemanager_search_limit_size_desc=napr. <2K alebo >3M-<5M
+
+theme_xhred_filemanager_context_move_to_trash=Presunúť do koša
+theme_xhred_filemanager_context_permanently_delete=Natrvalo odstrániť
+theme_xhred_global_remove=Odstrániť
+theme_xhred_filemanager_settings_deletion_mode=Súbory môžete bezpečne mazať presunutím do koša
+theme_xhred_filemanager_successful_removal=Odstránenie do koša <tt>$1</tt> bolo úspešné.
+theme_xhred_filemanager_removing_selected=Odstraňuje sa vybraté.
+theme_xhred_filemanager_remove_warning=Odstránenie bolo úspešne dokončené, ale nie pre všetky objekty. Je možné, že požadované objekty mohli byť pred odstránením <em>premenované</em> alebo <em>presunuté</em>. Ďalšou možnou príčinou sú obmedzené povolenia (atribúty). Chybná správa:
+
+theme_xhred_connection_error_details_ssl=Skontrolujte varovanie <a>certifikát SSL s vlastným podpisom</a>
+
+# 19.71
+settings_sysinfo_hidden_panels_user=Skryté harmoniky
+theme_xhred_tooltip_dashboard_panels_disable=Skryť panel $1 
+theme_xhred_dashboard_panels_disabled_explain=Skrytý panel je možné znova povoliť pomocou <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
+settings_right_sysinfo_page_options=Dashboard a monitorovanie v reálnom čase
+settings_right_navigation_menu_options=Navigačné menu
+settings_right_notification_slider_options=Bočný posúvač
+settings_right_table_options=Stolový displej
+settings_right_hotkey_options=Klávesové skratky
+settings_right_hotkey_custom_options=Klávesové skratky s vlastnými odkazmi
+settings_right_soft_updates_page_options=Aktualizácie tém
+settings_global_general_options_title=Všeobecné predvolené hodnoty
+theme_error_access_not_root_user=Prístup odmietnutý: Používateľ nemá oprávnenie upravovať túto sekciu
+settings_theme_config_admins_only_privileged=Zakázať používateľom prístup k konfigurácii témy
+settings_theme_config_admins_only_privileged_description=Táto voľba, ak ju vynúti administrátor servera, skryje stránku s konfiguráciou témy pred bežnými, neoprávnenými používateľmi. Túto možnosť sa však neodporúča používať, pretože bežní používatelia už budú mať obmedzený prístup ku konfigurácii tém a budú môcť meniť iba minimálnu množinu možností špecifických pre používateľa.
+
+# 19.72
+theme_xhred_global_prefs=Predvoľby
+mconfig_eaccess=Tento modul nie je prístupný
+mconfig_ecannot=Pre tento modul sa nenašiel žiadny vlastný konfiguračný súbor
+theme_xhred_filemanager_mconfig_columns_selinux_disabled=Táto funkcia vyžaduje, aby bol <tt>SELinux</tt> nainštalovaný a povolený
+theme_xhred_filemanager_mconfig_columns_acls_disabled=Táto funkcia vyžaduje, aby bol systém súborov pripojený so zapnutými <tt>ACL</tt> a musel byť k dispozícii príkaz <kbd>getfacl</kbd>
+theme_xhred_global_module_preferences=Predvoľby modulu
+
+# 19.74
+theme_xhred_theme_update_available=Je nainštalovaná nová verzia autentickej témy
+settings_right_page_keep=Načítajte rovnakú stránku do prepínača domény
+settings_right_page_keep_description=Táto možnosť sa pokúsi načítať rovnakú stránku po výbere domény, keď sa zmení z rozbaľovacieho zoznamu navigačnej ponuky
+
+# 19.76
+theme_xhred_global_show_all=Ukázať všetko
+theme_xhred_filemanager_context_prop_show_all=Zobraziť všetky vlastnosti
+
+# 19.84
+settings_right_table_links_type=Typ zobrazenia odkazov na tabuľky
+settings_right_table_links_type_2=Veľké ikony s textom
+settings_right_table_links_type_1=Malé ikony s textom popisu
+settings_right_table_links_type_0=Žiadne ikony, iba textové odkazy
+settings_right_table_animate_icons=Zobraziť odkazy pri ikonách tabuľky na animáciu pri hovore
+settings_right_table_grayscaled_icons=Zobraziť odkazy na ikony tabuliek v odtieňoch sivej, pokiaľ nie sú umiestnené myšou
+theme_xhred_upload_initial_info_dir=Presuňte sem adresár alebo ho kliknutím vyberte
+theme_xhred_upload_one_dir_with=1 adresár s
+theme_xhred_upload_err_dir_mode=Chyba: Pokus o pridanie súboru s povoleným nahrávaním do adresára
+theme_xhred_upload_err_files_mode=Chyba: Pokus o pridanie adresára v režime nahrávania iba súborov
+theme_xhred_filemanager_context_empty_trash=Vyprázdniť kôš
+theme_xhred_filemanager_empty_trash_button=Vymažte všetky súbory v koši
+theme_xhred_filemanager_emptying_trash_selected=Vyprázdnenie koša.
+theme_xhred_filemanager_successful_emptying_trash=Vyprázdnenie adresára <tt>$1</tt> bolo úspešné.
+theme_xhred_notifications_motd=Poznámka správcu
+theme_xhred_notifications_motd2=Správa správcu
+theme_xhred_notifications_motd_says=$1 hovorí
+theme_xhred_tooltip_side_slider_notifications_motd_add=Vysielajte správy ostatným používateľom v systéme
+theme_xhred_modal_motd_title=Vysielanie systémových správ
+theme_xhred_modal_motd_desc=Toto rozhranie je možné použiť na vysielanie správ iným používateľom v systéme
+theme_xhred_global_message=Správa
+theme_xhred_modal_motd_select_all=Všetci používatelia
+theme_xhred_modal_motd_select_adm=Hlavní správcovia
+theme_xhred_modal_motd_select_res=predajcovia
+theme_xhred_modal_motd_select_vm=Majitelia serverov
+theme_xhred_modal_motd_select_cm=Majitelia strojov
+theme_xhred_modal_motd_select_um=Používatelia pošty
+theme_xhred_modal_motd_btn_add=Pridať novú správu
+theme_xhred_modal_motd_btn_save=Uložiť a odoslať aktuálnu sadu správ
+theme_xhred_modal_motd_btn_rm=Odstrániť aktuálnu správu
+theme_xhred_global_hide=Skryť
+body_cputemp=teplota CPU
+theme_global_fan=Chladič
+body_cpufans=ventilátory CPU
+body_cpufan_rpm=RPM
+body_cpufan=ventilátor CPU
+filemanager_symlink_exists=Nie je možné vytvoriť <tt>$1</tt> pretože súbor už existuje v <tt>$2</tt>
+
+# 19.85
+theme_xhred_tooltip_side_slider_clipboard_sysinfo=Skopírujte základné systémové informácie do schránky; podržaním klávesu $1 sa kopírovanie rozšíri; podržaním klávesu $2 skopírujete údaje vo formáte obyčajného textu namiesto označenia
+theme_xhred_tooltip_side_slider_clipboard_account=Skopírujte všetky informácie o účte do schránky; podržaním klávesu $1 skopírujete údaje vo formáte obyčajného textu namiesto označenia
+tooltip_back_to_servers_index_master=Indexový modul serverov Webmin na hlavnom počítači
+tooltip_list_other_servers=Zoznam ďalších registrovaných serverov Webmin
+theme_xhred_status_module_mon_up=Hore
+theme_xhred_status_module_mon_down=Dole
+theme_xhred_status_module_mon_webmin=Webmin nefunguje
+theme_xhred_status_module_mon_timed=Vypršal
+theme_xhred_status_module_mon_not=Nie je nainštalované
+theme_xhred_status_module_mon_skip=Preskočené
+theme_xhred_status_module_mon_quest=Nie je k dispozícií
+theme_xhred_webminlog_module_no_command_escapes=Prepnúť spätné lomky pre vykonaný príkaz
+settings_navigation_auto_fold_category=Automatické skladanie neaktívnych kategórií
+theme_xhred_tooltip_virtualmin_templates_filter_generating=Generovanie prehľadateľného zoznamu možností pre šablónu
+theme_xhred_tooltip_virtualmin_templates_filter=Vyhľadávajte vo všetkých možnostiach šablóny
+theme_xhred_sysinfo_vmforum=Komunita Virtualmin
+theme_xhred_tooltip_support_ticket=Odoslať podporný lístok s pripojenými systémovými informáciami; podržaním klávesu $1 skopírujete odkaz na podporu do schránky
+theme_xhred_tooltip_side_slider_refresh_sysinfo=Vynútiť obnovenie systémových informácií
+theme_xhred_disk_quota_error_title=Mimo kvóty
+theme_xhred_disk_quota_error_message=Na zariadení nie je dostatok miesta
+theme_xhred_filemanager_decrypt_option_use_master_admin_keys=Na dešifrovanie použite hlavný kľúč správcu
+
+# 19.90
+settings_hotkey_toggle_hold_modifier=Podržte modifikačný kláves
+
+# 19.91
+theme_xhred_filemanager_files_mode_ask=Vždy sa pýtaj
+theme_xhred_filemanager_files_mode_ask_remember=Zapamätať si ako budúce predvolené nastavenie
+theme_xhred_filemanager_files_mode_ask_title=Prepísať existujúce
+theme_xhred_filemanager_files_mode_ask_title2=Prepísať existujúce súbory
+theme_xhred_filemanager_files_mode_ask_desc=Chcete pri ďalšej operácii prepísať všetky existujúce súbory?
+theme_xhred_filemanager_files_mode_ask_title_yes=Áno, prepísať
+theme_xhred_filemanager_files_mode_ask_title_no=Nie, zachovaj existenciu
+theme_xhred_filemanager_trash_empty_curr_user_single=Prázdny priečinok koša
+theme_xhred_filemanager_trash_empty_curr_user=Vyprázdniť aktuálny používateľský odpadkový adresár
+theme_xhred_filemanager_trash_empty_all_users=Vyprázdnite adresáre koša všetkých ostatných používateľov
+theme_xhred_filemanager_purge_trash_curr_start=Čistí sa adresár $1.
+theme_xhred_filemanager_purge_trash_all_start=Čistenie všetkých ostatných používateľských adresárov koša.
+theme_xhred_filemanager_purge_trash_curr_end=Adresár $1 bol úspešne vyčistený.
+theme_xhred_filemanager_purge_trash_all_end=Všetky ostatné používateľské adresáre koša boli úspešne vymazané.
+theme_error_access_dir_not_allowed=Prístup odmietnutý: Súbor nie je prístupný
+
+# 19.95
+theme_xhred_global_outdated_desc=Nainštalovaná verzia $1 je zastaraná. Najnovšia dostupná verzia je $2. Inovujte alebo kliknite a získajte ďalšie podrobnosti o nedávnom vydaní.
+theme_xhred_global_outdated_desc2=Nainštalovaná verzia $1 je zastaraná. Najnovšia dostupná verzia je $2.
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_pc=Počas výberu podržte stlačený kláves <tt>Ctrl</tt>
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_mac=Počas výberu podržte stlačené tlačidlo <tt>Command</tt>
+
+# 19.97
+theme_xhred_webmin_requires_restart=Zistilo sa, že démon webového servera Webmin nebol správne reštartovaný pri poslednej aktualizácii balíka. Toto je potrebné na manuálne reštartovanie webového servera zavolaním príkazu <tt>$1</tt>.
+theme_xhred_webmin_requires_restart_yes=Áno, skúste to reštartovať
+theme_xhred_webmin_requires_restart_no=Nie, reštartujem ho ručne
+
+# 19.99
+theme_xhred_filemanager_path_manual=Zadajte cestu manuálne (Ctrl + L)
+
+# 20.02
+theme_xhred_socket_conn_lost_title=Spojenie prerušené
+theme_xhred_socket_conn_lost_reconnect=Znovu sa pripojte
+theme_xhred_socket_conn_lost_connecting=Pripája sa ..
+theme_xhred_socket_conn_lost_try=Skúste to znova
+theme_xhred_socket_conn_parse_error=Zlyhalo načítanie terminálu: Nie je možné analyzovať objekt odpovede zo servera
+theme_xhred_socket_conn_sock_error=Načítanie terminálu zlyhalo: Chyba pripojenia WebSocket
+
+# 20.10
+theme_xhred_global_open=OTVORENÉ
+theme_xhred_xterm_error_title=Nemôže sa pripojiť
+theme_xhred_xterm_error=Ďalšie podrobnosti nájdete v module Terminál
+
+# 20.11
+theme_xhred_global_error_fatal=Fatálna chyba
+
+# 20.20
+theme_xhred_global_automatic=Automaticky
+theme_xhred_filemanager_context_acls=Zmeniť zoznam riadenia prístupu
+theme_xhred_filemanager_changing_acls=Zmena zoznamu riadenia prístupu.
+theme_xhred_filemanager_successful_acls_with_errors=Zoznam riadenia prístupu nebol úspešne zmenený pre všetky objekty:
+theme_xhred_filemanager_successful_acls=Zoznam riadenia prístupu bol úspešne zmenený.
+theme_download_error=Chyba pri sťahovaní súboru, pretože sa nachádza mimo povoleného adresára : $1
+
+# 20.30
+theme_xhred_hotkeys_help=Pomocník (F1)
+theme_xhred_hotkeys_help_title=Klávesové skratky
+theme_xhred_hotkeys_help_title_docs=Dokumentácia
+theme_xhred_hotkeys_help_title_global=Téma
+theme_xhred_hotkeys_help_title_module=Skratky špecifické pre modul
+theme_xhred_hotkeys_help_title_fm=Správca súborov
+theme_xhred_hotkeys_help_title_edit=Editor
+theme_xhred_global_community=Spoločenstva
+theme_xhred_hotkeys_server_error=Nie je možné načítať súbor pomocníka
+theme_xhred_hotkeys_custom_to_opens=otvára
+theme_xhred_hotkeys_custom_not_set=nie je nastavené
+theme_xhred_hotkey_open_module_config_privileged=Otvorte konfiguráciu modulu
+theme_xhred_hotkey_open_theme_config=Otvorte konfiguráciu témy
+theme_xhred_hotkey_list_table=Zoznam stránkovanej tabuľky
+theme_xhred_hotkey_list_tabs=Karty zoznamu
+theme_xhred_hotkey_clear_cache=Vymažte vyrovnávaciu pamäť a znova načítajte
+theme_xhred_hotkey_open_new=Duplikovať na novú kartu
+theme_xhred_hotkey_copy_to_clipboard=Skopírujte údaje prvku do schránky
+theme_xhred_hotkey_copy_to_clipboard_click=ľavý klik
+theme_xhred_hotkey_print_title=Klávesové skratky Webmin s autentickou témou
+theme_xhred_global_success=Úspech
+theme_xhred_search_content=Vyhľadajte obsah
+theme_xhred_global_disabled=Zakázané
+theme_xhred_connection_reset_title=Resetovanie pripojenia
+theme_xhred_connection_reset_message=Nedá sa nadviazať spojenie so vzdialeným serverom
+right_file_is_being_prepared=Váš súbor sa pripravuje. Prosím čakajte..
+
+theme_xhred_global_paragraph=Odsek
+theme_xhred_global_heading=Smerovanie
+theme_xhred_editor_tb_font=Názov písma
+theme_xhred_editor_tb_font_fixed_width=Pevná šírka
+theme_xhred_editor_tb_size=Veľkosť písma
+theme_xhred_editor_tb_paragraph=Štýl odseku
+theme_xhred_editor_tb_header=Štýl odseku
+theme_xhred_editor_tb_bold=Tučné (%cmd+B)
+theme_xhred_editor_tb_italic=Kurzíva (%cmd+I)
+theme_xhred_editor_tb_underline=Podčiarknuť (%cmd+U)
+theme_xhred_editor_tb_color=Farba textu
+theme_xhred_editor_tb_background=Textové pozadie
+theme_xhred_editor_tb_align=Zarovnať
+theme_xhred_editor_tb_list_ordered=Číslovaný zoznam (%cmd+Shift+7)
+theme_xhred_editor_tb_list_bullet=Zoznam s odrážkami (%cmd+Shift+8)
+theme_xhred_editor_tb_strike=Prečiarknuté
+theme_xhred_editor_tb_blockquote=Citácia (%cmd+Shift+9)
+theme_xhred_editor_tb_link=Vložiť odkaz (%cmd+K)
+theme_xhred_editor_tb_image=Vložte vložený obrázok
+theme_xhred_editor_tb_clean=Odstráňte formátovanie
+theme_xhred_editor_tb_script_super=Horný index
+theme_xhred_editor_tb_script_sub=Dolný index
+theme_xhred_editor_tb_indent_+1=Zväčšiť zarážku
+theme_xhred_editor_tb_indent_-1=Zmenšiť zarážku
+theme_xhred_editor_tb_code=Blok kódu
+theme_xhred_editor_tb_code-block=Blok kódu
+theme_xhred_editor_tb_direction=Smer textu
+
+settings_right_table_layout_control=Zobraziť ovládací prvok rozloženia obsahu
+theme_xhred_tooltip_columns_layout=Ovládanie rozloženia obsahu
+theme_xhred_columns_layout_title=Rozloženie obsahu
+theme_xhred_columns_layout_variation=Variácia rozloženia
+theme_xhred_global_vertical=Vertikálne
+theme_xhred_global_horizontal=Horizontálne
+theme_xhred_columns_layout_vertical_opts=Možnosti vertikálneho rozloženia
+theme_xhred_columns_layout_vertical_opts_max_columns=Maximálny počet stĺpcov
+theme_xhred_columns_layout_vertical_opts_max_width=Minimálna šírka stĺpca
+theme_xhred_columns_layout_vertical_opts_break_title=Akcia pretečenia stĺpca
+theme_xhred_columns_layout_vertical_opts_break_new=Prestávka
+theme_xhred_columns_layout_vertical_opts_break_scroll=Posúvajte sa
+theme_xhred_columns_layout_remove=Skryť tento widget
+theme_xhred_columns_layout_remove_button=Uložiť a skryť
+theme_xhred_columns_layout_variation_cannot_horizontal=Horizontálne rozloženie nie je možné použiť v mobilnom režime, konkrétne keď je šírka obrazovky menšia ako 992 pixelov
+
+settings_auto_open_panels_on_proximity=Automatické otváranie uzavretých panelov pri blízkosti
+
+theme_xhred_config_portable_module_xterm_render_addon=Povoliť doplnok vykresľovania WebGL
+
+# 21.09.04
+theme_xhred_datatable_filter_and_export=Filtrujte a exportujte obsah
+
+# 21.10
+settings_hotkey_logout_dbl=Odhlásiť sa
+theme_xhred_hotkey_emsg=Kláves spätného lomítka nemožno použiť ako klávesovú skratku
+settings_embed_product_splash_privileged=Po prihlásení zobrazte úvodnú obrazovku značky
+dashboard_status_running=Beh
+dashboard_status_stopped=Zastavené
+
+# 21.11
+theme_xhred_global_watching=Sledovanie
+theme_xhred_global_connected=Pripojené
+theme_xhred_global_disconnected=Odpojené
+theme_xhred_global_connecting=Pripája sa
+index_mods_missing=Chýba modul Perl <tt>$1</tt>.
+index_noadmin_eaccess=Nehlavným administrátorom bol prístup odmietnutý!
+theme_xhred_body_os=Operačný systém
+theme_xhred_theme_version=Autentická verzia motívu
+theme_xhred_body_updates=Aktualizácie balíkov
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Prepnúť tému
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Odovzdanie bolo úspešné
+theme_xhred_filemanager_upload_status_err=Nahrávanie zlyhalo:
+theme_xhred_filemanager_download_status_err=Sťahovanie zlyhalo:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Prečítajte si
+theme_xhred_dashboard_chart_disk_write=Napíšte
+theme_xhred_dashboard_chart_net_read=In
+theme_xhred_dashboard_chart_net_write=Vonku
+theme_xhred_tooltip_dashboard_live_stats_offline=Živé štatistiky nie sú dostupné, keď je systém prístupný v režime proxy; zobrazia sa iba predtým zhromaždené štatistiky a iba ak sú k dispozícii, a na aktualizáciu týchto štatistík bude potrebné znova načítať stránku
+settings_sysinfo_real_time_status_history1=Áno, a ukladať štatistiky pre
+settings_sysinfo_real_time_status_history2=Áno, bez ukladania štatistík
+settings_sysinfo_real_time_status_history_duration1=20 minút
+settings_sysinfo_real_time_status_history_duration2=1 hodina
+settings_sysinfo_real_time_status_history_duration3=3 hodiny
+settings_sysinfo_real_time_status_history_duration4=6 hodín
+settings_sysinfo_real_time_status_history_duration5=12 hodín
+settings_sysinfo_real_time_status_history_duration6=18 hodín
+settings_sysinfo_real_time_status_history_duration7=24 hodín
+theme_xhred_license_purchase=Zakúpte si licenciu
+settings_right_table_links_sorted=Zoraďte odkazy tabuľky v abecednom poradí
+
+# 24.00
+session_error=Chyba
+session_success=Úspech
+session_cannot=Nepodarilo sa obnoviť heslo: Chýba používateľské meno.
+session_neterror=Nepodarilo sa získať odpoveď zo siete!
+session_unkerror=Vyskytla sa neočakávaná chyba. Skúste to znova neskôr.
+session_conerror=Nepodarilo sa spojiť so serverom. Skúste to znova neskôr.
+session_resetpass1=Nové heslo
+session_resetpass2=Potvrdiť nové heslo
+session_resetepassreq=Vyžaduje sa heslo.
+session_pwdconf=Vyžaduje sa potvrdenie hesla.
+session_pwdmatch=Heslá sa nezhodujú.
+session_noid=ID obnovenia sa nenašlo!
+session_pwdsucc=Heslo bolo úspešne zmenené! Teraz sa môžete prihlásiť s novým heslom.

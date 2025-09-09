@@ -1,0 +1,672 @@
+body_cputype1=$5、$8 核心
+lost_message=如果您的帐户设置了恢复电子邮件，您可以使用此表单向自己发送密码重置链接
+reset_message=您即将重置用户 <tt>$1</tt> 的密码
+login_recover=请求重置密码
+login_back=回去
+
+settings_right_logos_title=主题徽标可在此轻松设置，适用于已认证和未认证的用户。建议徽标尺寸为 <em>180x90</em> 像素。
+settings_right_logos_error=上传的文件不是图片
+
+settings_right_hotkey_custom_options_description=自定义链接使您能够使用从 <code>1</code> 到 <code>9</code> 的数字来快速访问任何有效的面板 <code>URL。</code> <code>URL</code> 可以从当前打开的页面中提取出来。例如，要快速切换到 Apache 模块，请将 <code>apache</code> 设置为 <code>Custom link 1</code> 字段。如果默认修改键设置为 <code>Alt，</code> 单击 <code>Alt + 1</code>，将打开 Apache 模块。
+
+settings_right_reload=在选项卡开关上加载默认页面
+
+settings_hotkeys_active=使能够
+settings_hotkey_toggle_modifier=修改键
+settings_hotkey_toggle_key_webmin=加载 Webmin 菜单
+settings_hotkey_toggle_key_virtualmin=加载 Virtualmin 菜单
+settings_hotkey_toggle_key_cloudmin=加载 Cloudmin 菜单
+settings_hotkey_toggle_key_usermin=加载用户菜单
+settings_hotkey_toggle_key_webmail=加载邮件菜单
+settings_hotkey_sysinfo=打开仪表板
+settings_hotkey_shell=打开下拉终端
+settings_hotkey_favorites=打开收藏夹
+settings_hotkey_focus_search=专注于搜索领域
+settings_hotkey_reload=刷新当前页面
+
+settings_hotkey_toggle_slider=切换侧滑块可见性
+
+# 17.40
+theme_xhred_sysinfo_wmdocs=Webmin 文档
+theme_xhred_sysinfo_vmdocs=虚拟文档
+theme_xhred_sysinfo_cmdocs=Cloudmin 文档
+
+theme_xhred_filemanager_setting_permissions=将所选文件的权限设置为<tt>%value</tt> 。
+theme_xhred_filemanager_changing_ownership=将选定文件的所有权更改为<tt>%value</tt> 。
+theme_xhred_filemanager_bookmark_success=目录<tt>%value</tt>已成功添加到您的书签。
+theme_xhred_filemanager_searching=搜索与文件“/directories”的名称匹配的<tt>%value</tt> /directories.
+
+theme_xhred_filemanager_successful_directory_creation=目录<tt>%value</tt>已成功创建。
+theme_xhred_filemanager_successful_file_creation=文件<tt>%value</tt>已成功创建。
+
+theme_xhred_filemanager_unbookmark_success=目录<tt>%value</tt>已成功从您的书签中删除。
+
+theme_xhred_database_object_selected_delete2=删除选定的表
+theme_xhred_database_objects_selected_delete2=删除选定的表
+
+filemanager_create_object_exists=$3 <tt>$1</tt>已存在于<tt>$2</tt>中
+filemanager_create_object_denied=无法在<tt>$2</tt>中创建 $3 <tt>$1</tt> – 权限被拒绝： $4 。
+
+filemanager_rename_exists=名称为<tt>$1</tt> $3已在<tt>$2</tt>中存在
+
+theme_xhred_filemanager_successful_rename=将<tt>%from</tt>重命名为<tt>%to</tt>已成功。
+
+theme_xhred_filemanager_searching_matching=搜索与文件/directories, 的名称匹配的<tt>%value</tt> ，其中包含<tt>%text</tt>文本。
+theme_xhred_filemanager_searching_replacing=在名称包含<tt>%value</tt>的文件中，替换将<tt>%text</tt>与<tt>%replace</tt>匹配。
+
+theme_xhred_filemanager_successful_compression_bg=压缩已成功完成。压缩文件<tt>%file</tt>位于<tt>%path</tt>目录中。
+theme_xhred_filemanager_successful_compression_bg_with_errors=压缩已完成但出现错误。压缩文件<tt>%file</tt>应位于<tt>%path</tt>目录中。
+
+theme_xhred_filemanager_changing_attributes=将所选文件的属性设置为<tt>%value</tt> 。
+
+theme_xhred_filemanager_changing_secontext=将选定文件的安全上下文更改为<tt>%value</tt> 。
+
+# 18.40
+settings_hotkey_toggle_key_night_mode=切换调色板
+
+# 18.48
+theme_force_upgrade=更新主题
+theme_update_footer=请向 $1 存储库报告错误。加入我们的 $2 频道以获取最新消息。
+
+settings_webmin_default_module=Webmin的默认页面
+
+# 19.09
+theme_git_patch_incompatible_message_desc=可能存在不兼容的更改，这可能会阻止主题按设计工作。无法使用 UI 继续升级操作。
+
+# 19.20
+extensions_mail_flag_spam_status=垃圾邮件状态
+extensions_mail_flag_spam_status_data=2美元中的1美元
+extensions_mail_flag_tls_on=标准加密（TLS）
+extensions_mail_flag_tls_off=未加密的邮件
+extensions_mail_flag_tls_none=加密状态未知
+
+theme_xhred_settings_right_theme_bgs=主题背景
+theme_xhred_settings_right_theme_bgs_title=主题背景
+settings_right_bgs_title=可以在这里设置登录页面的主题背景。
+settings_right_bg_unauthenticated_users=未经身份验证的用户的背景
+settings_right_theme_left_background_title=主题背景控制
+
+theme_xhred_find_in_config_files=在配置文件中查找
+theme_xhred_find_in_config_files_result_found_single=在$2文件中找到$1个结果，价格为$3
+theme_xhred_find_in_config_files_result_found_multi=在$2文件中以$3的价格找到$1个结果
+theme_xhred_find_in_config_files_results_found=在$2文件中以$3的价格找到$1个结果
+
+theme_xhred_filemanager_context_symlink=创建新的符号链接
+theme_xhred_global_symbolic=符号链接
+theme_xhred_global_target=目标
+settings_sysinfo_max_servers=显示的最大虚拟服务器
+
+right_download_is_ready=您下载已准备就绪。
+theme_xhred_download_is_being_prepared=您的下载正在准备中。可能要花一点时间。请稍候 ..
+theme_xhred_backup_is_being_prepared=您的备份正在准备中。可能要花一点时间。请稍候 ..
+
+settings_mail_ui=启用新邮件界面
+
+settings_theme_config_admins_only_privileged_error=访问被拒绝：管理员阻止了对用户定制的访问
+
+theme_xhred_tooltip_navigation_pinned=固定/取消固定导航菜单
+settings_hotkey_navigation=切换导航菜单状态
+
+theme_xhred_search_in_webmin=搜索Webmin
+theme_xhred_search_in_usermin=搜索Usermin
+theme_xhred_search_in_virtualserver=搜索Virtualmin
+theme_xhred_search_in_servermanager=搜索Cloudmin
+
+theme_xhred_filemanager_context_clipboard_selection=将选择内容复制到剪贴板
+
+settings_hotkey_slider=切换侧滑块状态
+
+theme_git_update_locked=由于没有与GitHub的连接或其API速率限制过高，无法完成主题更新。对于后面未经身份验证的请求，速率限制允许每小时最多60个请求。稍后再试，或使用控制台通过更新脚本手动完成。
+
+settings_collapse_navigation_link=显示固定/取消固定按钮
+
+settings_cache_interval=运行更新检查的间隔
+settings_cache_interval_1h=每隔一小时
+settings_cache_interval_12h=每12小时
+settings_cache_interval_1d=一天一次
+settings_cache_interval_7d=每周
+settings_cache_interval_14d=每月两次
+settings_cache_interval_1m=每月一次
+settings_cache_interval_3m=每3个月一次
+settings_cache_interval_6m=一年两次
+settings_cache_interval_1y=一年一次
+
+theme_xhred_reload_notification=主题配置已更改，但未保存。页面将被重新加载，以重置为当前设置。
+
+# 19.22
+theme_xhred_global_save_as=另存为
+theme_xhred_editor_save_file_as=另存为
+theme_xhred_global_configuration=组态
+
+body_used_cached_total=总计$1 /已使用$3 /已使用$2
+
+# 19.30
+theme_xhred_favorites_add=添加到收藏夹
+theme_xhred_favorites_remove=从收藏夹中删除
+theme_xhred_select_deselect=选择/取消选择当前项目
+theme_xhred_edit_current=编辑当前项目
+theme_xhred_search_in_file=搜索文件
+left_toggle_navigation_menu=切换导航可见性
+theme_xhred_side_slider_toggle=切换侧面滑块的可见性
+right_pagination_first=第一
+right_pagination_last=持续
+settings_leftmenu_custom_links=额外条目
+theme_xhred_file_editor=文件编辑器
+theme_xhred_mail_no_mail=没有邮件
+theme_xhred_mail_no_new_mail=没有新邮件
+theme_xhred_editor_set_syntax=设定语法
+theme_xhred_global_menu=菜单
+theme_xhred_shell_aborted=行动取消
+
+# 19.32
+theme_xhred_connection_reboot=重新启动
+theme_xhred_connection_reboot_details=服务器正在重新启动。请稍候 ..
+settings_leftmenu_custom_links_description=可以将自定义的额外链接注入导航菜单。<br><br>需要<em>title</em>、<em>link</em>和<em>icon</em>键；或者，您可以通过指定<em>level</em>键及其值（以逗号分隔的列表）来定义在哪种登录模式下显示链接，其中包含：<br><br> <em>0</em> - 管理员登录； <br><em>1</em> - 经销商登录;<br><em>2</em> - 服务器所有者登录;<br><em>3</em> - 用户登录;<br><em>4</em> - 系统所有者登录。<br><br>它将要求您将有效的 JSON 对象作为字符串传递，如下例所示。<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+left_favorites_edit=编辑收藏夹
+left_favorites_edit_desc=该页面可用于手动编辑主题收藏夹用户文件。这应该谨慎进行，因为不会对您的更改执行语法或其他有效性检查。
+theme_xhred_filemanager_records_for_server_pagination=目录中用于启动服务器分页的默认项目数
+
+filemanager_global_info_paginated_total1=$4页面上$3项目的$1文件和$2目录
+filemanager_global_info_paginated_total2=$4页面上的$3项目的$1个文件和$2目录
+filemanager_global_info_paginated_total3=$4页面上的$3项目的$1文件和$2目录
+filemanager_global_info_paginated_total4=$4页面上的$3项目的$1个文件和$2目录
+theme_xhred_filemanager_search_follow_symlinks=跟随符号链接
+theme_xhred_filemanager_mass_select=是否选择%2页面中的所有%1项目？
+theme_xhred_filemanager_mass_selected=在当前目录中已选择所有%1项。
+theme_xhred_filemanager_mass_select_clear=清空选项
+theme_xhred_filemanager_mass_selected_for_delete=%1 目录中的所有项目
+theme_xhred_filemanager_mass_selected_no_zip=对目录中的所有项目运行时，不支持使用<tt>zip</tt>命令
+filemanager_global_search_results=搜索结果
+filemanager_global_paginated_results=分页
+filemanager_global_access_change_time=上次访问/更改时间
+filemanager_global_user_group_id=数值用户/组
+theme_xhred_filemanager_global_size_in_bytes=大小（以字节为单位）
+theme_xhred_global_command_completed=命令完成
+theme_xhred_global_toggle_password_visibility=切换密码可见性
+theme_xhred_login_passphrase=密码短语
+theme_xhred_filemanager_archive_gpg_no_keys=没有可用的钥匙
+filemanager_archive_gpg_error=GPG错误
+filemanager_archive_move_to_archive_failed=由于并发错误，无法将文件移至存档
+theme_xhred_filemanager_archive_move_to=移至档案
+theme_xhred_global_encrypt=加密
+theme_xhred_filemanager_gpg_select_the_key=选择键
+theme_xhred_filemanager_context_extract_encrypted=提取选项
+theme_xhred_filemanager_extract_encrypted_password_or_passphrase=密码或密码
+theme_xhred_filemanager_extract_encrypted_password_or_passphrase_desc=输入密码以解密压缩文件。输入您的GPG密钥的密码（如果已设置）。
+theme_xhred_global_decrypt=解密
+filemanager_archive_password_required=解密档案所需的密码
+filemanager_archive_password_wrong=提供的密码不正确
+filemanager_archive_file_not_found=文件不存在
+filemanager_archive_gpg_private_error=没有可用的秘密密钥或密钥的密码短语不正确
+theme_xhred_filemanager_errors_extraction=提取时发生以下错误
+theme_xhred_filemanager_extract_option_delete_afterwards=成功提取后删除档案
+
+theme_xhred_login_passphrase_desc=输入您的GPG密钥的密码（如果已设置）。
+theme_xhred_filemanager_encrypt_option_delete_afterwards=成功加密后删除文件
+theme_xhred_filemanager_decrypt_option_delete_afterwards=成功解密后删除文件
+theme_xhred_filemanager_encrypt_gpg_key=使用钥匙
+theme_xhred_filemanager_errors_encrypt=加密时发生以下错误
+theme_xhred_filemanager_errors_decrypt=解密时发生以下错误
+theme_xhred_filemanager_crypt_encrypt=文件正在加密。
+theme_xhred_filemanager_crypt_decrypt=文件正在解密。
+theme_xhred_filemanager_crypt_encrypted=所选文件的加密成功。
+theme_xhred_filemanager_crypt_decrypted=所选文件的解密成功。
+theme_xhred_filemanager_batch_error=它还包括%1常见错误的截断结果。
+
+theme_xhred_global_preview_img=预览图片
+theme_xhred_global_preview_img_sel=预览选定的图像
+theme_xhred_global_preview_img_all=预览所有图片
+theme_xhred_filemanager_preview_images_building=正在生成图库以供预览。
+theme_xhred_filemanager_preview_images_deps_error1=必须在您的系统上安装<code>ImageMagick</code>软件包，才能使用此功能。
+theme_xhred_filemanager_preview_images_deps_error2=您可以$1自动为您安装它。
+theme_xhred_filemanager_preview_images_error=无法生成图库。
+global_deps_installed=软件包$1已成功安装。
+global_deps_error=软件包$1没有成功安装。请手动安装。
+global_deps_installing=正在安装软件包$1。
+theme_xhred_global_toggle_fullscreen=切换全屏
+theme_xhred_global_zoom_in_out=放大/缩小
+theme_xhred_global_prev_arrow_left=上一个（向左箭头）
+theme_xhred_global_next_arrow_right=下一个（向右箭头）
+
+theme_xhred_clear_cache_initiated=清除缓存并重新加载。
+settings_document_title=文件标题格式
+settings_document_title_option_3=模组
+settings_document_title_option_1=模块$1版本（操作系统类型）
+settings_document_title_option_2=$1版本（操作系统类型）模块
+settings_document_title_option_4=$1版本（操作系统类型）
+settings_document_title_option_5=主机名-$1版本（操作系统类型）模块
+settings_document_title_option_6=username@hostname-$1版本（操作系统类型）模块
+settings_document_title_option_7=单元$1
+settings_document_title_option_8=主机名模块
+settings_document_title_option_9=username@hostname模块
+theme_xhred_csf=ConfigServer Security & Firewall
+theme_xhred_global_version=版
+theme_xhred_notify_patching_module_style=为$1应用初始UI补丁并重新加载。
+theme_xhred_global_error_more_details_online=注意：请在我们的%1wiki页面%1在线上阅读有关此错误及其解决方法的更多信息。
+
+# 19.33
+theme_xhred_filemanager_search_file_mask=文件遮罩
+theme_xhred_filemanager_search_regex=正则表达式
+theme_xhred_upload_successful=<span>$1个文件</span>已成功上传到$2目录
+theme_xhred_upload_successful_single=<span>$1文件</span>已成功上传到$2目录
+settings_usermin_default_module=默认模块
+
+# 19.34
+theme_xhred_search_in_file_open_external=将文件分离到单独的编辑器
+theme_xhred_path_to_console=在终端<tt>（Alt+Shift+K）</tt>中打开当前路径
+theme_xhred_filemanager_editor_revert_content=还原档案
+theme_xhred_filemanager_editor_reverting_content=删除更改并还原为原始文件内容。
+
+# 19.37
+theme_xhred_filemanager_exclude_dirs=排除条目
+theme_xhred_filemanager_exclude_dirs_desc=以分号分隔的要排除的文件或子目录列表
+
+# 19.38
+theme_global_access_level=访问权限
+theme_global_user_mode=用户模式
+
+# 19.40
+theme_xhred_global_attachments=附件
+theme_xhred_mail_composer_send=发送
+theme_xhred_mail_composer_schedule=时间表
+theme_xhred_mail_composer_attach=附加档案
+theme_xhred_mail_composer_toggle=切换HTML /纯文本模式
+theme_xhred_mail_composer_discard=放弃草稿
+theme_xhred_mail_composer_server_attach=从服务器附加文件
+theme_xhred_mail_composer_addrecipients=将收件人添加到地址簿
+theme_xhred_mail_composer_notifications_dsn=要求交货状态
+theme_xhred_mail_composer_notifications_del=要求阅读回执
+theme_xhred_global_options=选件
+theme_xhred_mail_composer_draft_saving=节省草稿. ..
+theme_xhred_mail_composer_draft_saved=草稿已保存
+theme_xhred_mail_composer_server_attach_error_read=无法读取请求的文件或拒绝权限
+theme_xhred_mail_composer_server_attach_error_dir=目录无法附加
+theme_xhred_mail_composer_discarded_draft=草稿已被丢弃
+theme_xhred_global_undo=撤消
+
+theme_xhred_global_today=今天
+theme_xhred_global_tomorrow=明天
+theme_xhred_mail_composer_scheduled=在%2发送%1
+theme_global_core=核心
+theme_dashboard_accordion_live_stats=统计历史
+theme_xhred_live_stats_cpu=中央处理器
+theme_xhred_live_stats_mem=记忆
+theme_xhred_live_stats_virt=交换
+theme_xhred_live_stats_proc=处理
+theme_xhred_live_stats_disk=磁盘I/O
+theme_xhred_global_hour=小时
+theme_xhred_global_hours=小时
+theme_xhred_title_locale_time_format=时间格式
+theme_xhred_nice_size_PIB=PiB
+theme_xhred_nice_size_TIB=钛
+theme_xhred_nice_size_GIB=吉卜
+theme_xhred_nice_size_MIB=MiB
+theme_xhred_nice_size_kIB=KiB
+theme_xhred_live_stats_net=网络I/O
+theme_xhred_nice_size_PBB=点数
+theme_xhred_nice_size_TBB=bps
+theme_xhred_nice_size_GBB=千兆位
+theme_xhred_nice_size_MBB=兆比特
+theme_xhred_nice_size_kBB=千比特
+theme_xhred_global_rows=行数
+
+# 19.42
+settings_side_slider_blend=继承
+
+# 19.44
+theme_xhred_reload_lang_notification=主题语言已更改。该页面将被重新加载，以应用新设置。
+
+# 19.46
+theme_xhred_global_small=小
+theme_xhred_global_normal=正常
+theme_xhred_global_medium=介质
+theme_xhred_global_large=大
+theme_xhred_global_huge=巨大
+theme_xhred_filemanager_editor_maximized=启动时最大化编辑器面板
+
+# 19.47
+theme_xhred_textarea_to_clipboard=所选textarea内容已成功复制到剪贴板
+
+# 19.48
+theme_xhred_global_alias=别名
+
+# 19.50
+theme_xhred_mail_composer_real_name=真正的名字
+theme_xhred_mail_composer_username=用户名
+
+# 19.53
+settings_global_palette_unauthenticated=登录页面调色板
+
+# 19.60
+settings_config_save_and_next=保存并下一步
+settings_config_configuration_category=配置类别
+config_search_options_all=搜索所有模块配置选项
+theme_xhred_editing_config_file=编辑配置文件
+
+# 19.61
+theme_xhred_login_message_2fa=已启用此用户的两因素身份验证登录
+theme_xhred_global_verify=校验
+settings_show_terminal_link2=显示命令外壳按钮
+settings_hotkey_shell2=打开命令外壳
+theme_xhred_path_to_console2=在命令外壳<tt>（Alt+Shift+K）</tt>中打开当前路径
+theme_tooltip_terminal_link2=命令外壳
+
+# 19.70
+theme_xhred_filemanager_context_view=视图
+theme_xhred_file_viewer=文件浏览器
+theme_xhred_global_done=做完了
+theme_xhred_filemanager_file_save_err=保存文件时出错。
+theme_xhred_filemanager_view_head=头文件输出
+theme_xhred_filemanager_view_head_and_reverse=头文件和反向文件输出
+theme_xhred_filemanager_view_tail=尾文件输出
+theme_xhred_filemanager_view_tail_and_reverse=尾部和反向文件输出
+theme_xhred_filemanager_view_head_and_tail=头和尾文件输出
+
+theme_xhred_filemanager_search_info_search_dir=搜索目录
+theme_xhred_filemanager_search_limit_user=由用户拥有
+theme_xhred_filemanager_search_limit_group=归集团所有
+theme_xhred_filemanager_search_limit_type=文件类型
+theme_xhred_filemanager_search_limit_size=文件大小
+theme_xhred_filemanager_search_limit_size_desc=例如<2K 或 >3M-<5M
+
+theme_xhred_filemanager_context_move_to_trash=移到废纸篓
+theme_xhred_filemanager_context_permanently_delete=永久删除
+theme_xhred_global_remove=去掉
+theme_xhred_filemanager_settings_deletion_mode=通过移到回收站安全地删除文件
+theme_xhred_filemanager_successful_removal=已成功删除垃圾<tt>$1</tt>。
+theme_xhred_filemanager_removing_selected=删除所选内容。
+theme_xhred_filemanager_remove_warning=删除成功完成，但并非所有对象都删除。在删除之前，请求的对象可能已经被<em>重命名</em>或<em>移动</em>。权限受限（属性）是另一个可能的原因。错误信息：
+
+theme_xhred_connection_error_details_ssl=检查<a>自签名SSL证书</a>警告
+
+# 19.71
+settings_sysinfo_hidden_panels_user=隐藏的手风琴
+theme_xhred_tooltip_dashboard_panels_disable=隐藏 $1面板
+theme_xhred_dashboard_panels_disabled_explain=可以使用<tt>Theme Configuration: Dashboard and real-time monitoring</tt>页面重新启用隐藏面板。
+settings_right_sysinfo_page_options=仪表板和实时监控
+settings_right_navigation_menu_options=导航菜单
+settings_right_notification_slider_options=侧滑杆
+settings_right_table_options=表显示
+settings_right_hotkey_options=热键
+settings_right_hotkey_custom_options=自定义链接热键
+settings_right_soft_updates_page_options=主题更新
+settings_global_general_options_title=通用默认值
+theme_error_access_not_root_user=拒绝访问：用户无权编辑此部分
+settings_theme_config_admins_only_privileged=禁止用户访问主题配置
+settings_theme_config_admins_only_privileged_description=如果由服务器管理员强制实施，则此选项将对常规非特权用户隐藏主题配置页面。但是，不建议使用此选项，因为普通用户对主题配置的访问已受到限制，并且只能更改最少的一组用户特定选项
+
+# 19.72
+theme_xhred_global_prefs=优先
+mconfig_eaccess=无法访问该模块
+mconfig_ecannot=找不到此模块的自定义配置文件
+theme_xhred_filemanager_mconfig_columns_selinux_disabled=此功能需要安装并启用<tt>SELinux</tt>
+theme_xhred_filemanager_mconfig_columns_acls_disabled=此功能要求在打开<tt>ACL</tt>的情况下挂载文件系统，并且<kbd>getfacl</kbd>命令必须可用
+theme_xhred_global_module_preferences=模块首选项
+
+# 19.74
+theme_xhred_theme_update_available=安装了新版本的Authentic Theme
+settings_right_page_keep=在域交换机上加载同一页面
+settings_right_page_keep_description=从导航菜单下拉列表中更改后，此选项将尝试在选择域时加载同一页面
+
+# 19.76
+theme_xhred_global_show_all=显示所有
+theme_xhred_filemanager_context_prop_show_all=显示所有属性
+
+# 19.84
+settings_right_table_links_type=表格链接显示类型
+settings_right_table_links_type_2=带文字的大图标
+settings_right_table_links_type_1=带有工具提示文本的小图标
+settings_right_table_links_type_0=没有图标，只有文字链接
+settings_right_table_animate_icons=显示表格图标链接的悬停动画
+settings_right_table_grayscaled_icons=除非悬停，否则以灰度显示表格图标链接
+theme_xhred_upload_initial_info_dir=将目录拖放到此处或单击以选择
+theme_xhred_upload_one_dir_with=1个目录
+theme_xhred_upload_err_dir_mode=错误：尝试添加启用目录上传的文件
+theme_xhred_upload_err_files_mode=错误：尝试在仅文件上传模式下添加目录
+theme_xhred_filemanager_context_empty_trash=清空垃圾桶
+theme_xhred_filemanager_empty_trash_button=清除垃圾箱中的所有文件
+theme_xhred_filemanager_emptying_trash_selected=清空垃圾。
+theme_xhred_filemanager_successful_emptying_trash=清空 <tt>$1</tt> 目录成功。
+theme_xhred_notifications_motd=管理员说明
+theme_xhred_notifications_motd2=管理员留言
+theme_xhred_notifications_motd_says=$1 说
+theme_xhred_tooltip_side_slider_notifications_motd_add=向系统上的其他用户广播消息
+theme_xhred_modal_motd_title=广播系统消息
+theme_xhred_modal_motd_desc=此接口可用于向系统上的其他用户广播消息
+theme_xhred_global_message=信息
+theme_xhred_modal_motd_select_all=全部用户
+theme_xhred_modal_motd_select_adm=主管理员
+theme_xhred_modal_motd_select_res=经销商
+theme_xhred_modal_motd_select_vm=服务器所有者
+theme_xhred_modal_motd_select_cm=机器所有者
+theme_xhred_modal_motd_select_um=邮件用户
+theme_xhred_modal_motd_btn_add=添加新消息
+theme_xhred_modal_motd_btn_save=保存和广播当前的一组消息
+theme_xhred_modal_motd_btn_rm=删除当前消息
+theme_xhred_global_hide=隐藏
+body_cputemp=CPU温度
+theme_global_fan=冷却器
+body_cpufans=CPU风扇
+body_cpufan_rpm=转速
+body_cpufan=CPU风扇
+filemanager_symlink_exists=无法创建<tt>$1</tt> <tt>$2</tt>已存在文件
+
+# 19.85
+theme_xhred_tooltip_side_slider_clipboard_sysinfo=将基本系统信息复制到剪贴板；按住 $1 键复制扩展；按住 $2 键复制纯文本数据而不是降价
+theme_xhred_tooltip_side_slider_clipboard_account=将所有帐户信息复制到剪贴板；按住 $1 键复制纯文本数据而不是降价
+tooltip_back_to_servers_index_master=主机上的 Webmin 服务器索引模块
+tooltip_list_other_servers=其他已注册的 Webmin 服务器列表
+theme_xhred_status_module_mon_up=向上
+theme_xhred_status_module_mon_down=向下
+theme_xhred_status_module_mon_webmin=Webmin 已关闭
+theme_xhred_status_module_mon_timed=时间到
+theme_xhred_status_module_mon_not=未安装
+theme_xhred_status_module_mon_skip=跳过
+theme_xhred_status_module_mon_quest=无法使用
+theme_xhred_webminlog_module_no_command_escapes=为执行的命令切换反斜杠
+settings_navigation_auto_fold_category=自动折叠非活动类别
+theme_xhred_tooltip_virtualmin_templates_filter_generating=为模板生成可搜索的选项列表
+theme_xhred_tooltip_virtualmin_templates_filter=搜索模板的所有选项
+theme_xhred_sysinfo_vmforum=虚拟社区
+theme_xhred_tooltip_support_ticket=提交附有系统信息的支持票；按住 $1 键将支持链接复制到剪贴板
+theme_xhred_tooltip_side_slider_refresh_sysinfo=强制刷新系统信息
+theme_xhred_disk_quota_error_title=超出配额
+theme_xhred_disk_quota_error_message=设备上没有剩余空间
+theme_xhred_filemanager_decrypt_option_use_master_admin_keys=使用主管理员密钥进行解密
+
+# 19.90
+settings_hotkey_toggle_hold_modifier=按住修改键
+
+# 19.91
+theme_xhred_filemanager_files_mode_ask=总是问
+theme_xhred_filemanager_files_mode_ask_remember=记住作为未来的默认值
+theme_xhred_filemanager_files_mode_ask_title=覆盖现有
+theme_xhred_filemanager_files_mode_ask_title2=覆盖现有文件
+theme_xhred_filemanager_files_mode_ask_desc=是否要在下次操作时覆盖任何现有文件
+theme_xhred_filemanager_files_mode_ask_title_yes=是的，覆盖
+theme_xhred_filemanager_files_mode_ask_title_no=不，保持现有
+theme_xhred_filemanager_trash_empty_curr_user_single=清空垃圾目录
+theme_xhred_filemanager_trash_empty_curr_user=清空当前用户垃圾目录
+theme_xhred_filemanager_trash_empty_all_users=清空所有其他用户的垃圾目录
+theme_xhred_filemanager_purge_trash_curr_start=正在清除 $1 目录。
+theme_xhred_filemanager_purge_trash_all_start=清除所有其他用户的垃圾目录。
+theme_xhred_filemanager_purge_trash_curr_end=已成功清除 $1 目录。
+theme_xhred_filemanager_purge_trash_all_end=已成功清除所有其他用户的垃圾目录。
+theme_error_access_dir_not_allowed=访问被拒绝：文件不可访问
+
+# 19.95
+theme_xhred_global_outdated_desc=已安装的 $1 版本已过时。最新可用版本是 $2。请升级或单击以获取有关最新版本的更多详细信息。
+theme_xhred_global_outdated_desc2=已安装的 $1 版本已过时。最新可用版本是 $2。
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_pc=选择期间按住 <tt>Ctrl</tt> 键
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_mac=在选择期间按住 <tt>Command</tt> 键
+
+# 19.97
+theme_xhred_webmin_requires_restart=检测到 Webmin web-server 守护程序在上次软件包升级时未正确重新启动。这是通过调用 <tt>$1</tt> 命令手动重新启动网络服务器所必需的。
+theme_xhred_webmin_requires_restart_yes=是的，尝试重新启动它
+theme_xhred_webmin_requires_restart_no=不，我会手动重启
+
+# 19.99
+theme_xhred_filemanager_path_manual=手动输入路径（Ctrl + L）
+
+# 20.02
+theme_xhred_socket_conn_lost_title=连接丢失
+theme_xhred_socket_conn_lost_reconnect=重新连接
+theme_xhred_socket_conn_lost_connecting=连接 ..
+theme_xhred_socket_conn_lost_try=再试一次
+theme_xhred_socket_conn_parse_error=加载终端失败：无法解析来自服务器的响应对象
+theme_xhred_socket_conn_sock_error=加载终端失败：WebSocket 连接错误
+
+# 20.10
+theme_xhred_global_open=打开
+theme_xhred_xterm_error_title=无法连接
+theme_xhred_xterm_error=转到终端模块以获取更多详细信息
+
+# 20.11
+theme_xhred_global_error_fatal=致命错误
+
+# 20.20
+theme_xhred_global_automatic=自动的
+theme_xhred_filemanager_context_acls=更改访问控制列表
+theme_xhred_filemanager_changing_acls=更改访问控制列表。
+theme_xhred_filemanager_successful_acls_with_errors=尚未为所有对象成功更改访问控制列表：
+theme_xhred_filemanager_successful_acls=访问控制列表已成功更改。
+theme_download_error=下载文件时出错，因为它在允许的目录之外：$1
+
+# 20.30
+theme_xhred_hotkeys_help=帮助 (F1)
+theme_xhred_hotkeys_help_title=键盘快捷键
+theme_xhred_hotkeys_help_title_docs=文档
+theme_xhred_hotkeys_help_title_global=主题
+theme_xhred_hotkeys_help_title_module=模块特定的快捷方式
+theme_xhred_hotkeys_help_title_fm=文件管理器
+theme_xhred_hotkeys_help_title_edit=编辑
+theme_xhred_global_community=社区
+theme_xhred_hotkeys_server_error=无法检索帮助文件
+theme_xhred_hotkeys_custom_to_opens=打开
+theme_xhred_hotkeys_custom_not_set=没有设置
+theme_xhred_hotkey_open_module_config_privileged=打开模块配置
+theme_xhred_hotkey_open_theme_config=打开主题配置
+theme_xhred_hotkey_list_table=列出分页表
+theme_xhred_hotkey_list_tabs=列表选项卡
+theme_xhred_hotkey_clear_cache=清除缓存并重新加载
+theme_xhred_hotkey_open_new=复制到新标签
+theme_xhred_hotkey_copy_to_clipboard=将元素数据复制到剪贴板
+theme_xhred_hotkey_copy_to_clipboard_click=左击
+theme_xhred_hotkey_print_title=具有真实主题的 Webmin 热键
+theme_xhred_global_success=成功
+theme_xhred_search_content=搜索内容
+theme_xhred_global_disabled=残疾人
+theme_xhred_connection_reset_title=连接重置
+theme_xhred_connection_reset_message=无法与远程服务器建立连接
+right_file_is_being_prepared=正在准备您的文件。请稍等..
+
+theme_xhred_global_paragraph=段落
+theme_xhred_global_heading=标题
+theme_xhred_editor_tb_font=字体名称
+theme_xhred_editor_tb_font_fixed_width=固定宽度
+theme_xhred_editor_tb_size=字体大小
+theme_xhred_editor_tb_paragraph=段落样式
+theme_xhred_editor_tb_header=段落样式
+theme_xhred_editor_tb_bold=粗体 (%cmd+B)
+theme_xhred_editor_tb_italic=斜体 (%cmd+I)
+theme_xhred_editor_tb_underline=下划线 (%cmd+U)
+theme_xhred_editor_tb_color=文字颜色
+theme_xhred_editor_tb_background=文字背景
+theme_xhred_editor_tb_align=对齐
+theme_xhred_editor_tb_list_ordered=编号列表 (%cmd+Shift+7)
+theme_xhred_editor_tb_list_bullet=项目符号列表 (%cmd+Shift+8)
+theme_xhred_editor_tb_strike=删除线
+theme_xhred_editor_tb_blockquote=引号 (%cmd+Shift+9)
+theme_xhred_editor_tb_link=插入链接（%cmd+K）
+theme_xhred_editor_tb_image=插入内嵌图像
+theme_xhred_editor_tb_clean=删除格式
+theme_xhred_editor_tb_script_super=上标
+theme_xhred_editor_tb_script_sub=下标
+theme_xhred_editor_tb_indent_+1=增加缩进
+theme_xhred_editor_tb_indent_-1=减少缩进
+theme_xhred_editor_tb_code=代码块
+theme_xhred_editor_tb_code-block=代码块
+theme_xhred_editor_tb_direction=文字方向
+
+settings_right_table_layout_control=显示内容布局控制
+theme_xhred_tooltip_columns_layout=内容布局控制
+theme_xhred_columns_layout_title=内容布局
+theme_xhred_columns_layout_variation=布局变化
+theme_xhred_global_vertical=垂直的
+theme_xhred_global_horizontal=水平的
+theme_xhred_columns_layout_vertical_opts=垂直布局选项
+theme_xhred_columns_layout_vertical_opts_max_columns=最大列数
+theme_xhred_columns_layout_vertical_opts_max_width=最小列宽
+theme_xhred_columns_layout_vertical_opts_break_title=列溢出动作
+theme_xhred_columns_layout_vertical_opts_break_new=休息
+theme_xhred_columns_layout_vertical_opts_break_scroll=滚动
+theme_xhred_columns_layout_remove=隐藏此小部件
+theme_xhred_columns_layout_remove_button=保存并隐藏
+theme_xhred_columns_layout_variation_cannot_horizontal=移动模式下不能使用水平布局，特别是当屏幕宽度小于992px时
+
+settings_auto_open_panels_on_proximity=接近时自动打开关闭的面板
+
+theme_xhred_config_portable_module_xterm_render_addon=启用 WebGL 渲染插件
+
+# 21.09.04
+theme_xhred_datatable_filter_and_export=过滤和导出内容
+
+# 21.10
+settings_hotkey_logout_dbl=登出
+theme_xhred_hotkey_emsg=反斜杠键不能用作热键
+settings_embed_product_splash_privileged=登录后显示品牌启动画面
+dashboard_status_running=跑步
+dashboard_status_stopped=已停止
+
+# 21.11
+theme_xhred_global_watching=观看
+theme_xhred_global_connected=连接的
+theme_xhred_global_disconnected=断开连接
+theme_xhred_global_connecting=正在连接
+index_mods_missing=Perl 模块 <tt>$1</tt> 缺失。
+index_noadmin_eaccess=拒绝非主管理员访问！
+theme_xhred_body_os=操作系统
+theme_xhred_theme_version=正宗主题版本
+
+theme_xhred_body_updates=程序包更新
+
+# 21.20
+theme_xhred_hotkey_switch_theme=切换主题
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=上传成功
+theme_xhred_filemanager_upload_status_err=上传失败：
+theme_xhred_filemanager_download_status_err=下载失败：
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=读
+theme_xhred_dashboard_chart_disk_write=写
+theme_xhred_dashboard_chart_net_read=在
+theme_xhred_dashboard_chart_net_write=出去
+theme_xhred_tooltip_dashboard_live_stats_offline=在代理模式下访问系统时，无法获取实时统计数据；仅显示之前收集的统计数据（如果可用），并且需要重新加载页面才能更新这些统计数据
+settings_sysinfo_real_time_status_history1=是的，并存储统计数据
+settings_sysinfo_real_time_status_history2=是的，不存储统计数据
+settings_sysinfo_real_time_status_history_duration1=20 分钟
+settings_sysinfo_real_time_status_history_duration2=1 小时
+settings_sysinfo_real_time_status_history_duration3=3 小时
+settings_sysinfo_real_time_status_history_duration4=6 小时
+settings_sysinfo_real_time_status_history_duration5=12 小时
+settings_sysinfo_real_time_status_history_duration6=18 小时
+settings_sysinfo_real_time_status_history_duration7=24 小时
+theme_xhred_license_purchase=购买许可证
+settings_right_table_links_sorted=按字母顺序对表格链接进行排序
+
+# 24.00
+session_error=错误
+session_success=成功
+session_cannot=重置密码失败：缺少用户名。
+session_neterror=无法从网络获得响应！
+session_unkerror=发生意外错误。请稍后重试。
+session_conerror=无法连接服务器。请稍后重试。
+session_resetpass1=新密码
+session_resetpass2=确认新密码
+session_resetepassreq=需要密码。
+session_pwdconf=需要密码确认。
+session_pwdmatch=密码不匹配。
+session_noid=未找到恢复 ID！
+session_pwdsucc=密码更改成功您现在可以使用新密码登录！

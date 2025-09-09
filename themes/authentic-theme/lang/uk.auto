@@ -1,0 +1,1439 @@
+body_cp=ЦП
+body_cpu=Середнє завантаження процесора
+body_cpuinfo=Інформація про процесор
+body_cputemps=Температура процесора
+body_cputype=$5, $8 ядер
+body_cputype1=$5, $8 ядро
+body_disk=Місцевий простір на диску
+body_driveerr=$1 помилки!
+body_drivefailed=Не вдалося перевірити SMART!
+body_drivetemps=Температура приводу
+body_firewall=Версія брандмауера
+body_header0=Інформація про систему
+body_header1=Інформація про обліковий запис
+body_host=Ім'я хоста системи
+body_kernel=Ядро та процесор
+body_kernelon=$1 $2 на $3
+body_load=$1 (1 хв.) $2 (5 хв.) $3 (15 хв.)
+body_os=Операційна система
+body_procs=Запуск процесів
+body_real=Справжня пам’ять
+body_time=Час по системі
+body_updates=Оновлення пакетів
+body_updays=$1 день, $2 годин, $3 хв.
+body_uphours=$1 година, $2 хв
+body_upmins=$1 хвилина
+body_upneed=Доступні оновлення пакету на 1 долар США
+body_upneed1=Доступно оновлення пакета на 1 долар
+body_upok=Усі встановлені пакети оновлені
+body_upsec=Доступні оновлення пакету на 1 дол. США, з яких $2 - оновлення безпеки
+body_upsec1=Доступні оновлення пакету $1, з яких $2 - оновлення безпеки
+body_upsec2=Доступно оновлення пакету на 1 долар, з яких $2 - оновлення безпеки
+body_upsec3=Доступно оновлення пакету на 1 долар, з яких $2 - оновлення безпеки
+body_uptime=Продовження роботи системи
+body_used=$1 / $2 використано
+body_used_and_free=$1 усього / $2 безкоштовно / $3 використано
+body_usermin=Версія Usermin
+body_virt=Віртуальна пам'ять
+body_webmin=Версія Webmin
+
+left_favorites=Вибране
+left_favorites_no=Фаворитів ще не було додано. ..
+left_feedback=Надіслати відгук
+theme_xhred_global_sys_info=Інформація про систему
+left_others=Інші
+left_refresh_modules=Оновити модулі
+left_search=Пошук
+left_statistics=Система статистики
+
+login_danger=Небезпека!
+login_message=Ви повинні ввести ім'я користувача та пароль для входу на сервер, на якому
+lost_message=Якщо для вашого облікового запису встановлено електронну адресу для відновлення, ви можете скористатися цією формою, щоб надіслати собі посилання для скидання пароля
+reset_message=Ви збираєтеся скинути пароль для користувача <tt>$1</tt>
+theme_xhred_login_pass=Пароль
+login_save=Пам'ятай мене
+login_recover=Запит на скидання пароля
+login_back=Назад
+login_signin=Увійти
+login_success=Успіху!
+theme_xhred_login_token=Токен
+theme_xhred_login_user=Ім'я користувача
+login_warning=Увага!
+
+right_aliases=Сервери Alias
+right_bw=Використання та обмеження пропускної здатності
+right_dom=Ім'я вашого сервера
+right_faliases=Псевдоніми пошти
+right_fdbs=Бази даних
+right_fdoms=Віртуальні сервери
+right_from=Увійшли від
+right_fusers2=Користувачі FTP
+right_fusers=Користувачі пошти/FTP
+right_fvm2=Віртуальні машини
+right_fweb=Віртуальні веб-сайти
+right_licenceheader_vm2=Ліцензії Cloudmin
+right_login=Ви увійшли як
+right_not=Не встановлено
+right_of=$1 з 2 доларів
+right_quota=Використання диска та квота
+right_reselip=(Реселлер $1)
+right_sharedip=(Спільний IP)
+right_slcheck=Перевірте ліцензію Cloudmin
+right_subs=Підсервери
+right_virtdocs2=Додаткова документація
+right_virtualmin=Версія Virtualmin
+right_vlcheck=Перевірте ліцензію на віртуальний
+right_vm2=Версія Cloudmin
+
+theme_xhred_session_failed=Помилка логіну. Будь ласка спробуйте ще раз.
+session_logout=Вихід вдалий. Використовуйте форму нижче, щоб знову увійти.
+session_timed_out=Час сесії вичерпано після $1 хв бездіяльності.
+session_twofailed=Двофакторна автентифікація не вдалася: $1
+
+settings_right_options=Параметри
+settings_right_restore_defaults=Відновити значення за замовчуванням
+settings_right_restored=Відновлено
+settings_right_restoring=Відновлення
+settings_right_saved=Збережено
+settings_right_saving=Збереження
+
+settings_right_theme_extensions=Розширення теми
+settings_right_theme_extensions_title=Розширення теми
+settings_right_file_edit=Редагувати розширення:
+settings_right_extensions_title=Тематичний розширений дизайн дозволяє легко маніпулювати цільовими частинами інтерфейсу.
+
+theme_xhred_settings_right_theme_logos=Тематичні логотипи
+theme_xhred_settings_right_theme_logos_title=Тематичні логотипи
+settings_right_logos_title=Тут можна легко встановити логотипи тем як для автентифікованих, так і для неавтентифікованих користувачів. Рекомендований розмір логотипу становить <em>180x90</em> пікселів.
+settings_right_logo_authenticated_users=Логотип для аутентифікованих користувачів
+settings_right_logo_unauthenticated_users=Логотип для неавторизованих користувачів
+settings_right_logos_error=Завантажений файл не є зображенням
+
+settings_right_current_theme=Актуальна тема
+settings_right_title=Ця сторінка дозволяє налаштувати параметри для <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">автентичної теми</a>. Параметри зберігатимуться після оновлення теми.
+settings_right_theme_left_configuration_title=Конфігурація теми
+settings_right_theme_left_extensions_title=Тема розширень редактора
+settings_right_theme_left_logo_title=Тема управління логотипом
+settings_right_theme_configurable_options_title=Параметри, що настроюються для автентичної теми
+
+settings_right_hotkey_custom_options_description=Спеціальні посилання дозволяють використовувати цифри від <code>1</code> до <code>9</code> для швидкого доступу до будь-якої дійсної <code>URL-адреси</code> панелі. <code>URL-адреса</code> можна отримати з поточної відкритої сторінки. Наприклад, щоб швидко перейти до модуля Apache, установіть для <code>apache</code> поле <code>Custom link 1</code>. Якщо клавіша-модифікатор за замовчуванням встановлена на <code>Alt</code>, натискання <code>Alt + 1</code> відкриє ваш модуль Apache.
+settings_hotkey_custom_1_user=Спеціальне посилання <code>1</code>
+settings_hotkey_custom_2_user=Спеціальне посилання <code>2</code>
+settings_hotkey_custom_3_user=Спеціальне посилання <code>3</code>
+settings_hotkey_custom_4_user=Спеціальне посилання <code>4</code>
+settings_hotkey_custom_5_user=Спеціальне посилання <code>5</code>
+settings_hotkey_custom_6_user=Спеціальне посилання <code>6</code>
+settings_hotkey_custom_7_user=Спеціальне посилання <code>7</code>
+settings_hotkey_custom_8_user=Спеціальне посилання <code>8</code>
+settings_hotkey_custom_9_user=Спеціальне посилання <code>9</code>
+
+settings_navigation_color=Колірна палітра
+settings_loader_top=Увімкнути завантажувач прогресу сторінки вгорі екрана
+settings_loader_left=Увімкнути спінер для навігаційного меню
+settings_right_reload=Завантажте сторінку за замовчуванням на перемикач вкладки
+
+settings_leftmenu_section_hide_refresh_modules=Сховати посилання оновлення модулів
+settings_leftmenu_section_hide_unused_modules=Сховати розділ невикористаних модулів
+settings_favorites=Показати кнопку вибраного
+settings_leftmenu_button_language=Показати кнопку мови
+settings_leftmenu_button_refresh=Показати кнопку оновлення
+
+settings_theme_options_button=Показати кнопку налаштувань теми
+
+settings_hotkeys_active=Увімкнути
+settings_hotkey_toggle_modifier=Ключ-модифікатор
+settings_hotkey_toggle_key_webmin=Завантажте меню Webmin
+settings_hotkey_toggle_key_virtualmin=Завантажте меню Virtualmin
+settings_hotkey_toggle_key_cloudmin=Завантажте меню Cloudmin
+settings_hotkey_toggle_key_usermin=Завантажте меню Usermin
+settings_hotkey_toggle_key_webmail=Меню «Завантажити пошту»
+settings_hotkey_sysinfo=Відкрити інформаційну панель
+settings_hotkey_shell=Відкрити випадаючий термінал
+settings_hotkey_favorites=Відкрити вибране
+settings_hotkey_focus_search=Зосередьтеся на полі пошуку
+settings_hotkey_reload=Оновити поточну сторінку
+
+settings_sysinfo_easypie_charts=Показати діаграми
+settings_sysinfo_theme_updates=Перевірте наявність оновлених тем
+settings_sysinfo_drive_status_on_new_line=Показати стан процесора та дисків кожен на новому рядку
+settings_sysinfo_link_mini=Показати посилання на панелі інструментів
+
+settings_right_page_defaults_title=Сторінки за замовчуванням
+settings_right_default_tab_webmin=Вкладка за замовчуванням після входу в Webmin
+settings_right_default_tab_usermin=Вкладка за замовчуванням після входу в Usermin
+settings_right_virtualmin_default=Сторінка за замовчуванням для Virtualmin
+settings_right_cloudmin_default=Сторінка Cloudmin за замовчуванням
+
+settings_right_clear_local_cache=Очистити кеш
+settings_side_slider_fixed=Зберігайте завжди видимим
+settings_hotkey_toggle_slider=Перемкнути видимість бічного повзунка
+
+settings_side_slider_enabled=Увімкнути повзунок
+settings_leftmenu_user_html=Показати фрагмент HTML
+
+theme_changelog=Журнал змін
+theme_conference=Тематична конференція
+theme_development_support=Підтримка розвитку
+theme_donate=Пожертвуйте
+theme_download=Завантажити
+theme_name=Автентична тема
+theme_update=Оновлення
+theme_update_available=Останній доступний випуск
+theme_update_notice=Повідомлення про оновлення
+theme_version=Автентична версія теми
+
+# 17.40
+theme_xhred_global_error=Помилка
+theme_global_warning=Увага
+theme_global_success=Успіх
+theme_global_info=Інформація
+sysinfo_system_status_warning=Для того, щоб відображатись </strong>Інформація про систему</strong>, вам потрібно буде включити модуль <em>Статус системи</em> у налаштуваннях користувача.
+settings_leftmenu_user_html_privileged=Показати фрагмент HTML лише адміністраторам
+theme_xhred_sysinfo_wmdocs=Документація Webmin
+theme_xhred_sysinfo_vmdocs=Документація Virtualmin
+theme_xhred_sysinfo_cmdocs=Документація Cloudmin
+theme_fileformat_css=CSS
+theme_fileformat_json=JSON
+theme_fileformat_js=JavaScript
+theme_fileformat_plain_text=Простий текст
+
+theme_xhred_titles_wm=Webmin
+theme_xhred_titles_um=Usermin
+theme_xhred_titles_dashboard=Панель приладів
+theme_xhred_titles_mail=Пошта
+theme_xhred_titles_vm=Virtualmin
+theme_xhred_titles_cm=Cloudmin
+theme_xhred_titles_thirdlane=Thirdlane
+
+theme_xhred_global_please_wait=Будь ласка, зачекайте. ..
+theme_xhred_filemanager_copying_selected=Копіювання вибрано.
+theme_xhred_filemanager_cutting_selected=Вирізка вибрана.
+theme_xhred_filemanager_pasting_selected=Вставлення з буфера обміну.
+theme_xhred_filemanager_unpacking_archive=Розпакування вибраних файлів.
+theme_xhred_filemanager_deleting_selected=Видалення вибраного.
+theme_xhred_filemanager_renaming_selected=Перейменування вибрано.
+theme_xhred_filemanager_creating_directory=Створення каталогу
+theme_xhred_filemanager_creating_file=Створення файлу
+theme_xhred_filemanager_downloading_from=Завантаження з
+theme_xhred_filemanager_setting_permissions=Встановлення дозволів для <tt>%value</tt> на вибрані файли.
+theme_xhred_filemanager_changing_ownership=Зміна права власності на <tt>%value</tt> для вибраних файлів.
+theme_xhred_filemanager_compressing_selected=Стиснення, вибране на задньому плані.
+theme_xhred_filemanager_refreshing=Оновлення контенту каталогу.
+theme_xhred_filemanager_copying_successful=Скопіювати в буфер обміну вдало.
+theme_xhred_filemanager_cutting_successful=Вирізати в буфер обміну вдало.
+theme_xhred_filemanager_pasting_successful=Вставити з буфера обміну вдало.
+theme_xhred_filemanager_bookmark_success=Каталог <tt>%value</tt> успішно додано до ваших закладок.
+theme_xhred_filemanager_searching=Пошук <tt>%value</tt>, що відповідає назвам файлів /directories.
+theme_xhred_filemanager_search_founds=Знайдено <strong>%value</strong> збігів <strong>%value</strong>.
+theme_xhred_filemanager_search_found=Знайдено <strong>1</strong> відповідності.
+theme_xhred_filemanager_search_no_matches=Співпадінь не знайдено.
+theme_xhred_filemanager_nothing_is_selected=Нічого не вибрано!
+theme_xhred_filemanager_saving_file=Файл <tt>%value</tt> зберігається.
+theme_xhred_filemanager_file_saved=Файл <tt>%value</tt> успішно збережено.
+theme_xhred_filemanager_not_editable=Неможливо редагувати цей тип виділення.
+theme_xhred_filemanager_not_decompressable=Неможливо розпакувати файл цього типу.
+theme_xhred_filemanager_no_selection_to_copy=Для копіювання не вибрано каталогів/файлів.
+theme_xhred_filemanager_no_selection_to_cut=Немає каталогів/файлів, вибраних для вирізання.
+theme_xhred_filemanager_empty_clipboard=Буфер обміну порожній.
+
+theme_xhred_filemanager_successful_extraction=Вилучення вибраних файлів було успішним.
+theme_xhred_filemanager_successful_deletion=Видалення пройшло успішно.
+theme_xhred_filemanager_successful_permissions=Дозволи було успішно змінено.
+theme_xhred_filemanager_successful_ownership=Власник успішно змінено.
+theme_xhred_filemanager_successful_compression=Стиснення успішно закінчено.
+theme_xhred_filemanager_successful_directory_creation=Каталог <tt>%value</tt> створено успішно.
+theme_xhred_filemanager_successful_file_creation=Файл <tt>%value</tt> створено успішно.
+
+theme_xhred_notifications_packages_updates=Оновлення пакетів
+theme_xhred_notifications_theme_update=Оновлення теми
+theme_xhred_notifications_theme_update_message=Доступна нова версія <em>%v</em> <strong>Authentic Theme</strong>. Будь ласка, оновіть.
+theme_xhred_notifications_firewall_update=Оновлення брандмауера
+theme_xhred_notifications_firewall_update_message=A new version <em>%v</em> of <strong>ConfigServer Server Security and Firewall</strong> is available. Please update.
+
+theme_xhred_notifications_firewall_danger=Небезпека брандмауера
+theme_xhred_notifications_firewall_danger_message=Здається, що <strong>ConfigServer Server Security and Firewall</strong> <i class="badge badge-danger">не запущена</i> або зупинена! Не залишайте ваш сервер відкритим, перевірте параметри брандмауера (%v)
+
+theme_xhred_notifications_firewall_warning=Попередження брандмауера
+
+# 17.50
+settings_grayscale_level_navigation=Сірий фільтр
+settings_grayscale_level_navigation_description=/ Поточні значення по замовчуванням <code>0</code>/<code data-name="settings_grayscale_level_navigation">0</code>
+settings_sepia_level_navigation=Сепійний фільтр
+settings_sepia_level_navigation_description=/ Поточні значення по замовчуванням <code>0</code>/<code data-name="settings_sepia_level_navigation">0</code>
+settings_saturation_level_navigation=Фільтр насичення
+settings_saturation_level_navigation_description=/ Поточні значення по замовчуванням <code>1</code>/<code data-name="settings_saturation_level_navigation">0</code>
+settings_hue_level_navigation=Відтінок-обертання фільтр
+settings_hue_level_navigation_description=/ Поточні значення по замовчуванням <code>0</code>/<code data-name="settings_hue_level_navigation">0</code>
+settings_invert_level_navigation=Інвертувати фільтр
+settings_invert_level_navigation_description=/ Поточні значення по замовчуванням <code>0</code>/<code data-name="settings_invert_level_navigation">0</code>
+settings_brightness_level_navigation=Фільтр яскравості
+settings_brightness_level_navigation_description=/ Поточні значення по замовчуванням <code>1</code>/<code data-name="settings_brightness_level_navigation">0</code>
+settings_contrast_level_navigation=Контрастний фільтр
+settings_contrast_level_navigation_description=/ Поточні значення по замовчуванням <code>1</code>/<code data-name="settings_contrast_level_navigation">0</code>
+
+settings_cm_editor_palette=Колірна палітра підсвічування коду
+
+theme_xhred_filemanager_context_select_all=Вибрати все
+theme_xhred_filemanager_context_select_invert=Інвертувати вибір
+theme_xhred_filemanager_context_refresh=Оновити
+theme_xhred_filemanager_context_newfile=Створіть новий файл
+theme_xhred_filemanager_context_newfoder=Створіть новий каталог
+theme_xhred_filemanager_context_copy=Скопіювати
+theme_xhred_filemanager_context_cut=Вирізати
+theme_xhred_filemanager_context_paste=Вставити
+theme_xhred_filemanager_context_chmod=Змінення дозволів
+theme_xhred_filemanager_context_chown=Змінити право власності
+
+# 17.51
+theme_xhred_filemanager_context_new=Нові
+theme_xhred_filemanager_context_newarchive=Створіть новий архів
+theme_xhred_filemanager_context_delete=Видалити
+theme_xhred_filemanager_context_rename=Перейменуйте
+theme_xhred_filemanager_context_edit=Редагувати
+theme_xhred_filemanager_context_extract=Витяг
+theme_xhred_filemanager_context_goto=Відкрити місце розташування елемента
+theme_xhred_filemanager_context_properties=Властивості
+theme_xhred_filemanager_context_search=Пошук
+
+# 17.52
+theme_xhred_filemanager_context_deselect_all=Скасувати вибір усіх
+theme_xhred_filemanager_context_upload=Завантажити в поточний каталог
+theme_xhred_filemanager_context_download=Завантажити з віддаленої URL-адреси
+
+# 17.53
+theme_config_virtualmin=Віртуальні сервери Virtualmin
+theme_config_cloudmin=Системи, керовані Cloudmin
+settings_right_thirdparties_options_title=Варіанти сторонніх модулів
+theme_xhred_filemanager_context_calculate_size=Обчисліть розмір на пробілі
+theme_xhred_filemanager_context_bookmarks=Закладки
+theme_xhred_filemanager_context_bookmark_current=Закладка в даний час відкритий шлях
+theme_xhred_filemanager_context_transfer=Передача
+
+# 17.54
+theme_xhred_filemanager_title_symlink_target=Ціль посилання
+
+# 17.60
+right_unlimited=Необмежений
+settings_leftmenu_width=Переважна ширина
+settings_leftmenu_width_description=За замовчуванням/Поточна ширина <code>260</code>/<code data-name="settings_leftmenu_width">0</code>
+settings_switch_rdisplay=Показати перемикачі, перевернені
+settings_switch_rdisplay_description=Ця опція дозволяє встановити інший порядок для вимикачів верхнього лівого кута. Після зміни цієї опції потрібно повне перезавантаження сторінки
+
+# 17.63
+theme_xhred_filemanager_context_calculate_selected_size=Обчисліть вибраний розмір
+theme_xhred_filemanager_selected_entries=Вибрано: %value
+theme_xhred_filemanager_manual_path=Введіть шлях вручну
+
+theme_xhred_datatable_semptytable=Немає даних у таблиці
+theme_xhred_datatable_sinfo=Показано _START_ до _END_ з _TOTAL_ елементів
+theme_xhred_datatable_sinfoempty=Показано від 0 до 0 з 0 предметів
+theme_xhred_datatable_slengthmenu=Показати елементи _MENU_
+theme_xhred_datatable_sloadingrecords=Завантаження
+theme_xhred_datatable_sprocessing=Обробка. ..
+theme_xhred_datatable_szerorecords=Не знайдено відповідних записів
+
+# 17.64
+theme_xhred_filemanager_file_edit_but_not_saved=Файл відредаговано, але його не збережено.
+theme_xhred_filemanager_file_edit_but_not_saved_what_to_do=Що ти хочеш робити?
+theme_xhred_global_save=Зберегти
+theme_xhred_global_save_and_close=Збережіть і закрийте
+theme_xhred_global_close_without_saving=Закрийте, не економлячи
+theme_xhred_global_continue_editing=Продовжуйте редагування
+theme_xhred_filemanager_context_download_file=Завантажити
+
+# 17.65
+settings_sysinfo_easypie_charts_width=Ширина діаграм
+settings_sysinfo_easypie_charts_scale=Довжина діаграм масштабу
+
+# 17.80
+right_return_theme_options=параметри теми
+theme_xhred_datatable_semptydirectory=Каталог порожній
+theme_xhred_filemanager_context_clipboard=Скопіюйте шлях до буфера обміну
+theme_xhred_global_warning=Увага
+theme_xhred_global_close=Закрити
+
+theme_xhred_filemanager__no_bookmarks=Немає збережених закладок
+theme_xhred_filemanager_unbookmark_success=Каталог <tt>%value</tt> успішно видалено з ваших закладок.
+theme_xhred_filemanager_bookmark=Закладка поточного каталогу
+theme_xhred_filemanager_unbookmark=Скасувати позначку поточного каталогу
+theme_xhred_filemanager_move_into_self=Ви не можете перемістити каталог у себе! Каталог призначення знаходиться всередині вихідного каталогу.
+theme_xhred_filemanager_pasting_and_copying_1=Вибране джерело успішно вставлено з новою назвою.
+theme_xhred_filemanager_pasting_and_copying_2=Вибрані джерела успішно вставлені з новими іменами.
+theme_xhred_filemanager_pasting_and_replacing_1=Існуюча ціль була успішно замінена новою.
+theme_xhred_filemanager_pasting_and_replacing_2=Існуючі цілі були успішно замінені новими.
+theme_xhred_filemanager_target_conflict_1=Цільовий конфлікт
+theme_xhred_filemanager_target_conflict_2=Цілі конфлікти
+theme_xhred_filemanager_target_conflict_message_1=Вставлена мета вже існує! Що ви віддаєте перевагу?
+theme_xhred_filemanager_target_conflict_message_2=Вставлені цілі вже існують! Що ви віддаєте перевагу?
+theme_xhred_filemanager_target_conflict_replace=Злиття та заміна
+theme_xhred_filemanager_target_conflict_paste=Вставити з новою назвою
+
+theme_xhred_editor_help_title=Комбінації клавіш редактора
+
+theme_xhred_filemanager_hide_toolbar=Сховати панель інструментів
+theme_xhred_filemanager_hide_actions=Сховати стовпчик дій
+theme_xhred_filemanager_hovered_toolbar=Активуйте спадне меню на панелі інструментів при наведенні миші
+theme_xhred_filemanager_context_delete_selected=Видалити вибране
+
+# 17.83
+theme_xhred_database_adding_new_row=Додавання нового рядка
+theme_xhred_database_editing_row=Редагування вибраного рядка
+theme_xhred_database_editing_rows=Редагування вибраних рядків
+theme_xhred_database_adding_new_row_data=Встановлення даних
+
+# 17.84
+theme_xhred_datatable_filter=Фільтр
+
+theme_xhred_global_update=Оновлення
+theme_xhred_global_update_and_return=Оновлення та повернення
+theme_xhred_global_update_and_close=Оновіть і закрийте
+theme_xhred_global_back=Назад
+theme_xhred_global_cancel=Скасувати
+
+theme_xhred_database_add_row_successful=Новий рядок успішно додано
+theme_xhred_database_edit_row_successful=Вибраний рядок успішно оновлено
+theme_xhred_database_edit_rows_successful=Вибрані рядки успішно оновлено
+theme_xhred_database_edit_row_delete_successful=Вибраний рядок успішно видалено
+theme_xhred_database_edit_rows_delete_successful=<em>%n</em> вибраних рядків успішно видалено
+theme_xhred_database_edit_field_delete_successful=Вибране поле було успішно видалено
+theme_xhred_database_edit_fields_delete_successful=<em>%n</em> вибраних полів успішно видалено
+theme_xhred_database_edit_selected_row=Відредагуйте вибраний рядок
+theme_xhred_database_edit_selected_rows=Відредагуйте вибрані рядки
+theme_xhred_database_add_new_row=Додати рядок
+theme_xhred_database_delete_selected_row=Видалити вибраний рядок
+theme_xhred_database_delete_selected_rows=Видаліть вибрані рядки
+theme_xhred_database_delete_selected_field=Видалити вибране поле
+theme_xhred_database_delete_selected_fields=Видалити вибрані поля
+theme_xhred_database_object_selected_delete=Видалити вибраний об’єкт
+theme_xhred_database_objects_selected_delete=Видалити вибрані об'єкти
+theme_xhred_database_object_selected_delete2=Відкинути вибрану таблицю
+theme_xhred_database_objects_selected_delete2=Відкинути вибрані таблиці
+theme_xhred_database_db_selected_drop=Викиньте вибрану базу даних
+theme_xhred_database_dbs_selected_drop=Видалення вибраних баз даних
+theme_xhred_database_edit_but_not_saved=Дані таблиці відредаговані, але не збережені.
+
+theme_xhred_global_no_such_command=Виявляється, що виконуваний файл <tt>$1</tt> не встановлений або не знаходиться в шляху до вашої системи.
+
+theme_xhred_global_notice=Зауважте
+
+theme_xhred_updates_disabled_notice=Detected that you don't have enabled notifications for <em>Authentic Theme</em> updates? <br><br>Enabling this feature in <a href="%link" class="label label-default"><strong><i class="fa fa-cogs"></i> Theme Configuration</strong></a> will help you to update to the latest version in a single click as soon as it's out.
+
+# 18.00
+theme_xhred_global_file=Файл
+theme_xhred_global_directory=Довідник
+theme_xhred_global_no_target=Ціль не існує або недоступна
+theme_xhred_global_error_code=Код помилки
+theme_xhred_global_on=На
+theme_xhred_global_off=Вимкнено
+theme_xhred_global_all=Усі
+theme_xhred_global_none=Жоден
+theme_xhred_global_yes=Так
+theme_xhred_global_no=Ні
+
+theme_xhred_filemanager_new_tab=Додати нову вкладку (Alt + Пробіл)
+theme_xhred_datatable_no_search_results=<span class="h5">Не знайдено результатів</span> <br> Спробуйте інший пошук
+
+theme_xhred_filemanager_buffer_error=Не вдалося вставити файли в буфер - у дозволі відмовлено.
+
+filemanager_create_object_exists=$3 <tt>$1</tt> вже існує в <tt>$2</tt>
+filemanager_create_object_denied=Неможливо створити $3 <tt>$1</tt> у <tt>$2</tt> - у дозволі відмовлено : $4.
+
+theme_xhred_filemanager_paste_warning=Не вдалося вставити ціль. Можливо, що запитувані об’єкти (-и) могли бути <em>перейменовані, переміщені</em> або <em>видалені</em> під час/перед вставкою. Іншою можливою причиною є те, що пункт призначення не піддається запису. Варто перевірити атрибути об’єктів.
+
+theme_xhred_filemanager_delete_warning=Видалення завершено успішно, але не для всіх об'єктів. Можливо, що запитувані об'єкти (-и) могли бути <em>перейменовані</em> або <em>переміщені</em> перед видаленням. Обмежені дозволи (атрибути) - ще одна можлива причина. Повідомлення про помилку:
+
+filemanager_rename_exists=$3 з назвою <tt>$1</tt> вже існує в <tt>$2</tt>
+filemanager_rename_denied=Не можна перейменувати $3. Це може статися тому, що джерело $3 було видалено або через обмежені дозволи.
+
+theme_xhred_filemanager_successful_rename=Перейменування <tt>%from</tt> на <tt>%to</tt> було успішним.
+
+filemanager_global_info_total1=Всього: файл $1 та каталог $2
+filemanager_global_info_total2=Всього: $1 файли та каталог $2
+filemanager_global_info_total3=Всього: файл $1 і каталоги $2
+filemanager_global_info_total4=Всього: $1 файли та $2 каталоги
+
+theme_xhred_filemanager_selected_entry=Вибрано: %value
+
+theme_xhred_filemanager_search_query=Запит маска
+theme_xhred_filemanager_search_match=Знайти в результатах
+theme_xhred_filemanager_search_replace=Замініть результати
+
+theme_xhred_global_find=Знайдіть
+theme_xhred_global_replace=Замініть
+
+theme_xhred_filemanager_searching_matching=Пошук <tt>%value</tt>, що відповідає іменам файлів /directories, що містять <tt>%text</tt> text.
+theme_xhred_filemanager_searching_replacing=Заміна відповідає <tt>%text</tt> на <tt>%replace</tt> у файлах з іменами, що містять <tt>%value</tt>.
+
+theme_xhred_filemanager_search_replaced_multi=Знайдено та замінено у файлах <strong>%value</strong>.
+theme_xhred_filemanager_search_replaced=Знайдено та замінено у файлі </strong>1</strong>.
+
+theme_xhred_filemanager_successful_permissions_with_errors=Дозволи було успішно змінено, але не для всіх об'єктів:
+
+theme_xhred_filemanager_successful_ownership_with_errors=Власність не змінено успішно для всіх об'єктів:
+theme_xhred_filemanager_successful_ownership_with_errors_fatal=Власник не може бути змінений через такі помилки:
+
+theme_xhred_filemanager_successful_compression_with_errors=Стиснення закінчилося такими помилками:
+theme_xhred_filemanager_successful_compression_bg=Стиснення успішно завершено. Стиснутий файл <tt>%file</tt> знаходиться в каталозі <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Стиснення завершено з помилками. Стиснутий файл <tt>%file</tt> повинен знаходитися в каталозі <tt>%path</tt>.
+
+theme_xhred_filemanager_settings_notification_type=Тип сповіщень для відображення
+theme_xhred_filemanager_settings_notification_type_inf_warn_err=Інформація, попередження та помилки
+theme_xhred_filemanager_settings_notification_type_warn_err=Попередження та помилки
+theme_xhred_filemanager_settings_notification_type_err=Лише помилки
+
+theme_xhred_filemanager_settings_tabs_remember_state=Відновити раніше використані вкладки під час першого завантаження
+theme_xhred_filemanager_context_open_new_tab=Відкрити в новій вкладці
+
+theme_xhred_xsql_fit_content_screen_height=Вміст вмісту таблиці бази даних по висоті екрана
+
+theme_xhred_datatable_filter_visible_tables=Фільтрувати видимі таблиці
+theme_xhred_module_help=Довідка з модуля
+
+theme_xhred_server_process_running=Серверний процес все ще працює !? Ви впевнені, що хочете відвідатись та не маєте доступу до вихідної інформації? Навіть якщо ви покинете зараз, процес не буде припинено.
+
+# 18.03
+settings_global_options_title=Глобальні варіанти
+theme_xhred_password_generator_new=Створити новий пароль <br> (до буфера обміну)
+theme_xhred_password_generator_new_success=Створений пароль %password успішно скопійований у буфер обміну.
+
+# 18.08
+theme_fileformat_perl=Perl
+theme_fileformat_perl_placeholder=Цей файл повинен закінчуватися `1;` успішно працювати.
+
+# 18.30
+settings_leftmenu_vm_cm_dropdown_icons=Показуйте символьні значки у спадному меню в Virtualmin/Cloudmin
+theme_xhred_global_shipped=Поставляється
+theme_xhred_global_available=Доступні
+theme_xhred_global_not_available=Недоступний
+theme_xhred_global_default=За замовчуванням
+theme_xhred_global_system_default=Система за замовчуванням
+theme_xhred_global_local_system_default=За замовчуванням локальна система
+theme_xhred_global_stats=Статистика
+theme_xhred_global_notifications=Сповіщення
+theme_xhred_global_favorites=Вибране
+theme_xhred_global_cpu_load=Навантаження процесора
+theme_xhred_notification_none=Немає сповіщень
+theme_xhred_notification_no_data=Немає зібраних даних
+theme_xhred_notification_no_favorites=Немає даних про вибране
+theme_xhred_global_theme_version=Версія теми
+
+settings_side_slider_sysinfo_enabled=Показати вкладку інформаційної панелі
+settings_side_slider_notifications_enabled=Показати вкладку сповіщень
+settings_side_slider_favorites_enabled=Показати вкладку вибраних
+settings_show_terminal_link=Показати кнопку терміналу
+
+theme_xhred_sysinfo_system_monitors=Системні монітори
+theme_xhred_sysinfo_server_status=Статус серверів
+theme_xhred_sysinfo_software_versions=Версії програмного забезпечення
+theme_xhred_sysinfo_recent_logins=Нещодавні логіни
+theme_xhred_sysinfo_vm_package_updates=Оновлення віртуального пакета
+theme_xhred_sysinfo_disk_quotas=Дискові квоти
+theme_xhred_sysinfo_bandwidth_quotas=Квоти пропускної здатності
+
+left_netdata=Моніторинг у реальному часі
+settings_leftmenu_netdata=Показати посилання для моніторингу в реальному часі Netdata
+settings_leftmenu_netdata_link=Краще посилання сервера Netdata
+
+theme_xhred_filemanager_context_chattr=Змінення атрибутів
+theme_xhred_filemanager_changing_attributes=Встановлення атрибутів <tt>%value</tt> для вибраного файлу(ів).
+theme_xhred_filemanager_successful_attributes_with_errors=Атрибути не встановлені успішно для всіх об’єктів:
+theme_xhred_filemanager_successful_attributes=Атрибути встановлені успішно.
+
+theme_xhred_filemanager_context_chcon=Змінення контексту безпеки
+theme_xhred_filemanager_changing_secontext=Зміна контексту безпеки на <tt>%value</tt> у вибраних файлах.
+theme_xhred_filemanager_successful_secontext_with_errors=Контекст безпеки не змінено успішно для всіх об'єктів:
+theme_xhred_filemanager_successful_secontext=Контекст безпеки змінено успішно.
+
+theme_xhred_global_no_results_found=Нічого не знайдено
+
+# 18.40
+theme_new_password_header=Встановити новий пароль для користувача
+login_reset=Відновлення паролю
+theme_xhred_move_top=Переміститись до верху
+theme_xhred_move_bottom=Перемістіть донизу
+theme_xhred_move_up=Рухатися вгору
+theme_xhred_move_down=Рухатися вниз
+theme_xhred_add_after=Додати після
+theme_xhred_add_before=Додайте раніше
+settings_show_night_mode_link=Показати кнопку режиму день/ніч
+settings_hotkey_toggle_key_night_mode=Переключити палітру кольорів
+settings_title=Конфігурація теми
+settings_subtitle=Для користувача
+
+theme_tooltip_night_mode=Денний/нічний режим перемикання
+theme_tooltip_terminal_link=Термінал
+theme_tooltip_language_link=Мова
+theme_xhred_tooltip_switch_user=Змінити користувача
+theme_tooltip_logout=Вийти з аккаунта
+theme_tooltip_edit_user=Редагувати користувача
+
+# 18.45
+settings_sysinfo_easypie_charts_size=Діаметр діаграм
+theme_xhred_global_choose=Виберіть
+theme_xhred_global_select=Виберіть
+theme_xhred_global_ok=добре
+settings_sysinfo_theme_updates_description=Для того, щоб ця опція працювала, у вашій системі потрібно встановити команду <code>git</code>
+theme_git_patch_available=Остання версія розробки
+theme_git_patch_no_git_message=Щоб встановити останні оновлення безпосередньо з GitHub, ви повинні переконатися, що встановлена команда <code>git</code>.
+theme_git_patch_update_success_message=Оновлення теми для Webmin пройшло успішно. Наразі встановлена версія <tt>$1</tt>. Перезавантаження. ..
+theme_git_patch_update_success_message2=Оновлення тем як для Webmin, так і для Usermin пройшло успішно. Наразі встановлена версія <tt>$1</tt>. Перезавантаження. ..
+theme_xhred_git_patch_update=Помилка оновлення теми. Спробуйте використовувати консоль, щоб зробити це вручну.
+theme_xhred_git_patch_initiated=Розпочато оновлення теми.
+theme_xhred_global_prev_page=Поверніться на одну сторінку
+theme_xhred_global_help=Довідка
+theme_xhred_git_compare_changes=Порівняйте зміни
+theme_xhred_filemanager_link_to_clipboard=Ім'я символічної посилання скопійовано у буфер обміну.
+
+# 18.46
+theme_left_mail_prefs=Налаштування пошти
+theme_left_mail_change_password=Змінити пароль
+theme_left_mail_account_functions=Функції рахунку
+theme_xhred_global_dir_up=Перейти до попереднього каталогу (Backspace)
+theme_xhred_global_module_config=Конфігурація модуля
+theme_xhred_global_return=Повернення
+theme_xhred_global_return_to_module_index=Повернення до індексу модуля
+
+# 18.47
+theme_xhred_global_complete_changelog=Повний журнал змін
+theme_xhred_global_beta_version=Бета-версія
+theme_xhred_global_release=Відпустіть
+theme_xhred_global_released_on=Випущений о
+theme_xhred_global_committed_on=Здійснено
+theme_xhred_global_resolved_issues=Вирішені проблеми у %value випусків %value
+
+# 18.48
+theme_force_upgrade=Оновити тему
+theme_xhred_force_upgrade_beta=Встановити останню версію розробки (бета)
+theme_xhred_force_upgrade_stable=Встановити останню версію версії (стабільна)
+theme_xhred_source_encoding=Кодування джерела
+theme_update_footer=Будь ласка, повідомте про помилки в сховище $1. Приєднуйтесь до нашого каналу $2, щоб отримувати останні новини.
+theme_xhred_encoding_manually_set=Вручну встановити кодування
+theme_xhred_filemanager_save_to_change_encoding=Файл повинен бути збережений, щоб дозволити зміну кодування.
+
+# 18.49
+theme_xhred_filemanager_user_switch=Перехід до користувача (Ctrl + M)
+theme_xhred_filemanager_user_switch_description=Вибравши вказане нижче ім’я користувача, ви переключите подальші операції, які виконуватимуться цим користувачем.
+theme_xhred_filemanager_user_switch_description_back=Щоб повернутися до режиму за замовчуванням, виберіть перший варіант у виборі.
+theme_xhred_filemanager_user_switch_current_user=Поточний користувач
+theme_xhred_filemanager_user_switch_option=Автоматично перемикайтеся на режим користувача, ввівши його домашній каталог
+theme_xhred_filemanager_editor_align_panels_horizontally=Вирівняйте панелі по горизонталі
+theme_xhred_filemanager_editor_align_panels_vertically=Вирівняйте панелі вертикально
+theme_xhred_filemanager_editor_toggle_soft_wrap=Увімкніть м'яке обгортання
+theme_xhred_filemanager_editor_refresh_content=Оновити вміст
+theme_xhred_filemanager_save_to_refresh_content=Файл повинен бути збережений, щоб дозволити оновлення його вмісту.
+theme_xhred_filemanager_save_to_refresh_content_proc=Оновлення вмісту файлів.
+theme_xhred_global_dark=Темний
+theme_xhred_global_light=Світло
+theme_xhred_global_minimize=Мінімізуйте
+theme_xhred_global_maximize=Максимізуйте
+theme_xhred_global_normalize=Нормалізувати
+theme_xhred_global_set_encoding=Встановити кодування
+
+# 19.00
+theme_xhred_sysinfo_update_start=Інформація про систему згадується.
+theme_xhred_sysinfo_update_end=Інформація про систему успішно відкликана.
+theme_xhred_sysinfo_update_failed=Інформацію про систему неможливо пригадати. Спробуйте ще раз пізніше.
+
+theme_xhred_global_development_version=Версія розробки
+
+right_vm_server_summary=Підсумок віртуального сервера
+
+settings_webmin_default_module=Сторінка за замовчуванням для Webmin
+
+theme_xhred_global_unbeforeunload_title=Внесені вами зміни можуть бути збережені
+theme_xhred_global_unbeforeunload_message=Якщо ви продовжите, збережені зміни на цій сторінці можуть бути назавжди втрачені.
+theme_xhred_global_continue=Продовжуйте
+
+theme_xhred_global_automatic_refresh=Автоматичне оновлення
+theme_xhred_global_second=Друге
+theme_xhred_global_seconds=Секунди
+theme_xhred_global_minute=Хвилина
+theme_xhred_global_minutes=Хвилини
+
+# 19.01
+theme_xhred_browser_warning=Щоб мати найкращий досвід роботи з панеллю сервера на вашому комп’ютері, використовуйте підтримуваний сучасний веб-переглядач. <br><br> <em>Internet Explorer</em> більше не підтримується. <br><br> Рекомендовані веб-переглядачі: <em>Chrome</em>, <em>Firefox</em>, <em>Opera</em> або <em>Safari</em>, <em>Edge</em>. <div class="alert alert-warning margined-top-10 margined-bottom--8">Ви можете завантажити портативну версію браузера, яка не потребує встановлення, щоб обійти накладені обмеження.</div>
+
+# 19.02
+theme_xhred_filter_content=Фільтр вмісту
+theme_xhred_log_file_empty=Файл журналу порожній
+
+# 19.03
+theme_xhred_config_configurable_options=Параметри, що настроюються
+theme_xhred_filter_content_no_matches_query=Немає вмісту, що відповідає запиту %str
+theme_xhred_toggle_accordions=Увімкніть видимість гармошок
+theme_xhred_global_whats_new=Що нового
+theme_xhred_global_report_an_issue=Повідомте про проблему
+theme_xhred_global_theme_configuration=Конфігурація теми
+theme_xhred_global_official_website=Офіційний веб-сайт
+theme_xhred_global_about_theme=Про тему
+theme_xhred_connection_error=Помилка з'єднання
+theme_xhred_connection_error_details=Не вдається встановити з'єднання з сервером на <strong>%server</strong>. <ul><li> Перевірте стан сервера </li><li> Перевірте з'єднання </li></ul>
+theme_xhred_session_expired=Термін дії сесії закінчився
+theme_xhred_session_unlocked=Сесія розблокована
+theme_xhred_session_expired_details=Ви вийшли з системи через бездіяльність.
+theme_xhred_signing_in=Увійти
+theme_xhred_signing_success=Увійти успішно!
+theme_xhred_session_failed_password=Неправильний пароль. Повторіть спробу.
+theme_xhred_global_reauthenticate=Reauthenticate
+
+# 19.04
+settings_sysinfo_real_time_status=Увімкнути моніторинг у режимі реального часу
+theme_xhred_global_redirecting=Перенаправлення
+
+# 19.05
+body_no_javascript_title=JavaScript вимкнено
+body_no_javascript_message=Увімкніть JavaScript та оновіть сторінку
+theme_xhred_connection_lost=Зв'язок втрачений
+theme_xhred_connection_success=Підключення вдале
+theme_xhred_connection_success_details=Підключення до сервера відновлено.
+
+# 19.08
+theme_xhred_return_home=Повернення до індексу панелі
+theme_xhred_global_upload=Завантажити
+theme_xhred_global_select_files=Виберіть файл (и)
+theme_xhred_global_file_selected=вибраний файл
+theme_xhred_global_files_selected=вибрані файли
+theme_xhred_global_reset=Скидання
+theme_xhred_upload_initial_info=Перетягніть сюди файли або натисніть, щоб вибрати
+
+# 19.09
+theme_xhred_global_empty=Порожній
+theme_xhred_global_click_here=натисніть тут
+theme_git_patch_incompatible_message=Для встановлення цієї версії $1 <em>$2</em> потрібна остання та/або можливо невипущена версія $3 та $5 для правильної роботи.
+theme_git_patch_incompatible_message_s=Для встановлення цієї версії $1 <em>$2</em> потрібна остання та/або можливо невипущена версія $3 для правильної роботи.
+theme_git_patch_incompatible_message_desc=Можуть бути несумісні зміни, які можуть перешкодити роботі теми, як задумано. Продовжувати оновлення за допомогою інтерфейсу користувача неможливо.
+
+# 19.10
+theme_xhred_filemanager_edit_html=Редагувати як HTML
+theme_xhred_global_example=Приклад
+theme_xhred_global_output_example=Приклад виводу
+theme_xhred_title_language_locale=Мова та мова
+theme_xhred_global_manual=Посібник
+settings_navigation_always_collapse=Завжди руйнувався
+theme_xhred_filemanager_records_per_page=Кількість записів на сторінці за замовчуванням
+theme_xhred_filemanager_sorting=Тип сортування за замовчуванням
+theme_xhred_filemanager_sorting_asc=Зростання
+theme_xhred_filemanager_sorting_desc=Спад
+theme_xhred_filemanager_sorting_by_name=Ім'я
+theme_xhred_filemanager_sorting_by_type=Тип
+theme_xhred_filemanager_sorting_by_size=Розмір
+theme_xhred_filemanager_sorting_by_ownership=Власник
+theme_xhred_filemanager_sorting_by_permissions=Режим
+theme_xhred_filemanager_sorting_by_attributes=Атрибути
+theme_xhred_filemanager_sorting_by_selinux=Контекст безпеки
+theme_xhred_filemanager_sorting_by_last_mod_time=Змінено
+theme_xhred_filemanager_tree_view_toggle=Перемикач перегляду дерева
+theme_xhred_filemanager_hide_tree_view=Увімкнути панель перегляду дерев
+theme_xhred_filemanager_tree_view_depth=Витягнута глибина виду дерева при початковому навантаженні (менші навантаження швидше)
+theme_xhred_global_unlimited=Необмежений
+theme_xhred_filemanager_tree_exclude_on_first_load=Виключити несуттєві каталоги з проходження початкового завантаження для перегляду дерева (швидше завантажується)
+theme_xhred_filemanager_tree_expand_search=Розгортайте всі гілки, які містять відповідність, фільтруючи подання з дерева
+
+# 19.12
+theme_xhred_tooltip_side_slider_go_to_dashboard=Перейдіть на панель приладів
+theme_xhred_tooltip_side_slider_open_favorites_control=Відкрити контроль вибраних
+theme_xhred_tooltip_side_slider_delete_all_notification=Видалити всі сповіщення
+theme_xhred_tooltip_side_slider_mark_read_all_notification=Позначте всі сповіщення як прочитані
+theme_xhred_global_settings=Налаштування
+theme_xhred_tooltip_side_slider_pinned=Бічний повзунок для викрутки/відкручення
+
+# 19.13
+settings_sysinfo_theme_updates_for_usermin=Встановіть оновлення теми також для Usermin
+theme_xhred_global_installed_version=Встановлена версія
+theme_xhred_global_installed_and_latest_version=Встановлена та остання версія
+theme_xhred_global_latest_stable=Останній стабільний
+theme_xhred_global_latest_beta=Остання бета-версія
+theme_xhred_global_firewall=Брандмауер
+
+# 19.14
+theme_xhred_filemanager_preparing_download=Підготовка до завантаження. Архівне зберігання %number файлів. Зачекайте, будь ласка, %dots
+theme_xhred_filemanager_prepared_download=Завантаження готова. Заархівовані файли %number.
+theme_xhred_filemanager_canceled_download=Завантаження скасовано.
+
+# 19.19
+theme_xhred_filemanager_settings_force_tar_download=Примушуйте команду <code>tar</code>, навіть якщо доступний <code>zip</code> при завантаженні в архіві
+theme_xhred_nice_size_PB=ПБ
+theme_xhred_nice_size_TB=Туберкульоз
+theme_xhred_nice_size_GB=ГБ
+theme_xhred_nice_size_MB=МБ
+theme_xhred_nice_size_kB=кБ
+theme_xhred_nice_size_b=байт
+theme_xhred_title_locale_non_ui_config=Формат дати, створений сервером
+
+# 19.20
+extensions_mail_current_position=Повідомлення $1-$2 від $3
+extensions_mail_sort_by_sender=Сортувати за відправниками
+extensions_mail_sort_by_recipient=Сортувати за одержувачем
+extensions_mail_sort_by_date=Сортувати за датою
+extensions_mail_sort_by_size=Сортувати за розміром
+extensions_mail_sort_by_spam=Сортувати за шкалою спаму
+extensions_mail_sort_by_subject=Сортувати за темою
+extensions_mail_security_spf=Рамка політики щодо відправника <em>(SPF)</em>
+extensions_mail_security_dkim=Ідентифікована пошта DomainKeys <em>(DKIM)</em>
+extensions_mail_flag_important=Повідомлення позначено як важливе
+extensions_mail_flag_attachment=Повідомлення має додаток
+extensions_mail_flag_spam_score=Оцінка спаму
+extensions_mail_flag_spam_status=Стан спаму
+extensions_mail_flag_spam_status_data=$1 з 2 доларів
+extensions_mail_flag_tls_on=Стандартне шифрування (TLS)
+extensions_mail_flag_tls_off=Нешифрована пошта
+extensions_mail_flag_tls_none=Стан шифрування невідомий
+extensions_mail_header_no_subject=(без теми)
+extensions_mail_select_all=Усі
+extensions_mail_select_none=Жоден
+extensions_mail_select_invert=Інвертувати
+extensions_mail_select_read=Прочитайте
+extensions_mail_select_unread=Непрочитані
+extensions_mail_mark_read=Відзначити як прочитане
+extensions_mail_mark_unread=Відзначити як непрочитане
+extensions_mail_mark_special=Позначити як особливий
+extensions_mail_quota=$1 ($2%) з $3 використовуються
+extensions_mail_pagination_right=Далі
+extensions_mail_pagination_left=Попередній
+theme_xhred_global_move=Рухатися
+theme_xhred_global_copy=Скопіювати
+theme_xhred_mail_more=Більше
+theme_xhred_mail_copy_only=Не рухайтесь, а лише копіюйте
+theme_xhred_global_sort=Сортувати
+theme_xhred_global_search=Пошук
+theme_xhred_global_delete=Видалити
+theme_xhred_global_forward=Вперед
+theme_xhred_global_refresh=Оновити
+theme_xhred_mail_pagination_first=Список починаючи з першого
+theme_xhred_mail_pagination_last=Список починається з останнього
+theme_xhred_global_starred=З зірочкою
+theme_xhred_global_unstarred=Не зіркований
+extensions_mail_header_from=з
+extensions_mail_header_reply_to=відповідати на
+extensions_mail_header_to=до
+extensions_mail_header_cc=куб
+extensions_mail_header_bcc=bcc
+extensions_mail_header_date=дата
+extensions_mail_header_spam=спам
+extensions_mail_header_mailed_by=поштою
+extensions_mail_header_signed_by=підписаний
+extensions_mail_header_spf=отримав-спф
+extensions_mail_header_dkim=dkim-підпис
+extensions_mail_header_encrypted=зашифровано
+extensions_mail_mark_spam_view_razordel=Позначити як спам та видалити
+extensions_mail_mark_spam_view_razor=Позначити як спам
+extensions_mail_mark_spam_mail_black=Позначити як у чорному списку
+extensions_mail_mark_spam_view_ham=Позначити як не спам
+extensions_mail_mark_spam_view_hammove=Позначте як не спам і перейдіть до папки "Вхідні"
+extensions_mail_mark_spam_mail_white=Позначити як білий список
+extensions_mail_mark_spam_mail_whitemove=Позначте як дозволене і перейдіть до папки "Вхідні"
+extensions_mail_search_filter_reset=Скинути фільтр сортування
+extensions_mail_move_copy_only=Не рухайтесь, просто скопіюйте
+theme_xhred_global_total=Всього
+theme_xhred_global_selected=Вибрано
+theme_xhred_mail_new_message=Нове повідомлення
+
+theme_xhred_mail_search_simple=Показати параметри пошуку
+theme_xhred_mail_search_advanced=Сховати параметри пошуку
+theme_xhred_mail_search_clear=Очистити результати пошуку
+theme_xhred_mail_search_empty=Жодне повідомлення не відповідає вашому пошуку
+theme_xhred_mail_search_search_mail=Шукати пошту
+theme_xhred_mail_search_from=З
+theme_xhred_mail_search_to=До
+theme_xhred_mail_search_subject=Тема
+theme_xhred_mail_search_has_words=Має слова
+theme_xhred_mail_search_doesnt_have_words=Не має
+theme_xhred_mail_search_with_status=Зі статусом
+theme_xhred_mail_search_with_status_any=Будь-який
+theme_xhred_mail_search_with_status_unread=Непрочитані
+theme_xhred_mail_search_with_status_read=Прочитайте
+theme_xhred_mail_search_with_status_special=Спеціальний
+theme_xhred_mail_search_search_in=Шукати в
+theme_xhred_mail_search_limit_results=Обмежте результати пошуку
+theme_xhred_mail_search_limit_results_yes=Так, пошук лише через
+theme_xhred_mail_search_has_attach=Має вкладення
+
+theme_xhred_settings_right_theme_bgs=Теми фонів
+theme_xhred_settings_right_theme_bgs_title=Фони теми
+settings_right_bgs_title=Тут можна встановити фонову тему для сторінки входу.
+settings_right_bg_unauthenticated_users=Фон для несанкціонованих користувачів
+settings_right_theme_left_background_title=Тема фонового контролю
+
+theme_xhred_find_in_config_files=Знайдіть у конфігураційних файлах
+theme_xhred_find_in_config_files_result_found_single=Результат $1 знайдено у файлі $2 за $3
+theme_xhred_find_in_config_files_result_found_multi=У 1 файлі $2 знайдено $1 за $3
+theme_xhred_find_in_config_files_results_found=Результати в $1, знайдені у файлах $2 за $3
+
+theme_xhred_filemanager_context_symlink=Створіть нове символічне посилання
+theme_xhred_global_symbolic=Символічне посилання
+theme_xhred_global_target=Ціль
+settings_sysinfo_max_servers=Максимум віртуальних серверів для показу
+
+right_download_is_ready=Ваше завантаження завершено.
+theme_xhred_download_is_being_prepared=Ваше завантаження готується. Це може зайняти деякий час. Будь ласка, зачекайте ..
+theme_xhred_backup_is_being_prepared=Ваша резервна копія готується. Це може зайняти деякий час. Будь ласка, зачекайте ..
+
+settings_mail_ui=Увімкнути новий інтерфейс пошти
+
+settings_theme_config_admins_only_privileged_error=Заборонено доступ: адміністратор заблокував доступ до налаштувань користувачів
+
+theme_xhred_tooltip_navigation_pinned=Закріпити/відкрутити навігаційне меню
+settings_hotkey_navigation=Перемикати стан навігаційного меню
+
+theme_xhred_search_in_webmin=Пошук у Webmin
+theme_xhred_search_in_usermin=Пошук у Usermin
+theme_xhred_search_in_virtualserver=Пошук Virtualmin
+theme_xhred_search_in_servermanager=Пошук Cloudmin
+
+theme_xhred_filemanager_context_clipboard_selection=Скопіюйте вибір у буфер обміну
+
+settings_hotkey_slider=Перемкнути стан бокового повзунка
+
+theme_git_update_locked=Оновлення теми не може бути завершене через відсутність підключення до GitHub або перевищення обмеження швидкості API. Для останніх, несанкціонованих запитів, обмеження швидкості передбачає до 60 запитів на годину. Повторіть спробу пізніше або скористайтеся консоллю, щоб зробити це вручну за допомогою сценарію оновлення.
+
+settings_collapse_navigation_link=Показати кнопку прикріплення/відкручення
+
+settings_cache_interval=Інтервал перевірки запуску оновлень
+settings_cache_interval_1h=щогодини
+settings_cache_interval_12h=кожні 12 годин
+settings_cache_interval_1d=раз на день
+settings_cache_interval_7d=кожного тижня
+settings_cache_interval_14d=два рази на місяць
+settings_cache_interval_1m=раз на місяць
+settings_cache_interval_3m=раз на 3 місяці
+settings_cache_interval_6m=два рази на рік
+settings_cache_interval_1y=раз на рік
+
+theme_xhred_reload_notification=Конфігурація теми була змінена, але не збережена. Сторінка буде завантажена, щоб скинутись до поточних налаштувань.
+
+# 19.22
+theme_xhred_global_save_as=Зберегти як
+theme_xhred_editor_save_file_as=Збережіть файл як
+theme_xhred_global_configuration=Конфігурація
+
+body_used_cached_total=$1 усього / $3 кешовано / $2 використано
+
+# 19.30
+theme_xhred_favorites_add=Додати в обране
+theme_xhred_favorites_remove=Видалити з вибраного
+theme_xhred_select_deselect=Виберіть/скасуйте вибір поточного елемента
+theme_xhred_edit_current=Редагувати поточний елемент
+theme_xhred_search_in_file=Пошук у файлах
+left_toggle_navigation_menu=Увімкніть видимість навігації
+theme_xhred_side_slider_toggle=Увімкніть видимість бічного повзунка
+right_pagination_first=Спочатку
+right_pagination_last=Остання
+settings_leftmenu_custom_links=Додаткові записи
+theme_xhred_file_editor=Файловий редактор
+theme_xhred_mail_no_mail=Немає пошти
+theme_xhred_mail_no_new_mail=Немає нової пошти
+theme_xhred_editor_set_syntax=Встановити синтаксис
+theme_xhred_global_menu=Меню
+theme_xhred_shell_aborted=Операція перервана
+
+# 19.32
+theme_xhred_connection_reboot=Перезавантаження
+theme_xhred_connection_reboot_details=Перезавантажується сервер. Будь ласка, зачекайте ..
+settings_leftmenu_custom_links_description=У навігаційне меню можна додати додаткові посилання. <br><br> Потрібні ключі <em>title</em>, <em>link</em> і <em>icon</em>; за бажанням ви можете визначити, у якому режимі входу відображатиметься посилання, вказавши ключ <em>рівня</em> зі значеннями у списку, розділених комами, що містить: <br><br> <em>0</em > - логін адміністратора; <br><em>1</em> - логін посередника;<br><em>2</em> - логін власника сервера;<br><em>3</em> - логін користувача;<br><em>4</em>– ім’я для входу власника системи.<br><br> Вам потрібно буде передати дійсний об’єкт JSON як рядок, як у прикладі нижче.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+left_favorites_edit=Редагувати вибране
+left_favorites_edit_desc=Ця сторінка може бути використана для ручного редагування файлу користувача з обраними темами. Це потрібно робити обережно, оскільки не буде проведено синтаксису чи іншої перевірки дійсності ваших змін.
+theme_xhred_filemanager_records_for_server_pagination=Кількість елементів у каталозі за замовчуванням, щоб ініціювати пагін сторінки сервера
+
+filemanager_global_info_paginated_total1=Файл $1 та каталог $2 з $3 елементів на сторінках $4
+filemanager_global_info_paginated_total2=Файли $1 та каталог $2 з $3 елементів на сторінках $4
+filemanager_global_info_paginated_total3=Файл $1 та каталоги $2 з $3 елементів на сторінках $4
+filemanager_global_info_paginated_total4=Файли $1 та каталоги $2 з $3 елементів на сторінках $4
+theme_xhred_filemanager_search_follow_symlinks=Дотримуйтесь символьних посилань
+theme_xhred_filemanager_mass_select=Вибрати всі %1 елементи на %2 сторінках?
+theme_xhred_filemanager_mass_selected=Усі елементи %1 вибрані в поточному каталозі.
+theme_xhred_filemanager_mass_select_clear=Очистити вибір
+theme_xhred_filemanager_mass_selected_for_delete=Усі елементи в каталозі %1
+theme_xhred_filemanager_mass_selected_no_zip=Використання команди <tt>zip</tt> не підтримується при запуску всіх елементів у каталозі
+filemanager_global_search_results=Результати пошуку
+filemanager_global_paginated_results=Хворобливий
+filemanager_global_access_change_time=Останній час доступу/зміни
+filemanager_global_user_group_id=Числовий користувач/група
+theme_xhred_filemanager_global_size_in_bytes=Розмір у байтах
+theme_xhred_global_command_completed=Команда завершена
+theme_xhred_global_toggle_password_visibility=Увімкніть видимість пароля
+theme_xhred_login_passphrase=Парольна фраза
+theme_xhred_filemanager_archive_gpg_no_keys=Ключів немає
+filemanager_archive_gpg_error=Помилка GPG
+filemanager_archive_move_to_archive_failed=Неможливо перемістити файли в архів через одночасні помилки
+theme_xhred_filemanager_archive_move_to=Переміщення до архіву
+theme_xhred_global_encrypt=Шифрувати
+theme_xhred_filemanager_gpg_select_the_key=Виберіть ключ
+theme_xhred_filemanager_context_extract_encrypted=Параметри вилучення
+theme_xhred_filemanager_extract_encrypted_password_or_passphrase=Пароль або пароль
+theme_xhred_filemanager_extract_encrypted_password_or_passphrase_desc=Введіть пароль для розшифрування стислих файлів. Введіть парольну фразу ключа GPG, якщо вона встановлена.
+theme_xhred_global_decrypt=Розшифруйте
+filemanager_archive_password_required=Пароль для розшифрування архіву
+filemanager_archive_password_wrong=Введений пароль невірний
+filemanager_archive_file_not_found=Файл не існує
+filemanager_archive_gpg_private_error=Немає секретного ключа або парольна фраза ключа невірна
+theme_xhred_filemanager_errors_extraction=Наступні помилки сталися під час вилучення
+theme_xhred_filemanager_extract_option_delete_afterwards=Видалити архів після успішного вилучення
+
+theme_xhred_login_passphrase_desc=Введіть парольну фразу ключа GPG, якщо вона встановлена.
+theme_xhred_filemanager_encrypt_option_delete_afterwards=Видалити файл після успішного шифрування
+theme_xhred_filemanager_decrypt_option_delete_afterwards=Видаліть файл після успішного розшифрування
+theme_xhred_filemanager_encrypt_gpg_key=Використання ключа
+theme_xhred_filemanager_errors_encrypt=Наступні помилки виникли під час шифрування
+theme_xhred_filemanager_errors_decrypt=Наступні помилки сталися під час розшифрування
+theme_xhred_filemanager_crypt_encrypt=Файли шифруються.
+theme_xhred_filemanager_crypt_decrypt=Файли розшифровуються.
+theme_xhred_filemanager_crypt_encrypted=Шифрування вибраних файлів було успішним.
+theme_xhred_filemanager_crypt_decrypted=Розшифровка вибраних файлів пройшла успішно.
+theme_xhred_filemanager_batch_error=Вона також включає усічені результати %1 знайомих помилок.
+
+theme_xhred_global_preview_img=Попередній перегляд зображення
+theme_xhred_global_preview_img_sel=Попередній перегляд вибраних зображень
+theme_xhred_global_preview_img_all=Попередній перегляд усіх зображень
+theme_xhred_filemanager_preview_images_building=Галерея зображень створюється для попереднього перегляду.
+theme_xhred_filemanager_preview_images_deps_error1=Для роботи цієї функції необхідно встановити пакет <code>ImageMagick</code> у вашій системі.
+theme_xhred_filemanager_preview_images_deps_error2=Ви можете $1, щоб автоматично встановити його.
+theme_xhred_filemanager_preview_images_error=Галерею зображень неможливо створити.
+global_deps_installed=Пакет $1 був успішно встановлений.
+global_deps_error=Пакет $1 не було встановлено успішно. Установіть його вручну.
+global_deps_installing=Пакет $1 встановлюється.
+theme_xhred_global_toggle_fullscreen=Увімкнути повноекранний екран
+theme_xhred_global_zoom_in_out=Зменшення/зменшення масштабу
+theme_xhred_global_prev_arrow_left=Попередній (стрілка вліво)
+theme_xhred_global_next_arrow_right=Далі (стрілка праворуч)
+
+theme_xhred_clear_cache_initiated=Очищення кешу та перезавантаження.
+settings_document_title=Формат заголовка документа
+settings_document_title_option_3=Модуль
+settings_document_title_option_1=Модуль $1 версія (тип ОС)
+settings_document_title_option_2=Модуль версії $1 (тип ОС)
+settings_document_title_option_4=Версія $1 (тип ОС)
+settings_document_title_option_5=ім'я хоста - модуль $1 (тип ОС)
+settings_document_title_option_6=ім'я користувача@ім'я хоста - модуль $1 (тип ОС)
+settings_document_title_option_7=Модуль 1 дол
+settings_document_title_option_8=Модуль імені хоста
+settings_document_title_option_9=ім'я користувача@ім'я хоста
+theme_xhred_csf=ConfigServer Security & Firewall
+theme_xhred_global_version=версія
+theme_xhred_notify_patching_module_style=Застосування початкового патчу інтерфейсу для $1 та перезавантаження.
+theme_xhred_global_error_more_details_online=Примітка. Будь ласка, прочитайте докладніше про цю помилку та способи її вирішення на нашій сторінці %1 %1wiki Інтернеті.
+
+# 19.33
+theme_xhred_filemanager_search_file_mask=Маска файлу
+theme_xhred_filemanager_search_regex=Регулярне вираження
+theme_xhred_upload_successful=<span>Файли $1</span> успішно завантажено в каталог $2
+theme_xhred_upload_successful_single=<span>Файл $1</span> успішно завантажено в каталог $2
+settings_usermin_default_module=Модуль за замовчуванням
+
+# 19.34
+theme_xhred_search_in_file_open_external=Від'єднайте файл до окремого редактора
+theme_xhred_path_to_console=Відкрити поточний шлях у терміналі <tt>(Alt + ⇧ + K)</tt>
+theme_xhred_filemanager_editor_revert_content=Відновити файл
+theme_xhred_filemanager_editor_reverting_content=Скасування змін та повернення до вихідного вмісту файлу.
+
+# 19.37
+theme_xhred_filemanager_exclude_dirs=Виключіть записи
+theme_xhred_filemanager_exclude_dirs_desc=Список файлів або підкаталогів, які потрібно виключити, розділено крапкою з комою
+
+# 19.38
+theme_global_access_level=Рівень доступу
+theme_global_user_mode=Режим користувача
+
+# 19.40
+theme_xhred_global_attachments=Вкладення
+theme_xhred_mail_composer_send=Надіслати
+theme_xhred_mail_composer_schedule=Розклад
+theme_xhred_mail_composer_attach=Вкласти файли
+theme_xhred_mail_composer_toggle=Увімкніть режим HTML/звичайний текст
+theme_xhred_mail_composer_discard=Відкинути чернетку
+theme_xhred_mail_composer_server_attach=Приєднати файл із сервера
+theme_xhred_mail_composer_addrecipients=Додайте одержувачів до адресної книги
+theme_xhred_mail_composer_notifications_dsn=Запит статусу доставки
+theme_xhred_mail_composer_notifications_del=Запит квитанції про читання
+theme_xhred_global_options=Параметри
+theme_xhred_mail_composer_draft_saving=Чернетка збереження. ..
+theme_xhred_mail_composer_draft_saved=Чернетка збережена
+theme_xhred_mail_composer_server_attach_error_read=Запитаний файл неможливо прочитати або відмовити у дозволі
+theme_xhred_mail_composer_server_attach_error_dir=Каталоги не можна приєднати
+theme_xhred_mail_composer_discarded_draft=Чернетка відхилена
+theme_xhred_global_undo=Скасувати
+
+theme_xhred_global_today=Сьогодні
+theme_xhred_global_tomorrow=Завтра
+theme_xhred_mail_composer_scheduled=Надіслати %1 на %2
+theme_global_core=Основні
+theme_dashboard_accordion_live_stats=Історія статистики
+theme_xhred_live_stats_cpu=ЦП
+theme_xhred_live_stats_mem=Пам'ять
+theme_xhred_live_stats_virt=Зміна
+theme_xhred_live_stats_proc=Процес
+theme_xhred_live_stats_disk=Дисковий ввід/вивід
+theme_xhred_global_hour=Година
+theme_xhred_global_hours=Години
+theme_xhred_title_locale_time_format=Формат часу
+theme_xhred_nice_size_PIB=PiB
+theme_xhred_nice_size_TIB=TiB
+theme_xhred_nice_size_GIB=ГіБ
+theme_xhred_nice_size_MIB=МіБ
+theme_xhred_nice_size_kIB=КіБ
+theme_xhred_live_stats_net=Мережевий введення/виведення
+theme_xhred_nice_size_PBB=Pbps
+theme_xhred_nice_size_TBB=Тб / с
+theme_xhred_nice_size_GBB=Гбіт / с
+theme_xhred_nice_size_MBB=Мбіт / с
+theme_xhred_nice_size_kBB=Кбіт / с
+theme_xhred_global_rows=Рядки
+
+# 19.42
+settings_side_slider_blend=Спадщина
+
+# 19.44
+theme_xhred_reload_lang_notification=Мова теми змінено. Сторінка буде перезавантажена, щоб застосувати нові налаштування.
+
+# 19.46
+theme_xhred_global_small=Маленький
+theme_xhred_global_normal=Нормальний
+theme_xhred_global_medium=Середній
+theme_xhred_global_large=Великий
+theme_xhred_global_huge=Величезний
+theme_xhred_filemanager_editor_maximized=Максимізуйте панель редактора після запуску
+
+# 19.47
+theme_xhred_textarea_to_clipboard=Вибраний вміст текстової області успішно скопійовано у буфер обміну
+
+# 19.48
+theme_xhred_global_alias=Псевдонім
+
+# 19.50
+theme_xhred_mail_composer_real_name=Справжнє ім'я
+theme_xhred_mail_composer_username=ім'я користувача
+
+# 19.53
+settings_global_palette_unauthenticated=Колірна палітра сторінки для входу
+
+# 19.60
+settings_config_save_and_next=Зберегти та Далі
+settings_config_configuration_category=Категорія конфігурації
+config_search_options_all=Шукати серед усіх параметрів конфігурації модуля
+theme_xhred_editing_config_file=Редагування конфігураційного файлу
+
+# 19.61
+theme_xhred_login_message_2fa=Для цього користувача ввімкнено двофакторну автентифікацію
+theme_xhred_global_verify=Перевірити
+settings_show_terminal_link2=Показати кнопку командної оболонки
+settings_hotkey_shell2=Відкрити командну оболонку
+theme_xhred_path_to_console2=Відкрити поточний шлях у командній оболонці <tt>(Alt + ⇧ + K)</tt>
+theme_tooltip_terminal_link2=Командна оболонка
+
+# 19.70
+theme_xhred_filemanager_context_view=Переглянути
+theme_xhred_file_viewer=Переглядач файлів
+theme_xhred_global_done=Готово.
+theme_xhred_filemanager_file_save_err=Помилка збереження файлу.
+theme_xhred_filemanager_view_head=Висновок головного файлу
+theme_xhred_filemanager_view_head_and_reverse=Виведення головної та зворотної файлів
+theme_xhred_filemanager_view_tail=Виведення файлу хвоста
+theme_xhred_filemanager_view_tail_and_reverse=Виведення хвоста та зворотного файлу
+theme_xhred_filemanager_view_head_and_tail=Вивід файлу голови та хвоста
+
+theme_xhred_filemanager_search_info_search_dir=Пошук в каталозі
+theme_xhred_filemanager_search_limit_user=Належить користувачеві
+theme_xhred_filemanager_search_limit_group=Належить групі
+theme_xhred_filemanager_search_limit_type=Тип файлу
+theme_xhred_filemanager_search_limit_size=Розмір файлу
+theme_xhred_filemanager_search_limit_size_desc=напр. <2К або >3M-<5M
+
+theme_xhred_filemanager_context_move_to_trash=Перемістити до кошика
+theme_xhred_filemanager_context_permanently_delete=Остаточно видалити
+theme_xhred_global_remove=Видалити
+theme_xhred_filemanager_settings_deletion_mode=Видаліть файли безпечно, перемістившись до кошика
+theme_xhred_filemanager_successful_removal=Видалення до кошика <tt>$1</tt> було успішним.
+theme_xhred_filemanager_removing_selected=Видалення вибраного.
+theme_xhred_filemanager_remove_warning=Видалення завершено успішно, але не для всіх об’єктів. Можливо, запитувані об’єкти могли бути <em>перейменовані</em> чи <em>переміщені</em> перед видаленням. Обмежені дозволи (атрибути) - ще одна можлива причина. Повідомлення про помилку:
+
+theme_xhred_connection_error_details_ssl=Перевірте <a>попередження про власний підпис SSL</a>
+
+# 19.71
+settings_sysinfo_hidden_panels_user=Приховані гармошки
+theme_xhred_tooltip_dashboard_panels_disable=Сховати панель $1 
+theme_xhred_dashboard_panels_disabled_explain=Приховану панель можна повторно ввімкнути за допомогою <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
+settings_right_sysinfo_page_options=Інформаційна панель та моніторинг у реальному часі
+settings_right_navigation_menu_options=Меню навігації
+settings_right_notification_slider_options=Бічний повзунок
+settings_right_table_options=Відображення таблиці
+settings_right_hotkey_options=Гарячі клавіші
+settings_right_hotkey_custom_options=Гарячі клавіші спеціальних посилань
+settings_right_soft_updates_page_options=Оновлення теми
+settings_global_general_options_title=Загальні значення за замовчуванням
+theme_error_access_not_root_user=Доступ заборонено: Користувач не має права редагувати цей розділ
+settings_theme_config_admins_only_privileged=Заборонити доступ до конфігурації теми для користувачів
+settings_theme_config_admins_only_privileged_description=Цей параметр, якщо його запровадить адміністратор сервера, приховає сторінку конфігурації теми від звичайних, не привілейованих користувачів. Однак цю опцію не рекомендується використовувати, оскільки звичайні користувачі вже матимуть обмежений доступ до конфігурації теми та зможуть змінити лише мінімальний набір параметрів, що стосуються конкретного користувача.
+
+# 19.72
+theme_xhred_global_prefs=Преференції
+mconfig_eaccess=Цей модуль недоступний
+mconfig_ecannot=Для цього модуля не знайдено спеціального конфігураційного файлу
+theme_xhred_filemanager_mconfig_columns_selinux_disabled=Ця функція вимагає встановлення та ввімкнення <tt>SELinux</tt>
+theme_xhred_filemanager_mconfig_columns_acls_disabled=Ця функція вимагає монтування файлової системи з увімкненими <tt>ACL</tt> і має бути доступна команда <kbd>getfacl</kbd>
+theme_xhred_global_module_preferences=Налаштування модуля
+
+# 19.74
+theme_xhred_theme_update_available=Встановлено нову версію автентичної теми
+settings_right_page_keep=Завантажте ту саму сторінку на комутатор домену
+settings_right_page_keep_description=Ця опція намагатиметься завантажувати ту саму сторінку при виборі домену, коли вона змінюється зі спадного списку навігаційного меню
+
+# 19.76
+theme_xhred_global_show_all=Покажи все
+theme_xhred_filemanager_context_prop_show_all=Показати всі властивості
+
+# 19.84
+settings_right_table_links_type=Тип відображення посилань на таблицю
+settings_right_table_links_type_2=Великі значки з текстом
+settings_right_table_links_type_1=Невеликі значки з текстом підказки
+settings_right_table_links_type_0=Ніяких значків, лише текстові посилання
+settings_right_table_animate_icons=Показувати анімацію при наведенні курсора для посилань на піктограми таблиці
+settings_right_table_grayscaled_icons=Показувати посилання на значок таблиці у відтінках сірого, якщо не навести курсор миші
+theme_xhred_upload_initial_info_dir=Перетягніть сюди каталог або клацніть, щоб вибрати
+theme_xhred_upload_one_dir_with=1 каталог с
+theme_xhred_upload_err_dir_mode=Помилка: спроба додати файл із увімкненим завантаженням каталогу
+theme_xhred_upload_err_files_mode=Помилка: спроба додати каталог у режимі завантаження лише файлів
+theme_xhred_filemanager_context_empty_trash=Очистити кошик
+theme_xhred_filemanager_empty_trash_button=Видалити всі файли в кошик
+theme_xhred_filemanager_emptying_trash_selected=Очищення сміття.
+theme_xhred_filemanager_successful_emptying_trash=Очищення каталогу <tt>$1</tt> було успішним.
+theme_xhred_notifications_motd=Примітка адміністратора
+theme_xhred_notifications_motd2=Повідомлення адміністратора
+theme_xhred_notifications_motd_says=$1 каже
+theme_xhred_tooltip_side_slider_notifications_motd_add=Трансляція повідомлень іншим користувачам системи
+theme_xhred_modal_motd_title=Трансляція системних повідомлень
+theme_xhred_modal_motd_desc=Цей інтерфейс можна використовувати для передачі повідомлень іншим користувачам системи
+theme_xhred_global_message=повідомлення
+theme_xhred_modal_motd_select_all=Всі користувачі
+theme_xhred_modal_motd_select_adm=Майстер-адміністратори
+theme_xhred_modal_motd_select_res=Торгові посередники
+theme_xhred_modal_motd_select_vm=Власники серверів
+theme_xhred_modal_motd_select_cm=Власники машин
+theme_xhred_modal_motd_select_um=Користувачі пошти
+theme_xhred_modal_motd_btn_add=Додати нове повідомлення
+theme_xhred_modal_motd_btn_save=Зберігати та транслювати поточний набір повідомлень
+theme_xhred_modal_motd_btn_rm=Видалити поточне повідомлення
+theme_xhred_global_hide=Сховати
+body_cputemp=Температура процесора
+theme_global_fan=Кулер
+body_cpufans=Вентилятори процесора
+body_cpufan_rpm=RPM
+body_cpufan=Вентилятор процесора
+filemanager_symlink_exists=Неможливо створити <tt>$1</tt> оскільки файл уже існує в <tt>$2</tt>
+
+# 19.85
+theme_xhred_tooltip_side_slider_clipboard_sysinfo=Копіювати основну системну інформацію в буфер обміну; утримуйте клавішу $1, щоб скопіювати розширене; утримуйте клавішу $2, щоб скопіювати звичайні текстові дані, а не уцінку
+theme_xhred_tooltip_side_slider_clipboard_account=Скопіюйте всю інформацію облікового запису в буфер обміну; утримуйте клавішу $1, щоб скопіювати звичайні текстові дані, а не уцінку
+tooltip_back_to_servers_index_master=Модуль індексування серверів Webmin на головній машині
+tooltip_list_other_servers=Список інших зареєстрованих серверів Webmin
+theme_xhred_status_module_mon_up=Вгору
+theme_xhred_status_module_mon_down=Вниз
+theme_xhred_status_module_mon_webmin=Webmin не працює
+theme_xhred_status_module_mon_timed=Час вийшов
+theme_xhred_status_module_mon_not=Не встановлено
+theme_xhred_status_module_mon_skip=Пропущено
+theme_xhred_status_module_mon_quest=Недоступний
+theme_xhred_webminlog_module_no_command_escapes=Перемикач зворотну косу риску для виконаної команди
+settings_navigation_auto_fold_category=Автоматичне згортання неактивних категорій
+theme_xhred_tooltip_virtualmin_templates_filter_generating=Створення списку доступних для пошуку параметрів для шаблону
+theme_xhred_tooltip_virtualmin_templates_filter=Пошук у всіх параметрах шаблону
+theme_xhred_sysinfo_vmforum=Спільнота Virtualmin
+theme_xhred_tooltip_support_ticket=Подати заявку в службу підтримки з доданою системною інформацією; утримуйте клавішу $1, щоб скопіювати посилання на підтримку в буфер обміну
+theme_xhred_tooltip_side_slider_refresh_sysinfo=Примусово оновити системну інформацію
+theme_xhred_disk_quota_error_title=Поза квоти
+theme_xhred_disk_quota_error_message=На пристрої не залишилося місця
+theme_xhred_filemanager_decrypt_option_use_master_admin_keys=Використовуйте головний ключ адміністратора для розшифрування
+
+# 19.90
+settings_hotkey_toggle_hold_modifier=Утримуйте клавішу-модифікатор
+
+# 19.91
+theme_xhred_filemanager_files_mode_ask=Завжди запитуйте
+theme_xhred_filemanager_files_mode_ask_remember=Запам'ятати як майбутнє за замовчуванням
+theme_xhred_filemanager_files_mode_ask_title=Перезаписати наявні
+theme_xhred_filemanager_files_mode_ask_title2=Перезапис існуючих файлів
+theme_xhred_filemanager_files_mode_ask_desc=Ви хочете перезаписати будь-які існуючі файли під час наступної операції
+theme_xhred_filemanager_files_mode_ask_title_yes=Так, перезаписати
+theme_xhred_filemanager_files_mode_ask_title_no=Ні, продовжуйте існувати
+theme_xhred_filemanager_trash_empty_curr_user_single=Порожній каталог сміття
+theme_xhred_filemanager_trash_empty_curr_user=Очистити поточний каталог сміття користувача
+theme_xhred_filemanager_trash_empty_all_users=Очистіть каталоги сміття інших користувачів
+theme_xhred_filemanager_purge_trash_curr_start=Очищення каталогу $1.
+theme_xhred_filemanager_purge_trash_all_start=Очищення каталогів сміття всіх інших користувачів.
+theme_xhred_filemanager_purge_trash_curr_end=Каталог $1 успішно очищено.
+theme_xhred_filemanager_purge_trash_all_end=Успішно очищено каталоги сміття інших користувачів.
+theme_error_access_dir_not_allowed=Доступ заборонено: файл недоступний
+
+# 19.95
+theme_xhred_global_outdated_desc=Установлена версія $1 застаріла. Остання доступна версія $2. Оновіть або натисніть, щоб отримати докладнішу інформацію про останній випуск.
+theme_xhred_global_outdated_desc2=Установлена версія $1 застаріла. Остання доступна версія $2.
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_pc=Утримуйте клавішу <tt>Ctrl</tt> під час виділення
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_mac=Утримуйте клавішу <tt>Command</tt> під час вибору
+
+# 19.97
+theme_xhred_webmin_requires_restart=Виявлено, що демон веб-сервера Webmin не було перезапущено належним чином під час останнього оновлення пакета. Це необхідно, щоб перезапустити веб-сервер вручну, викликавши команду <tt>$1</tt>.
+theme_xhred_webmin_requires_restart_yes=Так, спробуйте перезапустити його
+theme_xhred_webmin_requires_restart_no=Ні, я перезапущу його вручну
+
+# 19.99
+theme_xhred_filemanager_path_manual=Введіть шлях вручну (Ctrl + L)
+
+# 20.02
+theme_xhred_socket_conn_lost_title=Зв'язок втрачено
+theme_xhred_socket_conn_lost_reconnect=Повторне підключення
+theme_xhred_socket_conn_lost_connecting=Підключення ..
+theme_xhred_socket_conn_lost_try=Спробуйте знову
+theme_xhred_socket_conn_parse_error=Не вдалося завантажити термінал: неможливо проаналізувати об’єкт відповіді з сервера
+theme_xhred_socket_conn_sock_error=Не вдалося завантажити термінал: помилка підключення WebSocket
+
+# 20.10
+theme_xhred_global_open=ВІДЧИНЕНО
+theme_xhred_xterm_error_title=Неможливо підключитися
+theme_xhred_xterm_error=Щоб дізнатися більше, перейдіть до модуля терміналу
+
+# 20.11
+theme_xhred_global_error_fatal=Фатальна помилка
+
+# 20.20
+theme_xhred_global_automatic=Автоматичний
+theme_xhred_filemanager_context_acls=Змінити список контролю доступу
+theme_xhred_filemanager_changing_acls=Зміна списку контролю доступу.
+theme_xhred_filemanager_successful_acls_with_errors=Список контролю доступу змінено не для всіх об’єктів:
+theme_xhred_filemanager_successful_acls=Список контролю доступу успішно змінено.
+theme_download_error=Помилка завантаження файлу, оскільки він знаходиться за межами дозволеного каталогу : $1
+
+# 20.30
+theme_xhred_hotkeys_help=Довідка (F1)
+theme_xhred_hotkeys_help_title=Гарячі клавіши
+theme_xhred_hotkeys_help_title_docs=Документація
+theme_xhred_hotkeys_help_title_global=Тема
+theme_xhred_hotkeys_help_title_module=Комбінації клавіш для окремих модулів
+theme_xhred_hotkeys_help_title_fm=Файловий менеджер
+theme_xhred_hotkeys_help_title_edit=редактор
+theme_xhred_global_community=Спільнота
+theme_xhred_hotkeys_server_error=Не вдається отримати файл довідки
+theme_xhred_hotkeys_custom_to_opens=відкривається
+theme_xhred_hotkeys_custom_not_set=не встановлено
+theme_xhred_hotkey_open_module_config_privileged=Відкрийте конфігурацію модуля
+theme_xhred_hotkey_open_theme_config=Відкрийте конфігурацію теми
+theme_xhred_hotkey_list_table=Перелік таблиць із розбивкою на сторінки
+theme_xhred_hotkey_list_tabs=Список вкладок
+theme_xhred_hotkey_clear_cache=Очистити кеш і перезавантажити
+theme_xhred_hotkey_open_new=Дублювати на нову вкладку
+theme_xhred_hotkey_copy_to_clipboard=Копіювати дані елемента в буфер обміну
+theme_xhred_hotkey_copy_to_clipboard_click=лівою кнопкою миші
+theme_xhred_hotkey_print_title=Гарячі клавіші Webmin з автентичною темою
+theme_xhred_global_success=Успіх
+theme_xhred_search_content=Пошук вмісту
+theme_xhred_global_disabled=Вимкнено
+theme_xhred_connection_reset_title=Скидання підключення
+theme_xhred_connection_reset_message=Не вдається встановити з'єднання з віддаленим сервером
+right_file_is_being_prepared=Ваш файл готується. Будь ласка, зачекайте..
+
+theme_xhred_global_paragraph=Абзац
+theme_xhred_global_heading=Заголовок
+theme_xhred_editor_tb_font=Назва шрифту
+theme_xhred_editor_tb_font_fixed_width=Фіксована ширина
+theme_xhred_editor_tb_size=Розмір шрифту
+theme_xhred_editor_tb_paragraph=Стиль абзацу
+theme_xhred_editor_tb_header=Стиль абзацу
+theme_xhred_editor_tb_bold=Жирний (%cmd+B)
+theme_xhred_editor_tb_italic=Курсив (%cmd+I)
+theme_xhred_editor_tb_underline=Підкреслення (%cmd+U)
+theme_xhred_editor_tb_color=Колір тексту
+theme_xhred_editor_tb_background=Текстовий фон
+theme_xhred_editor_tb_align=Вирівняти
+theme_xhred_editor_tb_list_ordered=Нумерований список (%cmd+Shift+7)
+theme_xhred_editor_tb_list_bullet=Маркований список (%cmd+Shift+8)
+theme_xhred_editor_tb_strike=Закреслення
+theme_xhred_editor_tb_blockquote=Цитата (%cmd+Shift+9)
+theme_xhred_editor_tb_link=Вставити посилання (%cmd+K)
+theme_xhred_editor_tb_image=Вставте вбудоване зображення
+theme_xhred_editor_tb_clean=Видалити форматування
+theme_xhred_editor_tb_script_super=Верхній індекс
+theme_xhred_editor_tb_script_sub=Підрядковий
+theme_xhred_editor_tb_indent_+1=Збільшити відступ
+theme_xhred_editor_tb_indent_-1=Зменшити відступ
+theme_xhred_editor_tb_code=Кодовий блок
+theme_xhred_editor_tb_code-block=Кодовий блок
+theme_xhred_editor_tb_direction=Напрямок тексту
+
+settings_right_table_layout_control=Показати елемент керування макетом вмісту
+theme_xhred_tooltip_columns_layout=Контроль оформлення вмісту
+theme_xhred_columns_layout_title=Розмітка вмісту
+theme_xhred_columns_layout_variation=Варіація макета
+theme_xhred_global_vertical=Вертикальний
+theme_xhred_global_horizontal=Горизонтальний
+theme_xhred_columns_layout_vertical_opts=Варіанти вертикального розташування
+theme_xhred_columns_layout_vertical_opts_max_columns=Максимальна кількість стовпців
+theme_xhred_columns_layout_vertical_opts_max_width=Мінімальна ширина стовпця
+theme_xhred_columns_layout_vertical_opts_break_title=Дія переповнення стовпців
+theme_xhred_columns_layout_vertical_opts_break_new=Перерва
+theme_xhred_columns_layout_vertical_opts_break_scroll=Прокрутка
+theme_xhred_columns_layout_remove=Приховати цей віджет
+theme_xhred_columns_layout_remove_button=Зберегти та приховати
+theme_xhred_columns_layout_variation_cannot_horizontal=Горизонтальний макет не можна використовувати в мобільному режимі, зокрема, коли ширина екрана менше 992 пікселів
+
+settings_auto_open_panels_on_proximity=Автоматичне відкриття закритих панелей на близькості
+
+theme_xhred_config_portable_module_xterm_render_addon=Увімкнути аддон візуалізації WebGL
+
+# 21.09.04
+theme_xhred_datatable_filter_and_export=Фільтрувати та експортувати вміст
+
+# 21.10
+settings_hotkey_logout_dbl=Вийти
+theme_xhred_hotkey_emsg=Клавішу зворотньої косої риски не можна використовувати як гарячу клавішу
+settings_embed_product_splash_privileged=Після входу відображати заставку бренду
+dashboard_status_running=Біг
+dashboard_status_stopped=Зупинився
+
+# 21.11
+theme_xhred_global_watching=Дивлячись
+theme_xhred_global_connected=Підключено
+theme_xhred_global_disconnected=Відключено
+theme_xhred_global_connecting=Підключення
+index_mods_missing=Модуль Perl <tt>$1</tt> відсутній.
+index_noadmin_eaccess=Доступ заборонено адміністраторам, які не є основними адміністраторами!
+theme_xhred_body_os=Операційна система
+theme_xhred_theme_version=Автентична версія теми
+theme_xhred_body_updates=Оновлення пакетів
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Змінити тему
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Завантаження успішне
+theme_xhred_filemanager_upload_status_err=Помилка завантаження:
+theme_xhred_filemanager_download_status_err=Помилка завантаження:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Прочитайте
+theme_xhred_dashboard_chart_disk_write=Напишіть
+theme_xhred_dashboard_chart_net_read=в
+theme_xhred_dashboard_chart_net_write=Вийти
+theme_xhred_tooltip_dashboard_live_stats_offline=Статистика в реальному часі недоступна, якщо доступ до системи здійснюється в режимі проксі; відображатиметься тільки раніше зібрана статистика, і лише якщо вона доступна, і сторінку потрібно буде перезавантажити, щоб оновити цю статистику
+settings_sysinfo_real_time_status_history1=Так, і зберігати статистику для
+settings_sysinfo_real_time_status_history2=Так, без збереження статистики
+settings_sysinfo_real_time_status_history_duration1=20 хвилин
+settings_sysinfo_real_time_status_history_duration2=1 година
+settings_sysinfo_real_time_status_history_duration3=3 години
+settings_sysinfo_real_time_status_history_duration4=6 годин
+settings_sysinfo_real_time_status_history_duration5=12 годин
+settings_sysinfo_real_time_status_history_duration6=18 годин
+settings_sysinfo_real_time_status_history_duration7=24 години
+theme_xhred_license_purchase=Придбати ліцензію
+settings_right_table_links_sorted=Сортувати посилання на таблицю в алфавітному порядку
+
+# 24.00
+session_error=Помилка
+session_success=Успіх
+session_cannot=Не вдалося скинути пароль: ім'я користувача відсутнє.
+session_neterror=Не вдається отримати відповідь від мережі!
+session_unkerror=Сталася неочікувана помилка. Спробуйте пізніше.
+session_conerror=Не вдалося зв’язатися з сервером. Спробуйте пізніше.
+session_resetpass1=Новий пароль
+session_resetpass2=Підтвердіть новий пароль
+session_resetepassreq=Потрібен пароль.
+session_pwdconf=Потрібне підтвердження пароля.
+session_pwdmatch=Паролі не збігаються.
+session_noid=Ідентифікатор відновлення не знайдено!
+session_pwdsucc=Пароль успішно змінено! Тепер ви можете увійти, використовуючи новий пароль.

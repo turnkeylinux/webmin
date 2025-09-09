@@ -1,0 +1,410 @@
+body_cputype1=$5, $8 kjerne
+lost_message=Hvis kontoen din har en gjenopprettings-e-postadresse angitt, kan du bruke dette skjemaet til å sende deg selv en lenke til tilbakestilling av passord
+reset_message=Du er i ferd med å tilbakestille passordet for bruker <tt>$1</tt> den
+login_recover=Be om tilbakestilling av passord
+login_back=Gå tilbake
+
+settings_right_logos_title=Temalogoer kan enkelt settes her, for både autentiserte og uautentiserte brukere. Anbefalt logostørrelse er <em>180x90</em> piksler.
+settings_right_logos_error=Den opplastede filen er ikke et bilde
+
+settings_right_hotkey_custom_options_description=Egendefinerte lenker lar deg bruke sifre fra <code>1</code> til <code>9</code> for å få rask tilgang til alle gyldige panel-<code>URL.</code> <code>URL</code> kode> kan trekkes ut fra siden som er åpnet. For å raskt bytte til Apache-modul, sett for eksempel <code>apache</code> til <code>Egendefinert lenke 1</code>-feltet. Hvis standard modifikasjonsnøkkel er satt til <code>Alt,</code>, åpnes Apache-modulen ved å klikke <code>Alt + 1</code>.
+
+settings_right_reload=Last inn standardsiden på fanebryteren
+
+settings_hotkeys_active=Muliggjøre
+settings_hotkey_toggle_modifier=Modifikatortast
+settings_hotkey_toggle_key_webmin=Last inn Webmin-menyen
+settings_hotkey_toggle_key_virtualmin=Last Virtualmin-menyen
+settings_hotkey_toggle_key_cloudmin=Last ned Cloudmin-menyen
+settings_hotkey_toggle_key_usermin=Last inn brukermin-menyen
+settings_hotkey_toggle_key_webmail=Last inn Mail-menyen
+settings_hotkey_sysinfo=Åpne dashbordet
+settings_hotkey_shell=Åpne rullegardinterminal
+settings_hotkey_favorites=Åpne favoritter
+settings_hotkey_focus_search=Fokus på søkefeltet
+settings_hotkey_reload=Oppdater gjeldende side
+
+settings_hotkey_toggle_slider=Slå sideglidebryterens synlighet
+
+# 17.40
+theme_xhred_sysinfo_wmdocs=Webmin dokumentasjon
+theme_xhred_sysinfo_vmdocs=Virtualmin dokumentasjon
+theme_xhred_sysinfo_cmdocs=Cloudmin dokumentasjon
+
+theme_xhred_filemanager_setting_permissions=Setter tillatelser til <tt>%value</tt> på valgte fil(er).
+theme_xhred_filemanager_changing_ownership=Endre eierskap til <tt>%value</tt> på valgte fil(er).
+theme_xhred_filemanager_bookmark_success=Katalog <tt>%value</tt> ble lagt til bokmerkene dine.
+theme_xhred_filemanager_searching=Søker etter <tt>%value</tt> som samsvarer med navnene på filene /directories.
+
+theme_xhred_filemanager_successful_directory_creation=Katalog <tt>%value</tt> ble opprettet.
+theme_xhred_filemanager_successful_file_creation=Fil <tt>%value</tt> ble opprettet.
+
+theme_xhred_filemanager_unbookmark_success=Katalog <tt>%value</tt> ble fjernet fra bokmerkene dine.
+
+theme_xhred_database_object_selected_delete2=Slipp valgt tabell
+theme_xhred_database_objects_selected_delete2=Slipp valgte tabeller
+
+theme_xhred_filemanager_new_tab=Legg til ny fane (Alt + mellomrom)
+
+filemanager_create_object_exists=$3 <tt>$1</tt> eksisterer allerede i <tt>$2</tt>
+filemanager_create_object_denied=Kan ikke opprette $3 <tt>$1</tt> i <tt>$2</tt> - tillatelse nektet: $4.
+
+filemanager_rename_exists=$3 med navnet <tt>$1</tt> finnes allerede i <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Gi nytt navn <tt>%from</tt> til <tt>%to</tt> var vellykket.
+
+theme_xhred_filemanager_searching_matching=Søker etter <tt>%value</tt> som samsvarer med navnene på filene /directories, som inneholder <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Erstatte samsvarer <tt>%text</tt> med <tt>%replace</tt> i filer med navn som inneholder <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=Komprimeringen er fullført. Den komprimerte filen <tt>%file</tt> ligger i <tt>%path</tt> katalogen.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Komprimeringen er fullført med feil. Den komprimerte filen <tt>%file</tt> skal ligge i <tt>%path</tt> -katalogen.
+
+theme_xhred_filemanager_changing_attributes=Sette attributter til <tt>%value</tt> på valgte fil(er).
+
+theme_xhred_filemanager_changing_secontext=Endring av sikkerhetskontekst til <tt>%value</tt> på valgte fil(er).
+
+# 18.40
+settings_hotkey_toggle_key_night_mode=Bytt fargepalett
+
+# 18.48
+theme_force_upgrade=Oppdater tema
+theme_update_footer=Vær så snill å rapportere feil til $1-depotet. Bli med på $2-kanalen vår for å få de siste nyhetene.
+
+settings_webmin_default_module=Standardside for Webmin
+
+# 19.09
+theme_git_patch_incompatible_message_desc=Det kan være inkompatible endringer som kan stoppe temaet fra å fungere som det er designet. Det er ikke mulig å fortsette oppgraderingen med brukergrensesnittet.
+
+settings_right_bgs_title=Temabakgrunn for påloggingssiden kan settes her.
+
+settings_hotkey_navigation=Veksle navigasjonsmenystatus
+
+settings_hotkey_slider=Veksle på sideskyvetilstand
+
+# 19.32
+settings_leftmenu_custom_links_description=Det er mulig å få tilpassede, ekstra lenker injisert i navigasjonsmenyen. <br><br> Nøklene <em>tittel</em>, <em>link</em> og <em>ikon</em> kreves; eventuelt kan du definere i hvilken påloggingsmodus en kobling skal vises, ved å spesifisere <em>nivå</em>-nøkkel, med verdier, i kommadelt liste, som inneholder: <br><br> <em>0</em > - administratorinnlogging; <br><em>1</em> - forhandlerpålogging;<br><em>2</em> - pålogging til servereier;<br><em>3</em> - brukerpålogging;<br><em>4</em>- systemeier pålogging.<br><br> Det vil kreve at du sender gyldig JSON-objekt som en streng, som i eksemplet nedenfor.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+
+theme_xhred_filemanager_mass_selected_for_delete=Alle elementer i katalogen %1
+
+# 19.61
+settings_hotkey_shell2=Åpne kommandoskall
+
+# 19.70
+theme_xhred_filemanager_context_view=Utsikt
+theme_xhred_file_viewer=File Viewer
+theme_xhred_global_done=Ferdig.
+theme_xhred_filemanager_file_save_err=Feil ved lagring av filen.
+theme_xhred_filemanager_view_head=Hodefilutdata
+theme_xhred_filemanager_view_head_and_reverse=Hode- og omvendt filutgang
+theme_xhred_filemanager_view_tail=Halefilutdata
+theme_xhred_filemanager_view_tail_and_reverse=Tail and reverse file output
+theme_xhred_filemanager_view_head_and_tail=Utdata for hode og hale
+
+theme_xhred_filemanager_search_info_search_dir=Søk katalog
+theme_xhred_filemanager_search_limit_user=Eies av brukeren
+theme_xhred_filemanager_search_limit_group=Eies av gruppe
+theme_xhred_filemanager_search_limit_type=Filtype
+theme_xhred_filemanager_search_limit_size=Filstørrelse
+theme_xhred_filemanager_search_limit_size_desc=f.eks. <2K eller >3M-<5M
+
+theme_xhred_filemanager_context_move_to_trash=Flytt til søppel
+theme_xhred_filemanager_context_permanently_delete=Slett permanent
+theme_xhred_global_remove=Fjerne
+theme_xhred_filemanager_settings_deletion_mode=Slett filer trygt ved å flytte til søpla
+theme_xhred_filemanager_successful_removal=Fjerningen til papirkurven <tt>$1</tt> var vellykket.
+theme_xhred_filemanager_removing_selected=Fjerner valgt.
+theme_xhred_filemanager_remove_warning=Fjerningen er fullført, men ikke for alle objekter. Det er mulig at forespurte objekt (er) kunne blitt <em>omdøpt</em> eller <em>flyttet</em> før fjerning. Begrensede tillatelser (attributter) er en annen mulig årsak. Feilmelding:
+
+theme_xhred_connection_error_details_ssl=Sjekk <a>selvsignert SSL-sertifikat</a> advarsel
+
+# 19.71
+settings_sysinfo_hidden_panels_user=Skjulte trekkspill
+theme_xhred_tooltip_dashboard_panels_disable=Skjul $1 -panelet
+theme_xhred_dashboard_panels_disabled_explain=Skjult panel kan aktiveres på nytt ved å bruke <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
+settings_right_sysinfo_page_options=Dashbord og sanntidsovervåking
+settings_right_navigation_menu_options=Navigasjonsmeny
+settings_right_notification_slider_options=Sideskyve
+settings_right_table_options=Tabellvisning
+settings_right_hotkey_options=Hurtigtaster
+settings_right_hotkey_custom_options=Egendefinerte lenker hurtigtaster
+settings_right_soft_updates_page_options=Temaoppdateringer
+settings_global_general_options_title=Generelle standardinnstillinger
+theme_error_access_not_root_user=Tilgang nektet: Brukeren har ikke rett til å redigere denne delen
+settings_theme_config_admins_only_privileged=Forby tilgang til temakonfigurasjon for brukere
+settings_theme_config_admins_only_privileged_description=Dette alternativet, hvis det håndheves av serveradministratoren, vil skjule temakonfigurasjonssiden for vanlige, ikke-privilegerte brukere. Dette alternativet anbefales imidlertid ikke å brukes, ettersom vanlige brukere allerede har begrenset tilgang til temakonfigurasjon, og bare vil kunne endre minimalt med brukerspesifikke alternativer
+
+# 19.72
+theme_xhred_global_prefs=Preferanser
+mconfig_eaccess=Denne modulen er ikke tilgjengelig
+mconfig_ecannot=Det finnes ingen tilpassede konfigurasjonsfiler for denne modulen
+theme_xhred_filemanager_mconfig_columns_selinux_disabled=Denne funksjonen krever at <tt>SELinux</tt> er installert og aktivert
+theme_xhred_filemanager_mconfig_columns_acls_disabled=Denne funksjonen krever at filsystemet er montert med <tt>ACLs</tt> slått på og <kbd>getfacl</kbd> -kommandoen må være tilgjengelig
+theme_xhred_global_module_preferences=Modulinnstillinger
+
+# 19.74
+theme_xhred_theme_update_available=En ny versjon av Authentic Theme er installert
+settings_right_page_keep=Last inn samme side på domenebryteren
+settings_right_page_keep_description=Dette alternativet vil prøve å laste inn den samme siden ved valg av domene, når den endres fra rullegardinlisten til navigasjonsmenyen
+
+# 19.76
+theme_xhred_global_show_all=Vis alt
+theme_xhred_filemanager_context_prop_show_all=Vis alle eiendommer
+
+# 19.84
+settings_right_table_links_type=Tabelllenker viser type
+settings_right_table_links_type_2=Store ikoner med tekst
+settings_right_table_links_type_1=Små ikoner med verktøytips
+settings_right_table_links_type_0=Ingen ikoner, bare tekstkoblinger
+settings_right_table_animate_icons=Vis animasjon på musen for lenker til tabellikon
+settings_right_table_grayscaled_icons=Vis koblinger for tabellikon i gråtoner med mindre du holder markøren
+theme_xhred_upload_initial_info_dir=Dra og slipp en katalog her eller klikk for å velge
+theme_xhred_upload_one_dir_with=1 katalog med
+theme_xhred_upload_err_dir_mode=Feil: Forsøk å legge til en fil med katalogopplastinger aktivert
+theme_xhred_upload_err_files_mode=Feil: Forsøk å legge til en katalog i opplastingsmodus for bare filer
+theme_xhred_filemanager_context_empty_trash=Tøm søppel
+theme_xhred_filemanager_empty_trash_button=Tøm alle filer i papirkurven
+theme_xhred_filemanager_emptying_trash_selected=Tømmer søppel.
+theme_xhred_filemanager_successful_emptying_trash=Tømming av katalogen <tt>$1</tt> var vellykket.
+theme_xhred_notifications_motd=Administratormerknad
+theme_xhred_notifications_motd2=Administratormelding
+theme_xhred_notifications_motd_says=$1 sier
+theme_xhred_tooltip_side_slider_notifications_motd_add=Kringkast meldinger til andre brukere på systemet
+theme_xhred_modal_motd_title=Kringkast systemmeldinger
+theme_xhred_modal_motd_desc=Dette grensesnittet kan brukes til å kringkaste meldinger til andre brukere på systemet
+theme_xhred_global_message=Beskjed
+theme_xhred_modal_motd_select_all=Alle brukere
+theme_xhred_modal_motd_select_adm=Mesteradministratorer
+theme_xhred_modal_motd_select_res=Forhandlere
+theme_xhred_modal_motd_select_vm=Servereiere
+theme_xhred_modal_motd_select_cm=Maskineiere
+theme_xhred_modal_motd_select_um=E-postbrukere
+theme_xhred_modal_motd_btn_add=Legg til ny melding
+theme_xhred_modal_motd_btn_save=Lagre og kringkast gjeldende sett med meldinger
+theme_xhred_modal_motd_btn_rm=Fjern gjeldende melding
+theme_xhred_global_hide=Gjemme seg
+body_cputemp=CPU temperatur
+theme_global_fan=Kjølere
+body_cpufans=CPU-vifter
+body_cpufan_rpm=RPM
+body_cpufan=CPU vifte
+filemanager_symlink_exists=Kan ikke opprette <tt>$1</tt> da filen allerede eksisterer i <tt>$2</tt>
+
+# 19.85
+theme_xhred_tooltip_side_slider_clipboard_sysinfo=Kopier grunnleggende systeminformasjon til utklippstavlen; hold $1-tasten for å kopiere utvidet; hold $2-tasten for å kopiere ren tekstdata i stedet for markering
+theme_xhred_tooltip_side_slider_clipboard_account=Kopier all kontoinformasjon til utklippstavlen; hold $1-tasten for å kopiere ren tekstdata i stedet for markering
+tooltip_back_to_servers_index_master=Webmin-servere-indeksmodul på hovedmaskin
+tooltip_list_other_servers=Liste over andre registrerte Webmin-servere
+theme_xhred_status_module_mon_up=Opp
+theme_xhred_status_module_mon_down=Ned
+theme_xhred_status_module_mon_webmin=Webmin er nede
+theme_xhred_status_module_mon_timed=Tidsavbrudd
+theme_xhred_status_module_mon_not=Ikke installert
+theme_xhred_status_module_mon_skip=Hoppet over
+theme_xhred_status_module_mon_quest=Ikke tilgjengelig
+theme_xhred_webminlog_module_no_command_escapes=Veksle omvendt skråstrek for utført kommando
+settings_navigation_auto_fold_category=Automatisk fold inaktive kategorier
+theme_xhred_tooltip_virtualmin_templates_filter_generating=Genererer søkbar liste over alternativer for malen
+theme_xhred_tooltip_virtualmin_templates_filter=Søk gjennom alle alternativene i malen
+theme_xhred_sysinfo_vmforum=Virtualmin-fellesskap
+theme_xhred_tooltip_support_ticket=Send inn støttebillett med vedlagt systeminformasjon; hold $1-tasten for å kopiere støttekoblingen til utklippstavlen
+theme_xhred_tooltip_side_slider_refresh_sysinfo=Tving til å oppdatere systeminformasjon
+theme_xhred_disk_quota_error_title=Utenfor kvote
+theme_xhred_disk_quota_error_message=Ikke mer lagringskapasitet igjen på enheten
+theme_xhred_filemanager_decrypt_option_use_master_admin_keys=Bruk hovedadministratornøkkel for dekryptering
+
+# 19.90
+settings_hotkey_toggle_hold_modifier=Hold nede modifikasjonstasten
+
+# 19.91
+theme_xhred_filemanager_files_mode_ask=Spør alltid
+theme_xhred_filemanager_files_mode_ask_remember=Husk som fremtidig standard
+theme_xhred_filemanager_files_mode_ask_title=Overskriv eksisterende
+theme_xhred_filemanager_files_mode_ask_title2=Overskriv eksisterende filer
+theme_xhred_filemanager_files_mode_ask_desc=Ønsker du å overskrive eksisterende filer ved neste operasjon
+theme_xhred_filemanager_files_mode_ask_title_yes=Ja, overskriv
+theme_xhred_filemanager_files_mode_ask_title_no=Nei, fortsett å eksistere
+theme_xhred_filemanager_trash_empty_curr_user_single=Tøm papirkurven
+theme_xhred_filemanager_trash_empty_curr_user=Tøm gjeldende brukers papirkurv
+theme_xhred_filemanager_trash_empty_all_users=Tøm alle andre brukeres søppelkataloger
+theme_xhred_filemanager_purge_trash_curr_start=Tømmer katalogen $1.
+theme_xhred_filemanager_purge_trash_all_start=Tømmer alle andre brukeres søppelkataloger.
+theme_xhred_filemanager_purge_trash_curr_end=Vellykket slettet $1-katalogen.
+theme_xhred_filemanager_purge_trash_all_end=Fjernet alle andre brukeres søppelkataloger.
+theme_error_access_dir_not_allowed=Tilgang nektet: Filen er ikke tilgjengelig
+
+# 19.95
+theme_xhred_global_outdated_desc=Installert versjon av $1 er utdatert. Siste tilgjengelige versjon er $2. Oppgrader eller klikk for å få mer informasjon om nylig utgivelse.
+theme_xhred_global_outdated_desc2=Installert versjon av $1 er utdatert. Siste tilgjengelige versjon er $2.
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_pc=Hold nede <tt>Ctrl</tt>-tasten under valget
+theme_xhred_settings_sysinfo_hidden_panels_user_desc_mac=Hold nede <tt>Kommando</tt>-tasten under valget
+
+# 19.97
+theme_xhred_webmin_requires_restart=Det oppdages at Webmin-webserverdemonen ikke ble restartet på riktig måte ved siste pakkeoppgradering. Dette er nødvendig for å starte nettserveren på nytt manuelt ved å ringe kommandoen <tt>$1</tt>.
+theme_xhred_webmin_requires_restart_yes=Ja, prøv å starte den på nytt
+theme_xhred_webmin_requires_restart_no=Nei, jeg starter den på nytt manuelt
+
+# 19.99
+theme_xhred_filemanager_path_manual=Skriv inn banen manuelt (Ctrl + L)
+
+# 20.02
+theme_xhred_socket_conn_lost_title=Forbindelse mistet
+theme_xhred_socket_conn_lost_reconnect=Koble til på nytt
+theme_xhred_socket_conn_lost_connecting=Kobler til ..
+theme_xhred_socket_conn_lost_try=Prøv igjen
+theme_xhred_socket_conn_parse_error=Kunne ikke laste inn terminal: Kan ikke analysere svarobjekt fra serveren
+theme_xhred_socket_conn_sock_error=Feil ved lasting av terminal: WebSocket-tilkoblingsfeil
+
+# 20.10
+theme_xhred_global_open=Åpen
+theme_xhred_xterm_error_title=Kan ikke koble til
+theme_xhred_xterm_error=Gå til Terminalmodul for ytterligere detaljer
+
+# 20.11
+theme_xhred_global_error_fatal=Fatal feil
+
+# 20.20
+theme_xhred_global_automatic=Automatisk
+theme_xhred_filemanager_context_acls=Endre tilgangskontrollliste
+theme_xhred_filemanager_changing_acls=Endring av tilgangskontrollliste.
+theme_xhred_filemanager_successful_acls_with_errors=Tilgangskontrolllisten er ikke endret for alle objekter:
+theme_xhred_filemanager_successful_acls=Tilgangskontrolllisten er endret.
+theme_download_error=Feil ved nedlasting av filen fordi den er utenfor tillatt katalog : $1
+
+# 20.30
+theme_xhred_hotkeys_help=Hjelp (F1)
+theme_xhred_hotkeys_help_title=Tastatursnarveier
+theme_xhred_hotkeys_help_title_docs=Dokumentasjon
+theme_xhred_hotkeys_help_title_global=Tema
+theme_xhred_hotkeys_help_title_module=Modulspesifikke snarveier
+theme_xhred_hotkeys_help_title_fm=Filbehandler
+theme_xhred_hotkeys_help_title_edit=Redaktør
+theme_xhred_global_community=Samfunnet
+theme_xhred_hotkeys_server_error=Kan ikke hente hjelpefilen
+theme_xhred_hotkeys_custom_to_opens=åpnes
+theme_xhred_hotkeys_custom_not_set=ikke satt
+theme_xhred_hotkey_open_module_config_privileged=Åpne modulkonfig
+theme_xhred_hotkey_open_theme_config=Åpne temakonfigurasjon
+theme_xhred_hotkey_list_table=Liste paginert tabell
+theme_xhred_hotkey_list_tabs=Listefaner
+theme_xhred_hotkey_clear_cache=Tøm hurtigbufferen og last inn på nytt
+theme_xhred_hotkey_open_new=Dupliser til en ny fane
+theme_xhred_hotkey_copy_to_clipboard=Kopier elementdata til utklippstavlen
+theme_xhred_hotkey_copy_to_clipboard_click=venstre klikk
+theme_xhred_hotkey_print_title=Webmin hurtigtaster med autentisk tema
+theme_xhred_global_success=Suksess
+theme_xhred_search_content=Søk etter innhold
+theme_xhred_global_disabled=Funksjonshemmet
+theme_xhred_connection_reset_title=Tilkobling tilbakestilt
+theme_xhred_connection_reset_message=Kan ikke opprette en tilkobling til den eksterne serveren
+right_file_is_being_prepared=Filen din forberedes. Vennligst vent..
+
+theme_xhred_global_paragraph=Avsnitt
+theme_xhred_global_heading=Overskrift
+theme_xhred_editor_tb_font=Skriftnavn
+theme_xhred_editor_tb_font_fixed_width=Fast bredde
+theme_xhred_editor_tb_size=Skriftstørrelse
+theme_xhred_editor_tb_paragraph=Avsnittsstil
+theme_xhred_editor_tb_header=Avsnittsstil
+theme_xhred_editor_tb_bold=Fet skrift (%cmd+B)
+theme_xhred_editor_tb_italic=Kursiv (%cmd+I)
+theme_xhred_editor_tb_underline=Understreking (%cmd+U)
+theme_xhred_editor_tb_color=Tekstfarge
+theme_xhred_editor_tb_background=Tekstbakgrunn
+theme_xhred_editor_tb_align=Tilpasse
+theme_xhred_editor_tb_list_ordered=Nummerert liste (%cmd+Shift+7)
+theme_xhred_editor_tb_list_bullet=Punktliste (%cmd+Shift+8)
+theme_xhred_editor_tb_strike=Gjennomstreking
+theme_xhred_editor_tb_blockquote=Sitat (%cmd+Shift+9)
+theme_xhred_editor_tb_link=Sett inn lenke (%cmd+K)
+theme_xhred_editor_tb_image=Sett inn innebygd bilde
+theme_xhred_editor_tb_clean=Fjern formatering
+theme_xhred_editor_tb_script_super=Overskrift
+theme_xhred_editor_tb_script_sub=Subscript
+theme_xhred_editor_tb_indent_+1=Øk innrykk
+theme_xhred_editor_tb_indent_-1=Reduser innrykk
+theme_xhred_editor_tb_code=Kodeblokk
+theme_xhred_editor_tb_code-block=Kodeblokk
+theme_xhred_editor_tb_direction=Tekstretning
+
+settings_right_table_layout_control=Vis innholdslayoutkontroll
+theme_xhred_tooltip_columns_layout=Innholdslayoutkontroll
+theme_xhred_columns_layout_title=Innholdslayout
+theme_xhred_columns_layout_variation=Variasjon i layout
+theme_xhred_global_vertical=Vertikal
+theme_xhred_global_horizontal=Horisontal
+theme_xhred_columns_layout_vertical_opts=Vertikale layoutalternativer
+theme_xhred_columns_layout_vertical_opts_max_columns=Maksimalt antall kolonner
+theme_xhred_columns_layout_vertical_opts_max_width=Minimum kolonnebredde
+theme_xhred_columns_layout_vertical_opts_break_title=Kolonneoverløpshandling
+theme_xhred_columns_layout_vertical_opts_break_new=Gå i stykker
+theme_xhred_columns_layout_vertical_opts_break_scroll=Rull
+theme_xhred_columns_layout_remove=Skjul denne widgeten
+theme_xhred_columns_layout_remove_button=Lagre og skjul
+theme_xhred_columns_layout_variation_cannot_horizontal=Horisontal layout kan ikke brukes i mobilmodus, spesielt når skjermbredden er mindre enn 992px
+
+settings_auto_open_panels_on_proximity=Automatisk åpne lukkede paneler i nærheten
+
+theme_xhred_config_portable_module_xterm_render_addon=Aktiver WebGL-gjengivelsestillegg
+
+# 21.09.04
+theme_xhred_datatable_filter_and_export=Filtrer og eksporter innhold
+
+# 21.10
+settings_hotkey_logout_dbl=Logg ut
+theme_xhred_hotkey_emsg=Omvendt skråstrek-tasten kan ikke brukes som en hurtigtast
+settings_embed_product_splash_privileged=Vis en splash-skjerm for merkevarebygging etter pålogging
+dashboard_status_running=Løping
+dashboard_status_stopped=Stoppet
+
+# 21.11
+theme_xhred_global_watching=Ser på
+theme_xhred_global_connected=Tilkoblet
+theme_xhred_global_disconnected=Koblet fra
+theme_xhred_global_connecting=Kobler til
+index_mods_missing=Perl-modulen <tt>$1</tt> mangler.
+index_noadmin_eaccess=Tilgang nektet for ikke-masteradministratorer!
+theme_xhred_body_os=Operativsystem
+theme_xhred_theme_version=Autentisk temaversjon
+
+theme_xhred_body_updates=Pakkeoppdateringer
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Bytt tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Opplastingen var vellykket
+theme_xhred_filemanager_upload_status_err=Opplasting mislyktes:
+theme_xhred_filemanager_download_status_err=Nedlasting mislyktes:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Lese
+theme_xhred_dashboard_chart_disk_write=Skrive
+theme_xhred_dashboard_chart_net_read=I
+theme_xhred_dashboard_chart_net_write=Ute
+theme_xhred_tooltip_dashboard_live_stats_offline=Live-statistikk er ikke tilgjengelig når systemet er tilgjengelig i proxy-modus; bare tidligere innsamlet statistikk vil bli vist, og bare hvis tilgjengelig, og siden må lastes inn på nytt for å oppdatere denne statistikken
+settings_sysinfo_real_time_status_history1=Ja, og butikkstatistikk for
+settings_sysinfo_real_time_status_history2=Ja, uten å lagre statistikk
+settings_sysinfo_real_time_status_history_duration1=20 minutter
+settings_sysinfo_real_time_status_history_duration2=1 time
+settings_sysinfo_real_time_status_history_duration3=3 timer
+settings_sysinfo_real_time_status_history_duration4=6 timer
+settings_sysinfo_real_time_status_history_duration5=12 timer
+settings_sysinfo_real_time_status_history_duration6=18 timer
+settings_sysinfo_real_time_status_history_duration7=24 timer
+theme_xhred_license_purchase=Kjøp en lisens
+settings_right_table_links_sorted=Sorter tabellkoblinger i alfabetisk rekkefølge
+
+# 24.00
+session_error=Feil
+session_success=Suksess
+session_cannot=Klarte ikke å tilbakestille passordet: Brukernavnet mangler.
+session_neterror=Får ikke svar fra nettverket!
+session_unkerror=Det oppsto en uventet feil. Prøv igjen senere.
+session_conerror=Kunne ikke nå serveren. Prøv på nytt senere.
+session_resetpass1=Nytt passord
+session_resetpass2=Bekreft nytt passord
+session_resetepassreq=Passord er påkrevd.
+session_pwdconf=Passordbekreftelse er nødvendig.
+session_pwdmatch=Passordene stemmer ikke overens.
+session_noid=Gjenopprettings-ID-en ble ikke funnet!
+session_pwdsucc=Passordet er endret! Du kan nå logge inn med det nye passordet.

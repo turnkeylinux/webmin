@@ -1,0 +1,5 @@
+README
+======
+
+The original blue-theme theme was a symlink to gray-theme theme
+This directory is intentionally left empty and the generated package will depend on the target theme

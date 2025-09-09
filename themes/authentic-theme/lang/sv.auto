@@ -1,0 +1,225 @@
+body_cputype1=$5, $8 kärna
+lost_message=Om ditt konto har en återställningsadress kan du använda det här formuläret för att skicka en länk till lösenordsåterställning till dig själv
+reset_message=Du håller på att återställa lösenordet för användaren <tt>$1</tt> den
+login_recover=Begär återställning av lösenord
+login_back=Gå tillbaka
+
+settings_right_logos_title=Temalogotyper kan enkelt ställas in här, för både autentiserade och oautentiserade användare. Rekommenderad logotypstorlek är <em>180x90</em> pixlar.
+settings_right_logos_error=Uppladdad fil är inte en bild
+
+settings_right_hotkey_custom_options_description=Anpassade länkar gör att du kan använda siffror från <code>1</code> till <code>9</code> för att snabbt komma åt alla giltiga <code>URL-adresser</code> <code>URL</code>. code> kan extraheras från den för närvarande öppnade sidan. Till exempel, för att snabbt växla till Apache-modul, ställ in <code>apache</code> till <code>Anpassad länk 1</code>-fält. Om standardnyckeln är inställd på <code>Alt,</code> öppnas din Apache-modul genom att klicka på <code>Alt + 1</code>.
+
+settings_hotkeys_active=Gör det möjligt
+settings_hotkey_toggle_modifier=Modifieringsknapp
+settings_hotkey_toggle_key_webmin=Ladda Webmin-menyn
+settings_hotkey_toggle_key_virtualmin=Ladda Virtualmin-menyn
+settings_hotkey_toggle_key_cloudmin=Ladda Cloudmin-menyn
+settings_hotkey_toggle_key_usermin=Ladda Usermin-menyn
+settings_hotkey_toggle_key_webmail=Ladda Mail-menyn
+settings_hotkey_sysinfo=Öppna instrumentpanelen
+settings_hotkey_shell=Öppna rullgardinsmenyn
+settings_hotkey_favorites=Öppna favoriter
+settings_hotkey_focus_search=Fokusera på sökfältet
+settings_hotkey_reload=Uppdatera aktuell sida
+
+settings_hotkey_toggle_slider=Växla sidoreglagets synlighet
+
+# 17.40
+theme_xhred_sysinfo_wmdocs=Webmin dokumentation
+theme_xhred_sysinfo_vmdocs=Virtualmin dokumentation
+theme_xhred_sysinfo_cmdocs=Cloudmin dokumentation
+
+theme_xhred_filemanager_setting_permissions=Ställer in behörigheter till <tt>%value</tt> för valda fil(er).
+theme_xhred_filemanager_changing_ownership=Ändra ägande till <tt>%value</tt> på valda fil(er).
+theme_xhred_filemanager_bookmark_success=Katalogen <tt>%value</tt> har lagts till i dina bokmärken.
+theme_xhred_filemanager_searching=Söker efter <tt>%value</tt> som matchar namnen på filerna /directories.
+
+theme_xhred_filemanager_successful_directory_creation=Katalogen <tt>%value</tt> skapades framgångsrikt.
+theme_xhred_filemanager_successful_file_creation=Fil <tt>%value</tt> skapades framgångsrikt.
+
+theme_xhred_filemanager_unbookmark_success=Katalogen <tt>%value</tt> har tagits bort från dina bokmärken.
+
+theme_xhred_database_object_selected_delete2=Släpp vald tabell
+theme_xhred_database_objects_selected_delete2=Släpp valda tabeller
+
+theme_xhred_filemanager_new_tab=Lägg till ny flik (Alt + mellanslag)
+
+filemanager_create_object_exists=$3 <tt>$1</tt> finns redan i <tt>$2</tt>
+filemanager_create_object_denied=Kan inte skapa $3 <tt>$1</tt> i <tt>$2</tt> - permission nekad: $4.
+
+filemanager_rename_exists=$3 med namnet <tt>$1</tt> finns redan i <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Att byta namn på <tt>%from</tt> till <tt>%to</tt> lyckades.
+
+theme_xhred_filemanager_searching_matching=Söker efter <tt>%value</tt> som matchar namn på filer /directories, som innehåller <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Ersätter matchar <tt>%text</tt> med <tt>%replace</tt> i filer med namn som innehåller <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=Komprimeringen har slutförts. Den komprimerade filen <tt>%file</tt> finns i katalogen <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Komprimeringen har slutförts med fel. Den komprimerade filen <tt>%file</tt> bör finnas i <tt>%path</tt> katalogen.
+
+theme_xhred_filemanager_changing_attributes=Ställer in attribut till <tt>%value</tt> på valda fil(er).
+
+theme_xhred_filemanager_changing_secontext=Ändra säkerhetskontext till <tt>%value</tt> på valda fil(er).
+
+# 18.40
+settings_hotkey_toggle_key_night_mode=Växla färgpalett
+
+settings_right_bgs_title=Temabakgrund för inloggningssida kan ställas in här.
+
+settings_hotkey_navigation=Växla tillstånd för navigeringsmeny
+
+settings_hotkey_slider=Växla sidoreglagets tillstånd
+
+# 19.32
+settings_leftmenu_custom_links_description=Det är möjligt att få anpassade, extra länkar injicerade i navigeringsmenyn. <br><br> Nycklarna <em>titel</em>, <em>länk</em> och <em>ikon</em> krävs; valfritt kan du definiera i vilket inloggningsläge en länk ska visas, genom att ange <em>nivå</em> nyckel, med värden, i kommaseparerad lista, innehållande: <br><br> <em>0</em > - administratörsinloggning; <br><em>1</em> - återförsäljarinloggning;<br><em>2</em> - inloggning till serverägare;<br><em>3</em> - användarinloggning;<br><em>4</em>- inloggning för systemägare.<br><br> Det kräver att du skickar ett giltigt JSON-objekt som en sträng, som i exemplet nedan.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+
+# 19.61
+settings_hotkey_shell2=Öppna kommandoskalet
+
+# 19.71
+theme_xhred_dashboard_panels_disabled_explain=Dold panel kan återaktiveras med hjälp av <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
+
+# 19.85
+theme_xhred_sysinfo_vmforum=Virtualmin Community
+
+# 19.90
+settings_hotkey_toggle_hold_modifier=Håll ned modifieringsknappen
+
+# 20.30
+theme_xhred_hotkeys_help=Hjälp (F1)
+theme_xhred_hotkeys_help_title=Tangentbordsgenvägar
+theme_xhred_hotkeys_help_title_docs=Dokumentation
+theme_xhred_hotkeys_help_title_global=Tema
+theme_xhred_hotkeys_help_title_module=Modulspecifika genvägar
+theme_xhred_hotkeys_help_title_fm=Filhanterare
+theme_xhred_hotkeys_help_title_edit=Redaktör
+theme_xhred_global_community=gemenskap
+theme_xhred_hotkeys_server_error=Kan inte hämta hjälpfilen
+theme_xhred_hotkeys_custom_to_opens=öppnas
+theme_xhred_hotkeys_custom_not_set=inte inställd
+theme_xhred_hotkey_open_module_config_privileged=Öppna modulkonfiguration
+theme_xhred_hotkey_open_theme_config=Öppna temakonfiguration
+theme_xhred_hotkey_list_table=Lista paginerad tabell
+theme_xhred_hotkey_list_tabs=Listflikar
+theme_xhred_hotkey_clear_cache=Rensa cache och ladda om
+theme_xhred_hotkey_open_new=Duplicera till en ny flik
+theme_xhred_hotkey_copy_to_clipboard=Kopiera elementdata till urklipp
+theme_xhred_hotkey_copy_to_clipboard_click=vänster klick
+theme_xhred_hotkey_print_title=Webmin snabbtangenter med autentiskt tema
+theme_xhred_global_success=Framgång
+theme_xhred_search_content=Sök innehåll
+theme_xhred_global_disabled=Inaktiverad
+theme_xhred_connection_reset_title=Anslutning återställd
+theme_xhred_connection_reset_message=Det går inte att upprätta en anslutning till fjärrservern
+right_file_is_being_prepared=Din fil förbereds. Vänta..
+
+theme_xhred_global_paragraph=Paragraf
+theme_xhred_global_heading=Rubrik
+theme_xhred_editor_tb_font=Teckensnittsnamn
+theme_xhred_editor_tb_font_fixed_width=Fast bredd
+theme_xhred_editor_tb_size=Textstorlek
+theme_xhred_editor_tb_paragraph=Styckestil
+theme_xhred_editor_tb_header=Styckestil
+theme_xhred_editor_tb_bold=Fet (%cmd+B)
+theme_xhred_editor_tb_italic=Kursiv (%cmd+I)
+theme_xhred_editor_tb_underline=Understrykning (%cmd+U)
+theme_xhred_editor_tb_color=Text färg
+theme_xhred_editor_tb_background=Textbakgrund
+theme_xhred_editor_tb_align=Justera
+theme_xhred_editor_tb_list_ordered=Numrerad lista (%cmd+Skift+7)
+theme_xhred_editor_tb_list_bullet=Punktlista (%cmd+Skift+8)
+theme_xhred_editor_tb_strike=Genomstruken
+theme_xhred_editor_tb_blockquote=Citat (%cmd+Skift+9)
+theme_xhred_editor_tb_link=Infoga länk (%cmd+K)
+theme_xhred_editor_tb_image=Infoga inline bild
+theme_xhred_editor_tb_clean=Ta bort formatering
+theme_xhred_editor_tb_script_super=Exponent
+theme_xhred_editor_tb_script_sub=Index
+theme_xhred_editor_tb_indent_+1=Öka indrag
+theme_xhred_editor_tb_indent_-1=Minska indraget
+theme_xhred_editor_tb_code=Kodblock
+theme_xhred_editor_tb_code-block=Kodblock
+theme_xhred_editor_tb_direction=Textriktning
+
+settings_right_table_layout_control=Visa innehållslayoutkontroll
+theme_xhred_tooltip_columns_layout=Innehållslayoutkontroll
+theme_xhred_columns_layout_title=Innehållslayout
+theme_xhred_columns_layout_variation=Layoutvariation
+theme_xhred_global_vertical=Vertikal
+theme_xhred_global_horizontal=Horisontell
+theme_xhred_columns_layout_vertical_opts=Vertikala layoutalternativ
+theme_xhred_columns_layout_vertical_opts_max_columns=Maximalt antal kolumner
+theme_xhred_columns_layout_vertical_opts_max_width=Minsta kolumnbredd
+theme_xhred_columns_layout_vertical_opts_break_title=Kolumnspillåtgärd
+theme_xhred_columns_layout_vertical_opts_break_new=Ha sönder
+theme_xhred_columns_layout_vertical_opts_break_scroll=Skrolla
+theme_xhred_columns_layout_remove=Dölj den här widgeten
+theme_xhred_columns_layout_remove_button=Spara och dölj
+theme_xhred_columns_layout_variation_cannot_horizontal=Horisontell layout kan inte användas i mobilläget, speciellt när skärmbredden är mindre än 992px
+
+settings_auto_open_panels_on_proximity=Öppna stängda paneler automatiskt i närheten
+
+theme_xhred_config_portable_module_xterm_render_addon=Aktivera WebGL-renderingstillägg
+
+# 21.09.04
+theme_xhred_datatable_filter_and_export=Filtrera och exportera innehåll
+
+# 21.10
+settings_hotkey_logout_dbl=Logga ut
+theme_xhred_hotkey_emsg=Omvänt snedstreckstangent kan inte användas som en snabbtangent
+settings_embed_product_splash_privileged=Visa en startskärm för varumärke efter inloggning
+dashboard_status_running=Löpning
+dashboard_status_stopped=Slutade
+
+# 21.11
+theme_xhred_global_watching=Tittar på
+theme_xhred_global_connected=Ansluten
+theme_xhred_global_disconnected=Osammanhängande
+theme_xhred_global_connecting=Ansluter
+index_mods_missing=Perl-modulen <tt>$1</tt> saknas.
+index_noadmin_eaccess=Åtkomst nekad för icke-masteradministratörer!
+theme_xhred_body_os=Operativ system
+theme_xhred_theme_version=Autentisk temaversion
+
+theme_xhred_body_updates=Paketuppdateringar
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Byt tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Uppladdningen lyckades
+theme_xhred_filemanager_upload_status_err=Uppladdningen misslyckades:
+theme_xhred_filemanager_download_status_err=Nedladdning misslyckad:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Läsa
+theme_xhred_dashboard_chart_disk_write=Skriva
+theme_xhred_dashboard_chart_net_read=I
+theme_xhred_dashboard_chart_net_write=Ut
+theme_xhred_tooltip_dashboard_live_stats_offline=Livestatistik är inte tillgänglig när systemet nås i proxyläge; endast tidigare insamlad statistik kommer att visas, och endast om tillgänglig, och sidan kommer att behöva laddas om för att uppdatera denna statistik
+settings_sysinfo_real_time_status_history1=Ja, och butiksstatistik för
+settings_sysinfo_real_time_status_history2=Ja, utan att lagra statistik
+settings_sysinfo_real_time_status_history_duration1=20 minuter
+settings_sysinfo_real_time_status_history_duration2=1 timme
+settings_sysinfo_real_time_status_history_duration3=3 timmar
+settings_sysinfo_real_time_status_history_duration4=6 timmar
+settings_sysinfo_real_time_status_history_duration5=12 timmar
+settings_sysinfo_real_time_status_history_duration6=18 timmar
+settings_sysinfo_real_time_status_history_duration7=24 timmar
+theme_xhred_license_purchase=Köp en licens
+settings_right_table_links_sorted=Sortera tabelllänkar i alfabetisk ordning
+
+# 24.00
+session_error=Fel
+session_success=Framgång
+session_cannot=Misslyckades med att återställa lösenordet: Användarnamnet saknas.
+session_neterror=Kan inte få svar från nätverket!
+session_unkerror=Ett oväntat fel uppstod. Försök igen senare.
+session_conerror=Det gick inte att nå servern. Försök igen senare.
+session_resetpass1=Nytt lösenord
+session_resetpass2=Bekräfta nytt lösenord
+session_resetepassreq=Lösenord krävs.
+session_pwdconf=Lösenordsbekräftelse krävs.
+session_pwdmatch=Lösenorden matchar inte.
+session_noid=Återställnings-ID hittades inte!
+session_pwdsucc=Lösenordet har ändrats! Du kan nu logga in med det nya lösenordet.
