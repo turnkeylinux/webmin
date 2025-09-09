@@ -43,6 +43,14 @@ Depends: webmin (>= 2.402)
 Description: Webmin module - Scheduled Commands
  Schedule the execution of one-off commands or scripts.
 
+Package: webmin-authentic-theme
+Architecture: all
+Depends: webmin (>= 2.402)
+Description: Webmin theme - Authentic Theme
+ Webmin/Usermin/Virtualmin/Cloudmin theme based on Bootstrap
+ and Font Awesome
+ (https://github.com/authentic-theme/authentic-theme)
+
 Package: webmin-bandwidth
 Architecture: all
 Depends: webmin (>= 2.402), webmin-net
@@ -56,6 +64,13 @@ Depends: webmin (>= 2.402)
 Description: Webmin module - BIND DNS Server
  Create and edit domains, DNS records, BIND options and
  views.
+
+Package: webmin-blue-theme
+Architecture: all
+Depends: webmin (>= 2.402), webmin-gray-theme
+Description: Webmin theme - Framed Theme
+ A legacy framed theme that also supports Virtualmin and
+ Cloudmin
 
 Package: webmin-cluster-cron
 Architecture: all
@@ -164,6 +179,13 @@ Depends: webmin (>= 2.402), webmin-mount, webmin-mailboxes
 Description: Webmin module - Filesystem Backup
  Backup and restore filesystems using the dump and restore
  family of commands.
+
+Package: webmin-gray-theme
+Architecture: all
+Depends: webmin (>= 2.402)
+Description: Webmin theme - Framed Theme
+ A legacy framed theme that also supports Virtualmin and
+ Cloudmin
 
 Package: webmin-heartbeat
 Architecture: all

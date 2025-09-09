@@ -231,6 +231,7 @@ class Plugin(_Common):
             os_support == "!windows"
             or "debian-linux" in os_support
             or "*-linux" in os_support
+            or self.type == "theme"  # themes appear to be OS agnostic
         ):
             return True
         return False
@@ -277,7 +278,7 @@ class Plugin(_Common):
         if self.link:
             # see __post_init__ for info
             os.makedirs(dst_dir)
-            with open(join(dst_dir, "README")) as fob:
+            with open(join(dst_dir, "README"), "w") as fob:
                 fob.write(
                     "README\n======\n"
                     f"\nThe original {self.name} {self.type} was a symlink"
