@@ -545,12 +545,15 @@ class Webmin(_Common):
 
         if force is None:
             force = self.force
-        version = self.get_remote_version(version)
+        if not version or version == "latest":
+            version = self.latest_version
+        else:
+            version = self.get_remote_version(version)
         if version == self.local_version:
             if force:
                 self._p(f"Forcing rebuild of version {version}")
             else:
-                self._p("Nothing to do")
+                self._p("Nothing to do - local version already {version}")
                 return False
         self._clean_paths()
         self.download(version, force)
