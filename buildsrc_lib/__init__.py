@@ -461,7 +461,7 @@ class Webmin(_Common):
                 quiet=self.quiet,
             )
             if not plugin.debian_support:
-                self._p(f"{item} no supported on Debian - skipping")
+                self._p(f"{item} not supported on Debian - skipping")
                 continue
             self._p(f"- moving {plugin.type}: {item}")
             plugin.move()
@@ -553,7 +553,7 @@ class Webmin(_Common):
             if force:
                 self._p(f"Forcing rebuild of version {version}")
             else:
-                self._p("Nothing to do - local version already {version}")
+                self._p(f"Nothing to do - local version already {version}")
                 return False
         self._clean_paths()
         self.download(version, force)
