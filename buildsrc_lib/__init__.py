@@ -227,6 +227,20 @@ class Plugin(_Common):
                 return f"{deps} raid"
         return deps
 
+    def _get_old_version(self) -> str:
+        """Run git diff on webmin_core/version to get old version."""
+        git_diff = subprocess.run(
+            ["/usr/bin/git", "diff", "--", join(WEBMIN_CORE, "version")],
+            capture_output=True,
+            text=True,
+        )
+        print(f"{git_diff.stdout=}")
+        for line in git_diff.stdout.split("\n"):
+            print(f"git diff line: {line}")
+            if line and line[0] == "-" and line[1].isdigit():
+                return line[1:].strip()
+        raise WebminUpdateError("Old version not found using git diff")
+
     def _update_quilt_patch(self) -> None:
         """Update Webmin version in Debian module.info quilt patch."""
         print("*** updating quilt patch ***")
@@ -238,6 +252,7 @@ class Plugin(_Common):
         # module path to find in the quilt patch
         info_path = join("modules", self.name, "module.info")
         replace_next = False
+        old_version = self._get_old_version()
         try:
             with open(patch_file) as fob:
                 lines = fob.readlines()
