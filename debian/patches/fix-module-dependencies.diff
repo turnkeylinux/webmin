@@ -5,27 +5,27 @@ Description: Patch fdisk and lvm module.info dependencies
  with the control file.
 Author: Jeremy Davis <jeremy@turnkeylinux.org>
 Forwarded: no
-Last-Update: 2025-08-16
+Last-Update: 2025-09-10
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
-Index: webmin/modules/fdisk/module.info
-===================================================================
---- webmin.orig/modules/fdisk/module.info	2025-08-16 22:44:13.617079013 +1000
-+++ webmin/modules/fdisk/module.info	2025-08-16 22:44:13.613078948 +1000
-@@ -5,5 +5,5 @@
+--- a/modules/fdisk/module.info
++++ b/modules/fdisk/module.info
+@@ -2,7 +2,7 @@ name=Partition Manager
+ category=hardware
+ os_support=*-linux
  desc=Partitions on Local Disks
- category=hardware
- noopenvz=1
--depends=mount proc raid 2.102
-+depends=mount proc 2.102
+-depends=mount proc raid 2.402
++depends=mount proc 2.402
+ longdesc=Create and edit partitions on local SCSI, IDE and SATA disks on Linux.
  novserver=1
-Index: webmin/modules/lvm/module.info
-===================================================================
---- webmin.orig/modules/lvm/module.info	2025-08-16 22:44:13.617079013 +1000
-+++ webmin/modules/lvm/module.info	2025-08-16 22:44:13.613078948 +1000
-@@ -4,4 +4,4 @@
+ noopenvz=1
+--- a/modules/lvm/module.info
++++ b/modules/lvm/module.info
+@@ -2,6 +2,6 @@ name=LVM
  desc=Logical Volume Management
- name=LVM
  category=hardware
--depends=mount fdisk 2.102
-+depends=mount fdisk raid 2.102
+ os_support=*-linux
+-depends=mount fdisk 2.402
++depends=mount fdisk raid 2.402
+ longdesc=Configure volume groups, physical volumes and logical volumes for Linux LVM.
+ version=2.402
