@@ -229,6 +229,7 @@ class Plugin(_Common):
 
     def _update_quilt_patch(self) -> None:
         """Update Webmin version in Debian module.info quilt patch."""
+        print("*** updating quilt patch ***")
         old_version = get_local_version(WEBMIN_CORE)
         changed_lines = ["-", "+"]
         patch_file = join(
@@ -242,18 +243,24 @@ class Plugin(_Common):
                 lines = fob.readlines()
             with open(patch_file, "w") as fob:
                 for line in lines:
+                    print(f"*- orig line:\t{line}")
                     if line.startswith("Last-Update:"):
+                        print("** line starts with 'Last-Update:'")
                         today = date.today().strftime("%Y-%m-%d")
                         line = f"Last-Update: {today}\n"
-                    elif line.startswith("Index:") and info_path in line:
+                    elif line.startswith("+++") and info_path in line:
+                        print("** found start line'")
                         replace_next = True
                     elif (
                         replace_next
                         and line[0] in changed_lines
                         and "depends=" in line
                     ):
+                        print(f"** depends line... - replacing '{old_version}'"
+                              f" with '{self.version}'")
                         line = line.replace(old_version, self.version)
                         replace_next = False
+                    print(f"*+ new line :\t{line}")
                     fob.write(line)
         except OSError as e:
             raise WebminUpdateError(e) from e
