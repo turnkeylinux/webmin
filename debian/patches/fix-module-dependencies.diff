@@ -5,7 +5,7 @@ Description: Patch fdisk and lvm module.info dependencies
  with the control file.
 Author: Jeremy Davis <jeremy@turnkeylinux.org>
 Forwarded: no
-Last-Update: 2026-06-30
+Last-Update: 2026-07-01
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/modules/fdisk/module.info
