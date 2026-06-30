@@ -31,7 +31,7 @@ Section: admin
 Priority: optional
 Maintainer: Jeremy Davis <jeremy@turnkeylinux.org>
 Build-Depends:
- debhelper (>= 10),
+ debhelper-compat (= 13),
  gzip,
  tar,
 Standards-Version: 4.0.0
