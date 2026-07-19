@@ -6,5 +6,5 @@ readonly=1
 cpan=1
 rpm_recommends=perl-DBI perl-DBD-Pg
 deb_recommends=libdbi-perl libdbd-pg-perl
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

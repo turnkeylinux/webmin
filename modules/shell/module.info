@@ -1,5 +1,5 @@
 desc=Command Shell
 name=Shell
 longdesc=Execute shell commands and view their output.
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

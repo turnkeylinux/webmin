@@ -1,9 +1,9 @@
 category=system
-depends=useradmin 2.651
+depends=useradmin 2.652
 desc=Change Passwords
 name=Passwd
 passwd=Change the passwords of Unix users.
 longdesc=Change the password of any user on the system.
 readonly=1
 os_support=!windows
-version=2.651
+version=2.652

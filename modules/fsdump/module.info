@@ -1,8 +1,8 @@
 name=Dump
 desc=Filesystem Backup
 category=system
-depends=mount cron proc mailboxes 2.651
+depends=mount cron proc mailboxes 2.652
 os_support=redhat-linux mandrake-linux slackware-linux debian-linux suse-linux united-linux open-linux turbo-linux corel-linux cobalt-linux msc-linux generic-linux alpine-linux solaris freebsd macos gentoo-linux irix trustix-linux coherent-linux pardus-linux
 longdesc=Backup and restore filesystems using the dump and restore family of commands.
 readonly=1
-version=2.651
+version=2.652

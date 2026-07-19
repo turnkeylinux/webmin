@@ -3,5 +3,5 @@ desc=ProFTPD Server
 category=servers
 longdesc=Configure the powerful ProFTPD FTP server. Supports all options in most of the standard modules.
 os_support=!windows
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

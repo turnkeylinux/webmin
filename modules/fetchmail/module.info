@@ -3,5 +3,5 @@ desc=Fetchmail Mail Retrieval
 name=Fetchmail
 longdesc=Configure the popular fetchmail program for automatically retrieving mail from other servers.
 os_support=!windows
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

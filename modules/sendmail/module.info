@@ -4,5 +4,5 @@ os_support=solaris slackware-linux redhat-linux mandrake-linux suse-linux united
 desc=Sendmail Mail Server
 longdesc=Manage sendmail aliases, masquerading, address rewriting and other features.
 library=sendmail-lib.pl access-lib.pl aliases-lib.pl boxes-lib.pl domain-lib.pl features-lib.pl generics-lib.pl mailers-lib.pl virtusers-lib.pl
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

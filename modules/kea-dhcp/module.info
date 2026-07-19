@@ -5,5 +5,5 @@ os_support=*-linux freebsd
 longdesc=Manage ISC Kea DHCP configuration files and service state.
 rpm_recommends=kea
 deb_recommends=kea-dhcp4-server kea-dhcp6-server kea-dhcp-ddns-server kea-ctrl-agent kea-admin
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652
