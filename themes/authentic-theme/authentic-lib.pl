@@ -713,26 +713,22 @@ sub get_sysinfo_vars
     # Easypie charts numbers
     if (show_sysinfo_section('cpu') && $info->{'cpu'}) {
         my @c = @{ $info->{'cpu'} };
-        $cpu_percent = $c[0] + $c[1] + $c[3];
-        $cpu_percent = int($cpu_percent);
+        $cpu_percent = theme_clamp_percent($c[0] + $c[1] + $c[3]);
     }
 
     if (show_sysinfo_section('mem')) {
         if (@m && $m[0]) {
-            $mem_percent = ($m[0] - $m[1]) / $m[0] * 100;
-            $mem_percent = int($mem_percent);
+            $mem_percent = theme_clamp_percent(($m[0] - $m[1]) / $m[0] * 100);
         }
         if (@m && $m[2]) {
-            $virt_percent = ($m[2] - $m[3]) / $m[2] * 100;
-            $virt_percent = int($virt_percent);
+            $virt_percent = theme_clamp_percent(($m[2] - $m[3]) / $m[2] * 100);
         }
     }
     if (show_sysinfo_section('disk')) {
         if ($info->{'disk_total'}) {
             my ($total, $free) =
               ($info->{'disk_total'}, $info->{'disk_free'});
-            $disk_percent = ($total - $free) / $total * 100;
-            $disk_percent = int($disk_percent);
+            $disk_percent = theme_clamp_percent(($total - $free) / $total * 100);
         }
     }
 

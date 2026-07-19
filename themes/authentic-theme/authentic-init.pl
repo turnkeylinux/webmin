@@ -1132,6 +1132,12 @@ sub get_button_style
     } elsif (string_contains($keys, "list_images_button")) {
         $class = "info ";
         $icon  = "download-cloud fa-1_10x margined-left--2";
+    } elsif (string_contains($keys, "recipes_button")) {
+        $class = "success ";
+        $icon  = " fa-kit fa-stacked-cubes fa-fw fa-1_15x margined-left--2";
+    } elsif (string_contains($keys, "recipes_deploy")) {
+        $class = "success ";
+        $icon  = "package-install fa-fw fa-1_15x margined-left--2";
     } elsif (string_contains($keys, "index_install_pod") ||
              string_contains($keys, "index_install_new") ||
              string_contains($keys, "pods_submit")) {
@@ -1730,7 +1736,8 @@ sub get_button_style
     } elsif (string_contains($keys, "lang")) {
         $icon  = "globe";
         $class = "warning ";
-    } elsif (string_contains($keys, "_ok")) {
+    } elsif (string_contains($keys, "_ok") ||
+             string_contains($keys, "recipes_select")) {
         $icon  = "check-circle-o";
         $class = "success ";
     } elsif (string_contains($keys, "_change") &&

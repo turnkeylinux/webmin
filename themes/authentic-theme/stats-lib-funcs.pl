@@ -121,7 +121,7 @@ sub get_stats_now
                 : ();
             if (@cpuinfo && @cpuusage) {
                 # CPU load
-                my $cpu = int($cpuusage[0] + $cpuusage[1] + $cpuusage[3]);
+                my $cpu = theme_clamp_percent($cpuusage[0] + $cpuusage[1] + $cpuusage[3]);
                 $data{'cpu'} = [$cpu, stats_text('body_load',
                                 ($cpuinfo[0], $cpuinfo[1], $cpuinfo[2]))];
                 $gadd->('cpu', $cpu);

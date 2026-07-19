@@ -220,6 +220,16 @@ sub nice_number
     return $number;
 }
 
+sub theme_clamp_percent
+{
+    my ($percent) = @_;
+    return undef if (!defined($percent));
+    $percent = int($percent);
+    return 0 if ($percent < 0);
+    return 100 if ($percent > 100);
+    return $percent;
+}
+
 sub get_time_offset
 {
     my $offset = backquote_command('date +"%z"');
@@ -950,8 +960,8 @@ sub merge_stats_now_into_system_info_data
 
     # CPU live value
     if (ref($stats->{cpu}) eq 'ARRAY' && defined $stats->{cpu}[0]) {
-        $raw0->{cpu} = (ref($raw0->{cpu}) eq 'ARRAY') ? $raw0->{cpu} : [0,0,0,0,0];
-        $raw0->{cpu}[0] = 0 + $stats->{cpu}[0];
+        my $cpu = theme_clamp_percent($stats->{cpu}[0]);
+        $raw0->{cpu} = [$cpu, 0, 100 - $cpu, 0, 0];
     }
 
     # Sensors (empty arrays if none)
