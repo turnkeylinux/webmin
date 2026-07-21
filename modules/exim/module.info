@@ -2,5 +2,5 @@ name=Exim Mail Server
 category=servers
 hidden=1
 desc=Exim Mailserver
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

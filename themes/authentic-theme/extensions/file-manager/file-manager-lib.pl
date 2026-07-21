@@ -19,7 +19,7 @@ use File::Grep qw( fdo );
 use POSIX;
 
 our (
-	%access, %gconfig, %in, %text,
+	%access, %global_access, %gconfig, %in, %text,
 	%theme_text, @remote_user_info, $base_remote_user, $config_directory,
 	$current_theme, %userconfig, @allowed_paths, $base,
 	$cwd, $path, $remote_user
@@ -65,6 +65,8 @@ do($module_path.'/'.$module.'-lib.pl');
 &ReadParse();
 
 get_paths();
+
+%global_access = get_module_acl(undef, "");
 
 switch_to_user($in{'username'});
 

@@ -15,11 +15,7 @@ if ($in{'source'} == 0) {
 	$data =~ /\S/ || &error($text{'batch_efile'});
 	}
 elsif ($in{'source'} == 1) {
-	open(LOCAL, "<$in{'local'}") || &error($text{'batch_elocal'});
-	while(<LOCAL>) {
-		$data .= $_;
-		}
-	close(LOCAL);
+	$data = &read_batch_local_file($in{'local'});
 	}
 elsif ($in{'source'} == 2) {
 	$data = $in{'text'};
@@ -667,4 +663,3 @@ foreach my $f ('min', 'max', 'warn', 'inactive', 'expire', 'change') {
 	}
 return undef;
 }
-

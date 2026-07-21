@@ -192,8 +192,10 @@ sub theme_footer
             $url = "$theme_webprefix$url" if ($url =~ /^\//);
             $url = $url . "/"             if ($url =~ /[^\/]$/ && $url !~ /.cgi/ && $url !~ /javascript:history/ && $url !~ /[&?]/);
             print
-"<a style='margin-bottom: 10px;' class='btn btn-primary btn-lg page_footer_submit' href=\"$url\"><i class='fa fa-fw fa-arrow-left'>&nbsp;</i> <span>",
-              &text('main_return', $_[$i + 1]), "</span></a>&nbsp;&nbsp;\n";
+"<a style='margin-bottom: 3.5px;' class='btn btn-primary btn-lg page_footer_submit' href=\"$url\"><i class='fa fa-fw fa-arrow-left'>&nbsp;</i> <span>",
+              &text('main_return', $_[$i + 1]), "</span></a>".
+                &ui_tag('span', undef,
+                    { style => 'display: inline-block; width: 4px' })."\n";
         }
     }
 
@@ -1599,7 +1601,7 @@ sub theme_redirect_download
 sub theme_js_redirect
 {
     my ($url, $window, $timeout) = @_;
-    $window = $window && $window =~ /^[A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)*$/
+    $window = $window && $window =~ /^[A-Za-z_\$][A-Za-z0-9_\$]*(?:\.[A-Za-z_\$][A-Za-z0-9_\$]*)*$/
         ? $window : "window";
     $timeout = $timeout ? int($timeout) : 100;
     if ($url =~ /^\//) {

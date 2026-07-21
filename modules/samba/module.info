@@ -3,5 +3,5 @@ category=servers
 os_support=solaris *-linux aix hpux freebsd osf1 irix openserver unixware openbsd macos netbsd 
 desc=Samba Windows File Sharing
 longdesc=Create and edit samba file and print shares.
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

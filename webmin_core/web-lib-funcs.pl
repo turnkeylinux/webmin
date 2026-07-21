@@ -16,6 +16,7 @@ Example code:
 use Socket;
 use POSIX;
 use IO::Handle;
+use bytes ();
 use feature 'state';
 eval "use Socket6";
 $ipv6_module_error = $@;
@@ -302,7 +303,7 @@ if (!defined $tmp) {
 	};
 # Before escaping ampersand use negative lookahead to see if occurrence
 # is not an HTML entity already to prevent double escaping (optionally)
-$tmp =~ s/&(?!(([a-zA-Z]+)|(#|#x)\d+);)/&amp;/g if ($nodblamp);
+$tmp =~ s/&(?!([a-zA-Z]+|#\d+|#[xX][0-9A-Fa-f]+);)/&amp;/g if ($nodblamp);
 # Always escape all ampersands by default
 # to make sure they are displayed per se
 $tmp =~ s/&/&amp;/g if (!$nodblamp);
@@ -800,19 +801,163 @@ if (&check_ipaddress($ip)) {
 	return 1 if ($o[0] == 169 && $o[1] == 254);
 	return 1 if ($o[0] == 172 && $o[1] >= 16 && $o[1] <= 31);
 	return 1 if ($o[0] == 192 && $o[1] == 168);
+	return 1 if ($o[0] == 192 && $o[1] == 0 &&
+		     ($o[2] == 0 || $o[2] == 2));
+	return 1 if ($o[0] == 192 && $o[1] == 88 && $o[2] == 99);
 	return 1 if ($o[0] == 100 && $o[1] >= 64 && $o[1] <= 127);
+	return 1 if ($o[0] == 198 && ($o[1] == 18 || $o[1] == 19));
+	return 1 if ($o[0] == 198 && $o[1] == 51 && $o[2] == 100);
+	return 1 if ($o[0] == 203 && $o[1] == 0 && $o[2] == 113);
 	return 1 if ($o[0] >= 224);
 	}
 elsif (&check_ip6address($ip)) {
 	my $l = lc($ip);
+	$l =~ s{/\d+$}{};
 	return 1 if ($l eq "::1" || $l eq "::");
 	return 1 if ($l =~ /^fe[89ab]/);
+	return 1 if ($l =~ /^fe[c-f]/);
 	return 1 if ($l =~ /^f[cd]/);
-	if ($l =~ /^::ffff:(\d+\.\d+\.\d+\.\d+)$/) {
-		return &is_non_public_ipaddress($1);
+	return 1 if ($l =~ /^ff/);
+	my $packed = eval { inet_pton(AF_INET6(), $l) };
+	if (defined($packed) &&
+	    substr($packed, 0, 12) eq pack("H*", "0064ff9b0000000000000000")) {
+		my $ip4 = join(".", unpack("C4", substr($packed, 12, 4)));
+		return &is_non_public_ipaddress($ip4);
+		}
+	if (defined($packed) && substr($packed, 0, 2) eq "\x20\x02") {
+		my $ip4 = join(".", unpack("C4", substr($packed, 2, 4)));
+		return &is_non_public_ipaddress($ip4);
+		}
+	return 1 if (&ipaddress_matches_network($l, "64:ff9b:1::/48"));
+	return 1 if (&ipaddress_matches_network($l, "100::/64"));
+	return 1 if (&ipaddress_matches_network($l, "2001:db8::/32"));
+	if (defined($packed) &&
+	    (substr($packed, 0, 12) eq "\0" x 12 ||
+	     substr($packed, 0, 10) eq "\0" x 10 &&
+	     substr($packed, 10, 2) eq "\xff" x 2)) {
+		my $ip4 = join(".", unpack("C4", substr($packed, 12, 4)));
+		return &is_non_public_ipaddress($ip4);
 		}
 	}
 return 0;
+}
+
+=head2 ipaddress_matches_network(ip, address-or-network)
+
+Returns 1 if an IPv4 or IPv6 address matches an exact address or CIDR network.
+
+=cut
+sub ipaddress_matches_network
+{
+my ($ip, $network) = @_;
+return 0 if (!defined($ip) || !defined($network));
+$network =~ s/^\s+|\s+$//g;
+my ($base, $prefix) = split(/\//, $network, 2);
+my ($family, $bits);
+# Permit an IPv4 exception to match the equivalent mapped IPv6 destination.
+if (&check_ip6address($ip) && &check_ipaddress($base)) {
+	my $packed = eval { inet_pton(AF_INET6(), $ip) };
+	if (defined($packed) &&
+	    (substr($packed, 0, 12) eq "\0" x 12 ||
+	     substr($packed, 0, 10) eq "\0" x 10 &&
+	     substr($packed, 10, 2) eq "\xff" x 2)) {
+		my $ip4 = join(".", unpack("C4", substr($packed, 12, 4)));
+		return &ipaddress_matches_network(
+			$ip4, $base.(defined($prefix) ? "/$prefix" : ""));
+		}
+	}
+if (&check_ipaddress($ip) && &check_ipaddress($base)) {
+	$family = AF_INET();
+	$bits = 32;
+	}
+elsif (&check_ip6address($ip) && &check_ip6address($base)) {
+	$family = eval { AF_INET6() };
+	return 0 if (!defined($family));
+	$bits = 128;
+	}
+else {
+	return 0;
+	}
+$prefix = $bits if (!defined($prefix));
+return 0 if ($prefix !~ /^\d+$/ || $prefix > $bits);
+my ($packed_ip, $packed_base);
+if ($family == AF_INET()) {
+	$packed_ip = inet_aton($ip);
+	$packed_base = inet_aton($base);
+	}
+else {
+	$packed_ip = eval { inet_pton($family, $ip) };
+	$packed_base = eval { inet_pton($family, $base) };
+	}
+return 0 if (!defined($packed_ip) || !defined($packed_base));
+my $bytes = int($prefix / 8);
+return 0 if (substr($packed_ip, 0, $bytes) ne
+		     substr($packed_base, 0, $bytes));
+my $remaining = $prefix % 8;
+if ($remaining) {
+	my $mask = (0xff << (8-$remaining)) & 0xff;
+	return 0 if ((ord(substr($packed_ip, $bytes, 1)) & $mask) !=
+		     (ord(substr($packed_base, $bytes, 1)) & $mask));
+	}
+return 1;
+}
+
+=head2 get_download_address_callback(mode, [allowed-addresses])
+
+Returns a callback for checking resolved download addresses against a policy.
+The mode can be "public", "listed" or "all". In listed mode, non-public
+addresses are allowed when they match a whitespace-separated list of IP
+addresses or CIDR networks. Returns undef when no checks are required.
+
+=cut
+sub get_download_address_callback
+{
+my ($mode, $allowed) = @_;
+return undef if (!defined($mode) || $mode eq "all");
+$mode = 'public' if ($mode ne 'listed');
+
+return sub {
+	my ($host, $addresses) = @_;
+	foreach my $ip (@$addresses) {
+		next if (!&is_non_public_ipaddress($ip));
+		if ($mode eq 'listed') {
+			my $matched = 0;
+			foreach my $network (split(/\s+/, $allowed || "")) {
+				if (&ipaddress_matches_network($ip, $network)) {
+					$matched = 1;
+					last;
+					}
+				}
+			next if ($matched);
+			}
+		return "Download from non-public IP address $ip is not allowed";
+		}
+	return undef;
+	};
+}
+
+=head2 check_download_address(host, [&callback], [&resolved-addresses])
+
+Resolves a download hostname and passes the resulting IP addresses to an
+optional callback. The callback receives the hostname and an array reference
+of addresses, and returns an error message to reject them or undef to allow
+them. Returns an error message when resolution or validation fails. If the
+resolved-addresses array reference is set, it is populated with the checked
+addresses.
+
+=cut
+sub check_download_address
+{
+my ($host, $callback, $resolved_addresses) = @_;
+my @addresses = &to_ipaddress($host);
+push(@addresses, &to_ip6address($host));
+return "Failed to lookup IP address for $host" if (!@addresses);
+if ($callback) {
+	my $error = &$callback($host, \@addresses);
+	return $error if ($error);
+	}
+@$resolved_addresses = @addresses if ($resolved_addresses);
+return undef;
 }
 
 =head2 generate_icon(image, title, link, [href], [width], [height], [before-title], [after-title])
@@ -926,6 +1071,38 @@ while(read($in, $buf, $bs) > 0) {
 	(print $out $buf) || return 0;
 	}
 return 1;
+}
+
+=head2 copydata_len(in-handle, out-handle|&writer, length, [buffer-size])
+
+Read a fixed number of bytes from one file handle and write them to another,
+or pass each chunk to a writer function. The writer must synchronously consume
+the entire chunk and return true on success. Returns the number of bytes
+copied, or undef if a read or write fails.
+
+=cut
+sub copydata_len
+{
+my ($in, $out, $len, $bs) = @_;
+$in = &callers_package($in);
+$out = &callers_package($out) if (ref($out) ne 'CODE');
+$bs ||= &get_buffer_size();
+my $got = 0;
+while($got < $len) {
+	my $want = $len - $got;
+	$want = $bs if ($want > $bs);
+	my $buf;
+	my $r = read($in, $buf, $want);
+	if (!defined($r)) {
+		next if ($!{'EINTR'});
+		return undef;
+		}
+	last if (!$r);
+	my $ok = ref($out) eq 'CODE' ? &$out($buf) : print $out $buf;
+	return undef if (!$ok);
+	$got += $r;
+	}
+return $got;
 }
 
 =head2 ReadParseMime([maximum], [&cbfunc, &cbargs], [array-mode], [&direct-write])
@@ -3158,7 +3335,7 @@ while(1) {
 return $anyneg;
 }
 
-=head2 http_download(host, port, page, destfile, [&error], [&callback], [sslmode], [user], [pass], [timeout], [osdn-convert], [no-cache], [&headers])
+=head2 http_download(host, port, page, destfile, [&error], [&callback], [sslmode], [user], [pass], [timeout], [osdn-convert], [no-cache], [&headers], [&response-headers])
 
 Downloads data from a HTTP url to a local file or string. The parameters are :
 
@@ -3189,6 +3366,23 @@ Downloads data from a HTTP url to a local file or string. The parameters are :
 =item headers - If set to a hash ref of additional HTTP headers, they will be added to the request.
 
 =item response_headers - If set returns a hash ref of response HTTP headers.
+
+If the callback function is defined, it will be called at each step of the download process with a mode parameter and
+additional args. The mode will be one of :
+
+=item 1 - Completed reading headers, arg is 1 for a redirect, 0 otherwise
+
+=item 2 - Received content length, arg is the response size in bytes
+
+=item 3 - Received data, arg is the bytes returned so far
+
+=item 4 - Finished receiving data
+
+=item 5 - Following a redirect, arg is the new URL
+
+=item 6 - Data was found in cache, arg is the full cached URL
+
+=item 7 - TCP connection made, arg is the remote IP (if known)
 
 =cut
 sub http_download
@@ -3258,6 +3452,7 @@ if (!ref($h)) {
 	if ($error) { $$error = $h; return; }
 	else { &error(&html_escape($h)); }
 	}
+&$cbfunc(7, $h->{'ip'}) if ($cbfunc);
 &complete_http_download($h, $dest, $error, $cbfunc, $osdn, $host, $port,
 			$headers, $ssl, $nocache, $timeout, $response_headers);
 if ((!$error || !$$error) && !$nocache) {
@@ -3485,7 +3680,7 @@ if (!ref($h)) {
 			$headers, $ssl, $nocache, $timeout, $response_headers);
 }
 
-=head2 ftp_download(host, file, destfile, [&error], [&callback], [user, pass], [port], [no-cache])
+=head2 ftp_download(host, file, destfile, [&error], [&callback], [user, pass], [port], [no-cache], [timeout])
 
 Download data from an FTP site to a local file. The parameters are :
 
@@ -3512,7 +3707,8 @@ Download data from an FTP site to a local file. The parameters are :
 =cut
 sub ftp_download
 {
-my ($host, $file, $dest, $error, $cbfunc, $user, $pass, $port, $nocache, $timeout) = @_;
+my ($host, $file, $dest, $error, $cbfunc, $user, $pass, $port, $nocache,
+    $timeout) = @_;
 $port ||= 21;
 $timeout = 60 if (!defined($timeout));
 if ($gconfig{'debug_what_net'}) {
@@ -3600,7 +3796,8 @@ if ($gconfig{'ftp_proxy'} =~ /^http:\/\/(\S+):(\d+)/ && !&no_proxy($_[0])) {
 
 if (!$connected) {
 	# connect to host and login with real FTP protocol
-	&open_socket($host, $port, "SOCK", $_[3]) || return 0;
+	my $ip = &open_socket($host, $port, "SOCK", $_[3]) || return 0;
+	&$cbfunc(7, $ip) if ($cbfunc);
 	alarm(0) if ($timeout);
 	if ($main::download_timed_out) {
 		if ($error) {
@@ -3850,6 +4047,8 @@ parameters are :
 
 =item bindip - Local IP address to bind to for outgoing connections
 
+Returns the IP to which the connection was actually made.
+
 =cut
 sub open_socket
 {
@@ -3866,13 +4065,14 @@ my @ips = &to_ipaddress($host);
 push(@ips, &to_ip6address($host));
 if (!@ips) {
 	my $msg = "Failed to lookup IP address for $host";
-	if ($err) { $$err = $msg; return 0; }
+	if ($err) { $$err = $msg; return undef; }
 	else { &error($msg); }
 	}
 
 # Try each of the resolved IPs
 my $msg;
 my $proto = getprotobyname("tcp");
+my $gotip;
 foreach my $ip (@ips) {
 	$msg = undef;
 	if (&check_ipaddress($ip)) {
@@ -3910,11 +4110,12 @@ foreach my $ip (@ips) {
 			next;
 			}
 		}
+	$gotip = $ip;
 	last;	# If we got this far, it worked
 	}
 if ($msg) {
 	# Last attempt failed
-	if ($err) { $$err = $msg; return 0; }
+	if ($err) { $$err = $msg; return undef; }
 	else { &error($msg); }
 	}
 
@@ -3922,7 +4123,7 @@ if ($msg) {
 my $old = select($fh);
 $| = 1;
 select($old);
-return 1;
+return $gotip;
 }
 
 =head2 download_timeout
@@ -8384,18 +8585,20 @@ if (&is_selinux_enabled() && &has_command("chcon")) {
 return wantarray ? (1, undef) : 1;
 }
 
-=head2 copy_source_dest(source, dest, [copy-link-target])
+=head2 copy_source_dest(source, dest, [copy-link-target], [keep-dest-permissions])
 
 Copy some file or directory to a new location. Returns 1 on success, or 0
 on failure - also sets $! on failure. If the source is a directory, uses
 piped tar commands to copy a whole directory structure including permissions
-and special files.
+and special files. If keep-dest-permissions is set for a regular file, copies
+the file contents without changing the destination's existing permissions or
+ownership.
 
 =cut
 sub copy_source_dest
 {
 return (1, undef) if (&is_readonly_mode());
-my ($src, $dst, $copylink) = @_;
+my ($src, $dst, $copylink, $keepperms) = @_;
 my $ok = 1;
 my ($err, $out);
 &webmin_debug_log('COPY', "src=$src dst=$dst")
@@ -8431,6 +8634,47 @@ elsif (-d $src) {
 	if ($?) {
 		$ok = 0;
 		$err = $out;
+		}
+	}
+elsif ($keepperms) {
+	# Copy contents without changing destination permissions
+	my ($in, $outfh);
+	if (!open($in, "<", $src)) {
+		$ok = 0;
+		$err = "$src : $!";
+		}
+	elsif (!open($outfh, ">", $dst)) {
+		$ok = 0;
+		$err = "$dst : $!";
+		close($in);
+		}
+	else {
+		binmode($in);
+		binmode($outfh);
+		my $buf;
+		my $bs = &get_buffer_size();
+		while (1) {
+			my $got = read($in, $buf, $bs);
+			if (!defined($got)) {
+				$ok = 0;
+				$err = "$src : $!";
+				last;
+				}
+			last if (!$got);
+			if (!print $outfh $buf) {
+				$ok = 0;
+				$err = "$dst : $!";
+				last;
+				}
+			}
+		if (!close($in) && $ok) {
+			$ok = 0;
+			$err = "$src : $!";
+			}
+		if (!close($outfh) && $ok) {
+			$ok = 0;
+			$err = "$dst : $!";
+			}
 		}
 	}
 else {
@@ -9706,8 +9950,9 @@ if ($ssl) {
 	if (!$connected) {
 		# Direct connection
 		my $error;
-		&open_socket($host, $port, $rv->{'fh'}, \$error, $bindip);
+		my $ip = &open_socket($host, $port, $rv->{'fh'}, \$error, $bindip);
 		return $error if ($error);
+		$rv->{'ip'} = $ip;
 		}
 	Net::SSLeay::set_fd($rv->{'ssl_con'}, fileno($rv->{'fh'}));
 	eval {
@@ -9759,9 +10004,10 @@ else {
 	if (!$connected) {
 		# Connecting directly
 		my $error;
-		&open_socket($host, $port, $rv->{'fh'}, \$error, $bindip);
+		my $ip = &open_socket($host, $port, $rv->{'fh'}, \$error, $bindip);
 		return $error if ($error);
 		my $fh = $rv->{'fh'};
+		$rv->{'ip'} = $ip;
 		my $rtxt = "$method $page HTTP/1.0\r\n".$htxt;
 		print $fh $rtxt;
 		}
@@ -9893,9 +10139,21 @@ my $h = shift(@_);
 my $fh = $h->{'fh'};
 my $allok = 1;
 if ($h->{'ssl_ctx'}) {
+	# Net::SSLeay::write returns a byte count, but regular length/substr may
+	# count characters for UTF-8-flagged strings. Mixing those units could
+	# end the retry loop early or skip data, so track lengths and offsets in
+	# bytes.
 	foreach my $s (@_) {
-		my $ok = Net::SSLeay::write($h->{'ssl_con'}, $s);
-		$allok = 0 if (!$ok);
+		my $len = bytes::length($s);
+		my $got = 0;
+		while($got < $len) {
+			my $ok = Net::SSLeay::write(
+				$h->{'ssl_con'}, bytes::substr($s, $got));
+			if (!defined($ok) || $ok <= 0) {
+				return 0;
+				}
+			$got += $ok;
+			}
 		}
 	}
 else {
@@ -10032,16 +10290,17 @@ out progress of an HTTP request.
 =cut
 sub progress_callback
 {
+my ($mode, $arg) = @_;
 if (defined(&theme_progress_callback)) {
 	# Call the theme override
 	return &theme_progress_callback(@_);
 	}
-if ($_[0] == 2) {
+if ($mode == 2) {
 	# Got size
 	print $progress_callback_prefix;
-	if ($_[1]) {
-		$progress_size = $_[1];
-		$progress_step = int($_[1] / 10);
+	if ($arg) {
+		$progress_size = $arg;
+		$progress_step = int($arg / 10);
 		print &text('progress_size2',
 			    &html_escape($progress_callback_url),
 			    &nice_size($progress_size)),"<br>\n";
@@ -10053,42 +10312,42 @@ if ($_[0] == 2) {
 		}
 	$last_progress_time = $last_progress_size = undef;
 	}
-elsif ($_[0] == 3) {
+elsif ($mode == 3) {
 	# Got data update
 	my $sp = $progress_callback_prefix.("&nbsp;" x 5);
 	if ($progress_size) {
 		# And we have a size to compare against
-		my $st = int(($_[1] * 10) / $progress_size);
+		my $st = int(($arg * 10) / $progress_size);
 		my $time_now = time();
 		if ($st != $progress_step ||
 		    $time_now - $last_progress_time > 60) {
 			# Show progress every 10% or 60 seconds
-			print $sp,&text('progress_datan', &nice_size($_[1]),
-				        int($_[1]*100/$progress_size)),"<br>\n";
+			print $sp,&text('progress_datan', &nice_size($arg),
+				        int($arg*100/$progress_size)),"<br>\n";
 			$last_progress_time = $time_now;
 			}
 		$progress_step = $st;
 		}
 	else {
 		# No total size .. so only show in 1M jumps
-		if ($_[1] > $last_progress_size+1024*1024) {
+		if ($arg > $last_progress_size+1024*1024) {
 			print $sp,&text('progress_data2n',
-					&nice_size($_[1])),"<br>\n";
-			$last_progress_size = $_[1];
+					&nice_size($arg)),"<br>\n";
+			$last_progress_size = $arg;
 			}
 		}
 	}
-elsif ($_[0] == 4) {
+elsif ($mode == 4) {
 	# All done downloading
 	print $progress_callback_prefix,&text('progress_done'),"<br>\n";
 	}
-elsif ($_[0] == 5) {
+elsif ($mode == 5) {
 	# Got new location after redirect
-	$progress_callback_url = $_[1];
+	$progress_callback_url = $arg;
 	}
-elsif ($_[0] == 6) {
+elsif ($mode == 6) {
 	# URL is in cache
-	$progress_callback_url = $_[1];
+	$progress_callback_url = $arg;
 	print &text('progress_incache',
 		    &html_escape($progress_callback_url)),"<br>\n";
 	}
@@ -11302,7 +11561,8 @@ elsif (defined($main::open_tempfiles{$_[0]})) {
 		}
 	if ($file_acls) {
 		# Set original ACLs
-		open(my $pipe, '|-', "$setfacl --restore=-");
+		my $restore_command = &get_setfacl_restore_command($setfacl);
+		open(my $pipe, '|-', $restore_command);
 		print($pipe $file_acls);
 		close($pipe);
 		}
@@ -11365,6 +11625,27 @@ if (!defined($main::selinux_enabled_cache)) {
 		}
 	}
 return $main::selinux_enabled_cache;
+}
+
+=head2 get_setfacl_restore_command(setfacl-command)
+
+Returns a command for restoring ACLs from standard input. Uses physical
+restore when supported by setfacl, while remaining compatible with versions
+older than 2.4.0 which reject -P together with --restore.
+
+=cut
+sub get_setfacl_restore_command
+{
+my ($setfacl) = @_;
+state %physical_restore_cache;
+
+if (!exists($physical_restore_cache{$setfacl})) {
+	my $help = &backquote_command("$setfacl --help 2>&1 </dev/null");
+	$physical_restore_cache{$setfacl} =
+		$help =~ /\[-P\]\s+--restore(?:=|\b)/ ? 1 : 0;
+	}
+my $physical = $physical_restore_cache{$setfacl} ? "-P " : "";
+return "$setfacl ${physical}--restore=-";
 }
 
 =head2 get_clear_file_attributes(file)
@@ -12393,6 +12674,135 @@ local $/ = undef;
 my $rv = <FILE>;
 close(FILE);
 return $rv;
+}
+
+=head2 can_read_file_under_global_acl(file, [webmin-user])
+
+Returns 1 if the given file is allowed by the Webmin user's global file
+access ACL, using the same root and additional-directory restrictions as the
+file chooser. Webmin users with no Unix home fail closed when the root ACL is
+unset or home-relative.
+
+=cut
+sub can_read_file_under_global_acl
+{
+my ($file, $user) = @_;
+if ($gconfig{'os_type'} eq 'windows') {
+	$file =~ s/\\/\//g if (defined($file));
+	return 0 if (!defined($file) || $file !~ /^([a-z]:)?\//i);
+	}
+else {
+	return 0 if (!defined($file) || $file !~ /^\//);
+	}
+my $acluser = defined($user) ? $user : $base_remote_user || $remote_user;
+my $unixuser = defined($user) ? $user : $remote_user;
+my %gaccess = &get_module_acl($acluser, "");
+my @uinfo = getpwnam($unixuser);
+my $rootdir;
+if (!$gaccess{'root'}) {
+	# Do not turn Webmin-only users with no Unix home into unrestricted /
+	$rootdir = $uinfo[7] || "";
+	}
+else {
+	$rootdir = $gaccess{'root'};
+	if ($rootdir =~ /^\~/) {
+		if ($uinfo[7]) {
+			$rootdir =~ s/^\~/$uinfo[7]/;
+			}
+		else {
+			$rootdir = "";
+			}
+		}
+	}
+foreach my $dir ($rootdir, split(/\t+/, $gaccess{'otherdirs'})) {
+	next if ($dir eq "");
+	return 1 if (&is_under_directory($dir, $file));
+	}
+return 0;
+}
+
+=head2 global_acl_file_unix_user([webmin-user])
+
+Returns the Unix user that local file reads should run as according to the
+global file ACL, plus an error flag.
+
+=cut
+sub global_acl_file_unix_user
+{
+my ($user) = @_;
+return (undef, 0) if (!&supports_users());
+my $acluser = defined($user) ? $user : $base_remote_user || $remote_user;
+my $unixuser = defined($user) ? $user : $remote_user;
+my %gaccess = &get_module_acl($acluser, "");
+my $fileunix = $gaccess{'fileunix'} || $unixuser;
+my @uinfo = getpwnam($fileunix);
+if (!@uinfo && !$gaccess{'fileunix'}) {
+	$fileunix = "nobody";
+	@uinfo = getpwnam($fileunix);
+	}
+return @uinfo ? ($fileunix, 0) : (undef, 1);
+}
+
+=head2 read_file_under_global_acl(file, [webmin-user])
+
+Returns the contents of a file after checking the global file ACL and reading
+as the ACL's configured Unix user.
+
+=cut
+sub read_file_under_global_acl
+{
+my ($file, $user) = @_;
+return undef if (!&can_read_file_under_global_acl($file, $user));
+my ($fileunix, $fileunix_err) = &global_acl_file_unix_user($user);
+return undef if ($fileunix_err);
+if ($fileunix && &supports_users() && $< == 0) {
+	return &eval_as_unix_user($fileunix,
+		sub { return &read_file_contents($file); });
+	}
+else {
+	return &read_file_contents($file);
+	}
+}
+
+=head2 copy_file_under_global_acl(source, dest, [webmin-user], [dest-user])
+
+Copies a file after checking the global file ACL and reading the source as
+the ACL's configured Unix user. If dest-user is set and Webmin is running as
+root, the copied file is left owned by that Unix user with mode 0600.
+
+=cut
+sub copy_file_under_global_acl
+{
+my ($src, $dst, $user, $destuser) = @_;
+return 0 if (!&can_read_file_under_global_acl($src, $user));
+return 0 if (-d $src);
+my ($fileunix, $fileunix_err) = &global_acl_file_unix_user($user);
+return 0 if ($fileunix_err);
+my $ok;
+if ($fileunix && &supports_users() && $< == 0) {
+	my @uinfo = getpwnam($fileunix);
+	return 0 if (!@uinfo);
+	open(my $init, ">", $dst) || return 0;
+	close($init);
+	&set_ownership_permissions($fileunix, undef, 0600, $dst) ||
+		return 0;
+	$ok = &eval_as_unix_user($fileunix, sub {
+		return &copy_source_dest($src, $dst, 1, 1);
+		});
+	}
+else {
+	$ok = &copy_source_dest($src, $dst, 1);
+	}
+return 0 if (!$ok);
+if ($destuser && &supports_users() && $< == 0) {
+	my @duinfo = getpwnam($destuser);
+	return 0 if (!@duinfo);
+	return &set_ownership_permissions($destuser, undef, 0600, $dst);
+	}
+else {
+	chmod(0600, $dst);
+	return 1;
+	}
 }
 
 =head2 write_file_contents(file, data)
@@ -14353,11 +14763,20 @@ my %miniserv;
 my $webprefix = &get_webprefix();
 &get_miniserv_config(\%miniserv);
 my $trust_proxy = $miniserv{'trust_real_ip'};
+my $linked_server_request = $ENV{'HTTP_WEBMIN_PATH'};
+my $redirect_port_conf = $miniserv{'redirect_port'};
+$redirect_port_conf = undef if ($linked_server_request);
 my $default_ws_proto = lc($ENV{'HTTPS'}) eq 'on' ? 'wss' : 'ws';
 my $ws_proto;
+# Match the canonical redirect scheme when one has been configured. Linked
+# server responses are rewritten by the parent, so they must retain the child
+# connection scheme and authority that the parent recognizes.
+if (!$linked_server_request && $miniserv{'redirect_ssl'} ne '') {
+	$ws_proto = $miniserv{'redirect_ssl'} ? 'wss' : 'ws';
+	}
 # Match the public browser scheme when Webmin is behind a trusted reverse
 # proxy, but only allow websocket schemes into the returned URL.
-if ($trust_proxy && $ENV{'HTTP_X_FORWARDED_PROTO'}) {
+if (!$ws_proto && $trust_proxy && $ENV{'HTTP_X_FORWARDED_PROTO'}) {
 	$ws_proto = (split(/\s*,\s*/, $ENV{'HTTP_X_FORWARDED_PROTO'}))[0];
 	$ws_proto =~ s/^\s+|\s+$//g;
 	}
@@ -14371,6 +14790,38 @@ $ws_proto = lc($ws_proto);
 $ws_proto = 'wss' if ($ws_proto eq 'https');
 $ws_proto = 'ws' if ($ws_proto eq 'http');
 $ws_proto = $default_ws_proto if ($ws_proto ne 'wss' && $ws_proto ne 'ws');
+# Formats a host with the configured public port, replacing any port already
+# present on a request or proxy host. Explicit WebSocket and caller hosts
+# bypass this.
+my $format_hostport = sub {
+	my ($authority, $redirect_port) = @_;
+	return $authority if (!$authority);
+	# A non-numeric configured port is treated as unset, so a malformed
+	# value can never reach the returned URL.
+	$redirect_port = undef if (defined($redirect_port) &&
+				   $redirect_port !~ /^\d+$/);
+	# check_ip6address also accepts short hexadecimal strings. An unbracketed
+	# authority needs at least two colons to have the shape of an IPv6 address.
+	my $is_ip6 = $authority =~ /:.*:/ && &check_ip6address($authority);
+	if (!$redirect_port) {
+		$authority = "[".$authority."]"
+			if ($is_ip6);
+		return $authority;
+		}
+	if ($authority =~ /^\[([^\]]+)\](?::\d+)?$/) {
+		$authority = $1;
+		$is_ip6 = 1;
+		}
+	elsif (!$is_ip6) {
+		$authority =~ s/:\d+$//;
+		}
+	$authority = "[".$authority."]"
+		if ($is_ip6);
+	my $portstr = !($redirect_port == 80 && $ws_proto eq 'ws') &&
+		!($redirect_port == 443 && $ws_proto eq 'wss') ?
+		":".$redirect_port : "";
+	return $authority.$portstr;
+	};
 my $wspath = $path || "/$module/ws-".$port;
 # If the caller already generated the token, use it directly; otherwise fall
 # back to reading the token stored for the normal allocated websocket route.
@@ -14378,23 +14829,44 @@ if (!defined($wstoken) && $miniserv{'websockets_'.$wspath} &&
     $miniserv{'websockets_'.$wspath} =~ /\btoken=(\S+)/) {
 	$wstoken = $1;
 	}
-my $http_host_conf = &trim($miniserv{'websocket_host'} || $host);
-# Prefer the explicit websocket host when configured
+my $http_host_conf = $linked_server_request ? undef :
+			&trim($miniserv{'websocket_host'} || $host);
+# Prefer the explicit websocket host for direct browser requests
 if ($http_host_conf) {
 	if ($http_host_conf !~ /^wss?:\/\//) {
 		$http_host_conf = "$ws_proto://$http_host_conf";
 		}
 	$http_host_conf =~ s/[\/]+$//g;
 	}
+# Otherwise use the canonical redirect host and port when configured
+if (!$http_host_conf && !$linked_server_request &&
+    $miniserv{'redirect_host'}) {
+	my $redirect_host = &$format_hostport($miniserv{'redirect_host'},
+					       $redirect_port_conf);
+	$http_host_conf = "$ws_proto://$redirect_host";
+	}
 # Otherwise use trusted proxy headers when available
 if ($trust_proxy && !defined($http_host_conf)) {
-	my $forwarded_host = $ENV{'HTTP_X_FORWARDED_HOST'};
+	# A multi-proxy chain can send a comma-separated list; use the first
+	# entry, matching the X-Forwarded-Proto handling above.
+	my $forwarded_host = (split(/\s*,\s*/,
+				    $ENV{'HTTP_X_FORWARDED_HOST'}))[0];
 	if ($forwarded_host) {
+		$forwarded_host = &$format_hostport(
+			$forwarded_host, $redirect_port_conf)
+			if ($redirect_port_conf);
 		$http_host_conf = "$ws_proto://$forwarded_host";
 		$http_host_conf =~ s/[\/]+$//g;
 		}
 	}
-my $http_host = $http_host_conf || "$ws_proto://$ENV{'HTTP_HOST'}";
+my $http_host = $http_host_conf;
+if (!$http_host) {
+	my $request_host = $ENV{'HTTP_HOST'};
+	$request_host = &$format_hostport(
+		$request_host, $redirect_port_conf)
+		if ($redirect_port_conf);
+	$http_host = "$ws_proto://$request_host";
+	}
 $http_host .= $webprefix if ($webprefix);
 my $url = "$http_host$wspath";
 $url .= "?token=".&urlize($wstoken) if ($wstoken);

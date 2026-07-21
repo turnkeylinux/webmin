@@ -247,7 +247,7 @@ if ($type eq 'nav') {
 		if ($subtype eq 'links') {
 			my @submenu = map {
 				$_->{'link'} =~
-				    /.*?$module.*\/(\w+\.cgi).*?$param=/,
+				    /.*?\Q$module\E.*\/(\w+\.cgi).*?\Q$param\E=/,
 				    $_->{'link'} =~ /(\/.*?_log\.cgi\?.*)/,
 				    $_->{'link'} =~
 				    /(.*?\/webminlog\/.*?\.cgi.*)/,
@@ -263,14 +263,19 @@ if ($type eq 'nav') {
 			@submenu = grep { $_ !~ /delete_domain.cgi/ } @submenu
 			    if (@submenu);
 
+			# Include domain-specific plugin links rendered at top level
+			my @domainmenu = map {
+				$_->{'link'} =~
+				    /(.*?\/virtualmin-.*?\/.*?\.cgi.*?\Q$param\E=.*)/
+				    } grep { $_->{'link'} } @menu;
 			my @fmmenu =
 			    map { $_->{'link'} =~ /(filemin\/.*?\.cgi.*)/ }
 			    @menu;
 			@menu = map {
 				$_->{'link'} =~
-				    /.*?$module.*\/(\w+\.cgi).*?$param=/
+				    /.*?\Q$module\E.*\/(\w+\.cgi).*?\Q$param\E=/
 				    } @menu;
-			@menu = (@menu, @submenu, @fmmenu);
+			@menu = (@menu, @submenu, @domainmenu, @fmmenu);
 			$data{'menu'} = \@menu;
 			}
 		}

@@ -63,6 +63,30 @@ $password_file_cache{$file} = $rv;
 return $rv;
 }
 
+# read_batch_local_file(file)
+# Returns the contents of a server-side batch file, after checking both the
+# Users and Groups batch directory ACL and the global file chooser ACL.
+sub read_batch_local_file
+{
+my ($file) = @_;
+&can_read_batch_local_file($file) || &error($text{'batch_elocaldir'});
+my $data = &read_file_under_global_acl($file);
+defined($data) || &error($text{'batch_elocal'});
+return $data;
+}
+
+# can_read_batch_local_file(file)
+# Returns 1 if a local batch file path is allowed by all relevant ACLs.
+sub can_read_batch_local_file
+{
+my ($file) = @_;
+return 0 if (!defined($file) || $file !~ /^\//);
+my $batchdir = defined($access{'batchdir'}) ? $access{'batchdir'} : "/";
+return 0 if ($batchdir eq "");
+return 0 if (!&is_under_directory($batchdir, $file));
+return &can_read_file_under_global_acl($file);
+}
+
 =head2 list_users
 
 Returns an array of hash references, each containing info about one user. Each

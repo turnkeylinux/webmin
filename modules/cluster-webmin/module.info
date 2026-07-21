@@ -1,6 +1,6 @@
 name=Cluster Webmin
 desc=Cluster Webmin Servers
 category=cluster
-depends=webmin servers 2.651
+depends=webmin servers 2.652
 longdesc=Install and manage modules, themes, users, groups and access control settings across multiple Webmin servers.
-version=2.651
+version=2.652

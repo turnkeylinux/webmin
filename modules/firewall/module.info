@@ -3,5 +3,5 @@ desc=Linux Firewall (iptables)
 os_support=*-linux
 category=net
 longdesc=Configure a Linux firewall using iptables. Allows the editing of all tables, chains, rules and options.
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

@@ -141,10 +141,12 @@ if (($ENV{'HTTP_X_REQUESTED_WITH_PROXY'} || '') eq 'XMLHttpRequest') {
 	&write_http_connection($con, "X-Requested-With: XMLHttpRequest\r\n");
 	}
 &write_http_connection($con, "\r\n");
-my $post;
 if ($cl) {
-	&read_fully(\*STDIN, \$post, $cl);
-	&write_http_connection($con, $post);
+	my $got = &copydata_len(\*STDIN,
+		sub { &write_http_connection($con, $_[0]) },
+		$cl, &get_buffer_size_binary());
+	defined($got) || &error("Failed to forward request body");
+	$got == $cl || &error("Failed to read complete request body");
 	}
 
 # read back the headers
@@ -323,8 +325,16 @@ $miniserv{"websockets_$wspath"} =
 
 # Pass the fresh token directly. Re-reading miniserv.conf here can race the
 # config cache and return a stale token for the same ws-link path.
+# The route belongs to this parent request, so keep it on the browser-facing
+# parent authority instead of replacing it with redirect_host. This also
+# ensures the browser sends its session cookie to the websocket endpoint.
+my $browser_host = $ENV{'HTTP_HOST'};
+if ($miniserv{'trust_real_ip'} && $ENV{'HTTP_X_FORWARDED_HOST'}) {
+	$browser_host = (split(/\s*,\s*/,
+			      $ENV{'HTTP_X_FORWARDED_HOST'}))[0];
+	}
 my $rv = &get_miniserv_websocket_url(
-	undef, undef, $module_name, $wspath, $token);
+	undef, $browser_host, $module_name, $wspath, $token);
 $cache->{$cache_key} = $rv if ($cache);
 $rv =~ s#/#\\/#g if ($escaped_slashes);
 return $rv;

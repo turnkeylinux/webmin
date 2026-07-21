@@ -1,6 +1,6 @@
 desc=Fail2Ban Intrusion Detector
 category=net
 longdesc=Fail2ban protects your system from brute force attacks by detecting them and blocking their source IPs.
-depends=init 2.651
+depends=init 2.652
 syslog=1
-version=2.651
+version=2.652

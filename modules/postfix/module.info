@@ -4,5 +4,5 @@ name=Postfix
 longdesc=Configure the Postfix mail server.
 readonly=1
 os_support=!windows
-version=2.651
-depends=2.651
+version=2.652
+depends=2.652

@@ -1,6 +1,6 @@
 desc=iSCSI Target
 category=hardware
 os_support=*-linux
-depends=fdisk lvm raid init 2.651
+depends=fdisk lvm raid init 2.652
 longdesc=Share disk devices across the network using the iSCSI protocol with the iscsitarget package.
-version=2.651
+version=2.652
