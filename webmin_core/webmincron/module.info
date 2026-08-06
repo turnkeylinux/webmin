@@ -2,5 +2,5 @@ desc=Scheduled Webmin Functions
 longdesc=Define Webmin module functions that are called on a regular schedule by the Webmin webserver
 category=webmin
 hidden=1
-version=2.652
-depends=2.652
+version=2.653
+depends=2.653

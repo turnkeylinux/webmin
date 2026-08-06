@@ -5,5 +5,5 @@ longdesc=Setup databases, tables and permissions in your MySQL database server.
 readonly=1
 syslog=1
 cpan=1
-version=2.652
-depends=2.652
+version=2.653
+depends=2.653

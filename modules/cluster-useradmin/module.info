@@ -1,7 +1,7 @@
 name=Cluster Users
 desc=Cluster Users and Groups
 os_support=*-linux solaris hpux freebsd osf1 unixware openbsd irix netbsd aix openserver macos 
-depends=useradmin servers 2.652
+depends=useradmin servers 2.653
 category=cluster
 longdesc=Create, update and delete users and groups across multiple servers. Unlike NIS, each server has its own passwd and group files which are remotely updated by this module.
-version=2.652
+version=2.653
