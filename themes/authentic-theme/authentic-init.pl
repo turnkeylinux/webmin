@@ -1320,6 +1320,7 @@ sub get_button_style
         $icon  = " fa2 fa2-import";
     } elsif (string_contains($keys, "index_refresh")) {
         $icon  = "refresh-mdi fa-1_25x";
+        $class = "success " if (string_contains($keys, "index_refresh_recipes"));
     } elsif (string_contains($keys, "update") ||
              string_contains($keys, "index_sync")) {
         $class = "info ";
