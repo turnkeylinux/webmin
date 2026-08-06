@@ -2,5 +2,5 @@ desc=MIME Type Programs
 category=system
 longdesc=Edit the /etc/mailcap file, which maps MIME types to handler programs
 os_support=!windows
-version=2.652
-depends=2.652
+version=2.653
+depends=2.653
