@@ -4,5 +4,5 @@ os_support=solaris *-linux{-r "/etc/inittab"} hpux unixware openserver aix irix
 desc=Initial System Bootup
 longdesc=Configure low-level services to be run at boot time, and select the initial runlevel.
 readonly=1
-version=2.653
-depends=2.653
+version=2.660
+depends=2.660

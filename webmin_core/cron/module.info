@@ -1,8 +1,8 @@
 name=Cron Manager
 category=system
 os_support=solaris *-linux hpux freebsd osf1 irix unixware openserver macos openbsd aix netbsd windows 
-depends=proc 2.653
+depends=proc 2.660
 readonly=1
 desc=Scheduled Cron Jobs
 longdesc=Create, edit and delete Cron jobs.
-version=2.653
+version=2.660
