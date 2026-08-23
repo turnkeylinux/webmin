@@ -1,6 +1,6 @@
 desc=Framed Theme
 longdesc=A legacy framed theme that also supports Virtualmin and Cloudmin
-version=2.653
+version=2.660
 webmin=1
 usermin=1
-depends=2.000 1.860 2.653
+depends=2.000 1.860 2.660
