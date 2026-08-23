@@ -3,5 +3,5 @@ desc=ADSL Client
 os_support=*-linux
 category=net
 longdesc=Set up a PPP client with the RP-PPPoE package.
-depends=net 2.653
-version=2.653
+depends=net 2.660
+version=2.660

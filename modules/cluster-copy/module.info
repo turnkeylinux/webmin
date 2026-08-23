@@ -1,5 +1,5 @@
 desc=Cluster Copy Files
 category=cluster
-depends=cron 2.653
+depends=cron 2.660
 longdesc=Schedule the transfer of files from this server to multiple servers in a Webmin cluster.
-version=2.653
+version=2.660

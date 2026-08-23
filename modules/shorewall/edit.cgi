@@ -7,14 +7,14 @@ require './shorewall-lib.pl';
 &get_clean_table_name(\%in);
 &can_access($in{'table'}) || &error($text{'list_ecannot'});
 if ($in{'new'}) {
-	&ui_print_header(undef, $text{$in{'tableclean'}."_create"}, "");
+	# Show where the new entry will be inserted, if not at the end
 	if ($in{'before'} ne '') {
 		$msg = &text('edit_before', $in{'before'}+1);
 		}
 	elsif ($in{'after'} ne '') {
 		$msg = &text('edit_after', $in{'after'}+1);
 		}
-	print "<center><font size=+1>$msg</font></center>\n" if ($msg);
+	&ui_print_header($msg, $text{$in{'tableclean'}."_create"}, "");
 	}
 else {
 	&ui_print_header(undef, $text{$in{'tableclean'}."_edit"}, "");
@@ -23,33 +23,26 @@ else {
 	$row = $table[$in{'idx'}];
 	}
 
-print "<form action=save.cgi>\n";
-print "<input type=hidden name=table value='$in{'table'}'>\n";
-print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-print "<input type=hidden name=new value='$in{'new'}'>\n";
-print "<input type=hidden name=before value='$in{'before'}'>\n";
-print "<input type=hidden name=after value='$in{'after'}'>\n";
+print &ui_form_start("save.cgi", "post");
+print &ui_hidden("table", $in{'table'});
+print &ui_hidden("idx", $in{'idx'});
+print &ui_hidden("new", $in{'new'});
+print &ui_hidden("before", $in{'before'});
+print &ui_hidden("after", $in{'after'});
 
-print "<table border width=100%>\n";
-print "<tr $tb> <td><b>",$text{$in{'tableclean'}."_header"},"</b></td> </tr>\n";
-print "<tr $cb> <td><table width=100%>\n";
+print &ui_table_start($text{$in{'tableclean'}."_header"}, "width=100%", 4);
 
 $ffunc = $in{'tableclean'}."_form";
 &$ffunc(@$row);
 
-print "</table></td></tr></table>\n";
-print "<table width=100%>\n";
+print &ui_table_end();
 if ($in{'new'}) {
-	print "<td><input type=submit value='$text{'create'}'></td>\n";
+	print &ui_form_end([ [ undef, $text{'create'} ] ]);
 	}
 else {
-	print "<td><input type=submit value='$text{'save'}'></td>\n";
-	print "<td align=right><input type=submit name=delete ",
-	      "value='$text{'delete'}'></td>\n";
+	print &ui_form_end([ [ undef, $text{'save'} ],
+			     [ 'delete', $text{'delete'} ] ]);
 	}
-print "</table>\n";
-
-print "</form>\n";
 
 &ui_print_footer("list.cgi?table=$in{'table'}", $text{$in{'tableclean'}."_return"});
 

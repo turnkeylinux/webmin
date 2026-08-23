@@ -329,9 +329,22 @@ if (&has_command("ip") && $a->{'bond'} && $a->{'up'} && !$old) {
 		}
 	}
 
-if (($a->{'bond'} || $a->{'vlan'} || !&has_command("ifconfig")) &&
-    &has_command("ip")) {
-	# For a real interface, activate or de-activate the link
+if (&has_command("ip") && $a->{'bridge'} && $a->{'up'} && !$old) {
+	# Create the bridge before assigning addresses to it.
+	my $cmd = "ip link add ".quotemeta($a->{'name'})." type bridge";
+	my $out = &backquote_logged("$cmd 2>&1");
+	&error("Failed to create bridge device : $out") if ($?);
+	if ($a->{'bridgeto'}) {
+		$cmd = "ip link set dev ".quotemeta($a->{'bridgeto'}).
+			" master ".quotemeta($a->{'name'});
+		$out = &backquote_logged("$cmd 2>&1");
+		&error("Failed to add interface to bridge : $out") if ($?);
+		}
+	}
+
+if (&has_command("ip")) {
+	# Manage link state for all interfaces when ip is used, since ip is also
+	# used for address assignment below regardless of ifconfig availability.
 	if ($a->{'virtual'} eq '' && $a->{'up'} && (!$old || !$old->{'up'})) {
 		# Bring up
 		my $cmd = "ip link set dev ".quotemeta($devname)." up";
@@ -486,7 +499,8 @@ if ($a->{'virtual'} eq '' && &has_command("ifconfig")) {
 			  quotemeta($a->{'address6'}->[$i])."/".
 			  quotemeta($a->{'netmask6'}->[$i])." 2>&1";
 		$out = &backquote_logged($cmd);
-		&error("Failed to add IPv6 address with $cmd : $out") if ($?);
+		&error("Failed to add IPv6 address with $cmd : $out")
+			if ($? && $a->{'address6'}->[$i] !~ /^fe80:/);
 		}
 	}
 elsif ($a->{'virtual'} eq '' && &has_command("ip")) {
@@ -509,7 +523,8 @@ elsif ($a->{'virtual'} eq '' && &has_command("ip")) {
 			  quotemeta($a->{'netmask6'}->[$i])." dev ".
 			  quotemeta($devname);
 		$out = &backquote_logged("$cmd 2>&1");
-		&error("Failed to add IPv6 address with $cmd : $out") if ($?);
+		&error("Failed to add IPv6 address with $cmd : $out")
+			if ($? && $a->{'address6'}->[$i] !~ /^fe80:/);
 		}
 	}
 
@@ -592,6 +607,24 @@ elsif (&has_command("ifconfig")) {
 	}
 else {
 	&error("Both the ifconfig and ip commands are missing");
+	}
+}
+
+# destroy_interface_device(&details)
+# Remove a virtual network device (bond, VLAN, bridge) from the kernel.
+# Should be called after deactivate_interface when deleting, not just
+# deactivating, a virtual interface.
+sub destroy_interface_device
+{
+my ($a) = @_;
+my $name = $a->{'fullname'} || $a->{'name'};
+# Check the bridge flag too, as bridges can have arbitrary names
+if (&has_command("ip") && $a->{'virtual'} eq '' &&
+    ($a->{'bridge'} ||
+     &iface_type($name) =~ /(?:Bonded|VLAN|Bridge)$/)) {
+	my $out = &backquote_logged(
+		"ip link delete ".quotemeta($name)." 2>&1");
+	&error("Failed to delete virtual interface : $out") if ($?);
 	}
 }
 

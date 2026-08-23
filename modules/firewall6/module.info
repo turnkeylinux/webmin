@@ -4,5 +4,5 @@ longdesc=Configure a Linux firewall using ip6tables. Allows the editing of all t
 name=Firewall6
 os_support=*-linux
 library=firewall-lib.pl
-version=2.653
-depends=2.653
+version=2.660
+depends=2.660

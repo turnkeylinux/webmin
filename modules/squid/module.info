@@ -4,5 +4,5 @@ os_support=solaris hpux redhat-linux mandrake-linux debian-linux suse-linux unit
 desc=Squid Proxy Server
 longdesc=Configure Squid options, ACLs, caching parameters and proxy users.
 syslog=1
-version=2.653
-depends=2.653
+version=2.660
+depends=2.660

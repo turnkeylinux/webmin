@@ -1,8 +1,8 @@
 desc=LDAP Users and Groups
 category=system
-depends=useradmin ldap-client 2.653
+depends=useradmin ldap-client 2.660
 longdesc=Manage users and groups stored in an LDAP database, used for Unix, Samba and Cyrus IMAP authentication.
 os_support=!windows
 cpan=1
 perldepends=Text::Unidecode
-version=2.653
+version=2.660

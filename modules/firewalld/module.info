@@ -1,6 +1,6 @@
 desc=FirewallD
 os_support=*-linux
-depends=net init 2.653
+depends=net init 2.660
 category=net
 longdesc=Configure a Linux firewall using FirewallD, by editing allowed services and ports.
-version=2.653
+version=2.660

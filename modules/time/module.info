@@ -3,5 +3,5 @@ category=hardware
 os_support=*-linux solaris hpux macos freebsd netbsd openserver irix
 desc=System Time
 longdesc=Set the system and hardware time either manually or from a time server.
-depends=cron 2.653
-version=2.653
+depends=cron 2.660
+version=2.660
