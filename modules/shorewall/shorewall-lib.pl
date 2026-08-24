@@ -11,7 +11,6 @@ use WebminCore;
 # Get the version
 $shorewall_version = &get_shorewall_version(0);
 %shorewall_config = &read_shorewall_config();
-#&dump_shorewall_config();
 
 # get access permissions
 %access = &get_module_acl();
@@ -34,69 +33,59 @@ sub debug_message
 # - Check if the Shorewall version is greater than or equal to the one supplied.
 sub version_atleast
 {
-local @vsp = split(/\./, $shorewall_version);
-local $i;
-for($i=0; $i<@vsp || $i<@_; $i++) {
-	return 0 if ($vsp[$i] < $_[$i]);
-	return 1 if ($vsp[$i] > $_[$i]);
-	}
-return 1;	# same!
+return &compare_version_numbers($shorewall_version, join(".", @_)) >= 0;
 }
 
+# read_shorewall_config()
+# Returns an array of hash refs for the global Shorewall config
 sub read_shorewall_config
 {
-	local @ret;
-	open(SHOREWALL_CONF, "<$config{'config_dir'}/shorewall.conf");
-	while (<SHOREWALL_CONF>) {
-		chomp;
-		s/\r//;
-		s/#.*$//;
-		@F = split( /=/, $_, 2 );
-		next if $#F != 1;
-		push @ret, ( $F[0], $F[1] );
-	}
-	close(SHOREWALL_CONF);
-	return @ret;
+my @ret;
+open(SHOREWALL_CONF, "<$config{'config_dir'}/shorewall.conf");
+while (<SHOREWALL_CONF>) {
+	chomp;
+	s/\r//;
+	s/#.*$//;
+	@F = split( /=/, $_, 2 );
+	next if $#F != 1;
+	push @ret, ( $F[0], $F[1] );
 }
-
-# dump_shorewall_config()
-# - Debugging code
-sub dump_shorewall_config
-{
-	for (sort keys %shorewall_config) {
-		print STDERR "$_=$shorewall_config{$_}\n";
-	}
+close(SHOREWALL_CONF);
+return @ret;
 }
 
 # shorewall_config(var)
 sub shorewall_config
 {
-	if (exists $shorewall_config{$_[0]}  &&  defined $shorewall_config{$_[0]}) {
-		return $shorewall_config{$_[0]};
+if (exists $shorewall_config{$_[0]}  &&  defined $shorewall_config{$_[0]}) {
+	return $shorewall_config{$_[0]};
 	}
-	return '';
+return '';
 }
 
 # return true if new zones format is in use
 sub new_zones_format
 {
-	# Shorewall 3.4.0 - 3.4.4 have a bug that prevents the old format from being used.
-	if (&version_atleast(3, 4)  &&  !&version_atleast(3, 4, 5)) {
-		return 1;
-	}
-	# Zones table is in new format in Shorewall 3, unless shorewall.conf has IPSECFILE=ipsec
-	if (!&version_atleast(3)  ||  &shorewall_config('IPSECFILE') eq 'ipsec') {
-		return 0;
-	}
+# Shorewall 3.4.0 - 3.4.4 have a bug that prevents the old format from being used.
+if (&version_atleast(3, 4)  &&  !&version_atleast(3, 4, 5)) {
 	return 1;
+	}
+# Zones table is in new format in Shorewall 3, unless shorewall.conf has
+# IPSECFILE=ipsec
+if (!&version_atleast(3)  ||  &shorewall_config('IPSECFILE') eq 'ipsec') {
+	return 0;
+	}
+return 1;
 }
 
 # read_table_file(table, &parserfunc)
+# Read lines from a file and call the parser function on each one, and put the
+# results into an array
 sub read_table_file
 {
-local @rv;
-local $func = $_[1];
-open(FILE, "<$config{'config_dir'}/$_[0]");
+my ($table, $func) = @_;
+my @rv;
+open(FILE, "<$config{'config_dir'}/$table");
 while(<FILE>) {
 	s/\r|\n//g;
 	local $l = &$func($_);
@@ -109,11 +98,11 @@ return @rv;
 # read_table_struct(table, &parserfunc)
 sub read_table_struct
 {
-if (!defined($read_table_cache{$_[0]})) {
-	local @rv;
-	local $func = $_[1];
-	open(FILE, "<$config{'config_dir'}/$_[0]");
-	local $lnum = 0;
+my ($table, $func) = @_;
+if (!defined($read_table_cache{$table})) {
+	my @rv;
+	open(FILE, "<$config{'config_dir'}/$table");
+	my $lnum = 0;
 	while(<FILE>) {
 		s/\r|\n//g;
 		local $cmt;
@@ -123,8 +112,8 @@ if (!defined($read_table_cache{$_[0]})) {
 		local $l = &$func($_);
 		if ($l) {
 			push(@rv, { 'line' => $lnum,
-				    'file' => "$config{'config_dir'}/$_[0]",
-				    'table' => $_[0],
+				    'file' => "$config{'config_dir'}/$table",
+				    'table' => $table,
 				    'index' => scalar(@rv),
 				    'values' => $l,
 				    'comment' => $cmt });
@@ -132,20 +121,19 @@ if (!defined($read_table_cache{$_[0]})) {
 		$lnum++;
 		}
 	close(FILE);
-	$read_table_cache{$_[0]} = \@rv;
+	$read_table_cache{$table} = \@rv;
 	}
-return $read_table_cache{$_[0]};
+return $read_table_cache{$table};
 }
 
 # find_line_num(&lref, &parserfunc, index)
 sub find_line_num
 {
-local $lref = $_[0];
-local $func = $_[1];
-local $idx = 0;
-for($i=0; $i<@$lref; $i++) {
+my ($lref, $func, $wantidx) = @_;
+my $idx = 0;
+for(my $i=0; $i<@$lref; $i++) {
 	if (&$func($lref->[$i])) {
-		if ($idx++ == $_[2]) {
+		if ($idx++ == $wantidx) {
 			return $i;
 			}
 		}
@@ -154,39 +142,43 @@ return undef;
 }
 
 # delete_table_row(table, &parserfunc, index)
+# Delete the line for one row from a table
 sub delete_table_row
 {
-local $lref = &read_file_lines("$config{'config_dir'}/$_[0]");
-local $lnum = &find_line_num($lref, $_[1], $_[2]);
+my ($table, $func, $idx) = @_;
+my $lref = &read_file_lines("$config{'config_dir'}/$table");
+my $lnum = &find_line_num($lref, $func, $idx);
 splice(@$lref, $lnum, 1) if (defined($lnum));
-&flush_file_lines();
+&flush_file_lines("$config{'config_dir'}/$table");
 }
 
 # delete_table_struct(&struct)
+# Delete the line corresponding to some structure from a config file
 sub delete_table_struct
 {
-local $lref = &read_file_lines($_[0]->{'file'});
-splice(@$lref, $_[0]->{'line'}, 1);
-&flush_file_lines();
-local $cache = $read_table_cache{$_[0]->{'table'}};
-local $idx = &indexof($_[0], @$cache);
+my ($str) = @_;
+my $lref = &read_file_lines($str->{'file'});
+splice(@$lref, $str->{'line'}, 1);
+&flush_file_lines($str->{'file'});
+my $cache = $read_table_cache{$str->{'table'}};
+my $idx = &indexof($str, @$cache);
 if ($idx >= 0) {
 	splice(@$cache, $idx, 1);
 	}
-local $c;
-foreach $c (@$cache) {
-	$c->{'line'}-- if ($c->{'line'} > $_[0]->{'line'});
-	$c->{'index'}-- if ($c->{'index'} > $_[0]->{'index'});
+foreach my $c (@$cache) {
+	$c->{'line'}-- if ($c->{'line'} > $str->{'line'});
+	$c->{'index'}-- if ($c->{'index'} > $str->{'index'});
 	}
 }
 
 # create_table_row(table, &parserfunc, line, [insert-index])
+# Add a row to a config table, at the end or before some index
 sub create_table_row
 {
-local $lref = &read_file_lines("$config{'config_dir'}/$_[0]");
-local ($i, $idx);
-$idx = -1;
-for($i=0; $i<@$lref; $i++) {
+my ($table, $pfunc, $line, $insert) = @_;
+my $lref = &read_file_lines("$config{'config_dir'}/$table");
+my $idx = -1;
+for(my $i=0; $i<@$lref; $i++) {
 	if ($lref->[$i] =~ /^#+\s*LAST\s+LINE/) {
 		$idx = $i;
 		last;
@@ -200,31 +192,34 @@ for($i=0; $i<@$lref; $i++) {
 		last;
 		}
 	}
-if (defined($_[3])) {
-	local $lnum = &find_line_num($lref, $_[1], $_[3]);
+my $txt = &simplify_line($line);
+if (defined($insert)) {
+	my $lnum = &find_line_num($lref, $pfunc, $insert);
 	$lnum = $idx if (!defined($lnum));
 	if ($lnum < 0) {
-		push(@$lref, &simplify_line($_[2]));
+		push(@$lref, $txt);
 		}
 	else {
-		splice(@$lref, $lnum, 0, &simplify_line($_[2]));
+		splice(@$lref, $lnum, 0, $txt);
 		}
 	}
 else {
 	if ($idx < 0) {
-		push(@$lref, &simplify_line($_[2]));
+		push(@$lref, $txt);
 		}
 	else {
-		splice(@$lref, $idx, 0, &simplify_line($_[2]));
+		splice(@$lref, $idx, 0, $txt);
 		}
 	}
-&flush_file_lines();
+&flush_file_lines("$config{'config_dir'}/$table");
 }
 
 # create_table_struct(&struct, parserfunc, [&insert-before])
+# Convert a strucutre to lines to add to a config table
 sub create_table_struct
 {
-local $lref = &read_file_lines("$config{'config_dir'}/$_[0]->{'table'}");
+my ($str, $pfunc, $before) = @_;
+my $lref = &read_file_lines("$config{'config_dir'}/$str->{'table'}");
 my $idx = -1;
 for(my $i=0; $i<@$lref; $i++) {
 	if ($lref->[$i] =~ /^#+\s*LAST\s+LINE/) {
@@ -236,70 +231,77 @@ if ($idx < 0) {
 	# Add at end
 	$idx = scalar(@$lref);
 	}
-local $cache = &read_table_struct($_[0]->{'table'}, $_[1]);
+my $cache = &read_table_struct($str->{'table'}, $pfunc);
 if ($_[2]) {
 	# Insert into file
-	splice(@$lref, $_[2]->{'line'}, 0, &make_struct($_[0]));
-	$_[0]->{'file'} = "$config{'config_dir'}/$_[0]->{'table'}";
-	$_[0]->{'line'} = $_[2]->{'line'};
-	$_[0]->{'index'} = $_[2]->{'index'};
-	local $c;
-	foreach $c (@$cache) {
-		$_[0]->{'line'}++ if ($c->{'line'} >= $_[2]->{'line'});
-		$_[0]->{'index'}++ if ($c->{'index'} >= $_[2]->{'index'});
+	splice(@$lref, $before->{'line'}, 0, &make_struct($str));
+	$str->{'file'} = "$config{'config_dir'}/$str->{'table'}";
+	$str->{'line'} = $before->{'line'};
+	$str->{'index'} = $before->{'index'};
+	foreach my $c (@$cache) {
+		$str->{'line'}++ if ($c->{'line'} >= $before->{'line'});
+		$str->{'index'}++ if ($c->{'index'} >= $before->{'index'});
 		}
-	local $iidx = &indexof($_[2], @$cache);
-	splice(@$cache, $iidx, 0, $_[0]);
+	my $iidx = &indexof($before, @$cache);
+	splice(@$cache, $iidx, 0, $str);
 	}
 else {
 	# Append to file
-	splice(@$lref, $idx, 0, &make_struct($_[0]));
-	$_[0]->{'file'} = "$config{'config_dir'}/$_[0]->{'table'}";
-	$_[0]->{'line'} = $idx;
-	$_[0]->{'index'} = @$cache;
-	push(@$cache, $_[0]->{'index'});
+	splice(@$lref, $idx, 0, &make_struct($str));
+	$str->{'file'} = "$config{'config_dir'}/$str->{'table'}";
+	$str->{'line'} = $idx;
+	$str->{'index'} = @$cache;
+	push(@$cache, $str->{'index'});
 	}
-&flush_file_lines();
+&flush_file_lines("$config{'config_dir'}/$str->{'table'}");
 }
 
 # modify_table_row(table, &parserfunc, index, line)
+# Update one row in a config table
 sub modify_table_row
 {
-local $lref = &read_file_lines("$config{'config_dir'}/$_[0]");
-local $lnum = &find_line_num($lref, $_[1], $_[2]);
-$lref->[$lnum] = &simplify_line($_[3]) if (defined($lnum));
-&flush_file_lines();
+my ($table, $pfunc, $idx, $line) = @_;
+my $lref = &read_file_lines("$config{'config_dir'}/$table");
+my $lnum = &find_line_num($lref, $pfunc, $idx);
+$lref->[$lnum] = &simplify_line($line) if (defined($lnum));
+&flush_file_lines("$config{'config_dir'}/$table");
 }
 
 # modify_table_struct(&newstruct, &oldstruct)
+# Replace one structure in a table with another
 sub modify_table_struct
 {
-local $lref = &read_file_lines("$config{'config_dir'}/$_[1]->{'table'}");
-$lref->[$_[1]->{'line'}] = &make_struct($_[0]);
-if ($_[0] ne $_[1]) {
-	$_[0]->{'line'} = $_[1]->{'line'};
-	$_[0]->{'index'} = $_[1]->{'index'};
-	local $cache = $read_table_cache{$_[1]->{'table'}};
-	local $idx = &indexof($_[1], @$cache);
-	$cache->[$idx] = $_[0];
+my ($oldstr, $newstr) = @_;
+my $lref = &read_file_lines("$config{'config_dir'}/$newstr->{'table'}");
+$lref->[$newstr->{'line'}] = &make_struct($oldstr);
+if ($oldstr ne $newstr) {
+	$oldstr->{'line'} = $newstr->{'line'};
+	$oldstr->{'index'} = $newstr->{'index'};
+	my $cache = $read_table_cache{$newstr->{'table'}};
+	my $idx = &indexof($newstr, @$cache);
+	$cache->[$idx] = $oldstr;
 	}
-&flush_file_lines();
+&flush_file_lines("$config{'config_dir'}/$newstr->{'table'}");
 }
 
 # swap_table_rows(table, &parserfunc, index1, index2)
+# Swap two config lines in some table
 sub swap_table_rows
 {
-local $lref = &read_file_lines("$config{'config_dir'}/$_[0]");
-local $lnum1 = &find_line_num($lref, $_[1], $_[2]);
-local $lnum2 = &find_line_num($lref, $_[1], $_[3]);
+my ($table, $pfunc, $idx1, $idx2) = @_;
+my $lref = &read_file_lines("$config{'config_dir'}/$table");
+my $lnum1 = &find_line_num($lref, $pfunc, $idx1);
+my $lnum2 = &find_line_num($lref, $pfunc, $idx2);
 ($lref->[$lnum1], $lref->[$lnum2]) = ($lref->[$lnum2], $lref->[$lnum1]);
-&flush_file_lines();
+&flush_file_lines("$config{'config_dir'}/$table");
 }
 
 # make_struct(&struct)
+# Convert a config structure into a line string
 sub make_struct
 {
-local $line = join("\t", @{$_[0]->{'values'}});
+my ($str) = @_;
+my $line = join("\t", @{$_[0]->{'values'}});
 if ($_[0]->{'comment'}) {
 	$line .= "\t# $_[0]->{'comment'}";
 	}
@@ -310,128 +312,143 @@ return &simplify_line($line);
 # Removes blank fields from the end of a line
 sub simplify_line
 {
-local $rv = $_[0];
+my ($rv) = @_;
 while($rv =~ s/\s+$// || $rv =~ s/\-$//) { }
 return $rv;
 }
 
+# lock_table(table)
+# Lock the config file for some table
 sub lock_table
 {
-&lock_file("$config{'config_dir'}/$_[0]");
+my ($table) = @_;
+&lock_file("$config{'config_dir'}/$table");
 }
 
+# unlock_table(table)
+# Release the lock on the config file for some table
 sub unlock_table
 {
-&unlock_file("$config{'config_dir'}/$_[0]");
+my ($table) = @_;
+&unlock_file("$config{'config_dir'}/$table");
 }
 
-# parser for whitespace-separated config files
+# standard_parser(line)
+# Parser for whitespace-separated config files. Converts a line of text
+# into an array ref of values.
 sub standard_parser
 {
-local $l = $_[0];
+my ($l) = @_;
 $l =~ s/#.*$//;
-local @sp = split(/\s+/, $l);
+my @sp = split(/\s+/, $l);
 return undef if ($sp[0] =~ /\??SECTION/ || $sp[0] =~ /\??FORMAT/);
 return @sp ? \@sp : undef;
 }
 
-# parser for shell-style config files
+# config_parser(line)
+# Parser for shell-style config files. Converts a line of text
+# into an array ref of values.
 sub config_parser
 {
-    local $l = $_[0];
-    $l =~ s/#\s*(.*?)\s*$//;		# save the comment we strip
-    local @sp = split(/=/, $l, 2);
-    if ($#sp > -1 && defined $1) {
+my ($l) = @_;
+$l =~ s/#\s*(.*?)\s*$//;		# save the comment we strip
+my @sp = split(/=/, $l, 2);
+if ($#sp > -1 && defined $1) {
 	push @sp, $1;			# add back the saved comment, if present
 	}
-    return @sp ? \@sp : undef;
+return @sp ? \@sp : undef;
 }
 
-# determine which parser function to use
+# get_parser_func(&hashref)
+# Determine which parser function to use
 sub get_parser_func
 {
-    local $hashref = $_[0];
-    &get_clean_table_name($hashref);
-    local $pfunc = $hashref->{'tableclean'}."_parser";
-    if (!defined(&$pfunc)) {
+my ($hashref) = @_;
+&get_clean_table_name($hashref);
+my $pfunc = $hashref->{'tableclean'}."_parser";
+if (!defined(&$pfunc)) {
 	if ($hashref->{'tableclean'} =~ /^(params|shorewall_conf)$/) {
-	    $pfunc = "config_parser";
-	}
+		$pfunc = "config_parser";
+		}
 	else {
-	    $pfunc = "standard_parser";
+		$pfunc = "standard_parser";
+		}
 	}
-    }
-    return $pfunc;
+return $pfunc;
 }
 
+# clean_name(string)
 # ensure that the passed string contains only characters valid in shell variable identifiers
 sub clean_name
 {
-    local $str = $_[0];
-    $str =~ s/\W/_/g;
-    return $str;
+my ($str) = @_;
+$str =~ s/\W/_/g;
+return $str;
 }
 
+# get_clean_table_name(table)
 # get a table name that is clean enough to use as a function prefix
 sub get_clean_table_name
 {
-    local $hashref = $_[0];
-    if (!exists hashref->{'tableclean'}) {
+my ($hashref) = @_;
+if (!exists $hashref->{'tableclean'}) {
 	$hashref->{'tableclean'} = &clean_name($in{'table'});
-    }
+	}
 }
 
 # zone_field(name, value, othermode, simplemode)
+# Returns the HTML for a zone selector field, and a flag indicating
+# if the current value is a valid zone.
 sub zone_field
 {
-local @ztable = &read_table_file("zones", \&zones_parser);
-local $found = 0;
-
-print "<select name=$_[0]>\n";
-if ($_[3] == 2) {
-	$found = !$_[1];
+my ($name, $value, $other, $simple) = @_;
+my @ztable = &read_table_file("zones", \&zones_parser);
+my $found = 0;
+my @opts;
+if ($simple == 2) {
+	$found = !$value;
 	}
-elsif ($_[3] == 1) {
-	printf "<option value=- %s>%s</option>\n",
-		$_[1] eq '-' ? "selected" : "", "&lt;$text{'list_any'}&gt;";
-	$found = !$_[1] || $_[1] eq '-';
+elsif ($simple == 1) {
+	push(@opts, [ '-', "&lt;$text{'list_any'}&gt;" ]);
+	$found = !$value || $value eq '-';
 	}
-elsif ($_[3] == 0) {
-	printf "<option value=all %s>%s</option>\n",
-		$_[1] eq 'all' ? "selected" : "", "&lt;$text{'list_any'}&gt;";
-	printf "<option value=\$FW %s>%s</option>\n",
-		&is_fw($_[1]) ? "selected" : "", "&lt;$text{'list_fw'}&gt;";
-	$found = !$_[1] || $_[1] eq 'all' || &is_fw($_[1]);
+elsif ($simple == 0) {
+	push(@opts, [ 'all', "&lt;$text{'list_any'}&gt;" ]);
+	push(@opts, [ '$FW', "&lt;$text{'list_fw'}&gt;" ]);
+	$value = '$FW' if (&is_fw($value));
+	$found = !$value || $value eq 'all' || $value eq '$FW';
 	}
-foreach $z (@ztable) {
-	printf "<option value=%s %s>%s</option>\n",
-		$z->[0], $_[1] eq $z->[0] ? "selected" : "", &convert_zone($z->[0]);
-	$found++ if ($_[1] eq $z->[0]);
+foreach my $z (@ztable) {
+	push(@opts, [ $z->[0], &convert_zone($z->[0]) ]);
+	$found++ if ($value eq $z->[0]);
 	}
-if ($_[2]) {
-	printf "<option value='' %s>%s</option>\n",
-		$found ? "" : "selected", $text{'list_other'};
+if ($other) {
+	push(@opts, [ '', $text{'list_other'} ]);
 	}
-else {
-	print "<option value=$_[1] selected>$_[1]</option>\n" if (!$found);
+elsif (!$found) {
+	push(@opts, [ $value, $value ]);
 	}
-print "</select>\n";
-return $found;
+my $selv = $value;
+if ($other && !$found) {
+	# Value is not in the list, so select the Other.. option
+	$selv = '';
+	}
+elsif ($value eq '' && @opts) {
+	# New entry, so select the first option
+	$selv = $opts[0]->[0];
+	}
+my $sel = &ui_select($name, $selv, \@opts);
+return wantarray ? ($sel, $found) : $sel;
 }
 
 # iface_field(name, value)
+# Returns HTML for a network interface selector
 sub iface_field
 {
-local @itable = &read_table_file("interfaces", \&standard_parser);
-print "<select name=$_[0]>\n";
-local $found = !$_[1];
-foreach $i (@itable) {
-	printf "<option value=%s %s>%s</option>\n",
-		$i->[1], $_[1] eq $i->[1] ? "selected" : "", $i->[1];
-	$found++ if ($_[1] eq $i->[1]);
-	}
-print "<option value=$_[1] selected>$_[1]</option>\n" if (!$found);
-print "</select>\n";
+my ($name, $value) = @_;
+my @itable = &read_table_file("interfaces", \&standard_parser);
+my @opts = map { $_->[1] } @itable;
+return &ui_select($name, $value, \@opts, 1, 0, $value ? 1 : 0);
 }
 
 # convert_zone(name)
@@ -466,7 +483,7 @@ return $ret || $_[0];
 # Convert a comma-separate host string to space-separated
 sub nice_host_list
 {
-local @hosts = split(/,/, $_[0]);
+my @hosts = split(/,/, $_[0]);
 if (@host > 5) {
 	return join(", ", @hosts[0..5]).", ...";
 	}
@@ -480,52 +497,52 @@ else {
 #   Now handles renaming of firewall zone in shorewall.conf.
 sub is_fw
 {
-	local $fw = &shorewall_config('FW');
-	$fw = 'fw' if ($fw eq '');
-	return $_[0] eq '$FW' || $_[0] eq $fw;
+my ($zone) = @_;
+my $fw = &shorewall_config('FW');
+$fw = 'fw' if ($fw eq '');
+return $zone eq '$FW' || $zone eq $fw;
 }
 
 ################################# zones #######################################
 
 sub zones_parser
 {
+my ($l) = @_;
 if (&new_zones_format()) {
 	# New format
-	local $l = $_[0];
 	$l =~ s/#\s*(.*?)\s*$//;	# save the stripped comment
-	local $comment = $1 if defined $1;
-	local @r = split(/\s+/, $l, 6);
+	my $comment = $1 if defined $1;
+	my @r = split(/\s+/, $l, 6);
 	if ($#r > -1) {
-	    local $zone = shift @r;
+		my $zone = shift(@r);
 
-	    # split out parent if it is present in the zone field
-	    local $parent;
-	    $zone =~ m/(.*?):(.*)/;
-	    if (defined $2) {
-		$zone = $1;
-		$parent = $2;
-		}
-	    else {
-		$parent = "";
-		}
-	    unshift @r, $zone, $parent;
+		# split out parent if it is present in the zone field
+		my $parent;
+		$zone =~ m/(.*?):(.*)/;
+		if (defined $2) {
+			$zone = $1;
+			$parent = $2;
+			}
+		else {
+			$parent = "";
+			}
+		unshift(@r, $zone, $parent);
 
-	    # put the saved comment back
-	    if (defined $comment) {
-		# ensure option fields are present
-		while ($#r < 5) {
-		    push @r, "";
-		}
+		# put the saved comment back
+		if (defined $comment) {
+			# ensure option fields are present
+			while ($#r < 5) {
+				push @r, "";
+			}
 
-		# add the comment field
-		push @r, $comment;
+			# add the comment field
+			push @r, $comment;
+			}
 		}
-	    }
 	return scalar(@r) ? \@r : undef;
 	}
 else {
 	# Old format
-	local $l = $_[0];
 	$l =~ s/#.*$//;
 	if ($l =~ /^(\S+)\s+(\S+)\s*(.*)/) {
 		return [ $1, $2, $3 ];
@@ -556,8 +573,6 @@ sub zones_colnames
 {
 if (&new_zones_format()) {
 	return ( $text{'zones_0'}, $text{'zones_1new'}, $text{'zones_2new'},
-# The option fields are not displayed in the main list.
-#		$text{'zones_3new'}, $text{'zones_4new'}, $text{'zones_5new'},
 		$text{'zones_6new'} );
 	}
 else {
@@ -569,43 +584,41 @@ sub zones_form
 {
 if (&new_zones_format()) {
 	# Shorewall 3 zones format
-	print "<tr> <td><b>$text{'zones_0'}</b></td>\n";
-	print "<td>",&ui_textbox("id", $_[0], 8),"</td>\n";
+	print &ui_table_row($text{'zones_0'},
+		&ui_textbox("id", $_[0], 8));
 
-	print "<td><b>$text{'zones_1new'}</b></td>\n";
-	print "<td>\n";
-	&zone_field("parent", $_[1], 0, 1);
-	print "</td> </tr>\n";
+	my $zf = &zone_field("parent", $_[1], 0, 1);
+	print &ui_table_row($text{'zones_1new'}, $zf);
 
-	print "<td><b>$text{'zones_2new'}</b></td>\n";
-	print "<td>",&ui_select("type", $_[2],
-		[ [ "ipv4", $text{'zones_ipv4'} ],
-		  [ "ipsec", $text{'zones_ipsec'} ],
-		  [ "firewall", $text{'zones_firewall'} ] ]),"</td> </tr>\n";
+	print &ui_table_row($text{'zones_2new'},
+	    &ui_select("type", $_[2],
+			[ [ "ipv4", $text{'zones_ipv4'} ],
+			  [ "ipsec", $text{'zones_ipsec'} ],
+			  [ "firewall", $text{'zones_firewall'} ] ]));
 
-	print "<tr> <td><b>$text{'zones_3new'}</b></td>\n";
-	print "<td>",&ui_textbox("opts", $_[3], 50),"</td> </tr>\n";
+	print &ui_table_row($text{'zones_3new'},
+		&ui_textbox("opts", $_[3], 50));
 
-	print "<tr> <td><b>$text{'zones_4new'}</b></td>\n";
-	print "<td>",&ui_textbox("opts_in", $_[4], 50),"</td> </tr>\n";
+	print &ui_table_row($text{'zones_4new'},
+		&ui_textbox("opts_in", $_[4], 50));
 
-	print "<tr> <td><b>$text{'zones_5new'}</b></td>\n";
-	print "<td>",&ui_textbox("opts_out", $_[5], 50),"</td> </tr>\n";
+	print &ui_table_row($text{'zones_5new'},
+		&ui_textbox("opts_out", $_[5], 50));
 
-	print "<tr> <td><b>$text{'zones_6new'}</b></td>\n";
-	print "<td>",&ui_textbox("comment", $_[6], 50),"</td> </tr>\n";
+	print &ui_table_row($text{'zones_6new'},
+		&ui_textbox("comment", $_[6], 50));
 
 	}
 else {
 	# Shorewall 2 zones format
-	print "<tr> <td><b>$text{'zones_0'}</b></td>\n";
-	print "<td><input name=id size=8 value='$_[0]'></td> </tr>\n";
+	print &ui_table_row($text{'zones_0'},
+		&ui_textbox("id", $_[0], 8));
 
-	print "<tr> <td><b>$text{'zones_1'}</b></td>\n";
-	print "<td><input name=name size=15 value='$_[1]'></td> </tr>\n";
+	print &ui_table_row($text{'zones_1'},
+		&ui_textbox("name", $_[1], 15));
 
-	print "<tr> <td><b>$text{'zones_2'}</b></td>\n";
-	print "<td><input name=desc size=70 value='$_[2]'></td> </tr>\n";
+	print &ui_table_row($text{'zones_2'},
+		&ui_textbox("desc", $_[2], 70));
 	}
 }
 
@@ -668,8 +681,8 @@ else {
 	}
 }
 
-@interfaces_opts = ( 'dhcp', 'multi', 'routefilter',
-		     'maclist', 'tcpflags', 'proxyarp' );
+our @interfaces_opts = ( 'dhcp', 'multi', 'routefilter',
+		         'maclist', 'tcpflags', 'proxyarp' );
 if (!&version_atleast(5, 0, 4)) {
 	push(@interfaces_opts, 'noping', 'filterping', 'routestopped',
 		       'norfc1918', 'dropunclean', 'logunclean', 'blacklist');
@@ -681,38 +694,27 @@ if (&version_atleast(3)) {
 
 sub interfaces_form
 {
-print "<tr> <td><b>$text{'interfaces_0'}</b></td>\n";
-print "<td><input name=iface size=6 value='$_[1]'></td>\n";
+print &ui_table_row($text{'interfaces_0'},
+	&ui_textbox("iface", $_[1], 6));
 
-local @ztable = &read_table_file("zones", \&zones_parser);
-print "<td><b>$text{'interfaces_1'}</b></td>\n";
-print "<td>\n";
-&zone_field("zone", $_[0], 0, 1);
-print "</td> </tr>\n";
+my $zf = &zone_field("zone", $_[0], 0, 1);
+print &ui_table_row($text{'interfaces_1'}, $zf);
 
 if (&new_interfaces_format()) {
-	local %opts = map { $_, 1 } split(/,/, $_[2]);
-	print "<tr> <td valign=top><b>$text{'interfaces_3'}</b></td> <td colspan=3>\n";
-	&options_input("opts", $_[2], \@interfaces_opts);
-	print "</td> </tr>\n";
+	print &ui_table_row($text{'interfaces_3'},
+		&options_input("opts", $_[2], \@interfaces_opts));
 	}
 else {
-	local $bmode = $_[2] eq 'detect' ? 2 :
-		$_[2] eq '-' || $_[2] eq '' ? 1 : 0;
-	print "<tr> <td><b>$text{'interfaces_2'}</b></td> <td colspan=3>\n";
-	printf "<input type=radio name=broad_mode value=1 %s> %s\n",
-		$bmode == 1 ? "checked" : "", $text{'list_none'};
-	printf "<input type=radio name=broad_mode value=2 %s> %s\n",
-		$bmode == 2 ? "checked" : "", $text{'list_auto'};
-	printf "<input type=radio name=broad_mode value=0 %s>\n",
-		$bmode == 0 ? "checked" : "";
-	printf "<input name=broad size=50 value='%s'></td> </tr>\n",
-		$bmode == 0 ? $_[2] : "";
+	my $bmode = $_[2] eq 'detect' ? 2 :
+		    $_[2] eq '-' || $_[2] eq '' ? 1 : 0;
+	print &ui_table_row($text{'interfaces_2'},
+	     &ui_radio("broad_mode", $bmode,
+		  [ [ 1, $text{'list_none'} ],
+		    [ 2, $text{'list_auto'} ],
+		    [ 0, &ui_textbox("broad", $bmode == 0 ? $_[2] : "", 50) ] ]));
 
-	local %opts = map { $_, 1 } split(/,/, $_[3]);
-	print "<tr> <td valign=top><b>$text{'interfaces_3'}</b></td> <td colspan=3>\n";
-	&options_input("opts", $_[3], \@interfaces_opts);
-	print "</td> </tr>\n";
+	print &ui_table_row($text{'interfaces_3'},
+		&options_input("opts", $_[3], \@interfaces_opts));
 	}
 }
 
@@ -720,8 +722,8 @@ sub interfaces_validate
 {
 $in{'iface'} =~ /^[a-z]+\d*(s\d*)?(\.\d+)?$/ ||
 	$in{'iface'} =~ /^[a-z]+\+$/ || &error($text{'interfaces_eiface'});
-local @result = ( $in{'zone'}, $in{'iface'});
-if (not &new_interfaces_format()) {
+my @result = ( $in{'zone'}, $in{'iface'});
+if (!&new_interfaces_format()) {
 	$in{'broad_mode'} || $in{'broad'} =~ /^[0-9\.,]+$/ ||
 		&error($text{'interfaces_ebroad'});
 	push(@result, $in{'broad_mode'} == 2 ? 'detect' :
@@ -738,10 +740,9 @@ return &new_interfaces_format() ? 3 : 4;
 
 sub interfaces_colnames
 {
-local @result = (
-	$text{'interfaces_0'},
-	$text{'interfaces_1'} );
-if (not &new_interfaces_format()) {
+my @result = ( $text{'interfaces_0'},
+	       $text{'interfaces_1'} );
+if (!&new_interfaces_format()) {
 	push(@result, $text{'interfaces_2'});
 	}
 push(@result, $text{'interfaces_3'});
@@ -761,58 +762,30 @@ return ( $_[0] eq 'all' ? $text{'list_any'} :
 				: $text{'list_none'} );
 }
 
-@policy_list = ( "ACCEPT", "DROP", "REJECT", "CONTINUE" );
+our @policy_list = ( "ACCEPT", "DROP", "REJECT", "CONTINUE" );
 
 sub policy_form
 {
-local $found;
+my $zf = &zone_field("source", $_[0], 0);
+print &ui_table_row($text{'policy_0'}, $zf);
 
-print "<tr> <td><b>$text{'policy_0'}</b></td>\n";
-print "<td>\n";
-&zone_field("source", $_[0], 0);
-print "</td>\n";
+$zf = &zone_field("dest", $_[1], 0);
+print &ui_table_row($text{'policy_1'}, $zf);
 
-print "<td><b>$text{'policy_1'}</b></td>\n";
-print "<td>\n";
-&zone_field("dest", $_[1], 0);
-print "</td> </tr>\n";
+print &ui_table_row($text{'policy_2'},
+	&ui_select("policy", uc($_[2]), \@policy_list, 1, 0, $_[2] ? 1 : 0));
 
-print "<tr> <td><b>$text{'policy_2'}</b></td>\n";
-print "<td><select name=policy>\n";
-$found = !$_[2];
-foreach $p (@policy_list) {
-	printf "<option value=%s %s>%s</option>\n",
-		$p, lc($p) eq lc($_[2]) ? "selected" : "", $p;
-	$found++ if (lc($p) eq lc($_[2]));
-	}
-print "<option value=$_[2] selected>$_[2]</option>\n" if (!$found);
-print "</select></td>\n";
+&foreign_require("syslog");
+print &ui_table_row($text{'policy_3'},
+	&ui_select("log", $_[3] || '-',
+		[ [ '-', "&lt;$text{'policy_nolog'}&gt;" ],
+		  [ 'ULOG', "&lt;$text{'policy_ulog'}&gt;" ],
+		  &syslog::list_priorities() ], 1, 0, 1));
 
-print "<td><b>$text{'policy_3'}</b></td>\n";
-print "<td><select name=log>\n";
-printf "<option value=- %s>%s</option>\n",
-	$_[3] eq '-' || !$_[3] ? "selected" : "", "&lt;$text{'policy_nolog'}&gt;";
-printf "<option value=ULOG %s>%s</option>\n",
-	$_[3] eq 'ULOG' ? "selected" : "", "&lt;$text{'policy_ulog'}&gt;";
-$found = !$_[3] || $_[3] eq '-' || $_[3] eq 'ULOG';
-&foreign_require("syslog", "syslog-lib.pl");
-foreach $l (&syslog::list_priorities()) {
-	printf "<option value=%s %s>%s</option>\n",
-		$l, $_[3] eq $l ? "selected" : "", $l;
-	$found++ if ($_[3] eq $l);
-	}
-print "<option value=$_[3] selected>$_[3]</option>\n" if (!$found);
-print "</select></td> </tr>\n";
-
-local ($l, $b) = $_[4] =~ /(\d+):(\d+)/ ? ($1, $2) : ( );
-print "<tr> <td><b>$text{'policy_4'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=limit_def value=1 %s> %s\n",
-	$l eq '' ? "checked" : "", $text{'list_none'};
-printf "<input type=radio name=limit_def value=0 %s>\n",
-	$l eq '' ? "" : "checked";
-print &text('policy_limit',
-	    "<input name=limit size=5 value='$l'>",
-	    "<input name=burst size=5 value='$b'>"),"</td> </tr>\n";
+my ($l, $b) = $_[4] =~ /(\d+):(\d+)/ ? ($1, $2) : ( );
+print &ui_table_row($text{'policy_4'},
+	&ui_opt_textbox("limit", $l, 5, $text{'list_none'})." ".
+	&ui_textbox("burst", $b, 5));
 }
 
 sub policy_validate
@@ -856,7 +829,7 @@ return ( $_[0] =~ /^(\S+):/ ? "$1" : $_[0],
 	);
 }
 
-@rules_actions = ( 'ACCEPT', 'DROP', 'REJECT', 'DNAT', 'DNAT-', 'REDIRECT' );
+our @rules_actions = ('ACCEPT', 'DROP', 'REJECT', 'DNAT', 'DNAT-', 'REDIRECT');
 if (&version_atleast(2, 0, 0)) {
 	push(@rules_actions, 'CONTINUE');
 	push(@rules_actions, 'ACCEPT+');
@@ -870,147 +843,110 @@ if (&version_atleast(3)) {
 	push(@rules_actions, 'SAME-');
 	push(@rules_actions, 'QUEUE');
 	}
-@rules_protos = ( 'all', 'related', 'tcp', 'udp', 'icmp' );
+our @rules_protos = ( 'all', 'related', 'tcp', 'udp', 'icmp' );
 
 sub rules_form
 {
-local $found;
-local @ztable = &read_table_file("zones", \&zones_parser);
-
-local ($action, $log) = split(/:/, $_[0]);
-local $macroarg;
+my ($action, $log) = split(/:/, $_[0]);
+my $macroarg;
 if ($action =~ /^(.*)\/(.*)$/) {
 	$action = $1;
 	$macroarg = $2;
 	}
 
-# Rule action
-print "<tr> <td><b>$text{'rules_0'}</b></td>\n";
-print "<td colspan=3><select name=action>\n";
-$found = !$_[0];
-foreach $a ((sort { $a cmp $b } @rules_actions),
-	    "-------- Actions --------",
-	    &list_standard_actions(),
-	    (&version_atleast(3) ? ( "-------- Macros --------",
-				     &list_standard_macros() ) : ( ) )) {
-	printf "<option value=%s %s>%s</option>\n",
-		$a, $action eq $a ? "selected" : "", $a;
-	$found++ if ($action eq $a);
-	}
-print "<option value=$action selected>$action</option>\n" if (!$found);
-print "</select>\n";
+# Rule action and logging level
+my @aopts = ( (sort { $a cmp $b } @rules_actions),
+	      "-------- Actions --------",
+	      &list_standard_actions(),
+	      (&version_atleast(3) ? ( "-------- Macros --------",
+				       &list_standard_macros() ) : ( ) ) );
+&foreign_require("syslog");
+print &ui_table_row($text{'rules_0'},
+	&ui_select("action", $action, \@aopts, 1, 0, $action ? 1 : 0)." ".
+	"<b>$text{'rules_log'}</b> ".
+	&ui_select("log", $log,
+		[ [ '', "&lt;$text{'rules_nolog'}&gt;" ],
+		  [ 'ULOG', "&lt;$text{'policy_ulog'}&gt;" ],
+		  &syslog::list_priorities() ], 1, 0, $log ? 1 : 0),
+	3);
 
-# Logging level
-print "<b>$text{'rules_log'}</b> <select name=log>\n";
-printf "<option value='' %s>%s</option>\n",
-	!$log ? "selected" : "", "&lt;$text{'rules_nolog'}&gt;";
-printf "<option value=ULOG %s>%s</option>\n",
-	$log eq 'ULOG' ? "selected" : "", "&lt;$text{'policy_ulog'}&gt;";
-$found = !$log || $log eq '-' || $log eq 'ULOG';
-&foreign_require("syslog", "syslog-lib.pl");
-foreach $l (&syslog::list_priorities()) {
-	printf "<option value=%s %s>%s</option>\n",
-		$l, $log eq $l ? "selected" : "", $l;
-	$found++ if ($log eq $l);
-	}
-print "<option value=$log selected>$log</option>\n" if (!$found);
-print "</select></td> </tr>\n";
-
+# Macro parameter
 if (&version_atleast(3)) {
-	print "<tr> <td valign=top><b>$text{'rules_macro'}</b></td>\n";
-	print "<td colspan=3 nowrap>\n";
-	print &ui_select("macro", $macroarg,
-		[ [ "", "&lt;$text{'rules_none2'}&gt;" ],
-		  map { [ $_ ] } (sort { $a cmp $b } @rules_actions) ],
-		1, 0, $macroarg);
-	print "</td> </tr>\n";
+	print &ui_table_row($text{'rules_macro'},
+		&ui_select("macro", $macroarg,
+			[ [ "", "&lt;$text{'rules_none2'}&gt;" ],
+			  map { [ $_ ] } (sort { $a cmp $b } @rules_actions) ],
+			1, 0, $macroarg ? 1 : 0),
+		3);
 	}
 
 # Source zone and hosts
-local ($zone, $host) = split(/:/, $_[1], 2);
-print "<tr> <td valign=top><b>$text{'rules_1z'}</b></td>\n";
-print "<td colspan=3 nowrap>\n";
-$found = &zone_field("source", $zone, 1);
-printf "<input name=sother size=10 value='%s'>\n",
-	$found ? "" : $zone;
+my ($zone, $host) = split(/:/, $_[1], 2);
+my ($zf, $found) = &zone_field("source", $zone, 1);
+print &ui_table_row($text{'rules_1z'},
+	$zf." ".
+	&ui_textbox("sother", $found ? "" : $zone, 10)."<br>\n".
+	&ui_checkbox("sinzone_def", 1, $text{'rules_addr'}, $host ? 1 : 0)." ".
+	&ui_textbox("sinzone", join(" ", split(/,/, $host)), 50),
+	3);
 
-print "<br><b>$text{'rules_inzone'}</b>\n";
-printf "<input type=checkbox name=sinzone_def value=1 %s> %s\n",
-	$host ? "checked" : "", $text{'rules_addr'};
-printf "<input name=sinzone size=50 value='%s'></td> </tr>\n",
-	join(" ", split(/,/, $host));
-
+# Destination zone and hosts
 ($zone, $host) = split(/:/, $_[2], 2);
-print "<tr> <td valign=top><b>$text{'rules_2z'}</b></td>\n";
-print "<td colspan=3 nowrap>\n";
-$found = &zone_field("dest", $zone, 1);
-printf "<input name=dother size=10 value='%s'>\n",
-	$found ? "" : $zone;
+($zf, $found) = &zone_field("dest", $zone, 1);
+print &ui_table_row($text{'rules_2z'},
+	$zf." ".
+	&ui_textbox("dother", $found ? "" : $zone, 10)."<br>\n".
+	&ui_checkbox("dinzone_def", 1, $text{'rules_addr'}, $host ? 1 : 0)." ".
+	&ui_textbox("dinzone", join(" ", split(/,/, $host)), 50)."<br>\n".
+	$text{'rules_dnat_dest'},
+	3);
 
-print "<br><b>$text{'rules_inzone'}</b>\n";
-printf "<input type=checkbox name=dinzone_def value=1 %s> %s\n",
-	$host ? "checked" : "", $text{'rules_addr'};
-printf "<input name=dinzone size=50 value='%s'>\n",
-	join(" ", split(/,/, $host));
-print "<br>$text{'rules_dnat_dest'}</td> </tr>\n";
-
-print "<tr> <td><b>$text{'rules_3'}</b></td>\n";
-print "<td colspan=3><select name=proto>\n";
+# Protocol
+my @popts;
 $found = !$_[3];
-foreach $p (@rules_protos) {
-	printf "<option value=%s %s>%s</option>\n",
-		$p, $p eq $_[3] ? "selected" : "",
-		$p eq 'all' ? "&lt;$text{'list_any'}&gt;" :
-		 $p eq 'related' ? "&lt;$text{'rules_related'}&gt;" : uc($p);
+foreach my $p (@rules_protos) {
+	push(@popts, [ $p, $p eq 'all' ? "&lt;$text{'list_any'}&gt;" :
+			   $p eq 'related' ? "&lt;$text{'rules_related'}&gt;" :
+			   uc($p) ]);
 	$found++ if ($p eq $_[3]);
 	}
-printf "<option value='' %s>%s</option>\n",
-	$found ? "" : "selected", $text{'list_other'};
-print "</select>\n";
-printf "<input name=pother size=5 value='%s'></td> </tr>\n",
-	$found ? "" : $_[3];
+push(@popts, [ '', $text{'list_other'} ]);
+print &ui_table_row($text{'rules_3'},
+	&ui_select("proto", $found ? ($_[3] || 'all') : '', \@popts)." ".
+	&ui_textbox("pother", $found ? "" : $_[3], 5),
+	3);
 
-print "<tr> <td><b>$text{'rules_4'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=sport_def value=1 %s> %s\n",
-	$_[5] eq '' || $_[5] eq '-' ? "checked" : "", $text{'list_any'};
-printf "<input type=radio name=sport_def value=0 %s> %s\n",
-	$_[5] eq '' || $_[5] eq '-' ? "" : "checked", $text{'rules_ranges'};
-printf "<input name=sport size=30 value='%s'></td> </tr>\n",
-	$_[5] eq '' || $_[5] eq '-' ? "" : join(" ", split(/,/, $_[5]));
+# Source and destination ports
+print &ui_table_row($text{'rules_4'},
+	&ui_opt_textbox("sport",
+			$_[5] eq '-' ? '' : join(" ", split(/,/, $_[5])),
+			30, $text{'list_any'}, $text{'rules_ranges'}),
+	3);
 
-print "<tr> <td><b>$text{'rules_5'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=dport_def value=1 %s> %s\n",
-	$_[4] eq '' || $_[4] eq '-' ? "checked" : "", $text{'list_any'};
-printf "<input type=radio name=dport_def value=0 %s> %s\n",
-	$_[4] eq '' || $_[4] eq '-' ? "" : "checked", $text{'rules_ranges'};
-printf "<input name=dport size=30 value='%s'>\n",
-	$_[4] eq '' || $_[4] eq '-' ? "" : join(" ", split(/,/, $_[4]));
-print "<br>$text{'rules_dnat_port'}</td> </tr>\n";
+print &ui_table_row($text{'rules_5'},
+	&ui_opt_textbox("dport",
+			$_[4] eq '-' ? '' : join(" ", split(/,/, $_[4])),
+			30, $text{'list_any'}, $text{'rules_ranges'})."<br>\n".
+	$text{'rules_dnat_port'},
+	3);
 
-print "<tr> <td><b>$text{'rules_dnat'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=dnat_def value=1 %s> %s\n",
-	$_[6] eq '' || $_[6] eq '-' ? "checked" : "", $text{'list_none'};
-printf "<input type=radio name=dnat_def value=0 %s>\n",
-	$_[6] eq '' || $_[6] eq '-' ? "" : "checked";
-printf "<input name=dnat size=30 value='%s'></td> </tr>\n",
-	$_[6] eq '' || $_[6] eq '-' ? "" : $_[6];
+# Original destination for DNAT or REDIRECT
+print &ui_table_row($text{'rules_dnat'},
+	&ui_opt_textbox("dnat", $_[6] eq '-' ? '' : $_[6], 30,
+			$text{'list_none'}),
+	3);
 
+# Rate limit and user set
 if (&version_atleast(1, 4, 7)) {
-	print "<tr> <td><b>$text{'rules_rate'}</b></td> <td colspan=3>\n";
-	printf "<input type=radio name=rate_def value=1 %s> %s\n",
-		$_[7] eq "-" || !$_[7] ? "checked" : "", $text{'rules_norate'};
-	printf "<input type=radio name=rate_def value=0 %s>\n",
-		$_[7] eq "-" || !$_[7] ? "" : "checked";
-	printf "<input name=rate size=15 value='%s'></td> </tr>\n",
-		$_[7] eq "-" ? "" : $_[7];
+	print &ui_table_row($text{'rules_rate'},
+		&ui_opt_textbox("rate", $_[7] eq '-' ? '' : $_[7], 15,
+				$text{'rules_norate'}),
+		3);
 
-	print "<tr> <td><b>$text{'rules_set'}</b></td> <td colspan=3>\n";
-	printf "<input type=radio name=set_def value=1 %s> %s\n",
-		$_[8] eq "-" || !$_[8] ? "checked" : "", $text{'rules_noset'};
-	printf "<input type=radio name=set_def value=0 %s>\n",
-		$_[8] eq "-" || !$_[8] ? "" : "checked";
-	printf "<input name=set size=15 value='%s'></td> </tr>\n",
-		$_[8] eq "-" ? "" : $_[8];
+	print &ui_table_row($text{'rules_set'},
+		&ui_opt_textbox("set", $_[8] eq '-' ? '' : $_[8], 15,
+				$text{'rules_noset'}),
+		3);
 	}
 }
 
@@ -1073,12 +1009,12 @@ return &version_atleast(1, 4, 7) ? 6 : 8;
 
 ################################# tos #########################################
 
-%tos_map = ( 0, 'Normal-Service',
-	     2, 'Minimize-Cost',
-	     4, 'Maximize-Reliability',
-	     8, 'Maximize-Throughput',
-	     16, 'Minimize-Delay' );
-@tos_protos = ( 'tcp', 'udp', 'icmp' );
+our %tos_map = ( 0, 'Normal-Service',
+	         2, 'Minimize-Cost',
+	         4, 'Maximize-Reliability',
+	         8, 'Maximize-Throughput',
+	         16, 'Minimize-Delay' );
+our @tos_protos = ( 'tcp', 'udp', 'icmp' );
 
 sub tos_row
 {
@@ -1099,76 +1035,56 @@ return ( &is_fw($_[0]) ? $text{'list_fw'} :
 
 sub tos_form
 {
-local ($zone, $host) = split(/:/, $_[0], 2);
-print "<tr> <td valign=top><b>$text{'tos_0z'}</b></td>\n";
-print "<td colspan=3 nowrap>\n";
-$found = &zone_field("source", $zone, 1);
-printf "<input name=sother size=10 value='%s'>\n",
-	$found ? "" : $zone;
-
-print "<br><b>$text{'rules_inzone'}</b>\n";
-printf "<input type=checkbox name=sinzone_def value=1 %s> %s\n",
-	$host ? "checked" : "", $text{'rules_addr'};
-printf "<input name=sinzone size=50 value='%s'></td> </tr>\n",
-	join(" ", split(/,/, $host));
+my ($zone, $host) = split(/:/, $_[0], 2);
+my ($zf, $found) = &zone_field("source", $zone, 1);
+print &ui_table_row($text{'tos_0z'},
+	$zf." ".
+	&ui_textbox("sother", $found ? "" : $zone, 10)."<br>\n".
+	"<b>$text{'rules_inzone'}</b>\n".
+	&ui_checkbox("sinzone_def", 1, $text{'rules_addr'}, $host ? 1 : 0)." ".
+	&ui_textbox("sinzone", join(" ", split(/,/, $host)), 50),
+	3);
 
 ($zone, $host) = split(/:/, $_[1], 2);
-print "<tr> <td valign=top><b>$text{'tos_1z'}</b></td>\n";
-print "<td colspan=3 nowrap>\n";
-$found = &zone_field("dest", $zone, 1);
-printf "<input name=dother size=10 value='%s'>\n",
-	$found ? "" : $zone;
+($zf, $found) = &zone_field("dest", $zone, 1);
+print &ui_table_row($text{'tos_1z'},
+        $zf." ".
+        &ui_textbox("dother", $found ? "" : $zone, 10)."<br>\n".
+        "<b>$text{'rules_inzone'}</b>\n".
+        &ui_checkbox("dinzone_def", 1, $text{'rules_addr'}, $host ? 1 : 0)." ".
+	&ui_textbox("dinzone", join(" ", split(/,/, $host)), 50),
+        3);
 
-print "<br><b>$text{'rules_inzone'}</b>\n";
-printf "<input type=checkbox name=dinzone_def value=1 %s> %s\n",
-	$host ? "checked" : "", $text{'rules_addr'};
-printf "<input name=dinzone size=50 value='%s'></td> </tr>\n",
-	join(" ", split(/,/, $host));
-
-print "<tr> <td><b>$text{'tos_2'}</b></td>\n";
-print "<td><select name=proto>\n";
+my @opts;
 $found = !$_[2];
-foreach $p (@tos_protos) {
-	printf "<option value=%s %s>%s</option>\n",
-		$p, $p eq $_[2] ? "selected" : "", uc($p);
+foreach my $p (@tos_protos) {
+	push(@opts, [ $p, uc($p) ]);
 	$found++ if ($p eq $_[2]);
 	}
-printf "<option value='' %s>%s</option>\n",
-	$found ? "" : "selected", $text{'list_other'};
-print "</select>\n";
-printf "<input name=pother size=5 value='%s'></td> </tr>\n",
-	$found ? "" : $_[2];
+push(@opts, [ '', $text{'list_other'} ]);
+print &ui_table_row($text{'tos_2'},
+	&ui_select("proto", $found ? ($_[2] || $tos_protos[0]) : '', \@opts)." ".
+	&ui_textbox("pother", $found ? "" : $_[2], 5));
 
-print "<tr> <td><b>$text{'tos_3'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=sport_def value=1 %s> %s\n",
-	$_[3] eq '' || $_[3] eq '-' ? "checked" : "", $text{'list_any'};
-printf "<input type=radio name=sport_def value=0 %s> %s\n",
-	$_[3] eq '' || $_[3] eq '-' ? "" : "checked", $text{'rules_ranges'};
-printf "<input name=sport size=30 value='%s'></td> </tr>\n",
-	$_[3] eq '' || $_[3] eq '-' ? "" : join(" ", split(/,/, $_[3]));
+print &ui_table_row($text{'tos_3'},
+	&ui_opt_textbox("sport",
+			$_[3] eq '-' ? '' : join(" ", split(/,/, $_[3])),
+			30, $text{'list_any'}, $text{'rules_ranges'}));
 
-print "<tr> <td><b>$text{'tos_4'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=dport_def value=1 %s> %s\n",
-	$_[4] eq '' || $_[4] eq '-' ? "checked" : "", $text{'list_any'};
-printf "<input type=radio name=dport_def value=0 %s> %s\n",
-	$_[4] eq '' || $_[4] eq '-' ? "" : "checked", $text{'rules_ranges'};
-printf "<input name=dport size=30 value='%s'></td> </tr>\n",
-	$_[4] eq '' || $_[4] eq '-' ? "" : join(" ", split(/,/, $_[4]));
+print &ui_table_row($text{'tos_4'},
+	&ui_opt_textbox("dport",
+			$_[4] eq '-' ? '' : join(" ", split(/,/, $_[4])),
+			30, $text{'list_any'}, $text{'rules_ranges'}));
 
-print "<tr> <td><b>$text{'tos_5'}</b></td>\n";
-print "<td><select name=tos>\n";
-$found = !$_[5];
-foreach $t (sort { $a <=> $b } keys %tos_map) {
-	printf "<option value=%s %s>%s</option>\n",
-		$t, $_[5] == $t ? "selected" : "", $tos_map{$t};
-	$found++ if ($_[5] == $t);
+@opts = ( );
+foreach my $t (sort { $a <=> $b } keys %tos_map) {
+	push(@opts, [ $t, $tos_map{$t} ]);
 	}
-print "<option value=$_[5] selected>$_[5]</option>\n" if (!$found);
-print "</select></td> </tr>\n";
+print &ui_table_row($text{'tos_5'},
+	&ui_select("tos", $_[5], \@opts, 1, 0, $_[5] ? 1 : 0));
 
-print "<tr> <td><b>$text{'tos_6'}</b></td>\n";
-printf "<td><input name=mark size=50 value='%s'></td> </tr>\n",
-	$_[6] eq "-" ? "" : $_[6];
+print &ui_table_row($text{'tos_6'},
+	&ui_textbox("mark", $_[6] eq "-" ? "" : $_[6], 50));
 }
 
 sub tos_validate
@@ -1209,15 +1125,13 @@ return 3;
 
 sub masq_form
 {
-local ($iface, $net) = split(/:/, $_[0], 2);
-print "<tr> <td><b>$text{'masq_0'}</b></td> <td colspan=3>\n";
-&iface_field("iface", $iface);
+my ($iface, $net) = split(/:/, $_[0], 2);
+print &ui_table_row($text{'masq_0'},
+	&iface_field("iface", $iface)." ".
+	&ui_checkbox("net_def", 1, $text{'masq_net'}, $net ? 1 : 0)." ".
+	&ui_textbox("net", $net, 20));
 
-printf "<input type=checkbox name=net_def value=1 %s> %s\n",
-	$net ? "checked" : "", $text{'masq_net'};
-print "<input name=net size=20 value='$net'></td> </tr>\n";
-
-local ($mnet, $miface, $mode);
+my ($mnet, $miface, $mode);
 if ($_[1] =~ /^[0-9\.\/]+(,[0-9\.\/]+)*$/) {
 	$mnet = $_[1];
 	$mode = 0;
@@ -1231,44 +1145,37 @@ else {
 	$miface = $_[1];
 	$mode = 1;
 	}
-print "<tr> <td valign=top><b>$text{'masq_1'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=mode value=0 %s> %s\n",
-	$mode == 0 ? "checked" : "", $text{'masq_mode0'};
-printf "<input name=mnet size=60 value='%s'><br>\n",
-	$mode == 0 ? $mnet : "";
-printf "<input type=radio name=mode value=1 %s> %s\n",
-	$mode == 1 ? "checked" : "", $text{'masq_mode1'};
-&iface_field("miface", $mode == 1 ? $miface : undef);
-printf "<input type=checkbox name=mnet_def value=1 %s> %s\n",
-	$mode == 1 && $mnet ? "checked" : "", $text{'masq_except'};
-printf "<input name=mnete size=20 value='%s'>\n",
-	$mode == 1 ? join(" ", split(/,/, $mnet)) : "";
-print "</td> </tr>\n";
+print &ui_table_row($text{'masq_1'},
+	&ui_radio_table("mode", $mode,
+		[ [ 0, $text{'masq_mode0'},
+		    &ui_textbox("mnet", $mode == 0 ? $mnet : "", 60) ],
+		  [ 1, $text{'masq_mode1'},
+		    &iface_field("miface", $mode == 1 ? $miface : undef)." ".
+		    &ui_checkbox("mnet_def", 1, $text{'masq_except'},
+				 $mode == 1 && $mnet ? 1 : 0)." ".
+		    &ui_textbox("mnete",
+			$mode == 1 ? join(" ", split(/,/, $mnet)) : "", 20) ],
+		], 3));
 
-print "<tr> <td><b>$text{'masq_2'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=snat_def value=1 %s> %s\n",
-	$_[2] eq '' || $_[2] eq '-' ? "checked" : "", $text{'list_none'};
-printf "<input type=radio name=snat_def value=0 %s>\n",
-	$_[2] eq '' || $_[2] eq '-' ? "" : "checked";
-printf "<input name=snat size=15 value='%s'></td> </tr>\n",
-	$_[2] eq '' || $_[2] eq '-' ? "" : $_[2];
+print &ui_table_row($text{'masq_2'},
+	&ui_opt_textbox("snat", $_[2] eq '-' ? '' : $_[2],
+			15, $text{'list_none'}));
 
 if (&version_atleast(3)) {
-	print "<tr> <td><b>$text{'masq_3'}</b></td> <td colspan=3>\n";
-	print &ui_radio("proto_def", $_[3] ? 0 : 1,
+	print &ui_table_row($text{'masq_3'},
+	      &ui_radio("proto_def", $_[3] ? 0 : 1,
 			[ [ 1, $text{'masq_any'} ],
-			  [ 0, " " ] ]),"\n",
+			  [ 0, " " ] ])."\n".
 	      &ui_select("proto", $_[3],
 			 [ map { [ $_, uc($_) ] } &list_protocols() ],
-			 1, 0, $_[3] ? 1 : 0),"</td> </tr>\n";
+			 1, 0, $_[3] ? 1 : 0),
+	      3);
 
-	print "<tr> <td><b>$text{'masq_4'}</b></td> <td colspan=3>\n";
-	print &ui_opt_textbox("ports", $_[4], 40, $text{'masq_all'}),
-	      "</td> </tr>\n";
+	print &ui_table_row($text{'masq_4'},
+		&ui_opt_textbox("ports", $_[4], 40, $text{'masq_all'}), 3);
 
-	print "<tr> <td><b>$text{'masq_5'}</b></td> <td colspan=3>\n";
-	print &ui_opt_textbox("ipsec", $_[5], 40, $text{'default'}),
-	      "</td> </tr>\n";
+	print &ui_table_row($text{'masq_5'},
+		&ui_opt_textbox("ipsec", $_[5], 40, $text{'default'}), 3);
 	}
 }
 
@@ -1312,39 +1219,31 @@ return @rv;
 
 sub nat_form
 {
-print "<tr> <td><b>$text{'nat_0'}</b></td>\n";
-print "<td><input name=ext size=15 value='$_[0]'></td>\n";
+print &ui_table_row($text{'nat_0'},
+	&ui_textbox("ext", $_[0], 15));
 
-print "<td><b>$text{'nat_1'}</b></td>\n";
-print "<td>";
 if (&version_atleast(1, 3, 14)) {
-	local ($iface, $virt) = split(/:/, $_[1]);
-	&iface_field("iface", $iface);
-	print "<b>$text{'nat_virt'}</b>\n";
-	print "<input name=virt size=3 value='$virt'>\n";
-	print "</td> </tr>\n";
+	my ($iface, $virt) = split(/:/, $_[1]);
+	print &ui_table_row($text{'nat_1'},
+		&iface_field("iface", $iface)." ".
+		"<b>$text{'nat_virt'}</b>\n".
+		&ui_textbox("virt", $virt, 3));
 	}
 else {
-	&iface_field("iface", $_[1]);
-	print "</td> </tr>\n";
+	print &ui_table_row($text{'nat_1'},
+		&iface_field("iface", $_[1]));
 	}
 
-print "<tr> <td><b>$text{'nat_2'}</b></td>\n";
-print "<td><input name=int size=15 value='$_[2]'></td> </tr>\n";
+print &ui_table_row($text{'nat_2'},
+	&ui_textbox("int", $_[2], 15));
 
-local $all = $_[3] eq '-' || $_[3] eq '' || $_[3] =~ /yes/i;
-print "<tr> <td><b>$text{'nat_all'}</b></td>\n";
-printf "<td><input type=radio name=all value=1 %s> %s\n",
-	$all ? "checked" : "", $text{'yes'};
-printf "<input type=radio name=all value=0 %s> %s</td>\n",
-	$all ? "" : "checked", $text{'no'};
+my $all = $_[3] eq '-' || $_[3] eq '' || $_[3] =~ /yes/i ? 1 : 0;
+print &ui_table_row($text{'nat_all'},
+	&ui_yesno_radio("all", $all));
 
-local $local = $_[4] =~ /yes/i;
-print "<td><b>$text{'nat_local'}</b></td>\n";
-printf "<td><input type=radio name=local value=1 %s> %s\n",
-	$local ? "checked" : "", $text{'yes'};
-printf "<input type=radio name=local value=0 %s> %s</td> </tr>\n",
-	$local ? "" : "checked", $text{'no'};
+my $local = $_[4] =~ /yes/i ? 1 : 0;
+print &ui_table_row($text{'nat_local'},
+	&ui_yesno_radio("local", $local));
 }
 
 sub nat_validate
@@ -1372,36 +1271,24 @@ return ( $_[0],
 
 sub proxyarp_form
 {
-print "<tr> <td><b>$text{'proxyarp_0'}</b></td>\n";
-print "<td><input name=addr size=15 value='$_[0]'></td>\n";
+print &ui_table_row($text{'proxyarp_0'},
+	&ui_textbox("addr", $_[0], 15));
 
-print "<td><b>$text{'proxyarp_1'}</b></td>\n";
-printf "<td><input type=radio name=int_def value=1 %s> %s\n",
-	$_[1] eq '-' || $_[1] eq '' ? "checked" : "", $text{'list_auto'};
-printf "<input type=radio name=int_def value=0 %s>\n",
-	$_[1] eq '-' || $_[1] eq '' ? "" : "checked";
-&iface_field("int", $_[1] eq '-' ? undef : $_[1]);
-print "</td> </tr>";
+print &ui_table_row($text{'proxyarp_1'},
+	&ui_radio("int_def", $_[1] eq '-' || $_[1] eq '' ? 1 : 0,
+		  [ [ 1, $text{'list_auto'} ],
+		    [ 0, &iface_field("int", $_[1] eq '-' ? undef : $_[1]) ]
+		  ]));
 
-local $have = $_[3] =~ /yes/i;
-print "<tr> <td><b>$text{'proxyarp_have'}</b></td>\n";
-printf "<td><input type=radio name=have value=1 %s> %s\n",
-	$have ? "checked" : "", $text{'yes'};
-printf "<input type=radio name=have value=0 %s> %s</td>\n",
-	$have ? "" : "checked", $text{'no'};
+print &ui_table_row($text{'proxyarp_have'},
+	&ui_yesno_radio("have", $_[3] =~ /yes/i ? 1 : 0));
 
-print "<td><b>$text{'proxyarp_2'}</b></td>\n";
-print "<td>";
-&iface_field("ext", $_[2]);
-print "</td> </tr>";
+print &ui_table_row($text{'proxyarp_2'},
+	&iface_field("ext", $_[2]));
 
 if (&version_atleast(2, 0, 0)) {
-	local $pers = $_[4] =~ /yes/i;
-	print "<tr> <td><b>$text{'proxyarp_pers'}</b></td>\n";
-	printf "<td><input type=radio name=pers value=1 %s> %s\n",
-		$pers ? "checked" : "", $text{'yes'};
-	printf "<input type=radio name=pers value=0 %s> %s</td>\n",
-		$pers ? "" : "checked", $text{'no'};
+	print &ui_table_row($text{'proxyarp_pers'},
+		&ui_yesno_radio("pers", $_[4] =~ /yes/i ? 1 : 0));
 	}
 }
 
@@ -1436,30 +1323,24 @@ sub routestopped_columns
 return 2;
 }
 
-@routestopped_options = ( "routeback", "source", "dest", "critical" );
+our @routestopped_options = ( "routeback", "source", "dest", "critical" );
 
 sub routestopped_form
 {
-print "<tr> <td valign=top><b>$text{'routestopped_0'}</b></td>\n";
-print "<td valign=top>";
-&iface_field("iface", $_[0]);
-print "</td>\n";
+print &ui_table_row($text{'routestopped_0'},
+	&iface_field("iface", $_[0]));
 
-local $none = $_[1] eq '' || $_[1] eq '-' || $_[1] eq '0.0.0.0/0';
-print "<td valign=top><b>$text{'routestopped_1'}</b></td>\n";
-printf "<td><input type=radio name=addr_def value=1 %s> %s<br>\n",
-	$none ? "checked" : "", $text{'routestopped_all'};
-printf "<input type=radio name=addr_def value=0 %s> %s<br>\n",
-	$none ? "" : "checked", $text{'routestopped_list'};
-print "<textarea name=addr rows=5 cols=20>",
-	$none ? "" : join("\n", split(/,/, $_[1])),
-	"</textarea></td> </tr>\n";
+my $none = $_[1] eq '' || $_[1] eq '-' || $_[1] eq '0.0.0.0/0';
+print &ui_table_row($text{'routestopped_1'},
+	&ui_radio("addr_def", $none ? 1 : 0,
+		  [ [ 1, $text{'routestopped_all'} ],
+		    [ 0, $text{'routestopped_list'} ] ])."<br>\n".
+	&ui_textarea("addr", $none ? "" : join("\n", split(/,/, $_[1])),
+		     5, 20));
 
 if (&version_atleast(3)) {
-	print "<tr> <td valign=top><b>$text{'routestopped_2'}</b></td>\n";
-	print "<td colspan=3>\n";
-	&options_input("opts", $_[2], \@routestopped_options);
-	print "</td> </tr>\n";
+	print &ui_table_row($text{'routestopped_2'},
+		&options_input("opts", $_[2], \@routestopped_options), 3);
 	}
 }
 
@@ -1484,51 +1365,36 @@ return ( $text{'tunnels_'.$tt} || $tt,
 
 sub tunnels_form
 {
-print "<tr> <td><b>$text{'tunnels_0'}</b></td>\n";
-print "<td><select name=type>\n";
-local $tt;
-local $found = !$_[0];
-local $ttype = $_[0];
-local $tport;
+my $ttype = $_[0];
+my $tport;
 if ($ttype =~ s/^(openvpn|generic):(.*)$/$1/) {
 	$tport = $2;
 	}
-foreach $tt ('ipsec', 'ipsecnat',
-	     (&version_atleast(2, 0, 0) ? ( 'ipsec:noah', 'ipsecnat:noah' )
-				       : ( )),
-	     'ip', 'gre', 'pptpclient', 'pptpserver', 'generic',
-	     (&version_atleast(1, 3, 14) ? ( 'openvpn' ) : ( )) ) {
-	printf "<option value=%s %s>%s</option>\n",
-		$tt, $ttype eq $tt ? "selected" : "",
-		$text{'tunnels_'.$tt.'_l'} || $text{'tunnels_'.$tt};
-	$found++ if ($ttype eq $tt);
+my @opts;
+foreach my $tt ('ipsec', 'ipsecnat',
+	        (&version_atleast(2, 0, 0) ? ( 'ipsec:noah', 'ipsecnat:noah' )
+				           : ( )),
+	        'ip', 'gre', 'pptpclient', 'pptpserver', 'generic',
+	        (&version_atleast(1, 3, 14) ? ( 'openvpn' ) : ( )) ) {
+	push(@opts, [ $tt, $text{'tunnels_'.$tt.'_l'} ||
+			   $text{'tunnels_'.$tt} ]);
 	}
-print "<option value=$ttype selected>",uc($ttype),"</option>\n" if (!$found);
-print "</select>\n";
-print "<input name=tport size=10 value='$tport'>\n";
-print "</td>\n";
+print &ui_table_row($text{'tunnels_0'},
+	&ui_select("type", $ttype, \@opts, 1, 0, $ttype ? 1 : 0)." ".
+	&ui_textbox("tport", $tport, 10));
 
-print "<tr> <td><b>$text{'tunnels_1'}</b></td>\n";
-print "<td>";
-&zone_field("zone", $_[1], 0, 0);
-print "</td> </tr>\n";
+my $zf = &zone_field("zone", $_[1], 0, 0);
+print &ui_table_row($text{'tunnels_1'}, $zf);
 
-local $none = $_[2] eq '' || $_[2] eq '-';
-print "<tr> <td><b>$text{'tunnels_2'}</b></td> <td valign=top>\n";
-printf "<input type=radio name=gateway_def value=1 %s> %s\n",
-	$none ? "checked" : "", $text{'default'};
-printf "<input type=radio name=gateway_def value=0 %s> %s\n",
-	$none ? "" : "checked", $text{'tunnels_sel'};
-printf "<input name=gateway size=20 value='%s'></td> </tr>\n", $_[2];
+print &ui_table_row($text{'tunnels_2'},
+	&ui_opt_textbox("gateway", $_[2] eq '-' ? '' : $_[2], 20,
+		$text{'default'}, $text{'tunnels_sel'}));
 
-local $none = $_[2] eq '' || $_[2] eq '-';
-print "<tr> <td><b>$text{'tunnels_3'}</b></td> <td valign=top>\n";
-printf "<input type=radio name=gzones_def value=1 %s> %s\n",
-	$none ? "checked" : "", $text{'tunnels_gnone'};
-printf "<input type=radio name=gzones_def value=0 %s> %s\n",
-	$none ? "" : "checked", $text{'tunnels_gsel'};
-printf "<input name=gzones size=50 value='%s'></td> </tr>\n",
-	join(" ", split(/,/, $_[3]));
+print &ui_table_row($text{'tunnels_3'},
+	&ui_opt_textbox("gzones",
+		$_[2] eq '-' || $_[2] eq '' ? '' : join(" ", split(/,/, $_[3])),
+		20,
+		$text{'default'}, $text{'tunnels_gsel'}));
 }
 
 sub tunnels_validate
@@ -1556,7 +1422,7 @@ sub hosts_row
 return ( $_[0], $_[1] =~ /^(\S+):(\S+)$/ ? ( $1, $2 ) : ( undef, undef ) );
 }
 
-@host_options = ( "maclist", "routeback" );
+our @host_options = ( "maclist", "routeback" );
 if (&version_atleast(3)) {
 	push(@host_options, "norfc1918", "blacklist", "tcpflags",
 			    "nosmurfs", "ipsec");
@@ -1564,23 +1430,18 @@ if (&version_atleast(3)) {
 
 sub hosts_form
 {
-print "<tr> <td><b>$text{'hosts_0'}</b></td>\n";
-print "<td>";
-&zone_field("zone", $_[0], 0, 2);
-print "</td> </tr>\n";
+my $zf = &zone_field("zone", $_[0], 0, 2);
+print &ui_table_row($text{'hosts_0'}, $zf);
 
-local ($iface, $net) = split(/:/, $_[1]);
-print "<tr> <td><b>$text{'hosts_1'}</b></td>\n";
-print "<td>";
-&iface_field("iface", $iface);
-print "</td> </tr>\n";
+my ($iface, $net) = split(/:/, $_[1]);
+print &ui_table_row($text{'hosts_1'},
+	&iface_field("iface", $iface));
 
-print "<tr> <td><b>$text{'hosts_2'}</b></td>\n";
-print "<td><input name=net size=50 value='$net'></td> </tr>\n";
+print &ui_table_row($text{'hosts_2'},
+	&ui_textbox("net", $net, 50));
 
-print "<tr> <td valign=top><b>$text{'hosts_opts'}</b></td> <td>\n";
-&options_input("opts", $_[2], \@host_options);
-print "</td> </tr>\n";
+print &ui_table_row($text{'hosts_opts'},
+	&options_input("opts", $_[2], \@host_options));
 }
 
 sub hosts_validate
@@ -1601,12 +1462,11 @@ return ( $_[0] eq '-' ? $text{'blacklist_any'} : $_[0],
 	 $_[2] || $text{'blacklist_any'} );
 }
 
-@blacklist_protos = ( undef, 'tcp', 'udp', 'icmp' );
+our @blacklist_protos = ( undef, 'tcp', 'udp', 'icmp' );
 
 sub blacklist_form
 {
-print "<tr> <td valign=top><b>$text{'blacklist_host'}</b></td> <td colspan=3>\n";
-local ($mode, $ipset, $mac, $ip);
+my ($mode, $ipset, $mac, $ip);
 if ($_[0] =~ /^\+(.*)/) {
 	$mode = 2; $ipset = $1;
 	}
@@ -1619,37 +1479,35 @@ elsif ($_[0] eq '-') {
 else {
 	$mode = 0; $ip = $_[0];
 	}
-print &ui_radio("host_def", $mode,
-    [ [ 0, &text('hosts_ip', &ui_textbox("host", $ip, 30))."<br>" ],
-      [ 1, &text('hosts_mac', &ui_textbox("mac", $mac, 30))."<br>" ],
-      [ 3, $text{'hosts_any'}."<br>" ],
-      &version_atleast(3) ?
-       ( [ 2, &text('hosts_ipset', &ui_textbox("ipset", $ipset, 15)) ] ) : ( ),
-	    ]);
-print "</td> </tr>\n";
+print &ui_table_row(
+    $text{'blacklist_host'},
+    &ui_radio("host_def", $mode,
+        [ [ 0, &text('hosts_ip', &ui_textbox("host", $ip, 30))."<br>" ],
+          [ 1, &text('hosts_mac', &ui_textbox("mac", $mac, 30))."<br>" ],
+          [ 3, $text{'hosts_any'}."<br>" ],
+          &version_atleast(3) ?
+           ( [ 2, &text('hosts_ipset', &ui_textbox("ipset", $ipset, 15)) ] ) :
+	   ( ),
+	]), 3);
 
-print "<tr> <td><b>$text{'blacklist_proto'}</b></td>\n";
-print "<td colspan=3><select name=proto>\n";
-$found = !$_[1];
-foreach $p (@blacklist_protos) {
-	printf "<option value='%s' %s>%s</option>\n",
-		$p, $p eq $_[1] ? "selected" : "",
-		$p eq '' ? "&lt;$text{'list_any'}&gt;" : uc($p);
+my $found = !$_[1];
+my @opts;
+foreach my $p (@blacklist_protos) {
+	push(@opts, [ $p, $p eq '' ? "&lt;$text{'list_any'}&gt;" : uc($p) ]);
 	$found++ if ($p eq $_[1]);
 	}
-printf "<option value='*' %s>%s</option>\n",
-	$found ? "" : "selected", $text{'list_other'};
-print "</select>\n";
-printf "<input name=pother size=5 value='%s'></td> </tr>\n",
-	$found ? "" : $_[1];
+push(@opts, [ '*', $text{'list_other'} ]);
+print &ui_table_row($text{'blacklist_proto'},
+	&ui_select("proto", $found ? $_[1] : "*", \@opts)." ".
+	&ui_textbox("pother", $found ? "" : $_[1], 5));
 
-print "<tr> <td><b>$text{'blacklist_ports'}</b></td>\n";
-print "<td colspan=3><input name=ports size=20 value='$_[2]'></td> </tr>\n";
+print &ui_table_row($text{'blacklist_ports'},
+	&ui_textbox("ports", $_[2], 20));
 }
 
 sub blacklist_validate
 {
-local $host;
+my $host;
 if ($in{'host_def'} == 0) {
 	&check_ipaddress($in{'host'}) ||
 		$in{'host'} =~ /^(\S+)\/(\d+)$/ && &check_ipaddress($1) ||
@@ -1669,7 +1527,7 @@ elsif ($in{'host_def'} == 2) {
 elsif ($in{'host_def'} == 3) {
 	$host = "-";
 	}
-local $proto;
+my $proto;
 if ($in{'proto'} eq '*') {
 	$in{'pother'} =~ /^\d+$/ ||
 	    defined(getprotobyname($in{'pother'})) ||
@@ -1695,48 +1553,45 @@ sub providers_row
 return ( $_[0], $_[1], $_[2], $_[4], $_[5] );
 }
 
-@providers_opts = ( "track", "balance", "loose" );
+our @providers_opts = ( "track", "balance", "loose" );
 
 sub providers_form
 {
-print "<tr> <td><b>$text{'providers_name'}</b></td>\n";
-print "<td><input name=name size=20 value='$_[0]'></td>\n";
+print &ui_table_row($text{'providers_name'},
+	&ui_textbox("name", $_[0], 20));
 
-print "<td><b>$text{'providers_number'}</b></td>\n";
-print "<td><input name=number size=4 value='$_[1]'></td> </tr>\n";
+print &ui_table_row($text{'providers_number'},
+	&ui_textbox("number", $_[1], 4));
 
-print "<tr> <td><b>$text{'providers_iface'}</b></td>\n";
-print "<td>";
-&iface_field("iface", $_[4]);
-print "</td>\n";
+print &ui_table_row($text{'providers_iface'},
+	&iface_field("iface", $_[4]));
 
-print "<td><b>$text{'providers_mark'}</b></td>\n";
-print "<td><input name=mark size=4 value='$_[2]'></td> </tr>\n";
+print &ui_table_row($text{'providers_mark'},
+	&ui_textbox("mark", $_[2], 4));
 
-print "<tr> <td><b>$text{'providers_gateway'}</b></td>\n";
-print "<td><input name=gateway size=15 value='$_[5]'></td>\n";
+print &ui_table_row($text{'providers_gateway'},
+	&ui_textbox("gateway", $_[5], 15));
 
-local $ddef = $_[3] eq "-" || $_[3] eq "" ? 0 : $_[3] eq "main" ? 1 : 2;
-print "<td><b>$text{'providers_dup'}</b></td>\n";
-print "<td>",&ui_radio("dup_def", $ddef,
-		[ [ 0, $text{'default'} ],
-		  [ 1, $text{'providers_main'} ],
-		  [ 2, &ui_textbox("dup", $ddef == 2 ? $_[3] : "", 5) ] ]),
-      "</td> </tr>\n";
+my $ddef = $_[3] eq "-" || $_[3] eq "" ? 0 : $_[3] eq "main" ? 1 : 2;
+print &ui_table_row($text{'providers_dup'},
+	&ui_radio("dup_def", $ddef,
+		  [ [ 0, $text{'default'} ],
+		    [ 1, $text{'providers_main'} ],
+		    [ 2, &ui_textbox("dup", $ddef == 2 ? $_[3] : "", 5) ] ]));
 
-local %opts = map { $_, 1 } split(/,/, $_[6]);
-print "<tr> <td valign=top><b>$text{'providers_opts'}</b></td> <td>\n";
+my %opts = map { $_, 1 } split(/,/, $_[6]);
+my $ofield = "";
 foreach my $o (@providers_opts) {
-	print &ui_checkbox("opts", $o, $text{'providers_'.$o}, $opts{$o})."<br>\n";
+	$ofield .= &ui_checkbox("opts", $o, $text{'providers_'.$o}, $opts{$o})."<br>\n";
 	delete($opts{$o});
 	}
 foreach my $o (keys %opts) {
-	print &ui_hidden("opts", $o),"\n";
+	$ofield .= &ui_hidden("opts", $o)."\n";
 	}
-print "</td>\n";
+print &ui_table_row($text{'providers_opts'}, $ofield);
 
-print "<td valign=top><b>$text{'providers_copy'}</b></td>\n";
-print "<td valign=top><input name=copy size=15 value='$_[7]'></td> </tr>\n";
+print &ui_table_row($text{'providers_copy'},
+	&ui_textbox("copy", $_[7], 15));
 }
 
 sub providers_validate
@@ -1764,28 +1619,26 @@ return ( $_[0] eq "-" ? $text{'list_any'} : $_[0],
 
 sub route_rules_form
 {
-print "<tr> <td><b>$text{'route_rules_src'}</b></td>\n";
-print "<td>",&ui_opt_textbox("src", $_[0] eq "-" ? "" : $_[0],
-			     20, $text{'list_any'}, $text{'route_rules_ip'}),
-      "</td> </tr>\n";
+print &ui_table_row($text{'route_rules_src'},
+	&ui_opt_textbox("src", $_[0] eq "-" ? "" : $_[0],
+			20, $text{'list_any'}, $text{'route_rules_ip'}));
 
-print "<tr> <td><b>$text{'route_rules_dst'}</b></td>\n";
-print "<td>",&ui_opt_textbox("dst", $_[1] eq "-" ? "" : $_[1],
-			     20, $text{'list_any'}, $text{'route_rules_ip'}),
-      "</td> </tr>\n";
+print &ui_table_row($text{'route_rules_dst'},
+	&ui_opt_textbox("dst", $_[1] eq "-" ? "" : $_[1],
+			20, $text{'list_any'}, $text{'route_rules_ip'}));
 
-local @ptable = &read_table_file("providers", \&standard_parser);
-print "<tr> <td><b>$text{'route_rules_prov'}</b></td>\n";
-print "<td>",&ui_select("prov", $_[2] eq "254" ? "main" : $_[2],
-		[ [ "main", $text{'route_rules_main'} ],
-		  map { $_->[0] } @ptable ]),"</td> </tr>\n";
+my @ptable = &read_table_file("providers", \&standard_parser);
+print &ui_table_row($text{'route_rules_prov'},
+	&ui_select("prov", $_[2] eq "254" ? "main" : $_[2],
+		   [ [ "main", $text{'route_rules_main'} ],
+		     map { $_->[0] } @ptable ]));
 
-print "<tr> <td><b>$text{'route_rules_pri'}</b></td>\n";
-print "<td>",&ui_textbox("pri", $_[3], 10),"</td> </tr>\n";
+print &ui_table_row($text{'route_rules_pri'},
+	&ui_textbox("pri", $_[3], 10));
 
-print "<tr> <td><b>$text{'route_rules_mark'}</b></td>\n";
-print "<td>",&ui_opt_textbox("mark", $_[4] eq "-" ? $_[4] : "", 10,
-			     $text{'route_rules_nomark'}),"</td> </tr>\n";
+print &ui_table_row($text{'route_rules_mark'},
+	&ui_opt_textbox("mark", $_[4] eq "-" ? $_[4] : "", 10,
+		        $text{'route_rules_nomark'}));
 }
 
 sub route_rules_validate
@@ -1808,74 +1661,67 @@ return ( $in{'src_def'} ? "-" : $in{'src'},
 
 sub conf_form
 {
-    local ($msg1, $msg2, $msg3, $field1, $field2, $field3, $dummy) = @_;
+my ($msg1, $msg2, $msg3, $field1, $field2, $field3, $dummy) = @_;
 
-    $field1 =~ s/"/&#34;/g;
-    print "<tr><td><b>$msg1</b></td>\n";
-    print "<td><input name=var size=50 value=\"$field1\"></td></tr>\n";
+print &ui_table_row($msg1, &ui_textbox("var", $field1, 50));
 
-    $field2 =~ s/"/&#34;/g;
-    print "<tr><td><b>$msg2</b></td>\n";
-    print "<td><input name=val size=50 value=\"$field2\"></td></tr>\n";
+print &ui_table_row($msg2, &ui_textbox("val", $field2, 50));
 
-    $field3 =~ s/"/&#34;/g;
-    print "<tr><td><b>$msg3</b></td>\n";
-    print "<td><input name=comment size=50 value=\"$field3\"></td></tr>\n";
-
-    print "</td></tr>\n";
+print &ui_table_row($msg3, &ui_textbox("comment", $field3, 50));
 }
 
 ################################ shorewall.conf ##################################
 
 sub shorewall_conf_columns
 {
-    return 3;
+return 3;
 }
 
 sub shorewall_conf_form
 {
-    &conf_form($text{'shorewall_conf_0'}, $text{'shorewall_conf_1'}, $text{'shorewall_conf_2'}, @_);
+&conf_form($text{'shorewall_conf_0'}, $text{'shorewall_conf_1'}, $text{'shorewall_conf_2'}, @_);
 }
 
 sub shorewall_conf_validate
 {
-    &error($text{'shorewall_conf_varname'}) unless $in{'var'} =~ /^\w+$/;
-    local $comment = "";
-    $comment = "\t# ".$in{'comment'} if (exists $in{'comment'} and $in{'comment'} ne "");
-    return ($in{'var'}.'='.$in{'val'}.$comment);
+&error($text{'shorewall_conf_varname'}) unless $in{'var'} =~ /^\w+$/;
+my $comment = "";
+$comment = "\t# ".$in{'comment'} if (exists $in{'comment'} and $in{'comment'} ne "");
+return ($in{'var'}.'='.$in{'val'}.$comment);
 }
 
 ################################ params ##################################
 
 sub params_columns
 {
-    return 3;
+return 3;
 }
 
 sub params_form
 {
-    &conf_form($text{'params_0'}, $text{'params_1'}, $text{'params_2'}, @_);
+&conf_form($text{'params_0'}, $text{'params_1'}, $text{'params_2'}, @_);
 }
 
 sub params_validate
 {
-    &error($text{'params_varname'}) unless $in{'var'} =~ /^\w+$/;
-    local $comment = "";
-    $comment = "\t# ".$in{'comment'} if (exists $in{'comment'} and $in{'comment'} ne "");
-    return ($in{'var'}.'='.$in{'val'}.$comment);
+&error($text{'params_varname'}) unless $in{'var'} =~ /^\w+$/;
+my $comment = "";
+$comment = "\t# ".$in{'comment'} if (exists $in{'comment'} and $in{'comment'} ne "");
+return ($in{'var'}.'='.$in{'val'}.$comment);
 }
 
 
 #############################################################################
 
 # can_access(file)
+# Returns 1 if the ACL allows access to some file
 sub can_access
 {
 if ($access{'files'} eq '*') {
 	return 1;
 	}
 else {
-	local @acc = split(/\s+/, $access{'files'});
+	my @acc = split(/\s+/, $access{'files'});
 	return &indexof($_[0], @acc) >= 0;
 	}
 }
@@ -1886,7 +1732,7 @@ else {
 sub run_before_apply_command
 {
 if ($config{'before_apply_cmd'}) {
-	local $out = &backquote_logged("($config{'before_apply_cmd'}) </dev/null 2>&1");
+	my $out = &backquote_logged("($config{'before_apply_cmd'}) </dev/null 2>&1");
 	return $out if ($?);
 	}
 return undef;
@@ -1907,7 +1753,7 @@ if ($config{'after_apply_cmd'}) {
 sub run_before_refresh_command
 {
 if ($config{'before_refresh_cmd'}) {
-	local $out = &backquote_logged("($config{'before_refresh_cmd'}) </dev/null 2>&1");
+	my $out = &backquote_logged("($config{'before_refresh_cmd'}) </dev/null 2>&1");
 	return $out if ($?);
 	}
 return undef;
@@ -1926,7 +1772,7 @@ if ($config{'after_refresh_cmd'}) {
 # Returns a list of standard Shorewall actions
 sub list_standard_actions
 {
-local @rv;
+my @rv;
 foreach my $a (split(/\t+/, $config{'actions'})) {
 	open(ACTIONS, "<".$a);
 	while(<ACTIONS>) {
@@ -1952,7 +1798,7 @@ return &unique(@rv);
 # Returns a list of all macro. actions
 sub list_standard_macros
 {
-local @rv;
+my @rv;
 foreach my $a ($config{'config_dir'}, $config{'macros'}) {
 	opendir(DIR, $a);
 	foreach my $f (readdir(DIR)) {
@@ -1963,22 +1809,25 @@ foreach my $a ($config{'config_dir'}, $config{'macros'}) {
 return &unique(sort(@rv));
 }
 
-$BETA_STR = "-Beta";
-$BETA_NUM = "\.0000\.";
+our $BETA_STR = "-Beta";
+our $BETA_NUM = "\.0000\.";
 
 # get_shorewall_version(nocache)
+# Returns the current Shorewall version, possibly from a local cache
 sub get_shorewall_version
 {
-local ($nocache) = @_;
-local $version;
+my ($nocache) = @_;
+my $version;
 if (!$nocache && open(VERSION, "<$module_config_directory/version")) {
 	chop($version = <VERSION>);
 	close(VERSION);
 	}
 if (!$version) {
-	local $out = `$config{'shorewall'} version 2>&1`;
+	# Convert beta string to version number.
+	my $out = &backquote_command(
+		"$config{'shorewall'} version 2>&1 </dev/null");
 	$out =~ s/\r//g;
-	$out =~ s/$BETA_STR/$BETA_NUM/i;		# Convert beta string to version number.
+	$out =~ s/$BETA_STR/$BETA_NUM/i;
 	if ($out =~ /(\n|^)([0-9\.]+)\n/) {
 		$version = $2;
 		}
@@ -1986,17 +1835,20 @@ if (!$version) {
 return $version;
 }
 
+# Convert version number back to string.
 sub get_printable_version($)
 {
-	local $out = $_[0];
-	$out =~ s/$BETA_NUM/$BETA_STR/i;		# Convert version number back to string.
-	return $out;
+my ($out) = @_;
+$out =~ s/$BETA_NUM/$BETA_STR/i;
+return $out;
 }
 
+# list_protocols()
+# Returns a list of network protocols
 sub list_protocols
 {
-local @stdprotos = ( 'tcp', 'udp', 'icmp' );
-local @otherprotos;
+my @stdprotos = ( 'tcp', 'udp', 'icmp' );
+my @otherprotos;
 open(PROTOS, "</etc/protocols");
 while(<PROTOS>) {
 	s/\r|\n//g;
@@ -2009,24 +1861,22 @@ return &unique(@stdprotos, @otherprotos);
 }
 
 # options_input(name, value, &opts)
+# Returns a 4-wide grid of checkboxes
 sub options_input
 {
-local ($name, $value, $opts) = @_;
-local %opts = map { $_, 1 } split(/,/, $value);
-print "<table width=100%>\n";
-local $i = 0;
+my ($name, $value, $opts) = @_;
+my @grid;
+my %opts = map { $_, 1 } split(/,/, $value);
 foreach my $o (@$opts) {
-	print "<tr>\n" if ($i%3 == 0);
-	printf "<td><input type=checkbox name=$name value=%s %s> %s</td>\n",
-		$o, $opts{$o} ? "checked" : "", $text{'opts_'.$o} || $o;
-	print "</tr>\n" if ($i%3 == 2);
+	push(@grid, &ui_checkbox($name, $o,
+			$text{'opts_'.$o} || $o, $opts{$o}));
 	delete($opts{$o});
-	$i++;
 	}
-foreach $o (keys %opts) {
-	print "<input type=hidden name=opts value=$o>\n";
+my $rv = &ui_grid_table(\@grid, 4);
+foreach my $o (keys %opts) {
+	$rv .= &ui_hidden($name, $o);
 	}
-print "</table>\n";
+return $rv;
 }
 
 1;

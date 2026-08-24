@@ -10,7 +10,14 @@ $SIG{'TERM'} = 'IGNORE';
 
 print $text{'force_doing'},"\n";
 &clean_environment();
-$out = &backquote_logged("$config{'logrotate'} -f $config{'logrotate_conf'} 2>&1");
+
+# Force the same effective main and drop-in configs selected by the distro
+# wrapper, while avoiding duplicate files already reached through includes.
+my $main = &get_main_config_file();
+my (undef, undef, $files) = &get_config($main);
+my @configs = ($main, &get_add_file_configs($files));
+my $configs = join(" ", map { &quote_path($_) } @configs);
+$out = &backquote_logged("$config{'logrotate'} -f $configs 2>&1");
 &reset_environment();
 if ($out) {
 	print "<pre>$out</pre>";

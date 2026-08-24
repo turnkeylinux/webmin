@@ -9,6 +9,7 @@ if ($in{'clear'}) {
 	$in{'search'} = '';
 	}
 $has_repos = defined(&software::list_package_repos);
+$has_holds = &supports_package_holds();
 
 # Start of mode tabs
 print &ui_tabs_start([ [ 'pkgs', $text{'index_tabpkgs'} ],
@@ -23,7 +24,10 @@ $in{'mode'} ||= 'updates';
 
 # Show mode selector (all, updates only, updates and new)
 @grid = ( );
-foreach $m ('current', 'updates', 'security', 'new') {
+@modes = ('current', 'updates');
+push(@modes, 'held') if ($has_holds);
+push(@modes, 'security', 'new');
+foreach $m (@modes) {
 	$mmsg = $text{'index_mode_'.$m};
 	if ($in{'mode'} eq $m) {
 		push(@mlinks, "<b>$mmsg</b>");
@@ -68,15 +72,21 @@ foreach $p (sort { $a->{'name'} cmp $b->{'name'} } (@current, @avail)) {
 	$c = $current{$p->{'name'}."/".$p->{'system'}};
 	$a = $avail{$p->{'name'}."/".$p->{'system'}};
 
-	if ($a && $c && (&compare_versions($a, $c) > 0 || $upmode)) {
+	if ($a && $c && (&compare_versions($a, $c) > 0 || $upmode ||
+			 $in{'mode'} eq 'held')) {
 		# An update is available
-		$msg = "<b><font color=#00aa00>".
-		       &text('index_new', $a->{'version'})."</font></b>";
-		$need = 1;
+		$msg = $a->{'held'} ?
+			"<b><font color=#ffaa00>".
+			&text('index_held', $c->{'version'}, $a->{'version'}).
+			"</font></b>" :
+			"<b><font color=#00aa00>".
+			&text('index_new', $a->{'version'})."</font></b>";
+		$need = $a->{'held'} ? 0 : 1;
 		next if ($in{'mode'} eq 'security' && !$a->{'security'});
 		next if ($in{'mode'} ne 'updates' &&
 			 $in{'mode'} ne 'current' &&
-			 $in{'mode'} ne 'security');
+			 $in{'mode'} ne 'security' &&
+			 $in{'mode'} ne 'held');
 		}
 	elsif ($a && !$c) {
 		# Could be installed, but isn't currently
@@ -143,18 +153,20 @@ if ($in{'mode'} eq 'new' && !$in{'search'}) {
 	}
 else {
 	# Show the packages, if any
+	$update_label = $in{'mode'} eq 'new' ? $text{'index_install'} :
+			$in{'mode'} eq 'held' ? $text{'index_updateheld'} :
+					    $text{'index_update'};
 	if (@rows) {
 		print &text('index_count', scalar(@rows)),"<br>\n";
 		print &ui_form_start("update.cgi", "post");
-		print &ui_submit($in{'mode'} eq 'new' ? $text{'index_install'}
-		                           : $text{'index_update'}, "ok_top" );
+		print &ui_submit($update_label, "ok_top" );
 		print &ui_submit($text{'index_refresh'}, "refresh_top"), "<br>";
 		}
+	@buttons = ( [ "ok", $update_label ] );
+	push(@buttons, [ "refresh", $text{'index_refresh'} ]);
 	print &ui_form_columns_table(
 		"",
-		[ [ "ok", $in{'mode'} eq 'new' ? $text{'index_install'}
-					       : $text{'index_update'} ],
-		  [ "refresh", $text{'index_refresh'} ] ],
+		\@buttons,
 		1,
 		undef,
 		[ [ "mode", $in{'mode'} ],
@@ -220,10 +232,14 @@ else {
 	}
 print &ui_table_row($text{'index_email'}, $efield);
 
-# When to send email
+# When to send email. If never saved, keep the old behavior for an existing
+# schedule, but default new setups to only report new updates
+$when = $config{'sched_when'} ne '' ? int($config{'sched_when'}) :
+	$job ? 0 : 3;
 print &ui_table_row($text{'index_ewhen'},
-	&ui_radio("when", int($config{'sched_when'}),
+	&ui_select("when", $when,
 		  [ [ 0, $text{'index_ewhen0'} ],
+		    [ 3, $text{'index_ewhen3'} ],
 		    [ 1, $text{'index_ewhen1'} ],
 		    [ 2, $text{'index_ewhen2'} ] ]));
 
@@ -296,4 +312,3 @@ if ($has_repos) {
 print &ui_tabs_end(1);
 
 &ui_print_footer("/", $text{'index'});
-

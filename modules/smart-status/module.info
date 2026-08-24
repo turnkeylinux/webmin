@@ -2,5 +2,5 @@ desc=SMART Drive Status
 os_support=*-linux freebsd macos
 category=hardware
 longdesc=Check the status of IDE and SATA drives to detect problems and potential failures.
-version=2.653
-depends=2.653
+version=2.660
+depends=2.660

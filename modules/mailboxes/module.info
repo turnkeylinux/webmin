@@ -3,5 +3,5 @@ category=servers
 longdesc=Read email in users' mailboxes.
 readonly=1
 os_support=!windows
-version=2.653
-depends=2.653
+version=2.660
+depends=2.660

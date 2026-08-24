@@ -179,6 +179,7 @@ sub theme_footer
     return if (fetch_content());
     ((!$miniserv::theme_header_captured && !$miniserv::page_capture) && return);
     my %this_module_info = &get_module_info(&get_module_name());
+    my $page_footer_actions;
     for (my $i = 0; $i + 1 < @_; $i += 2) {
         my $url = $_[$i];
         if ($url ne '/' || !$tconfig{'noindex'}) {
@@ -191,14 +192,16 @@ sub theme_footer
             }
             $url = "$theme_webprefix$url" if ($url =~ /^\//);
             $url = $url . "/"             if ($url =~ /[^\/]$/ && $url !~ /.cgi/ && $url !~ /javascript:history/ && $url !~ /[&?]/);
+            if (!$page_footer_actions) {
+                print ui_tag_start('span', { 'class' => 'page-footer-actions' });
+                $page_footer_actions = 1;
+            }
             print
 "<a style='margin-bottom: 3.5px;' class='btn btn-primary btn-lg page_footer_submit' href=\"$url\"><i class='fa fa-fw fa-arrow-left'>&nbsp;</i> <span>",
-              &text('main_return', $_[$i + 1]), "</span></a>".
-                &ui_tag('span', undef,
-                    { style => 'display: inline-block; width: 4px' })."\n";
+              &text('main_return', $_[$i + 1]), "</span></a>\n";
         }
     }
-
+    print ui_tag_end('span') if ($page_footer_actions);
     print "</div>\n";
     embed_port_shell() if (!http_x_request());
     embed_footer((theme_debug_mode()),
@@ -942,7 +945,7 @@ sub theme_ui_submit
       ( $name ne '' ? " name=\"" . &quote_escape($name) . "\" value=\"" . &quote_escape($label) . "\"" :
           ""
       ) .
-      " >\n";
+      ($dis ? " disabled=true" : "") . " >\n";
 }
 
 sub theme_ui_reset
@@ -1361,13 +1364,18 @@ sub theme_ui_buttons_start
 
 sub theme_ui_buttons_row
 {
-    my ($script, $label, $desc, $hiddens, $after, $before) = @_;
+    my ($script, $label, $desc, $hiddens, $after, $before,
+        $postmethod, $singlecell, $disabled) = @_;
     if (ref($hiddens)) {
         $hiddens = join("\n", map {&ui_hidden(@$_)} @$hiddens);
     }
     my $btn = ($before ? "$before " : "")
-            . &ui_submit($label)
+            . &ui_submit($label, '', $disabled)
             . ($after  ? " $after"  : "");
+    my $disabled_class = $disabled ? " disabled" : "";
+    my $button_cell_span = $singlecell ? " colspan='2'" : "";
+    my $description_cell = $singlecell ? "" :
+      "            <td class='ui_buttons_value'><span>$desc</span></td>\n";
     
     return <<"HTML";
 <tr data-ui-buttons-row-form-container>
@@ -1375,9 +1383,9 @@ sub theme_ui_buttons_row
     <form action='$script' method='get' class='ui_buttons_form'>
         $hiddens
         <table>
-        <tr class='ui_buttons_row'>
-            <td data-nowrap class='ui_buttons_label'>$btn</td>
-            <td class='ui_buttons_value'><span>$desc</span></td>
+        <tr class='ui_buttons_row$disabled_class'>
+            <td data-nowrap class='ui_buttons_label'$button_cell_span>$btn</td>
+$description_cell
         </tr>
         </table>
     </form>
